@@ -1,0 +1,38 @@
+{
+  "name": "Lumiere — Studio de Cinema IA",
+  "short_name": "Lumiere",
+  "description": "La premiere plateforme de cinema collaboratif propulsee par l'IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#E50914",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["entertainment", "social"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Films",
+      "short_name": "Films",
+      "url": "/films",
+      "description": "Parcourir les films"
+    },
+    {
+      "name": "Streaming",
+      "short_name": "Streaming",
+      "url": "/streaming",
+      "description": "Regarder en streaming"
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "/dashboard",
+      "description": "Votre tableau de bord"
+    }
+  ]
+}

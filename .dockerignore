@@ -1,0 +1,12 @@
+.git
+.next
+node_modules
+.env
+.env.local
+.claude
+*.md
+.vscode
+.idea
+npm-debug.log*
+tsconfig.tsbuildinfo
+next-env.d.ts

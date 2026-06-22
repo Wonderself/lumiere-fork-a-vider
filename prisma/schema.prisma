@@ -1,0 +1,3192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// USER
+// ============================================
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  passwordHash   String
+  displayName    String?
+  avatarUrl      String?
+  bio            String?
+  portfolioUrl   String?
+  walletAddress  String?   @unique
+  role           Role      @default(CONTRIBUTOR)
+  level          Level     @default(ROOKIE)
+  skills         String[]  @default([])
+  languages      String[]  @default([])
+  points         Int       @default(0)
+  tasksCompleted Int       @default(0)
+  tasksValidated Int       @default(0)
+  rating         Float     @default(0)
+  lumenBalance   Int       @default(0)
+  isVerified     Boolean   @default(false)
+  verifiedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  claimedTasks      Task[]              @relation("ClaimedTasks")
+  submissions       TaskSubmission[]
+  payments          Payment[]
+  achievements      UserAchievement[]
+  filmVotes         FilmVote[]
+  screenplays       Screenplay[]
+  filmBackings      FilmBacker[]
+  reviewedTasks     TaskSubmission[]    @relation("ReviewedSubmissions")
+  subscription      Subscription?
+  notifications     Notification[]
+  comments          TaskComment[]
+  lumenTransactions LumenTransaction[]
+  contentHashes     ContentHash[]
+  passwordResets       PasswordReset[]
+
+  reviews              Review[]
+  watchlistItems       Watchlist[]
+
+  // V3 — New modules
+  reputationScore   Float               @default(50)
+  reputationBadge   String              @default("bronze")
+  referralCode      String?             @unique
+  creatorProfile    CreatorProfile?
+  socialAccounts    SocialAccount[]
+  catalogFilms      CatalogFilm[]
+  catalogContracts  CatalogContract[]
+  filmViews         FilmView[]
+  creatorPayouts    CreatorPayout[]
+  sentCollabs       CollabRequest[]     @relation("SentCollabs")
+  receivedCollabs   CollabRequest[]     @relation("ReceivedCollabs")
+  clientOrders      VideoOrder[]        @relation("ClientOrders")
+  creatorOrders     VideoOrder[]        @relation("CreatorOrders")
+  referralsMade     Referral[]          @relation("Referrer")
+  referredBy        Referral?           @relation("Referred")
+  reputationEvents  ReputationEvent[]
+
+  // V4 — Tokenization
+  tokenPurchases    FilmTokenPurchase[]
+  tokenSales        FilmTokenTransfer[]  @relation("TokenSeller")
+  tokenBuys         FilmTokenTransfer[]  @relation("TokenBuyer")
+  governanceProposals GovernanceProposal[] @relation("ProposalAuthor")
+  governanceVotes   GovernanceVote[]
+  tokenDividends    TokenDividend[]
+
+  // V6 — Film Universe
+  scenarioProposals ScenarioProposal[]
+  scenarioVotes     ScenarioVote[]
+  trailerEntries    TrailerEntry[]
+  trailerVotes      TrailerVote[]
+
+  // V12-V13 — Audit, Sessions, Social
+  sessions          UserSession[]
+  filmComments      FilmComment[]
+  commentLikes      CommentLike[]
+  playlists         Playlist[]
+  featuredCreator   FeaturedCreator[]
+
+  // V14 — Trailer Studio & Credits
+  trailerProjects    TrailerProject[]
+  trailerMicroTasks  TrailerMicroTask[]    @relation("TaskAssignee")
+  trailerChoiceVotes TrailerChoiceVote[]
+  creditAccount      CreditAccount?
+  creditTransactions CreditTransaction[]
+
+  // V15 — Create Pipeline & Marketplace
+  filmProjects       UserFilmProject[]
+  characterBuys      CharacterPurchase[]   @relation("CharacterBuyer")
+  characterSales     CharacterPurchase[]   @relation("CharacterSeller")
+  tokenUsageLogs     TokenUsageLog[]
+  storageUsage       StorageUsage[]
+
+  // V16 — Production Shares & Work
+  productionShares    ProductionShare[]
+  revenuePayouts      RevenuePayoutLine[]
+  workTasks           WorkTask[]            @relation("WorkTaskAssignee")
+  scenarioSubmissions ScenarioSubmission[]
+  actInsertions       ActInsertion[]
+
+  // V17 — Voting & Points
+  voteStakes          VoteStake[]
+  pointsTransactions  PointsTransaction[]
+
+  // V18 — Pay-Per-View
+  ppvPurchases        PPVPurchase[]
+
+  // V19 — Wallet & Billing
+  walletHolds        WalletHold[]
+  aiUsageLogs        AIUsageLog[]
+  // V20 — AI Agents
+  agentExecutions     AgentExecution[]
+  agentFavorites      AgentFavorite[]
+  agentPreferences    AgentPreferences?
+
+  // V21 — Chat & Conversations
+  conversations       Conversation[]
+  chatMessages         ChatMessage[]
+  dailyBudgets        DailyBudget[]
+  meetingParticipations MeetingParticipant[]
+
+  // V22 — Autopilot & Governance
+  autopilotProposals   AutopilotProposal[]    @relation("ProposalCreator")
+  autopilotApprovals   AutopilotProposal[]    @relation("ProposalApprover")
+}
+
+// ============================================
+// FILM & PHASES
+// ============================================
+
+model Film {
+  id              String     @id @default(cuid())
+  title           String
+  slug            String     @unique
+  description     String?
+  synopsis        String?
+  genre           String?
+  catalog         Catalog    @default(LUMIERE)
+  status          FilmStatus @default(DRAFT)
+  coverImageUrl   String?
+  trailerUrl      String?
+  estimatedBudget Float?
+  totalTasks      Int        @default(0)
+  completedTasks  Int        @default(0)
+  progressPct     Float      @default(0)
+  isPublic        Boolean    @default(false)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  phases  FilmPhase[]
+  tasks   Task[]
+  votes   FilmVote[]
+  backers FilmBacker[]
+
+  // V4 — Tokenization
+  tokenOffering FilmTokenOffering?
+  budgetLines   FilmBudgetLine[]
+
+  // V6 — Film Universe
+  castRoles    FilmCastRole[]
+  bonusContent BonusContent[]
+  scenarios    ScenarioProposal[]
+  contests     TrailerContest[]
+
+  // V14 — Trailer Studio
+  trailerProjects TrailerProject[]
+}
+
+model FilmPhase {
+  id            String      @id @default(cuid())
+  filmId        String
+  phaseName     PhaseName
+  phaseOrder    Int
+  status        PhaseStatus @default(LOCKED)
+  dependsOnId   String?
+  startsAt      DateTime?
+  endsAt        DateTime?
+  estimatedDays Int         @default(30)
+  completedAt   DateTime?
+
+  film       Film        @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  dependsOn  FilmPhase?  @relation("PhaseDeps", fields: [dependsOnId], references: [id])
+  dependedBy FilmPhase[] @relation("PhaseDeps")
+  tasks      Task[]
+}
+
+// ============================================
+// TASKS & SUBMISSIONS
+// ============================================
+
+model Task {
+  id                String     @id @default(cuid())
+  filmId            String
+  phaseId           String
+  title             String
+  descriptionMd     String
+  instructionsMd    String?
+  type              TaskType
+  difficulty        Difficulty @default(EASY)
+  priceEuros        Float      @default(50)
+  status            TaskStatus @default(LOCKED)
+  dependsOnIds      String[]   @default([])
+  requiredLevel     Level      @default(ROOKIE)
+  claimedById       String?
+  claimedAt         DateTime?
+  submittedAt       DateTime?
+  validatedAt       DateTime?
+  deadline          DateTime?
+  inputFilesUrls    String[]   @default([])
+  outputFileUrl     String?
+  aiConfidenceScore Float?
+  maxAttempts       Int        @default(3)
+  currentAttempt    Int        @default(0)
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  film        Film             @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  phase       FilmPhase        @relation(fields: [phaseId], references: [id])
+  claimedBy   User?            @relation("ClaimedTasks", fields: [claimedById], references: [id])
+  submissions TaskSubmission[]
+  payment     Payment?
+  comments    TaskComment[]
+
+  @@index([claimedById, status])
+  @@index([phaseId, status])
+  @@index([status, createdAt])
+}
+
+model TaskSubmission {
+  id              String           @id @default(cuid())
+  taskId          String
+  userId          String
+  fileUrl         String?
+  notes           String?
+  aiScore         Float?
+  aiFeedback      String?
+  humanReviewerId String?
+  humanFeedback   String?
+  status          SubmissionStatus @default(PENDING_AI)
+  createdAt       DateTime         @default(now())
+
+  task     Task  @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user     User  @relation(fields: [userId], references: [id])
+  reviewer User? @relation("ReviewedSubmissions", fields: [humanReviewerId], references: [id])
+
+  @@index([userId, status])
+  @@index([taskId, status])
+}
+
+model TaskComment {
+  id        String   @id @default(cuid())
+  taskId    String
+  userId    String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id])
+}
+
+// ============================================
+// PAYMENTS & LUMENS
+// ============================================
+
+model Payment {
+  id         String        @id @default(cuid())
+  userId     String
+  taskId     String        @unique
+  amountEur  Float
+  amountSats Int?
+  method     PaymentMethod @default(STRIPE)
+  status     PaymentStatus @default(PENDING)
+  txHash     String?
+  paidAt     DateTime?
+  createdAt  DateTime      @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  task Task @relation(fields: [taskId], references: [id])
+
+  @@index([userId, status])
+}
+
+model LumenTransaction {
+  id          String      @id @default(cuid())
+  userId      String
+  amount      Int
+  type        LumenTxType
+  description String?
+  relatedId   String?
+  createdAt   DateTime    @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, type])
+}
+
+// ============================================
+// FILM COMMUNITY
+// ============================================
+
+model FilmBacker {
+  id              String   @id @default(cuid())
+  filmId          String
+  userId          String
+  amountInvested  Float
+  revenueShareBps Int      @default(0)
+  contractAddress String?
+  tokenId         String?
+  perks           String[] @default([])
+  createdAt       DateTime @default(now())
+
+  film Film @relation(fields: [filmId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([filmId, userId])
+}
+
+model FilmVote {
+  id        String   @id @default(cuid())
+  filmId    String
+  userId    String
+  voteType  String
+  createdAt DateTime @default(now())
+
+  film Film @relation(fields: [filmId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([filmId, userId, voteType])
+}
+
+// ============================================
+// USER FEATURES
+// ============================================
+
+model UserAchievement {
+  id              String   @id @default(cuid())
+  userId          String
+  achievementType String
+  metadata        Json?
+  earnedAt        DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Screenplay {
+  id                    String           @id @default(cuid())
+  userId                String
+  title                 String
+  logline               String?
+  genre                 String?
+  fileUrl               String?
+  content               String?
+  aiScore               Float?
+  aiFeedback            String?
+  modificationTolerance Int              @default(20)
+  revenueShareBps       Int              @default(0)
+  status                ScreenplayStatus @default(SUBMITTED)
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Subscription {
+  id          String    @id @default(cuid())
+  userId      String    @unique
+  plan        SubPlan   @default(FREE)
+  status      String    @default("active")
+  stripeSubId String?
+  startedAt   DateTime  @default(now())
+  expiresAt   DateTime?
+
+  monthlyFilmLimit       Int       @default(10)   // FREE=10, PREMIUM=30, PREMIUM_PLUS=unlimited(-1)
+  monthlyShortsLimit     Int       @default(20)   // FREE=20, PREMIUM=50, PREMIUM_PLUS=unlimited(-1)
+  filmsWatchedThisMonth  Int       @default(0)
+  shortsWatchedThisMonth Int       @default(0)
+  monthResetAt           DateTime?
+  hasAds                 Boolean   @default(true) // FREE=true, PREMIUM/PLUS=false
+  pointsBalance          Int       @default(0)    // Voting points accumulated
+  pointsLifetime         Int       @default(0)    // Total points ever earned
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// ============================================
+// NOTIFICATIONS
+// ============================================
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  type      NotifType
+  title     String
+  body      String?
+  href      String?
+  read      Boolean   @default(false)
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
+}
+
+// ============================================
+// CONTENT PROVENANCE
+// ============================================
+
+model ContentHash {
+  id          String   @id @default(cuid())
+  entityType  String
+  entityId    String
+  hash        String
+  algorithm   String   @default("SHA-256")
+  createdAt   DateTime @default(now())
+  createdById String
+
+  createdBy User @relation(fields: [createdById], references: [id])
+
+  @@unique([entityType, entityId])
+}
+
+// ============================================
+// AUTH
+// ============================================
+
+model PasswordReset {
+  id        String    @id @default(cuid())
+  userId    String
+  token     String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// EmailVerification model removed — verification uses PasswordReset table with 'verify:' prefix
+
+// ============================================
+// REVIEWS & WATCHLIST
+// ============================================
+
+model Review {
+  id        String   @id @default(cuid())
+  filmId    String
+  userId    String
+  rating    Int      // 1-5 stars
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  film CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  user User        @relation(fields: [userId], references: [id])
+
+  @@unique([filmId, userId])
+}
+
+model Watchlist {
+  id      String   @id @default(cuid())
+  userId  String
+  filmId  String
+  addedAt DateTime @default(now())
+
+  user User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  film CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, filmId])
+}
+
+// ============================================
+// ADMIN
+// ============================================
+
+model AdminSettings {
+  id                    String   @id @default("singleton")
+  aiConfidenceThreshold Float    @default(70)
+  maxConcurrentTasks    Int      @default(3)
+  bitcoinEnabled        Boolean  @default(false)
+  maintenanceMode       Boolean  @default(false)
+  lumenPrice            Float    @default(1.0)
+  lumenRewardPerTask    Int      @default(10)
+  notifEmailEnabled     Boolean  @default(false)
+  updatedAt             DateTime @updatedAt
+}
+
+model AdminTodo {
+  id          String       @id @default(cuid())
+  title       String
+  description String?
+  priority    TodoPriority @default(MEDIUM)
+  completed   Boolean      @default(false)
+  dueAt       DateTime?
+  completedAt DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+// ============================================
+// PUBLIC FUNDING (AIDES PUBLIQUES)
+// ============================================
+
+model PublicFunding {
+  id             String        @id @default(cuid())
+  name           String
+  organism       String
+  type           FundingType
+  description    String
+  eligibility    String
+  maxAmount      Float?
+  deadline       DateTime?
+  applicationUrl String?
+  status         FundingStatus @default(NOT_STARTED)
+  priority       Int           @default(0)
+  preCompany     Boolean       @default(false)
+  postCompany    Boolean       @default(false)
+  notes          String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  steps FundingStep[]
+}
+
+model FundingStep {
+  id          String    @id @default(cuid())
+  fundingId   String
+  title       String
+  description String?
+  order       Int
+  completed   Boolean   @default(false)
+  dueDate     DateTime?
+  completedAt DateTime?
+  documents   String[]  @default([])
+  notes       String?
+
+  funding PublicFunding @relation(fields: [fundingId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum Role {
+  ADMIN
+  CONTRIBUTOR
+  ARTIST
+  STUNT_PERFORMER
+  VIEWER
+  SCREENWRITER
+  CREATOR
+}
+
+enum Level {
+  ROOKIE
+  PRO
+  EXPERT
+  VIP
+}
+
+enum Catalog {
+  LUMIERE
+  RUPPIN
+  BIBLE
+  ACTION
+  COMMUNITY
+}
+
+enum FilmStatus {
+  DRAFT
+  PRE_PRODUCTION
+  IN_PRODUCTION
+  POST_PRODUCTION
+  RELEASED
+}
+
+enum PhaseName {
+  SCRIPT
+  STORYBOARD
+  PREVIZ
+  DESIGN
+  ANIMATION
+  VFX
+  AUDIO
+  EDITING
+  COLOR
+  FINAL
+}
+
+enum PhaseStatus {
+  LOCKED
+  ACTIVE
+  COMPLETED
+}
+
+enum TaskType {
+  PROMPT_WRITING
+  IMAGE_GEN
+  VIDEO_REVIEW
+  STUNT_CAPTURE
+  DANCE_CAPTURE
+  DIALOGUE_EDIT
+  COLOR_GRADE
+  SOUND_DESIGN
+  CONTINUITY_CHECK
+  QA_REVIEW
+  CHARACTER_DESIGN
+  ENV_DESIGN
+  MOTION_REF
+  COMPOSITING
+  TRANSLATION
+  SUBTITLE
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+  EXPERT
+}
+
+enum TaskStatus {
+  LOCKED
+  AVAILABLE
+  CLAIMED
+  SUBMITTED
+  AI_REVIEW
+  HUMAN_REVIEW
+  VALIDATED
+  REJECTED
+}
+
+enum SubmissionStatus {
+  PENDING_AI
+  AI_APPROVED
+  AI_FLAGGED
+  HUMAN_APPROVED
+  REJECTED
+}
+
+enum PaymentMethod {
+  STRIPE
+  LIGHTNING
+  ONCHAIN
+  LUMEN
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ScreenplayStatus {
+  SUBMITTED
+  EVALUATING
+  ACCEPTED
+  REJECTED
+}
+
+enum SubPlan {
+  FREE          // Freemium: 10 films/month, 20 shorts, ads
+  PREMIUM       // €2/month: 30 films, 50 shorts, no ads
+  PREMIUM_PLUS  // Unlimited films, no ads, all features
+}
+
+enum NotifType {
+  TASK_VALIDATED
+  TASK_REJECTED
+  PAYMENT_RECEIVED
+  LEVEL_UP
+  NEW_TASK_AVAILABLE
+  SUBMISSION_REVIEWED
+  SYSTEM
+}
+
+enum LumenTxType {
+  PURCHASE
+  BONUS
+  TASK_REWARD
+  SPENT
+  WITHDRAWAL
+  VIDEO_GEN
+  PUBLISH
+  OUTREACH
+  CLONE_VOICE
+  AB_TEST
+  WATERMARK_REMOVE
+  ANALYTICS_PRO
+  REFERRAL_BONUS
+  STREAK_BONUS
+  TOKEN_PURCHASE
+  TOKEN_SALE
+  TOKEN_DIVIDEND
+  GOVERNANCE_REWARD
+}
+
+enum TodoPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum FundingType {
+  SUBVENTION
+  AVANCE
+  PRET
+  CREDIT_IMPOT
+  GARANTIE
+  CONCOURS
+}
+
+enum FundingStatus {
+  NOT_STARTED
+  ELIGIBLE
+  IN_PROGRESS
+  SUBMITTED
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
+// ============================================
+// V3 — STREAMING CATALOG (NETFLIX IA)
+// ============================================
+
+model CatalogFilm {
+  id              String            @id @default(cuid())
+  title           String
+  slug            String            @unique
+  synopsis        String?
+  genre           String?
+  videoUrl        String?
+  thumbnailUrl    String?
+  trailerUrl      String?
+  posterUrl       String?
+  duration        Int?              // seconds
+  status          CatalogFilmStatus @default(PENDING)
+  submittedById   String
+  viewCount       Int               @default(0)
+  monthlyViews    Int               @default(0)
+  revenueSharePct Float             @default(50)
+  isContest       Boolean           @default(false)
+  featured        Boolean           @default(false)
+  tags            String[]          @default([])
+  year            Int?
+  language        String            @default("fr")
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  submittedBy User              @relation(fields: [submittedById], references: [id])
+  contract    CatalogContract?
+  views       FilmView[]
+  payouts     CreatorPayout[]
+
+  // Reviews & Watchlist
+  reviews        Review[]
+  watchlistItems Watchlist[]
+
+  // V6 — Film Universe
+  castRoles      FilmCastRole[]
+  bonusContent   BonusContent[]
+  scenarios      ScenarioProposal[]
+  trailerEntries TrailerEntry[]
+
+  // V13 — Social
+  filmComments   FilmComment[]
+  playlistItems  PlaylistItem[]
+
+  @@index([submittedById, status])
+  @@index([status, createdAt])
+}
+
+model CatalogContract {
+  id              String         @id @default(cuid())
+  filmId          String         @unique
+  userId          String
+  terms           String         // Markdown contract text
+  revenueSharePct Float          @default(50)
+  promotionClause Boolean        @default(true)
+  exclusivity     Boolean        @default(false)
+  exclusivityBonus Float         @default(10) // +10% if exclusive
+  status          ContractStatus @default(PENDING)
+  signedAt        DateTime?
+  expiresAt       DateTime?
+  createdAt       DateTime       @default(now())
+
+  film CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  user User        @relation(fields: [userId], references: [id])
+}
+
+model FilmView {
+  id            String   @id @default(cuid())
+  filmId        String
+  userId        String?
+  ip            String?
+  watchDuration Int      @default(0) // seconds
+  completionPct Float    @default(0)
+  viewType      ViewType @default(FREE_AD) // How the view was accessed
+  adRevenue     Float    @default(0) // Revenue from ads during this view
+  paidAmount    Float    @default(0) // PPV amount if pay-per-view
+  ppvPurchaseId String?  // Link to PPVPurchase if applicable
+  createdAt     DateTime @default(now())
+
+  film CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  user User?       @relation(fields: [userId], references: [id])
+}
+
+model CreatorPayout {
+  id            String       @id @default(cuid())
+  userId        String
+  filmId        String?
+  month         String       // "2026-02"
+  totalViews    Int          @default(0)
+  platformViews Int          @default(0)
+  ratio         Float        @default(0)
+  amountEur     Float        @default(0)
+  status        PayoutStatus @default(PENDING)
+  paidAt        DateTime?
+  createdAt     DateTime     @default(now())
+
+  user User         @relation(fields: [userId], references: [id])
+  film CatalogFilm? @relation(fields: [filmId], references: [id])
+}
+
+// ============================================
+// V3 — CREATOR CONTENT (MODULE 2)
+// ============================================
+
+model CreatorProfile {
+  id               String          @id @default(cuid())
+  userId           String          @unique
+  stageName        String?
+  niche            String?
+  style            CreatorStyle    @default(NOFACE)
+  bio              String?
+  toneOfVoice      String?
+  catchphrases     String[]        @default([])
+  avatarType       String?         // "cartoon", "3d", "anime", "realistic", "mascot"
+  avatarConfig     Json?           // Full avatar configuration
+  voiceType        String?         // "natural", "clone", "synthetic"
+  voiceConfig      Json?           // Voice model settings
+  voiceSampleUrl   String?
+  publishFrequency String?         // "daily", "3x_week", "weekly"
+  automationLevel  AutomationLevel @default(ASSISTED)
+  wizardCompleted  Boolean         @default(false)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  user   User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  videos GeneratedVideo[]
+}
+
+model GeneratedVideo {
+  id              String      @id @default(cuid())
+  profileId       String
+  title           String
+  script          String?
+  voiceUrl        String?
+  videoUrl        String?
+  thumbnailUrl    String?
+  duration        Int?        // seconds
+  status          VideoStatus @default(DRAFT)
+  platforms       String[]    @default([])
+  publishedAt     DateTime?
+  abTestVariant   String?     // "A", "B", "C"
+  abTestGroupId   String?     // Links variants together
+  viewCount       Int         @default(0)
+  likeCount       Int         @default(0)
+  shareCount      Int         @default(0)
+  tokensSpent     Int         @default(0)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  profile   CreatorProfile    @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  schedules PublishSchedule[]
+}
+
+model PublishSchedule {
+  id             String        @id @default(cuid())
+  videoId        String
+  platform       SocialPlatform
+  scheduledAt    DateTime
+  jitterMinutes  Int           @default(0)   // Random offset for anti-detection
+  actualPostAt   DateTime?                   // Real posting time (scheduled + jitter)
+  publishedAt    DateTime?
+  status         PublishStatus @default(SCHEDULED)
+  externalPostId String?
+  errorMessage   String?
+  createdAt      DateTime      @default(now())
+
+  video GeneratedVideo @relation(fields: [videoId], references: [id], onDelete: Cascade)
+}
+
+model SocialAccount {
+  id             String         @id @default(cuid())
+  userId         String
+  platform       SocialPlatform
+  handle         String
+  accessToken    String?
+  refreshToken   String?
+  followersCount Int            @default(0)
+  engagementRate Float          @default(0)
+  lastSyncAt     DateTime?
+  isActive       Boolean        @default(true)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, platform])
+}
+
+// ============================================
+// V3 — COLLABS & GROWTH (MODULE 3)
+// ============================================
+
+model CollabRequest {
+  id           String       @id @default(cuid())
+  fromUserId   String
+  toUserId     String
+  type         CollabType
+  status       CollabStatus @default(PENDING)
+  escrowTokens Int          @default(0)
+  message      String?
+  response     String?
+  completedAt  DateTime?
+  rating       Float?       // Post-collab rating
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  fromUser User @relation("SentCollabs", fields: [fromUserId], references: [id])
+  toUser   User @relation("ReceivedCollabs", fields: [toUserId], references: [id])
+}
+
+model VideoOrder {
+  id            String      @id @default(cuid())
+  clientUserId  String
+  creatorUserId String?
+  title         String
+  description   String
+  style         String?
+  duration      Int?        // requested seconds
+  deadline      DateTime?
+  priceTokens   Int         @default(0)
+  status        OrderStatus @default(OPEN)
+  deliveryUrl   String?
+  revisionCount Int         @default(0)
+  maxRevisions  Int         @default(2)
+  clientRating  Float?
+  creatorRating Float?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  client  User  @relation("ClientOrders", fields: [clientUserId], references: [id])
+  creator User? @relation("CreatorOrders", fields: [creatorUserId], references: [id])
+}
+
+model Referral {
+  id           String         @id @default(cuid())
+  referrerId   String
+  referredId   String         @unique
+  tokensEarned Int            @default(0)
+  status       ReferralStatus @default(PENDING)
+  completedAt  DateTime?
+  createdAt    DateTime       @default(now())
+
+  referrer User @relation("Referrer", fields: [referrerId], references: [id])
+  referred User @relation("Referred", fields: [referredId], references: [id])
+}
+
+// ============================================
+// V3 — REPUTATION (TRANSVERSAL)
+// ============================================
+
+model ReputationEvent {
+  id        String           @id @default(cuid())
+  userId    String
+  type      String           // "deadline_met", "quality_high", "collab_completed", etc.
+  score     Float            // +/- points
+  weight    Float            @default(1.0)
+  source    ReputationSource
+  metadata  Json?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
+}
+
+// ============================================
+// V3 — NEW ENUMS
+// ============================================
+
+enum CatalogFilmStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  LIVE
+  SUSPENDED
+}
+
+enum ContractStatus {
+  PENDING
+  SIGNED
+  EXPIRED
+  TERMINATED
+}
+
+enum PayoutStatus {
+  PENDING
+  CALCULATED
+  PAID
+  FAILED
+}
+
+enum CreatorStyle {
+  FACE
+  NOFACE
+  HYBRID
+}
+
+enum AutomationLevel {
+  AUTO
+  ASSISTED
+  EXPERT
+}
+
+enum VideoStatus {
+  DRAFT
+  GENERATING
+  READY
+  PUBLISHED
+  FAILED
+  ARCHIVED
+}
+
+enum PublishStatus {
+  SCHEDULED
+  PUBLISHING
+  PUBLISHED
+  FAILED
+  CANCELLED
+}
+
+enum SocialPlatform {
+  TIKTOK
+  INSTAGRAM
+  YOUTUBE
+  FACEBOOK
+  X
+}
+
+enum CollabType {
+  SHOUTOUT
+  CO_CREATE
+  GUEST
+  AD_EXCHANGE
+}
+
+enum CollabStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum OrderStatus {
+  OPEN
+  CLAIMED
+  IN_PROGRESS
+  DELIVERED
+  REVISION
+  COMPLETED
+  DISPUTED
+}
+
+enum ReferralStatus {
+  PENDING
+  COMPLETED
+  EXPIRED
+}
+
+enum ReputationSource {
+  STUDIO
+  CREATOR
+  COLLABS
+  SYSTEM
+}
+
+// ============================================
+// V4 — TOKENIZATION CO-PRODUCTION (ISRAELI FRAMEWORK)
+// ============================================
+
+model FilmTokenOffering {
+  id              String             @id @default(cuid())
+  filmId          String             @unique
+  totalTokens     Int                // Total tokens representing 100% of the film
+  tokenPrice      Float              // Price per token in EUR
+  minInvestment   Int                @default(1)    // Min tokens to buy
+  maxPerUser      Int?               // Max tokens per user (anti-whale)
+  softCap         Float?             // Minimum to raise for project to proceed
+  hardCap         Float              // Maximum raise
+  raised          Float              @default(0)    // Amount raised so far
+  tokensSold      Int                @default(0)
+  status          OfferingStatus     @default(DRAFT)
+  legalStructure  String             @default("IL_EXEMPT") // IL_EXEMPT, IL_PROSPECTUS, IL_SANDBOX
+  prospectusUrl   String?
+  riskLevel       RiskLevel          @default(MEDIUM)
+  revenueModel    String             @default("REVENUE_SHARE") // REVENUE_SHARE, EQUITY, HYBRID
+  projectedROI    Float?             // Projected % return
+  distributionPct Float              @default(70)   // % of revenue distributed to token holders
+  lockupDays      Int                @default(90)   // Days before tokens can be transferred
+  votingRights    Boolean            @default(true)  // Token holders can vote on decisions
+  kycRequired     Boolean            @default(true)
+  accreditedOnly  Boolean            @default(false)
+  opensAt         DateTime?
+  closesAt        DateTime?
+  fundedAt        DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  film        Film                @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  purchases   FilmTokenPurchase[]
+  transfers   FilmTokenTransfer[]
+  dividends   TokenDividend[]
+  revenues    FilmRevenue[]
+  proposals   GovernanceProposal[]
+}
+
+model FilmTokenPurchase {
+  id            String          @id @default(cuid())
+  offeringId    String
+  userId        String
+  tokenCount    Int
+  amountPaid    Float
+  currency      String          @default("EUR")
+  paymentMethod String          @default("STRIPE") // STRIPE, CRYPTO, LUMEN, BANK_TRANSFER
+  txHash        String?         // Blockchain tx hash if crypto
+  status        PurchaseStatus  @default(PENDING)
+  kycVerified   Boolean         @default(false)
+  lockedUntil   DateTime?       // Lockup period end
+  createdAt     DateTime        @default(now())
+
+  offering FilmTokenOffering @relation(fields: [offeringId], references: [id], onDelete: Cascade)
+  user     User              @relation(fields: [userId], references: [id])
+}
+
+model FilmTokenTransfer {
+  id           String         @id @default(cuid())
+  offeringId   String
+  fromUserId   String
+  toUserId     String
+  tokenCount   Int
+  pricePerToken Float
+  totalAmount  Float
+  fee          Float          @default(0)  // Platform fee
+  status       TransferStatus @default(PENDING)
+  txHash       String?
+  createdAt    DateTime       @default(now())
+
+  offering FilmTokenOffering @relation(fields: [offeringId], references: [id])
+  fromUser User              @relation("TokenSeller", fields: [fromUserId], references: [id])
+  toUser   User              @relation("TokenBuyer", fields: [toUserId], references: [id])
+}
+
+model GovernanceProposal {
+  id          String           @id @default(cuid())
+  offeringId  String
+  proposerId  String
+  title       String
+  description String
+  type        ProposalType
+  options     String[]         @default(["Pour", "Contre"])
+  status      ProposalStatus   @default(ACTIVE)
+  votesFor    Int              @default(0)
+  votesAgainst Int             @default(0)
+  abstentions Int              @default(0)
+  quorumPct   Float            @default(30) // % of token holders needed
+  deadline    DateTime
+  executedAt  DateTime?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  offering FilmTokenOffering @relation(fields: [offeringId], references: [id], onDelete: Cascade)
+  proposer User              @relation("ProposalAuthor", fields: [proposerId], references: [id])
+  votes    GovernanceVote[]
+}
+
+model GovernanceVote {
+  id         String   @id @default(cuid())
+  proposalId String
+  userId     String
+  vote       String   // "FOR", "AGAINST", "ABSTAIN"
+  tokenWeight Int     // Number of tokens = voting power
+  createdAt  DateTime @default(now())
+
+  proposal GovernanceProposal @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+  user     User               @relation(fields: [userId], references: [id])
+
+  @@unique([proposalId, userId])
+}
+
+model FilmRevenue {
+  id          String   @id @default(cuid())
+  offeringId  String
+  source      String   // "STREAMING", "THEATRICAL", "MERCH", "LICENSING", "SPONSORSHIP"
+  amount      Float
+  period      String   // "2026-02"
+  distributed Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  offering FilmTokenOffering @relation(fields: [offeringId], references: [id], onDelete: Cascade)
+}
+
+model TokenDividend {
+  id         String        @id @default(cuid())
+  offeringId String
+  userId     String
+  amount     Float
+  period     String        // "2026-02"
+  tokenCount Int           // Tokens held at snapshot
+  totalPool  Float         // Total pool for this period
+  status     DividendStatus @default(PENDING)
+  paidAt     DateTime?
+  createdAt  DateTime      @default(now())
+
+  offering FilmTokenOffering @relation(fields: [offeringId], references: [id])
+  user     User              @relation(fields: [userId], references: [id])
+}
+
+model FilmBudgetLine {
+  id          String   @id @default(cuid())
+  filmId      String
+  category    String   // "SCRIPT", "VFX", "SOUND", "ACTORS", "MARKETING", "LEGAL", "PLATFORM_FEE"
+  label       String
+  amount      Float
+  currency    String   @default("EUR")
+  percentage  Float    // % of total budget
+  locked      Boolean  @default(false) // Can't be modified once funded
+  spent       Float    @default(0)
+  createdAt   DateTime @default(now())
+
+  film Film @relation(fields: [filmId], references: [id], onDelete: Cascade)
+}
+
+model LegalChecklist {
+  id           String   @id @default(cuid())
+  category     String   // "KYC", "ISA", "AML", "TAX", "CONTRACT", "CORPORATE"
+  item         String
+  description  String
+  status       String   @default("PENDING") // PENDING, IN_PROGRESS, DONE, BLOCKED, NA
+  responsible  String   @default("HUMAN")   // HUMAN, CLAUDE, BOTH
+  priority     Int      @default(0)
+  notes        String?
+  documentUrl  String?
+  completedAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ============================================
+// V4 — NEW ENUMS
+// ============================================
+
+enum OfferingStatus {
+  DRAFT
+  PENDING_LEGAL
+  OPEN
+  FUNDED
+  CLOSED
+  CANCELLED
+  SUSPENDED
+}
+
+enum PurchaseStatus {
+  PENDING
+  KYC_REQUIRED
+  CONFIRMED
+  REFUNDED
+  CANCELLED
+}
+
+enum TransferStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+  BLOCKED
+}
+
+enum ProposalType {
+  CASTING
+  SCRIPT_CHANGE
+  BUDGET_REALLOC
+  DISTRIBUTION
+  MARKETING
+  CREATIVE
+  GENERAL
+}
+
+enum ProposalStatus {
+  ACTIVE
+  PASSED
+  REJECTED
+  EXECUTED
+  EXPIRED
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  VERY_HIGH
+}
+
+enum DividendStatus {
+  PENDING
+  CALCULATED
+  PAID
+  FAILED
+}
+
+// ============================================
+// V6 — FILM UNIVERSE (AI ACTORS, BONUS, COMMUNITY)
+// ============================================
+
+model AIActor {
+  id                String      @id @default(cuid())
+  name              String
+  slug              String      @unique
+  avatarUrl         String?
+  coverUrl          String?
+  bio               String?
+  nationality       String?
+  birthYear         Int?
+  debutYear         Int?
+  style             ActorStyle  @default(VERSATILE)
+  personalityTraits String[]    @default([])
+  funFacts          String[]    @default([])
+  quote             String?
+  socialFollowers   Int         @default(0)
+  filmCount         Int         @default(0)
+  awardsCount       Int         @default(0)
+  isActive          Boolean     @default(true)
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  castRoles    FilmCastRole[]
+  bonusContent BonusContent[]
+}
+
+model FilmCastRole {
+  id            String       @id @default(cuid())
+  actorId       String
+  filmId        String?
+  catalogFilmId String?
+  characterName String
+  role          CastRoleType @default(SUPPORTING)
+  description   String?
+  screenTime    String?
+  sortOrder     Int          @default(0)
+  createdAt     DateTime     @default(now())
+
+  actor       AIActor      @relation(fields: [actorId], references: [id], onDelete: Cascade)
+  film        Film?        @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  catalogFilm CatalogFilm? @relation(fields: [catalogFilmId], references: [id], onDelete: Cascade)
+
+  @@unique([actorId, filmId, characterName])
+  @@unique([actorId, catalogFilmId, characterName])
+}
+
+model BonusContent {
+  id            String    @id @default(cuid())
+  filmId        String?
+  catalogFilmId String?
+  actorId       String?
+  type          BonusType
+  title         String
+  description   String?
+  contentUrl    String?
+  thumbnailUrl  String?
+  duration      Int?
+  isPremium     Boolean   @default(false)
+  sortOrder     Int       @default(0)
+  viewCount     Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  film        Film?        @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  catalogFilm CatalogFilm? @relation(fields: [catalogFilmId], references: [id], onDelete: Cascade)
+  actor       AIActor?     @relation(fields: [actorId], references: [id], onDelete: Cascade)
+}
+
+model ScenarioProposal {
+  id            String                 @id @default(cuid())
+  filmId        String?
+  catalogFilmId String?
+  title         String
+  logline       String
+  synopsis      String?
+  genre         String?
+  authorId      String
+  status        ScenarioProposalStatus @default(SUBMITTED)
+  round         Int                    @default(1)
+  votesCount    Int                    @default(0)
+  prizePoolEur  Float                  @default(0)
+  prizeClaimedAt DateTime?
+  onChainHash   String?
+  aiScore       Int?
+  aiAnalysis    String?
+  aiSuggestions String[]
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+
+  author  User             @relation(fields: [authorId], references: [id])
+  film    Film?            @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  catalog CatalogFilm?     @relation(fields: [catalogFilmId], references: [id], onDelete: Cascade)
+  votes   ScenarioVote[]
+}
+
+model ScenarioVote {
+  id         String   @id @default(cuid())
+  proposalId String
+  userId     String
+  txHash     String?
+  createdAt  DateTime @default(now())
+
+  proposal ScenarioProposal @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+  user     User             @relation(fields: [userId], references: [id])
+
+  @@unique([proposalId, userId])
+}
+
+model TrailerContest {
+  id               String                @id @default(cuid())
+  filmId           String?
+  title            String
+  description      String?
+  status           CreativeContestStatus @default(UPCOMING)
+  startDate        DateTime?
+  endDate          DateTime?
+  prizeDescription String?
+  prizePoolEur     Float                 @default(0)
+  prizeDistribution Json?                // e.g. {"1st": 60, "2nd": 25, "3rd": 15}
+  winnerId         String?
+  onChainHash      String?
+  autoClose        Boolean               @default(true)
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
+
+  film            Film?              @relation(fields: [filmId], references: [id])
+  entries         TrailerEntry[]
+  trailerProjects TrailerProject[]
+}
+
+model TrailerEntry {
+  id            String   @id @default(cuid())
+  contestId     String
+  catalogFilmId String?
+  userId        String
+  title         String
+  videoUrl      String?
+  thumbnailUrl  String?
+  votesCount    Int      @default(0)
+  createdAt     DateTime @default(now())
+
+  contest     TrailerContest @relation(fields: [contestId], references: [id], onDelete: Cascade)
+  catalogFilm CatalogFilm?  @relation(fields: [catalogFilmId], references: [id])
+  user        User           @relation(fields: [userId], references: [id])
+  votes       TrailerVote[]
+}
+
+model TrailerVote {
+  id        String   @id @default(cuid())
+  entryId   String
+  userId    String
+  txHash    String?
+  createdAt DateTime @default(now())
+
+  entry TrailerEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  user  User         @relation(fields: [userId], references: [id])
+
+  @@unique([entryId, userId])
+}
+
+// ============================================
+// V6 — NEW ENUMS
+// ============================================
+
+enum ActorStyle {
+  DRAMATIC
+  COMEDY
+  ACTION
+  VERSATILE
+  HORROR
+  ROMANCE
+  EXPERIMENTAL
+}
+
+enum CastRoleType {
+  LEAD
+  SUPPORTING
+  CAMEO
+  VOICE
+  NARRATOR
+}
+
+enum BonusType {
+  INTERVIEW
+  DELETED_SCENE
+  BLOOPER
+  BTS
+  DIRECTORS_COMMENTARY
+  CONCEPT_ART
+  SOUNDTRACK
+  MAKING_OF
+  AUDITION_TAPE
+}
+
+enum ScenarioProposalStatus {
+  SUBMITTED
+  SHORTLISTED
+  VOTING
+  WINNER
+  ARCHIVED
+}
+
+enum CreativeContestStatus {
+  UPCOMING
+  OPEN
+  VOTING
+  CLOSED
+}
+
+// ============================================
+// V7 — BLOCKCHAIN EVENT LOG
+// ============================================
+
+model BlockchainEvent {
+  id          String          @id @default(cuid())
+  type        BlockchainEventType
+  entityType  String          // "ScenarioVote", "TrailerVote", "GovernanceVote", "Prize", "TokenPurchase"
+  entityId    String
+  txHash      String?         @unique
+  chain       String          @default("polygon") // "polygon", "ethereum", "base"
+  blockNumber Int?
+  data        Json?           // Arbitrary payload (vote details, prize amount, etc.)
+  status      ChainTxStatus   @default(PENDING)
+  errorMsg    String?
+  createdAt   DateTime        @default(now())
+  confirmedAt DateTime?
+
+  @@index([entityType, entityId])
+  @@index([chain])
+}
+
+enum BlockchainEventType {
+  VOTE_CAST
+  VOTE_TALLY
+  PRIZE_DISTRIBUTED
+  CONTEST_CLOSED
+  TOKEN_MINTED
+  TOKEN_TRANSFERRED
+  GOVERNANCE_EXECUTED
+  CONTENT_REGISTERED
+  // Pipeline events
+  FILM_CREATED
+  FILM_CREATED_FROM_SCENARIO
+  FILM_COMPLETED
+  TASK_CLAIMED
+  TASK_SUBMITTED
+  TASK_VALIDATED
+  PHASE_UNLOCKED
+  PHASE_COMPLETED
+  // Tokenization events
+  TOKEN_PURCHASED
+  TOKEN_LISTED_FOR_SALE
+  GOVERNANCE_PROPOSAL_CREATED
+  GOVERNANCE_VOTE_CAST
+  DIVIDEND_CLAIMED
+}
+
+enum ChainTxStatus {
+  PENDING
+  SUBMITTED
+  CONFIRMED
+  FAILED
+  REVERTED
+}
+
+// ============================================
+// V12 — AUDIT LOG & SESSION MANAGEMENT
+// ============================================
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String   // "film.create", "task.validate", "user.delete", etc.
+  entity    String   // "Film", "Task", "User", etc.
+  entityId  String?
+  details   Json?    // Additional context
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([entity, entityId])
+  @@index([createdAt])
+}
+
+model UserSession {
+  id        String    @id @default(cuid())
+  userId    String
+  ip        String?
+  userAgent String?
+  device    String?   // "Desktop", "Mobile", "Tablet"
+  browser   String?   // "Chrome", "Firefox", "Safari"
+  os        String?   // "Windows", "macOS", "iOS", "Android"
+  country   String?
+  lastActive DateTime @default(now())
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+// ============================================
+// V13 — SOCIAL & ENGAGEMENT
+// ============================================
+
+model FilmComment {
+  id        String   @id @default(cuid())
+  filmId    String
+  userId    String
+  parentId  String?  // For threaded replies
+  content   String
+  likes     Int      @default(0)
+  isEdited  Boolean  @default(false)
+  isHidden  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  film     CatalogFilm   @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  user     User          @relation(fields: [userId], references: [id])
+  parent   FilmComment?  @relation("CommentReplies", fields: [parentId], references: [id])
+  replies  FilmComment[] @relation("CommentReplies")
+  likedBy  CommentLike[]
+
+  @@index([filmId, createdAt])
+}
+
+model CommentLike {
+  id        String   @id @default(cuid())
+  commentId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  comment FilmComment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user    User        @relation(fields: [userId], references: [id])
+
+  @@unique([commentId, userId])
+}
+
+model Playlist {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  description String?
+  isPublic    Boolean  @default(false)
+  coverUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user  User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items PlaylistItem[]
+}
+
+model PlaylistItem {
+  id         String   @id @default(cuid())
+  playlistId String
+  filmId     String
+  sortOrder  Int      @default(0)
+  addedAt    DateTime @default(now())
+
+  playlist Playlist    @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  film     CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
+
+  @@unique([playlistId, filmId])
+}
+
+model FeaturedCreator {
+  id          String   @id @default(cuid())
+  userId      String
+  weekStart   DateTime // Monday of the featured week
+  headline    String?
+  bio         String?
+  achievement String?  // Why they're featured
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([weekStart])
+  @@index([isActive, weekStart])
+}
+
+// ============================================
+// V14 — TRAILER STUDIO (AI Trailer Creation)
+// ============================================
+
+model TrailerProject {
+  id              String              @id @default(cuid())
+  userId          String
+  filmId          String?             // Link to existing Film (optional for open concept)
+  contestId       String?             // If created for a contest
+  title           String
+  concept         String?             // Core concept / logline
+  synopsis        String?             // Detailed synopsis
+  genre           String?
+  style           String?             // Visual style: cinematic, anime, noir, documentary, etc.
+  mood            String?             // Mood: epic, dark, funny, emotional, mysterious
+  duration        TrailerDuration     @default(STANDARD_60S)
+  targetAudience  String?
+  referenceUrls   String[]            @default([])  // Reference images/videos URLs
+  referenceNotes  String?             // Notes about references
+  colorPalette    String[]            @default([])  // Hex colors for the trailer
+  musicMood       String?             // Music mood: epic, suspenseful, emotional, upbeat
+  status          TrailerProjectStatus @default(DRAFT)
+  currentPhase    TrailerPhase        @default(CONCEPT)
+  totalTasks      Int                 @default(0)
+  completedTasks  Int                 @default(0)
+  progressPct     Float               @default(0)
+  estimatedCredits Int                @default(0)   // Estimated AI credits needed
+  creditsUsed     Int                 @default(0)   // Actual credits used
+  finalVideoUrl   String?             // Final assembled trailer
+  finalThumbnail  String?
+  communityVoteEnabled Boolean        @default(false) // Allow community to vote on choices
+  isInternal      Boolean             @default(false) // Internal Lumière production (fully automated)
+  metadata        Json?               // Extra config (AI model prefs, etc.)
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  user     User                @relation(fields: [userId], references: [id])
+  film     Film?               @relation(fields: [filmId], references: [id])
+  contest  TrailerContest?     @relation(fields: [contestId], references: [id])
+  tasks    TrailerMicroTask[]
+  choices  TrailerChoice[]
+
+  @@index([userId, status])
+  @@index([contestId])
+}
+
+model TrailerMicroTask {
+  id              String              @id @default(cuid())
+  projectId       String
+  assigneeId      String?             // User who will execute (null = AI auto)
+  taskType        TrailerTaskType
+  phase           TrailerPhase
+  title           String
+  description     String?
+  instructions    String?             // Detailed instructions for AI or human
+  order           Int                 @default(0)   // Execution order within phase
+  status          TrailerMicroTaskStatus @default(PENDING)
+  dependsOnIds    String[]            @default([])  // IDs of tasks that must complete first
+  // AI execution
+  aiPrompt        String?             // The prompt sent to AI
+  aiModel         String?             // Which AI model was used
+  aiProvider      String?             // Provider name (runway, replicate, etc.)
+  aiResult        String?             // AI output (URL or text)
+  aiScore         Int?                // Quality score 0-100
+  aiFeedback      String?             // AI self-evaluation
+  aiRetries       Int                 @default(0)
+  // User choices
+  userChoice      Json?               // Options the user selected for this task
+  communityVoteEnabled Boolean        @default(false)
+  // Credits
+  estimatedCredits Int               @default(0)
+  creditsUsed     Int                 @default(0)
+  rawCost         Float               @default(0)   // Real AI token cost in EUR
+  commission      Float               @default(0)   // 20% commission in EUR
+  // Timing
+  startedAt       DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  project  TrailerProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  assignee User?          @relation("TaskAssignee", fields: [assigneeId], references: [id])
+  choices  TrailerChoice[]
+
+  @@index([projectId, phase, order])
+  @@index([status])
+}
+
+model TrailerChoice {
+  id              String   @id @default(cuid())
+  projectId       String
+  taskId          String?  // Related micro-task (optional)
+  question        String   // e.g. "Quel style visuel pour la scène d'ouverture?"
+  category        String?  // "visual_style", "character", "music", "setting", "mood"
+  options         Json     // Array of { id, label, description, imageUrl? }
+  selectedOption  String?  // ID of chosen option
+  isOpenToVote    Boolean  @default(false) // Community can vote
+  voteDeadline    DateTime?
+  votesData       Json?    // { optionId: voteCount }
+  resolvedAt      DateTime?
+  createdAt       DateTime @default(now())
+
+  project TrailerProject   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  task    TrailerMicroTask? @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  votes   TrailerChoiceVote[]
+
+  @@index([projectId])
+  @@index([isOpenToVote, resolvedAt])
+}
+
+model TrailerChoiceVote {
+  id        String   @id @default(cuid())
+  choiceId  String
+  userId    String
+  optionId  String   // Which option the user voted for
+  txHash    String?  // Blockchain proof
+  createdAt DateTime @default(now())
+
+  choice TrailerChoice @relation(fields: [choiceId], references: [id], onDelete: Cascade)
+  user   User          @relation(fields: [userId], references: [id])
+
+  @@unique([choiceId, userId])
+}
+
+// ============================================
+// V14 — CREDIT SYSTEM (AI Token Billing)
+// ============================================
+
+model CreditAccount {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  balance         Int      @default(0)      // Current credit balance
+  totalPurchased  Int      @default(0)      // Lifetime credits purchased
+  totalGranted    Int      @default(0)      // Lifetime credits granted (admin/subscription)
+  totalUsed       Int      @default(0)      // Lifetime credits consumed
+  totalRefunded   Int      @default(0)
+  // Auto-topup settings
+  autoTopupEnabled   Boolean  @default(false)
+  autoTopupThreshold Int      @default(0)     // Alert when balance drops below this
+  autoTopupAmount    Int      @default(0)     // Amount to request for topup
+  currency           String   @default("EUR")
+  stripeCustomerId   String?                  // For future Stripe integration
+  weeklyFreeUsed  Int      @default(0)      // Free trailers used this week (premium)
+  weeklyFreeReset DateTime @default(now())  // When weekly counter resets
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user         User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions CreditTransaction[]
+  holds        WalletHold[]
+
+  @@index([userId])
+}
+
+model CreditTransaction {
+  id              String        @id @default(cuid())
+  userId          String
+  accountId       String
+  amount          Int           // Positive = add, negative = deduct
+  type            CreditTxType
+  description     String?
+  // Billing details for AI usage
+  aiProvider      String?       // "runway", "replicate", "openai", etc.
+  aiModel         String?       // Specific model used
+  rawTokenCount   Int?          // Raw AI tokens consumed
+  rawCostEur      Float?        // Real cost in EUR
+  commissionEur   Float?        // 20% commission in EUR
+  totalChargedEur Float?        // rawCost + commission
+  // Relations
+  trailerProjectId String?
+  trailerTaskId    String?
+  // Metadata
+  balanceBefore   Int           @default(0)
+  balanceAfter    Int           @default(0)
+  metadata        Json?         // Extra data (pack ID, admin note, etc.)
+  createdAt       DateTime      @default(now())
+
+  user    User          @relation(fields: [userId], references: [id])
+  account CreditAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([accountId])
+  @@index([type])
+}
+
+model CreditPack {
+  id          String   @id @default(cuid())
+  name        String   // "Starter", "Pro", "Studio"
+  credits     Int      // Base credits in pack
+  bonusCredits Int     @default(0)  // Extra bonus credits
+  priceEur    Float    // Price in EUR
+  pricePerCredit Float @default(0)  // For display: price/total credits
+  description String?
+  features    String[] @default([]) // Bullet points for UI
+  isPopular   Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ============================================
+// V14 — NEW ENUMS
+// ============================================
+
+enum TrailerProjectStatus {
+  DRAFT
+  DECOMPOSING      // AI is breaking down into micro-tasks
+  AWAITING_INPUT   // Waiting for user choices
+  IN_PROGRESS      // Tasks being executed
+  COMMUNITY_VOTE   // Community voting on choices
+  ASSEMBLING       // Final assembly
+  REVIEW           // Quality review
+  COMPLETED
+  SUBMITTED        // Submitted to contest
+  CANCELLED
+}
+
+enum TrailerPhase {
+  CONCEPT          // Concept & brief definition
+  SCRIPT           // Script, narration, dialogue
+  VISUAL_DESIGN    // Character design, environments, color palette
+  STORYBOARD       // Scene-by-scene storyboard
+  PRODUCTION       // AI video generation per scene
+  AUDIO            // Music, sound design, voiceover
+  POST_PRODUCTION  // Color grading, VFX, transitions
+  ASSEMBLY         // Final editing and assembly
+}
+
+enum TrailerDuration {
+  TEASER_15S       // 15 second teaser
+  TEASER_30S       // 30 second teaser
+  STANDARD_60S     // Standard 1 minute
+  EXTENDED_90S     // Extended 90 seconds
+  FULL_120S        // Full 2 minute trailer
+}
+
+enum TrailerTaskType {
+  // Phase: CONCEPT
+  CONCEPT_BRIEF
+  TARGET_AUDIENCE
+  REFERENCE_MOOD_BOARD
+  GENRE_TONE_DEFINITION
+  // Phase: SCRIPT
+  TRAILER_STRUCTURE
+  NARRATION_SCRIPT
+  DIALOGUE_SNIPPETS
+  KEY_MOMENTS
+  // Phase: VISUAL_DESIGN
+  CHARACTER_DESIGN_MAIN
+  CHARACTER_DESIGN_SECONDARY
+  ENVIRONMENT_DESIGN
+  PROPS_DESIGN
+  COLOR_PALETTE_DESIGN
+  TYPOGRAPHY_TITLES
+  // Phase: STORYBOARD
+  SCENE_STORYBOARD_HOOK
+  SCENE_STORYBOARD_INTRO
+  SCENE_STORYBOARD_BUILD
+  SCENE_STORYBOARD_CLIMAX
+  SCENE_STORYBOARD_TAG
+  TRANSITION_PLANNING
+  // Phase: PRODUCTION
+  SCENE_VIDEO_GEN_HOOK
+  SCENE_VIDEO_GEN_INTRO
+  SCENE_VIDEO_GEN_BUILD
+  SCENE_VIDEO_GEN_CLIMAX
+  SCENE_VIDEO_GEN_TAG
+  TITLE_CARD_GEN
+  VFX_OVERLAY_GEN
+  // Phase: AUDIO
+  MUSIC_SELECTION
+  MUSIC_GENERATION
+  SOUND_EFFECTS
+  VOICEOVER_GEN
+  DIALOGUE_RECORDING
+  // Phase: POST_PRODUCTION
+  COLOR_GRADING
+  VFX_COMPOSITING
+  TRANSITION_EFFECTS
+  SUBTITLE_GEN
+  // Phase: ASSEMBLY
+  ROUGH_CUT
+  FINAL_ASSEMBLY
+  QUALITY_REVIEW
+  EXPORT_FORMATS
+}
+
+enum TrailerMicroTaskStatus {
+  PENDING          // Not started yet
+  BLOCKED          // Waiting for dependencies
+  READY            // Dependencies met, ready to execute
+  GENERATING       // AI is working on it
+  AWAITING_CHOICE  // Waiting for user/community choice
+  IN_REVIEW        // Generated, needs review
+  APPROVED         // Approved, moving on
+  REJECTED         // Rejected, needs redo
+  COMPLETED        // Done
+  SKIPPED          // Skipped by user
+}
+
+enum CreditTxType {
+  PACK_PURCHASE      // Bought a credit pack
+  ADMIN_GRANT        // Admin manually granted credits
+  SUBSCRIPTION_GRANT // Weekly free credits from subscription
+  AI_USAGE           // Used credits for AI generation
+  REFUND             // Refunded credits
+  CONTEST_PRIZE      // Won credits from contest
+  REFERRAL_BONUS     // Referral reward
+  PROMO_CODE         // Promotional code
+  HOLD               // Credits held before AI action
+  HOLD_RELEASE       // Credits refunded from hold overestimate
+  HOLD_OVERAGE       // Additional charge when actual > estimated
+  AUTO_TOPUP         // Auto-topup deposit
+  EXPIRY             // Expired credits
+}
+
+// ============================================
+// V15 — USER FILM PROJECTS (Create Pipeline)
+// ============================================
+
+model UserFilmProject {
+  id              String   @id @default(cuid())
+  userId          String
+  title           String
+  genre           String?
+  logline         String?
+  thumbnail       String?  // URL or base64
+  status          UserFilmStatus @default(DRAFT)
+  completedSteps  String[] // Array of step IDs: ["script","storyboard","casting",...]
+  currentStep     String?  // Current active step
+  isPaid          Boolean  @default(false) // $9 pay-per-use
+  paymentIntentId String?  // Stripe payment intent
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user       User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  script     UserFilmScript?
+  storyboard UserFilmStoryboard?
+  characters UserFilmCharacter[]
+  locations  UserFilmLocation[]
+  stills     UserFilmStill[]
+  videos     UserFilmVideo[]
+  music      UserFilmMusic[]
+
+  @@index([userId, updatedAt])
+}
+
+model UserFilmScript {
+  id          String   @id @default(cuid())
+  projectId   String   @unique
+  content     String   // Full script text
+  genres      String[] // Multi-select genres
+  logline     String?
+  pageCount   Int?
+  aiScore     Json?    // { structure: 72, character: 85, pacing: 68, dialogue: 78 }
+  version     Int      @default(1)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  project UserFilmProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model UserFilmStoryboard {
+  id        String   @id @default(cuid())
+  projectId String   @unique
+  frames    Json     // Array of { id, label, prompt, imageUrl, shotType, aspectRatio, description, order }
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  project UserFilmProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model UserFilmCharacter {
+  id            String   @id @default(cuid())
+  projectId     String
+  name          String
+  role          String?  // protagonist, antagonist, supporting...
+  backstory     String?
+  motivation    String?
+  voiceType     String?
+  photoUrl      String?
+  generatedUrl  String?  // AI-generated portrait
+  dialogueLines Int      @default(0)
+  screenTime    String?  // "5-10 min", "10-20 min"...
+  sortOrder     Int      @default(0)
+  // Marketplace
+  isOnMarketplace Boolean @default(false)
+  marketplacePrice Float?  // Min €1
+  marketplaceTags  String[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  project     UserFilmProject          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  purchases   CharacterPurchase[]
+  relationships CharacterRelationship[]
+
+  @@index([projectId])
+  @@index([isOnMarketplace])
+}
+
+model CharacterRelationship {
+  id          String @id @default(cuid())
+  characterId String
+  targetName  String // Name of related character
+  type        String // ally, rival, mentor, love_interest, family, neutral
+
+  character UserFilmCharacter @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@index([characterId])
+}
+
+model CharacterPurchase {
+  id          String   @id @default(cuid())
+  characterId String
+  buyerId     String
+  sellerId    String
+  price       Float
+  commission  Float    // 30% platform fee
+  stripePaymentId String?
+  createdAt   DateTime @default(now())
+
+  character UserFilmCharacter @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  buyer     User              @relation("CharacterBuyer", fields: [buyerId], references: [id])
+  seller    User              @relation("CharacterSeller", fields: [sellerId], references: [id])
+
+  @@index([buyerId])
+  @@index([sellerId])
+}
+
+model UserFilmLocation {
+  id          String   @id @default(cuid())
+  projectId   String
+  name        String
+  description String?
+  imageUrl    String?  // AI-generated or uploaded
+  isSelected  Boolean  @default(false)
+  moodBoard   String[] // Array of image URLs
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  project UserFilmProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model UserFilmStill {
+  id        String   @id @default(cuid())
+  projectId String
+  prompt    String
+  style     String?
+  imageUrl  String
+  isSelected Boolean @default(false)
+  createdAt DateTime @default(now())
+
+  project UserFilmProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model UserFilmVideo {
+  id          String   @id @default(cuid())
+  projectId   String
+  prompt      String?
+  thumbnailUrl String?
+  videoUrl    String?  // When real video gen is available
+  duration    Int?     // Seconds
+  sortOrder   Int      @default(0) // Position in timeline
+  isInTimeline Boolean @default(false)
+  createdAt   DateTime @default(now())
+
+  project UserFilmProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model UserFilmMusic {
+  id        String   @id @default(cuid())
+  projectId String
+  title     String
+  mood      String?
+  tempo     String?  // "slow", "medium", "fast"
+  duration  Int?     // Seconds
+  audioUrl  String?  // When real audio gen is available
+  isSelected Boolean @default(false)
+  createdAt DateTime @default(now())
+
+  project UserFilmProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+// ============================================
+// V15 — TOKEN USAGE & STORAGE TRACKING
+// ============================================
+
+model TokenUsageLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String   // "script_analysis", "image_generation", "video_generation", "music_generation"
+  credits   Int      // Credits consumed
+  projectId String?  // Link to UserFilmProject
+  metadata  Json?    // Extra info (prompt, model used, etc.)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([action])
+}
+
+model StorageUsage {
+  id        String   @id @default(cuid())
+  userId    String
+  fileType  String   // "image", "video", "audio", "script"
+  fileUrl   String
+  sizeBytes BigInt
+  projectId String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+enum UserFilmStatus {
+  DRAFT
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+// ============================================
+// V16 — PRODUCTION SHARES & SMART CONTRACTS
+// ============================================
+
+model ProductionShare {
+  id              String   @id @default(cuid())
+  filmId          String   // Can be CatalogFilm or UserFilmProject
+  userId          String
+  shareType       ShareType
+  percentage      Float    // % of the film they own (e.g. 0.5 = 0.5%)
+  acquiredVia     ShareAcquisition
+  contractAddress String?  // Ethereum smart contract address
+  txHash          String?  // Blockchain transaction hash
+  chainId         Int      @default(1) // 1=Ethereum mainnet, 42161=Arbitrum
+  isLocked        Boolean  @default(true) // Locked until film release
+  lockUntil       DateTime? // When shares unlock
+  canResell       Boolean  @default(false) // No resale — buyback by platform only
+  buybackPrice    Float?   // Platform buyback price if requested
+  pricePaid       Float?   // If acquired via investment
+  currency        String   @default("ETH") // ETH, USDC, USD
+  aiEstimatedPct  Float?   // AI-calculated fair share for workers
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([filmId, userId])
+  @@index([userId])
+}
+
+model RevenueDistribution {
+  id              String   @id @default(cuid())
+  filmId          String
+  totalRevenue    Float
+  distributionDate DateTime
+  contractAddress String?  // Smart contract that executed distribution
+  txHash          String?
+  status          DistributionStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+
+  payouts RevenuePayoutLine[]
+
+  @@index([filmId])
+}
+
+model RevenuePayoutLine {
+  id              String   @id @default(cuid())
+  distributionId  String
+  userId          String
+  sharePercentage Float    // Their % at time of distribution
+  amount          Float    // Amount paid out
+  currency        String   @default("EUR")
+  paymentMethod   V16PaymentMethod @default(FIAT)
+  txHash          String?  // If crypto payment
+  status          V16PayoutStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+
+  distribution RevenueDistribution @relation(fields: [distributionId], references: [id], onDelete: Cascade)
+  user         User                @relation(fields: [userId], references: [id])
+
+  @@index([distributionId])
+  @@index([userId])
+}
+
+model WorkTask {
+  id          String   @id @default(cuid())
+  filmId      String
+  title       String
+  description String?
+  category    TaskCategory
+  difficulty  TaskDifficulty @default(MEDIUM)
+  estimatedMinutes Int @default(30)
+  rewardCash  Float?   // Cash reward in EUR
+  rewardShares Float?  // Production share % offered
+  status      WorkTaskStatus @default(OPEN)
+  assigneeId  String?
+  completedAt DateTime?
+  reviewedBy  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  assignee User? @relation("WorkTaskAssignee", fields: [assigneeId], references: [id])
+
+  @@index([filmId, status])
+  @@index([assigneeId])
+  @@index([category])
+}
+
+model ScenarioSubmission {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  logline     String?
+  content     String   // Full script text
+  genre       String?
+  pageCount   Int?
+  sharePercent      Float   @default(5)  // Base 5% of net film revenue
+  shareTier         String  @default("base") // base=5%, challenge=7%, top10=10%
+  adminOverridePct  Float?  // Admin can manually set any percentage
+  bestVoteRank      Int?    // Highest vote ranking achieved
+  challengeBonus    Boolean @default(false) // Earned challenge bonus
+  status            ScenarioStatus @default(SUBMITTED)
+  reviewNote        String?
+  filmId            String?  // If accepted, links to the film
+  paidAmount        Float?   // $9 submission fee
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+}
+
+model ActInsertion {
+  id          String   @id @default(cuid())
+  userId      String
+  filmId      String
+  photoUrl    String
+  roleType    String   // lead, supporting, cameo, voice, narrator
+  sceneIndex  Int?     // Which scene they appear in
+  quality     String   @default("standard") // standard ($9) or premium ($29)
+  exportUrl   String?  // Generated video URL
+  contractNote String? // On-chain reference for likeness rights
+  status      InsertionStatus @default(PENDING)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([filmId])
+}
+
+// ============================================
+// V17 — VOTING, POINTS & PLATFORM FEES
+// ============================================
+
+model VoteStake {
+  id          String   @id @default(cuid())
+  userId      String
+  filmId      String
+  stakeAmount Int      @default(1)  // Points staked on this vote
+  voteType    String   // "APPROVE" or "REJECT"
+  pointsEarned Int     @default(0) // Points earned if vote aligned with outcome
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([filmId])
+  @@unique([userId, filmId]) // One vote per user per film
+}
+
+model PointsTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  amount      Int      // Positive = earned, negative = spent
+  reason      PointsReason
+  referenceId String?  // filmId, voteId, etc.
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model PlatformFee {
+  id              String   @id @default(cuid())
+  filmId          String
+  creatorId       String   // Film creator's userId
+  isExclusive     Boolean  @default(true) // true = 25% fee, false = 33% fee
+  feePercentage   Float    // 25.0 or 33.0
+  aiVerifiedAt    DateTime? // When AI agent last verified distribution status
+  aiVerifiedStatus String?  // "exclusive_confirmed" | "external_detected" | "pending"
+  externalPlatforms String[] @default([]) // URLs where film was detected
+  totalRevenue    Float    @default(0)
+  platformCut     Float    @default(0) // feePercentage * totalRevenue / 100
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([filmId])
+  @@index([creatorId])
+}
+
+model FilmSubmission {
+  id          String   @id @default(cuid())
+  filmId      String   // Reference to CatalogFilm or UserFilmProject
+  creatorId   String
+  title       String
+  trailerUrl  String?  // Trailer video URL
+  pitchText   String?  // Short pitch
+  votesFor    Int      @default(0)
+  votesAgainst Int     @default(0)
+  totalStaked Int      @default(0) // Total points staked
+  status      FilmSubmissionStatus @default(PENDING_VOTE)
+  reviewedAt  DateTime?
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([creatorId])
+  @@index([status])
+}
+
+// ============================================
+// V18 — PAY-PER-VIEW & VIEW REVENUE
+// ============================================
+
+model PPVPurchase {
+  id          String      @id @default(cuid())
+  userId      String
+  purchaseType PPVType
+  filmId      String?     // null for day pass or pack
+  amount      Float       // EUR amount paid
+  currency    String      @default("EUR")
+  paymentMethod String    @default("stripe") // stripe, crypto, points
+  validUntil  DateTime?   // For day pass
+  filmsRemaining Int?     // For pack (starts at 5)
+  txHash      String?     // Blockchain tx
+  createdAt   DateTime    @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([filmId])
+}
+
+model ViewRevenuePool {
+  id              String   @id @default(cuid())
+  filmId          String
+  periodStart     DateTime // Monthly period
+  periodEnd       DateTime
+  totalViews      Int      @default(0)
+  adRevenue       Float    @default(0)
+  subscriptionRevenue Float @default(0) // Proportional share from sub pool
+  ppvRevenue      Float    @default(0)
+  totalRevenue    Float    @default(0) // Sum of all
+  distributed     Boolean  @default(false)
+  distributedAt   DateTime?
+  createdAt       DateTime @default(now())
+
+  @@index([filmId])
+  @@unique([filmId, periodStart])
+}
+
+// ============================================
+// V19 — TV UNIVERSE
+// ============================================
+
+model TvShow {
+  id              String       @id @default(cuid())
+  title           String
+  slug            String       @unique
+  genre           String
+  host            String?
+  synopsis        String?      @db.Text
+  format          String?      // Talk Show, Game Show, etc.
+  episodeCount    Int          @default(0)
+  seasonCount     Int          @default(1)
+  duration        Int          @default(30) // minutes per episode
+  rating          Float        @default(0)
+  viewCount       Int          @default(0)
+  coverImageUrl   String?
+  status          TvShowStatus @default(CONCEPT)
+  fundingGoal     Float        @default(0)
+  fundingRaised   Float        @default(0)
+  chainId         Int          @default(1) // Ethereum mainnet
+  contractAddress String?
+  creatorId       String?
+  episodes        TvEpisode[]
+  schedules       TvSchedule[]
+  tags            String[]
+  premiered       DateTime?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([genre])
+  @@index([status])
+  @@index([creatorId])
+}
+
+model TvEpisode {
+  id            String   @id @default(cuid())
+  showId        String
+  show          TvShow   @relation(fields: [showId], references: [id], onDelete: Cascade)
+  title         String
+  season        Int      @default(1)
+  episode       Int
+  synopsis      String?  @db.Text
+  duration      Int      @default(30)
+  thumbnailUrl  String?
+  videoUrl      String?
+  viewCount     Int      @default(0)
+  airedAt       DateTime?
+  createdAt     DateTime @default(now())
+
+  @@unique([showId, season, episode])
+  @@index([showId])
+}
+
+model TvSchedule {
+  id        String   @id @default(cuid())
+  showId    String
+  show      TvShow   @relation(fields: [showId], references: [id], onDelete: Cascade)
+  dayOfWeek Int      // 0=Sunday, 6=Saturday
+  startTime String   // "20:00"
+  endTime   String   // "21:00"
+  isLive    Boolean  @default(false)
+  recurring Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([showId])
+  @@index([dayOfWeek])
+}
+
+// Enums
+enum ShareType {
+  INVESTOR    // Bought shares via investment
+  CREATOR     // Original creator/screenwriter
+  WORKER      // Earned via task completion
+  PLATFORM    // Platform's share
+}
+
+enum ShareAcquisition {
+  INVESTMENT
+  TASK_REWARD
+  SCENARIO_SUBMISSION
+  GRANT
+  AIRDROP
+}
+
+enum DistributionStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum V16PayoutStatus {
+  PENDING
+  PROCESSING
+  SENT
+  CONFIRMED
+  FAILED
+}
+
+enum V16PaymentMethod {
+  FIAT        // Bank transfer / Stripe
+  CRYPTO      // Polygon MATIC/USDC
+  SHARES      // Paid in production shares
+}
+
+enum TaskCategory {
+  SCENE_RENDERING
+  CHARACTER_ANIMATION
+  SOUND_DESIGN
+  FINAL_CUT
+  SCRIPT_REVIEW
+  VFX_COMPOSITING
+  VOICE_ACTING
+  MUSIC_COMPOSITION
+  STORYBOARD
+  MARKETING
+}
+
+enum TaskDifficulty {
+  EASY
+  MEDIUM
+  HARD
+  EXPERT
+}
+
+enum WorkTaskStatus {
+  OPEN
+  ASSIGNED
+  IN_PROGRESS
+  IN_REVIEW
+  COMPLETED
+  REJECTED
+}
+
+enum ScenarioStatus {
+  SUBMITTED
+  IN_REVIEW
+  ACCEPTED
+  REJECTED
+  IN_PRODUCTION
+}
+
+enum InsertionStatus {
+  PENDING
+  PROCESSING
+  READY
+  EXPORTED
+  FAILED
+}
+
+enum PointsReason {
+  VOTE_CAST           // Earned by voting
+  VOTE_ALIGNED        // Bonus: vote matched outcome
+  SUBSCRIPTION_CONVERT // Spent to convert to premium
+  DAILY_LOGIN
+  TASK_COMPLETED
+  CHALLENGE_WON
+  ADMIN_GRANT
+}
+
+enum FilmSubmissionStatus {
+  PENDING_VOTE
+  VOTING_ACTIVE
+  APPROVED
+  REJECTED
+  PUBLISHED
+}
+
+enum ViewType {
+  FREE_AD         // Free user watching with ads
+  SUBSCRIPTION    // Premium/Premium+ subscriber
+  PPV_SINGLE      // Paid per view
+  PPV_DAY_PASS    // Day pass holder
+  PPV_PACK        // Film pack holder
+  PREVIEW         // Trailer/preview (no revenue)
+}
+
+enum PPVType {
+  SINGLE_FILM     // €1.99
+  SHORT_FILM      // €0.99
+  DAY_PASS        // €2.99 (24h unlimited)
+  PACK_5          // €6.99 (5 films)
+}
+
+enum TvShowStatus {
+  CONCEPT
+  SCRIPTING
+  PRE_PRODUCTION
+  IN_PRODUCTION
+  POST_PRODUCTION
+  AIRING
+  COMPLETED
+  CANCELLED
+}
+
+// ============================================
+// V19 — WALLET HOLDS (Pre-authorization)
+// ============================================
+
+model WalletHold {
+  id          String   @id @default(cuid())
+  userId      String
+  accountId   String
+  amount      Int                    // Micro-credits held
+  description String?
+  status      WalletHoldStatus @default(ACTIVE)
+  releasedAt  DateTime?
+  actualAmount Int?                  // Actual cost after release
+  refundAmount Int?                  // Difference refunded
+  createdAt   DateTime @default(now())
+
+  user    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account CreditAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+  @@index([accountId])
+}
+
+enum WalletHoldStatus {
+  ACTIVE       // Credits locked, AI call in progress
+  RELEASED     // Hold released, actual cost settled
+  EXPIRED      // Hold expired (timeout)
+  FAILED       // AI call failed, full refund
+}
+
+// ============================================
+// V19 — AI USAGE LOG (Detailed billing analytics)
+// ============================================
+
+model AIUsageLog {
+  id             String   @id @default(cuid())
+  userId         String
+  accountId      String?
+  requestId      String   @unique @default(cuid()) // Idempotency key
+  // AI details
+  provider       String                // "anthropic", "runway", "replicate", "openai", "elevenlabs"
+  model          String                // "claude-sonnet-4-20250514", "gen-3-alpha", etc.
+  action         String                // "script_analysis", "image_gen", "video_gen", "music_gen"
+  // Token counts
+  inputTokens    Int      @default(0)
+  outputTokens   Int      @default(0)
+  totalTokens    Int      @default(0)
+  // Billing (all in micro-credits: 1 credit = 1,000,000 micro-credits)
+  costCredits    Int      @default(0)  // Raw AI cost
+  billedCredits  Int      @default(0)  // What user was charged (cost + margin)
+  marginCredits  Int      @default(0)  // Platform margin (billedCredits - costCredits)
+  marginPercent  Float    @default(0)  // Margin % applied (0 for launch)
+  // Performance
+  durationMs     Int?                  // How long the AI call took
+  success        Boolean  @default(true)
+  errorMessage   String?
+  // Context
+  filmProjectId  String?              // Related film project
+  holdId         String?              // Related wallet hold
+  metadata       Json?                // Extra context
+  createdAt      DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([provider, model])
+  @@index([action])
+  @@index([createdAt])
+}
+
+// ============================================
+// V20 — AI CINEMA AGENTS
+// ============================================
+
+model AgentDefinition {
+  id              String        @id @default(cuid())
+  slug            String        @unique         // "cg-scenariste"
+  name            String                        // "Scénariste"
+  nameEn          String?                       // "Screenwriter"
+  description     String                        // Full description
+  descriptionEn   String?
+  tier            AgentTier                     // L1, L2, L3
+  category        AgentCategory                 // WRITING, DIRECTING, etc.
+  defaultModel    String        @default("claude-sonnet-4-6")  // AI model to use
+  systemPrompt    String        @db.Text        // System prompt for this agent
+  icon            String        @default("film")              // Lucide icon name
+  color           String        @default("#E50914")           // Accent color
+  isActive        Boolean       @default(true)
+  isMarketplace   Boolean       @default(false)               // Template from marketplace
+  // Capabilities
+  capabilities    String[]      @default([])                   // ["screenplay", "dialogue", "synopsis"]
+  inputTypes      String[]      @default(["text"])             // ["text", "image", "document"]
+  outputTypes     String[]      @default(["text"])             // ["text", "image", "structured"]
+  // Defaults
+  maxTokens       Int           @default(4096)
+  temperature     Float         @default(0.7)
+  // Stats
+  totalExecutions Int           @default(0)
+  avgRating       Float         @default(0)
+  // Metadata
+  tags            String[]      @default([])
+  metadata        Json?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  executions AgentExecution[]
+  favorites  AgentFavorite[]
+
+  @@index([tier])
+  @@index([category])
+  @@index([isActive])
+  @@index([slug])
+}
+
+model AgentExecution {
+  id              String              @id @default(cuid())
+  userId          String
+  agentId         String
+  // Request
+  prompt          String              @db.Text
+  context         Json?                              // Film project context, previous outputs, etc.
+  // Response
+  response        String?             @db.Text
+  // Execution details
+  status          AgentExecutionStatus @default(PENDING)
+  model           String?                             // Actual model used
+  inputTokens     Int                 @default(0)
+  outputTokens    Int                 @default(0)
+  costCredits     Int                 @default(0)     // Micro-credits charged
+  durationMs      Int?
+  errorMessage    String?
+  // User preferences snapshot
+  preferences     Json?                               // Captured at execution time
+  // Relations
+  filmProjectId   String?
+  parentId        String?                             // For chained executions
+  // Rating
+  rating          Int?                                // 1-5 user rating
+  feedback        String?
+  // Timestamps
+  startedAt       DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime            @default(now())
+
+  user    User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  agent   AgentDefinition @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  parent  AgentExecution? @relation("ExecutionChain", fields: [parentId], references: [id])
+  children AgentExecution[] @relation("ExecutionChain")
+
+  @@index([userId, createdAt])
+  @@index([agentId])
+  @@index([status])
+  @@index([filmProjectId])
+}
+
+model AgentFavorite {
+  id        String   @id @default(cuid())
+  userId    String
+  agentId   String
+  pinOrder  Int      @default(0)          // For ordering pinned agents
+  createdAt DateTime @default(now())
+
+  user  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  agent AgentDefinition @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, agentId])
+  @@index([userId])
+}
+
+model AgentPreferences {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  // 6 curseurs (0-100)
+  formality     Int      @default(50)  // 0=très casual, 100=très formel
+  length        Int      @default(50)  // 0=concis, 100=très détaillé
+  creativity    Int      @default(60)  // 0=conservateur, 100=très créatif
+  proactivity   Int      @default(50)  // 0=réactif seulement, 100=très proactif
+  expertise     Int      @default(50)  // 0=débutant, 100=expert technique
+  humor         Int      @default(20)  // 0=sérieux, 100=humoristique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum AgentTier {
+  L1_EXECUTION     // Sonnet — task execution
+  L2_MANAGEMENT    // Opus — coordination & management
+  L3_STRATEGY      // Opus + Extended Thinking — strategic decisions
+}
+
+enum AgentCategory {
+  WRITING          // Script, dialogue
+  DIRECTING        // Artistic direction
+  PRODUCTION       // Budget, planning
+  CASTING          // Character casting
+  CINEMATOGRAPHY   // Visual choices
+  EDITING          // Montage, rhythm
+  MUSIC            // Composition, sound
+  VFX              // Visual effects
+  SOUND            // Sound design
+  MARKETING        // Promotion, launch
+  MANAGEMENT       // Coordination (L2)
+  STRATEGY         // Strategic decisions (L3)
+  MARKETPLACE      // Community templates
+}
+
+enum AgentExecutionStatus {
+  PENDING          // Queued
+  RUNNING          // In progress
+  PAUSED           // Paused by user
+  COMPLETED        // Done successfully
+  FAILED           // Error occurred
+  CANCELLED        // Cancelled by user
+}
+
+// ============================================
+// V21 — CHAT & CONVERSATIONS
+// ============================================
+
+model Conversation {
+  id            String   @id @default(cuid())
+  userId        String
+  agentSlug     String                        // Which agent this conversation is with
+  title         String?                       // Auto-generated or user-set
+  // Context
+  filmProjectId String?                       // Optional: link to a film project
+  metadata      Json?                         // Extra context data
+  // Status
+  isArchived    Boolean  @default(false)
+  isPinned      Boolean  @default(false)
+  messageCount  Int      @default(0)
+  totalTokens   Int      @default(0)          // Running token count
+  totalCost     Int      @default(0)          // Running cost in micro-credits
+  // Timestamps
+  lastMessageAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages ChatMessage[]
+
+  @@index([userId, updatedAt])
+  @@index([userId, agentSlug])
+  @@index([agentSlug])
+}
+
+model ChatMessage {
+  id              String        @id @default(cuid())
+  conversationId  String
+  userId          String
+  // Content
+  role            ChatRole                    // USER, ASSISTANT, SYSTEM
+  content         String        @db.Text
+  // AI metadata (only for ASSISTANT messages)
+  model           String?
+  agentSlug       String?
+  inputTokens     Int           @default(0)
+  outputTokens    Int           @default(0)
+  costCredits     Int           @default(0)   // Micro-credits
+  durationMs      Int?
+  // Caching
+  cacheHit        Boolean       @default(false)  // Was this served from cache?
+  promptCacheHit  Boolean       @default(false)  // Did Anthropic prompt caching activate?
+  cachedTokens    Int           @default(0)      // Tokens saved by prompt caching
+  // Status
+  status          ChatMessageStatus @default(COMPLETED)
+  errorMessage    String?
+  // Metadata
+  metadata        Json?
+  createdAt       DateTime      @default(now())
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, createdAt])
+  @@index([userId])
+}
+
+model DailyBudget {
+  id          String   @id @default(cuid())
+  userId      String
+  date        DateTime @db.Date                // The day this budget is for
+  limit       Int      @default(100000000)      // 100 credits default daily limit (in micro-credits)
+  used        Int      @default(0)              // Micro-credits used today
+  requestCount Int     @default(0)              // Number of requests today
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@index([userId, date])
+}
+
+// ============================================
+// V21 — MULTI-AGENT MEETINGS
+// ============================================
+
+model AgentMeeting {
+  id              String   @id @default(cuid())
+  title           String
+  topic           String   @db.Text              // What the meeting is about
+  filmProjectId   String?
+  status          MeetingStatus @default(PENDING)
+  // Output
+  transcript      String?  @db.Text              // Full meeting transcript
+  summary         String?  @db.Text              // Structured summary/minutes
+  decisions       Json?                           // Key decisions made
+  actionItems     Json?                           // Follow-up actions
+  // Stats
+  totalTokens     Int      @default(0)
+  totalCost       Int      @default(0)
+  durationMs      Int?
+  roundCount      Int      @default(0)            // Number of discussion rounds
+  // Timestamps
+  startedAt       DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime @default(now())
+
+  participants MeetingParticipant[]
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model MeetingParticipant {
+  id          String   @id @default(cuid())
+  meetingId   String
+  userId      String
+  agentSlug   String                              // Which agent is participating
+  role        String?                             // "moderator", "contributor", etc.
+  messageCount Int     @default(0)
+  createdAt   DateTime @default(now())
+
+  meeting AgentMeeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  user    User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([meetingId, agentSlug])
+  @@index([meetingId])
+  @@index([userId])
+}
+
+enum ChatRole {
+  USER
+  ASSISTANT
+  SYSTEM
+}
+
+enum ChatMessageStatus {
+  STREAMING      // Currently being streamed
+  COMPLETED      // Successfully completed
+  FAILED         // Error occurred
+  CANCELLED      // Cancelled by user
+}
+
+enum MeetingStatus {
+  PENDING        // Not started
+  IN_PROGRESS    // Agents are discussing
+  COMPLETED      // Meeting finished with summary
+  FAILED         // Error occurred
+  CANCELLED      // Cancelled by user
+}
+
+// ============================================
+// V22 — AUTOPILOT & GOVERNANCE
+// ============================================
+
+model AutopilotProposal {
+  id              String                @id @default(cuid())
+  // Who proposed
+  createdById     String?                              // User or null if system/agent
+  agentSlug       String?                              // Which agent proposed this
+  // What
+  actionType      AutopilotActionType
+  title           String
+  description     String                @db.Text
+  payload         Json                                 // Action parameters
+  // Risk & Priority
+  severity        ProposalSeverity      @default(INFO)
+  riskScore       Int                   @default(0)    // 0-100
+  riskAnalysis    String?               @db.Text       // Why this risk level
+  // Rollback
+  snapshotBefore  Json?                                // State before execution for rollback
+  rollbackPayload Json?                                // How to undo
+  // Review
+  status          AutopilotStatus       @default(DRAFT)
+  reviewedById    String?
+  reviewNote      String?
+  reviewedAt      DateTime?
+  // Execution
+  executionResult Json?
+  executionError  String?
+  executedAt      DateTime?
+  rolledBackAt    DateTime?
+  // Telegram
+  telegramMessageId Int?                               // Message ID for inline buttons
+  telegramChatId    String?                            // Chat ID where sent
+  // Rate limiting
+  isUrgent        Boolean               @default(false)
+  // Timestamps
+  expiresAt       DateTime?                            // Auto-deny after this
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  createdBy  User? @relation("ProposalCreator", fields: [createdById], references: [id])
+  reviewedBy User? @relation("ProposalApprover", fields: [reviewedById], references: [id])
+
+  @@index([status])
+  @@index([createdById])
+  @@index([actionType])
+  @@index([severity])
+  @@index([createdAt])
+}
+
+model AutopilotAudit {
+  id            String          @id @default(cuid())
+  auditorType   AuditorType                          // HEALTH, BUSINESS, SECURITY
+  status        AuditStatus     @default(RUNNING)
+  // Results
+  findings      Json?                                // Array of findings
+  score         Int?                                 // 0-100 overall score
+  summary       String?         @db.Text
+  recommendations Json?                              // Suggested actions
+  // Metrics
+  checksRun     Int             @default(0)
+  issuesFound   Int             @default(0)
+  criticalCount Int             @default(0)
+  warningCount  Int             @default(0)
+  // Timing
+  durationMs    Int?
+  startedAt     DateTime        @default(now())
+  completedAt   DateTime?
+  createdAt     DateTime        @default(now())
+
+  @@index([auditorType])
+  @@index([createdAt])
+}
+
+model FeatureFlag {
+  id          String   @id @default(cuid())
+  key         String   @unique                       // "enable_ai_chat", "maintenance_mode"
+  value       Boolean  @default(false)
+  description String?
+  changedBy   String?                                // Who last changed it
+  changedAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([key])
+}
+
+enum AutopilotActionType {
+  TOGGLE_FEATURE_FLAG
+  UPDATE_AGENT_CONFIG
+  APPROVE_CAMPAIGN
+  UPDATE_USER_TIER
+  SEND_NOTIFICATION
+  CREATE_PROMO_CODE
+  TRIGGER_CRON
+  MODIFY_BILLING_PARAM
+  PUBLISH_CONTENT
+  PROMOTE_FILM
+}
+
+enum AutopilotStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  DENIED
+  EXECUTING
+  COMPLETED
+  FAILED
+  ROLLED_BACK
+}
+
+enum ProposalSeverity {
+  INFO
+  WARNING
+  CRITICAL
+  URGENT
+}
+
+enum AuditorType {
+  HEALTH
+  BUSINESS
+  SECURITY
+}
+
+enum AuditStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+}
