@@ -61,7 +61,7 @@ export default function MaintenancePage() {
 
         {/* Contact */}
         <p className="mt-6 text-xs text-white/30">
-          Contact : <a href="mailto:contact@cinegen.studio" className="text-[#E50914]/60 hover:text-[#E50914] transition-colors">contact@cinegen.studio</a>
+          Contact : <a href="mailto:contact@cinegeny.studio" className="text-[#E50914]/60 hover:text-[#E50914] transition-colors">contact@cinegeny.studio</a>
         </p>
       </div>
 

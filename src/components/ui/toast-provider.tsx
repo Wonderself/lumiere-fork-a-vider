@@ -13,7 +13,7 @@ export function ToastProvider() {
           border: '1px solid rgba(255,255,255,0.1)',
           fontSize: '13px',
         },
-        className: 'cinegen-toast',
+        className: 'cinegeny-toast',
       }}
       richColors
       closeButton

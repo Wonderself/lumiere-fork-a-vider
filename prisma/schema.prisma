@@ -148,7 +148,7 @@ model Film {
   description     String?
   synopsis        String?
   genre           String?
-  catalog         Catalog    @default(LUMIERE)
+  catalog         Catalog    @default(CINEGENY)
   status          FilmStatus @default(DRAFT)
   coverImageUrl   String?
   trailerUrl      String?
@@ -163,6 +163,7 @@ model Film {
   phases  FilmPhase[]
   tasks   Task[]
   votes   FilmVote[]
+  ipVotes FilmIpVote[]
   backers FilmBacker[]
 
   // V4 — Tokenization
@@ -340,6 +341,21 @@ model FilmVote {
   user User @relation(fields: [userId], references: [id])
 
   @@unique([filmId, userId, voteType])
+}
+
+// Anonymous, IP-scoped film vote — one vote per IP per film (greenlight poll)
+model FilmIpVote {
+  id        String   @id @default(cuid())
+  filmId    String
+  ip        String
+  voteType  String   // "up" | "down"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  film Film @relation(fields: [filmId], references: [id], onDelete: Cascade)
+
+  @@unique([filmId, ip])
+  @@index([filmId])
 }
 
 // ============================================
@@ -571,7 +587,7 @@ enum Level {
 }
 
 enum Catalog {
-  LUMIERE
+  CINEGENY
   RUPPIN
   BIBLE
   ACTION

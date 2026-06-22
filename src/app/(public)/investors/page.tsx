@@ -472,8 +472,8 @@ export default function InvestorsPage() {
       '@type': 'Organization',
       name: 'CineGeny Pictures / CINEGENY',
       description: 'Premier Studio AI-Native — Tech Company qui produit des films',
-      url: 'https://cinegen.studio',
-      email: 'invest@cinegen.studio',
+      url: 'https://cinegeny.studio',
+      email: 'invest@cinegeny.studio',
       foundingDate: '2025',
       location: [
         { '@type': 'Place', name: 'Paris, France' },
@@ -595,7 +595,7 @@ export default function InvestorsPage() {
               Découvrir l&apos;opportunité
             </Button>
             <Button variant="outline" size="xl" className="text-base font-semibold" asChild>
-              <a href="mailto:invest@cinegen.studio">Contacter l&apos;équipe</a>
+              <a href="mailto:invest@cinegeny.studio">Contacter l&apos;équipe</a>
             </Button>
           </motion.div>
 
@@ -766,7 +766,7 @@ export default function InvestorsPage() {
                   <div className="mt-6">
                     {phase.status === 'ACTIVE' ? (
                       <Button className="w-full bg-[#D4AF37] hover:bg-[#F4D35E] text-black font-semibold" size="lg" asChild>
-                        <a href="mailto:invest@cinegen.studio?subject=Phase 1 - Family %26 Friends">
+                        <a href="mailto:invest@cinegeny.studio?subject=Phase 1 - Family %26 Friends">
                           Investir maintenant
                         </a>
                       </Button>
@@ -1677,12 +1677,12 @@ export default function InvestorsPage() {
                     className="bg-[#D4AF37] hover:bg-[#F4D35E] text-black font-semibold text-base shadow-[0_0_30px_rgba(212,175,55,0.3)]"
                     asChild
                   >
-                    <a href="mailto:invest@cinegen.studio?subject=Investissement Phase 1 - Family %26 Friends">
+                    <a href="mailto:invest@cinegeny.studio?subject=Investissement Phase 1 - Family %26 Friends">
                       Contacter pour investir
                     </a>
                   </Button>
                   <Button variant="outline" size="xl" className="text-base font-semibold border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37]/10" asChild>
-                    <a href="mailto:invest@cinegen.studio?subject=Deck investisseur">
+                    <a href="mailto:invest@cinegeny.studio?subject=Deck investisseur">
                       Recevoir le deck
                     </a>
                   </Button>
@@ -1690,8 +1690,8 @@ export default function InvestorsPage() {
 
                 {/* Contact info */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-white/40">
-                  <a href="mailto:invest@cinegen.studio" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2">
-                    <span>&#9993;</span> invest@cinegen.studio
+                  <a href="mailto:invest@cinegeny.studio" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2">
+                    <span>&#9993;</span> invest@cinegeny.studio
                   </a>
                   <span className="hidden md:inline text-white/10">|</span>
                   <span className="flex items-center gap-2">

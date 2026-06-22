@@ -72,7 +72,7 @@ export function RegisterForm() {
           <UserPlus className="h-8 w-8 text-[#E50914]" />
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-white font-playfair">
-          <span className="text-shimmer">{role === 'SCREENWRITER' ? t('become_screenwriter') : t('join_cinegen')}</span>
+          <span className="text-shimmer">{role === 'SCREENWRITER' ? t('become_screenwriter') : t('join_cinegeny')}</span>
         </h1>
         <p className="text-white/50 text-sm sm:text-base">
           {role === 'SCREENWRITER'

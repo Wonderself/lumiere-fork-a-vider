@@ -142,7 +142,7 @@ const roadmap: Phase[] = [
       { id: 'v7-4', title: 'Cache & performance', description: 'Redis ISR, images optimisées, Lighthouse 90+', status: 'done', difficulty: 'easy', note: 'Redis getCached sur films, leaderboard, community (2-5 min TTL)' },
       { id: 'v7-5', title: 'Monitoring Sentry', description: 'Error tracking, alertes, dashboard performance', status: 'done', difficulty: 'trivial', note: 'instrumentation.ts + global-error.tsx + dynamic import conditionnel' },
       { id: 'v7-6', title: 'Pages légales RGPD', description: 'CGU, confidentialité, cookies — conformes RGPD/CNIL', status: 'done', difficulty: 'trivial', note: '3 pages légales complètes' },
-      { id: 'v7-7', title: 'DNS & domaine custom', description: 'cinegen.studio configuré avec Vercel/Cloudflare', status: 'todo', difficulty: 'easy', note: 'Guide fourni' },
+      { id: 'v7-7', title: 'DNS & domaine custom', description: 'cinegeny.studio configuré avec Vercel/Cloudflare', status: 'todo', difficulty: 'easy', note: 'Guide fourni' },
       { id: 'v7-8', title: 'Notifications temps réel (SSE)', description: 'EventSource push, hook useNotifications, toast live', status: 'done', difficulty: 'easy', note: '/api/notifications/stream + useNotifications hook + auto-reconnect' },
       { id: 'v7-9', title: 'Smart contracts (interfaces)', description: 'Types TypeScript pour Ethereum ERC-20/ERC-721/Governance', status: 'done', difficulty: 'medium', note: 'smart-contracts.ts: 4 contrats, 4 ABIs, config multi-chain' },
       { id: 'v7-10', title: 'Documentation technique', description: 'SECURITY.md, DEPLOYMENT.md, CONTRIBUTING.md', status: 'done', difficulty: 'trivial', note: '3 guides complets pour sécurité, déploiement et contribution' },

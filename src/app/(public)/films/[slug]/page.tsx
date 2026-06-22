@@ -12,6 +12,7 @@ import { FilmTimeline } from '@/components/film-timeline'
 import { SocialShare } from '@/components/social-share'
 import { FilmReviews } from '@/components/film-reviews'
 import { FilmVoteButton } from '@/components/film-vote-button'
+import { getFilmVoteStateAction } from '@/app/actions/film-vote'
 import { WatchlistButton } from '@/components/watchlist-button'
 import { FILMS_BY_SLUG, FILMS_BY_GENRE } from '@/data/films'
 import { getFilmCreditsAction } from '@/app/actions/credits'
@@ -90,7 +91,8 @@ export default async function FilmDetailPage({ params }: Props) {
 type FilmCredit = Awaited<ReturnType<typeof getFilmCreditsAction>>['credits'][number]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] }) {
+async function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] }) {
+  const voteState = await getFilmVoteStateAction(film.id)
   const availableTasks = 0 // Already counted in the main function for DB films
 
   const jsonLd = {
@@ -100,11 +102,11 @@ function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] }) {
     description: film.synopsis || film.description || undefined,
     genre: film.genre || undefined,
     image: film.coverImageUrl || undefined,
-    url: `https://cinegen.studio/films/${film.slug}`,
+    url: `https://cinegeny.studio/films/${film.slug}`,
     productionCompany: {
       '@type': 'Organization',
       name: 'CINEGENY Studio',
-      url: 'https://cinegen.studio',
+      url: 'https://cinegeny.studio',
     },
     dateCreated: film.createdAt.toISOString(),
   }
@@ -141,7 +143,7 @@ function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] }) {
               </h1>
               <div className="mt-3">
                 <SocialShare
-                  url={`https://cinegen.studio/films/${film.slug}`}
+                  url={`https://cinegeny.studio/films/${film.slug}`}
                   title={`${film.title} — Film en Production | CINEGENY`}
                   description={film.synopsis || film.description || undefined}
                 />
@@ -195,7 +197,7 @@ function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] }) {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Tâches dispo', value: availableTasks },
-                { label: 'Votes', value: film._count.votes },
+                { label: 'Votes', value: voteState.total },
                 { label: 'Backers', value: film._count.backers },
                 { label: 'Phases', value: film.phases.length },
               ].map((s) => (
@@ -211,8 +213,9 @@ function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] }) {
               <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-3">Votre avis</p>
               <FilmVoteButton
                 filmId={film.id}
-                initialUpVotes={film._count.votes}
-                className="justify-center"
+                initialUp={voteState.up}
+                initialDown={voteState.down}
+                initialUserVote={voteState.userVote}
               />
             </div>
 
@@ -326,14 +329,14 @@ function CatalogFilmPage({ film }: { film: FilmData }) {
     description: film.synopsis,
     genre: film.genre,
     image: film.coverImageUrl || undefined,
-    url: `https://cinegen.studio/films/${film.slug}`,
+    url: `https://cinegeny.studio/films/${film.slug}`,
     director: { '@type': 'Person', name: film.director },
     duration: film.duration,
     dateCreated: `${film.year}-01-01`,
     productionCompany: {
       '@type': 'Organization',
       name: 'CINEGENY Studio',
-      url: 'https://cinegen.studio',
+      url: 'https://cinegeny.studio',
     },
   }
 
@@ -373,7 +376,7 @@ function CatalogFilmPage({ film }: { film: FilmData }) {
               </div>
               <div className="mt-3">
                 <SocialShare
-                  url={`https://cinegen.studio/films/${film.slug}`}
+                  url={`https://cinegeny.studio/films/${film.slug}`}
                   title={`${film.title} — ${film.genre} | CINEGENY`}
                   description={film.synopsis}
                 />

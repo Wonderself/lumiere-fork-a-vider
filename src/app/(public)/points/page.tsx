@@ -17,12 +17,12 @@ import {
 
 function getUserPoints(): number {
   if (typeof window === 'undefined') return 500
-  return Number(localStorage.getItem('cinegen-user-points') ?? '500')
+  return Number(localStorage.getItem('cinegeny-user-points') ?? '500')
 }
 
 function setUserPoints(pts: number) {
   if (typeof window !== 'undefined') {
-    localStorage.setItem('cinegen-user-points', String(pts))
+    localStorage.setItem('cinegeny-user-points', String(pts))
   }
 }
 

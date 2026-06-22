@@ -175,7 +175,7 @@ export default function EmailStudioPage() {
                 <h3 className="text-sm font-semibold text-white">{sig.name}</h3>
                 <span className="text-[10px] text-white/40">{sig.style}</span>
               </div>
-              <div className="rounded-lg bg-white/[0.03] p-4" dangerouslySetInnerHTML={{ __html: sig.html.replace(/\{name\}/g, 'Votre Nom').replace(/\{title\}/g, 'Votre Titre').replace(/\{email\}/g, 'email@cinegen.com').replace(/\{phone\}/g, '+33 6 12 34 56 78') }} />
+              <div className="rounded-lg bg-white/[0.03] p-4" dangerouslySetInnerHTML={{ __html: sig.html.replace(/\{name\}/g, 'Votre Nom').replace(/\{title\}/g, 'Votre Titre').replace(/\{email\}/g, 'email@cinegeny.com').replace(/\{phone\}/g, '+33 6 12 34 56 78') }} />
             </div>
           ))}
         </div>

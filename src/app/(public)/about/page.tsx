@@ -67,7 +67,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden group ring-1 ring-white/[0.06]">
               <Image
-                src="/images/lumiere-team-startup-office.webp"
+                src="/images/cinegeny-team-startup-office.webp"
                 alt="L'equipe fondatrice de CINEGENY Studio"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -428,7 +428,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden group ring-1 ring-white/[0.06]">
               <Image
-                src="/images/lumiere-office-contact-touch.webp"
+                src="/images/cinegeny-office-contact-touch.webp"
                 alt="Contactez CINEGENY Studio"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

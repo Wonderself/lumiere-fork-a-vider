@@ -56,7 +56,7 @@ export default function PrivacyPage() {
                 SAS au capital de 10 000 &euro;<br />
                 RCS Paris : [à compléter]<br />
                 Siège social : [adresse à compléter], 75000 Paris, France<br />
-                Email : <span className="text-[#E50914]">dpo@cinegen.studio</span><br />
+                Email : <span className="text-[#E50914]">dpo@cinegeny.studio</span><br />
                 Téléphone : [à compléter]
               </p>
             </div>
@@ -351,7 +351,7 @@ export default function PrivacyPage() {
               <p className="text-white/80 leading-relaxed">
                 <strong className="text-[#E50914]">Comment exercer vos droits ?</strong><br />
                 Envoyez votre demande accompagnée d&apos;un justificatif d&apos;identité à :<br />
-                <span className="text-[#E50914]">dpo@cinegen.studio</span><br />
+                <span className="text-[#E50914]">dpo@cinegeny.studio</span><br />
                 Nous nous engageons à répondre dans un délai de 30 jours.
               </p>
             </div>
@@ -380,7 +380,7 @@ export default function PrivacyPage() {
               <p className="text-white/70 leading-relaxed">
                 <strong className="text-white/90">Délégué à la Protection des Données</strong><br />
                 CINEGENY Studio<br />
-                Email : <span className="text-[#E50914]">dpo@cinegen.studio</span><br />
+                Email : <span className="text-[#E50914]">dpo@cinegeny.studio</span><br />
                 Courrier : DPO — CINEGENY Studio, [adresse à compléter], 75000 Paris
               </p>
             </div>
@@ -435,7 +435,7 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-white/70 leading-relaxed mt-4">
               Vous pouvez obtenir une copie des garanties mises en place en contactant notre
-              DPO à l&apos;adresse <span className="text-[#E50914]">dpo@cinegen.studio</span>.
+              DPO à l&apos;adresse <span className="text-[#E50914]">dpo@cinegeny.studio</span>.
             </p>
           </section>
 

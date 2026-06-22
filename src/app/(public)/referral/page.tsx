@@ -16,7 +16,7 @@ export default function ReferralPage() {
   const [referralCount] = useState(3)
 
   async function copyLink() {
-    await navigator.clipboard.writeText(`https://cinegen.com/register?ref=${referralCode}`)
+    await navigator.clipboard.writeText(`https://cinegeny.com/register?ref=${referralCode}`)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
     toast.success('Lien de parrainage copié !')

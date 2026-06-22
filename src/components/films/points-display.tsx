@@ -10,18 +10,18 @@ export function PointsDisplay() {
 
   useEffect(() => {
     setMounted(true)
-    const stored = localStorage.getItem('cinegen-user-points')
+    const stored = localStorage.getItem('cinegeny-user-points')
     if (stored) {
       setPoints(Number(stored))
     } else {
-      localStorage.setItem('cinegen-user-points', '500')
+      localStorage.setItem('cinegeny-user-points', '500')
     }
   }, [])
 
   // Listen for storage changes (cross-tab sync)
   useEffect(() => {
     function handleStorage(e: StorageEvent) {
-      if (e.key === 'cinegen-user-points' && e.newValue) {
+      if (e.key === 'cinegeny-user-points' && e.newValue) {
         setPoints(Number(e.newValue))
       }
     }

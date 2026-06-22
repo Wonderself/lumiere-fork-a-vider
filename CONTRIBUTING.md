@@ -1,4 +1,4 @@
-# Contributing to Lumiere Cinema
+# Contributing to CINEGENY Cinema
 
 > **Bienvenue !** Lumière est un studio de cinéma collaboratif propulsé par l'IA.
 > Ce guide explique comment contribuer au code de la plateforme.
@@ -9,8 +9,8 @@
 
 ```bash
 # 1. Clone
-git clone https://github.com/Wonderself/lumiere-app.git
-cd lumiere-app
+git clone https://github.com/Wonderself/cinegeny-app.git
+cd cinegeny-app
 
 # 2. Install dependencies
 npm install
@@ -36,7 +36,7 @@ npm run dev
 ## Project Structure
 
 ```
-lumiere-app/
+cinegeny-app/
 ├── prisma/              # Database schema + seed
 │   ├── schema.prisma    # 70+ models
 │   └── seed.ts          # 20 films + demo data
@@ -185,13 +185,13 @@ Use `'use client'` only when needed (interactivity, hooks).
 
 ## Getting Help
 
-- **Issues**: https://github.com/Wonderself/lumiere-app/issues
-- **Email**: dev@lumiere.film
+- **Issues**: https://github.com/Wonderself/cinegeny-app/issues
+- **Email**: dev@cinegeny.film
 - **Docs**: `PROJECT_HISTORY.md`, `FEATURES.md`, `FILM_PIPELINE.md`
 
 ---
 
 ## License
 
-All rights reserved — Lumière Brothers SAS / Wonderself.
+All rights reserved — CINEGENY SAS / Wonderself.
 Contributions are welcome under the project's license terms.

@@ -519,7 +519,7 @@ export function FilmRow({ title, films, href, variant = 'default' }: FilmRowProp
                     {/* Logo — top center, very discreet */}
                     <div className="absolute top-1.5 left-0 right-0 flex justify-center">
                       <span className="text-[6px] font-black tracking-[0.2em] text-white/30 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
-                        CINE<span style={{ color: `${genreColor[0]}80` }}>GEN</span>
+                        CINE<span style={{ color: `${genreColor[0]}80` }}>GENY</span>
                       </span>
                     </div>
 

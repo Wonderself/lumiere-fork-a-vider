@@ -1,4 +1,4 @@
-# Lumiere App — Deployment Guide
+# CINEGENY App — Deployment Guide
 
 > **Guide complet pour déployer Lumière Cinema en production.**
 > Infrastructure: Docker + Coolify + Hetzner (ou tout serveur compatible).
@@ -10,7 +10,7 @@
 ```
                  ┌──────────────┐
                  │   Cloudflare  │  DNS + CDN
-                 │  lumiere.film │
+                 │  cinegeny.film │
                  └──────┬───────┘
                         │ HTTPS
                  ┌──────┴───────┐
@@ -51,7 +51,7 @@
 ### Environment Variables
 ```env
 # Required
-DATABASE_URL="postgresql://lumiere:PASSWORD@db:5432/lumiere?sslmode=require"
+DATABASE_URL="postgresql://cinegeny:PASSWORD@db:5432/cinegeny?sslmode=require"
 AUTH_SECRET="your-256-bit-secret-here"
 
 # Optional (graceful degradation if missing)
@@ -66,11 +66,11 @@ CRON_SECRET="your-cron-secret"
 ANTHROPIC_API_KEY="sk-ant-xxxxxxxxxxxx"
 S3_ACCESS_KEY_ID="AKIAXXXXXXXXXXXX"
 S3_SECRET_ACCESS_KEY="xxxxxxxxxxxxxxxx"
-S3_BUCKET="lumiere-uploads"
+S3_BUCKET="cinegeny-uploads"
 S3_REGION="eu-west-3"
 
 # App
-NEXT_PUBLIC_APP_URL="https://cinema.lumiere.film"
+NEXT_PUBLIC_APP_URL="https://cinema.cinegeny.film"
 BLOCKCHAIN_NETWORK="polygon_testnet"
 ```
 
@@ -87,7 +87,7 @@ curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
 ### Step 2: Connect GitHub Repository
 1. Open Coolify dashboard (http://your-server-ip:8000)
 2. Add new resource → GitHub App
-3. Connect `Wonderself/lumiere-app` repository
+3. Connect `Wonderself/cinegeny-app` repository
 4. Select branch: `main`
 
 ### Step 3: Configure Build
@@ -114,7 +114,7 @@ Click "Deploy" — Coolify will:
    - Start Next.js server
 
 ### Step 7: Configure Domain
-1. In Coolify: Set custom domain `cinema.lumiere.film`
+1. In Coolify: Set custom domain `cinema.cinegeny.film`
 2. In Cloudflare: Add A record → your server IP
 3. Traefik auto-generates SSL certificate
 
@@ -136,7 +136,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgresql://lumiere:${DB_PASSWORD}@db:5432/lumiere
+      - DATABASE_URL=postgresql://cinegeny:${DB_PASSWORD}@db:5432/cinegeny
       - AUTH_SECRET=${AUTH_SECRET}
       - REDIS_URL=redis://redis:6379
     depends_on:
@@ -149,13 +149,13 @@ services:
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_DB: lumiere
-      POSTGRES_USER: lumiere
+      POSTGRES_DB: cinegeny
+      POSTGRES_USER: cinegeny
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U lumiere"]
+      test: ["CMD-SHELL", "pg_isready -U cinegeny"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -210,7 +210,7 @@ We must explicitly COPY 13 pg-related packages to the runner stage.
 
 ```bash
 #!/bin/sh
-echo "🎬 Lumiere Cinema — Starting..."
+echo "🎬 CINEGENY Cinema — Starting..."
 
 # Check DATABASE_URL
 if [ -z "$DATABASE_URL" ]; then
@@ -239,7 +239,7 @@ Set up a cron job to call the maintenance endpoint:
 
 ```bash
 # Every 15 minutes — auto-release expired tasks, close contests, complete phases
-*/15 * * * * curl -s "https://cinema.lumiere.film/api/cron?key=YOUR_CRON_SECRET" > /dev/null
+*/15 * * * * curl -s "https://cinema.cinegeny.film/api/cron?key=YOUR_CRON_SECRET" > /dev/null
 ```
 
 In Coolify: Add a scheduled task with the same URL.
@@ -256,14 +256,14 @@ Set `NEXT_PUBLIC_SENTRY_DSN` to enable:
 
 ### Health Check
 ```bash
-curl -f https://cinema.lumiere.film/
+curl -f https://cinema.cinegeny.film/
 # Returns 200 if healthy
 ```
 
 ### Logs
 ```bash
 # Coolify: View logs in dashboard
-# Docker: docker logs -f lumiere-app
+# Docker: docker logs -f cinegeny-app
 ```
 
 ---

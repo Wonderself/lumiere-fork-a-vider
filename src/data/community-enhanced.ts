@@ -90,7 +90,7 @@ export const TEAM_ROLES: TeamRole[] = [
 // ─── Widget Config ──────────────────────────────────────────────────
 
 export const WIDGET_CONFIG = {
-  embedCode: `<script src="https://cinegen.com/widget.js" data-film-id="{FILM_ID}" data-theme="dark"></script>`,
+  embedCode: `<script src="https://cinegeny.com/widget.js" data-film-id="{FILM_ID}" data-theme="dark"></script>`,
   features: ['Chat agents IA', 'Vote communautaire', 'Contributions', 'Commentaires'],
   themes: ['dark', 'light', 'auto'],
   sizes: ['compact', 'standard', 'full'],

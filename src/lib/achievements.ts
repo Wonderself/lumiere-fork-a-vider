@@ -23,7 +23,7 @@ export interface BadgeDefinition {
 export const BADGES: BadgeDefinition[] = [
   // Contribution badges
   {
-    type: 'PREMIERE_LUMIERE',
+    type: 'PREMIERE_CINEGENY',
     name: 'Premiere CINEGENY',
     description: 'Completer sa premiere tache',
     icon: '💡',
@@ -166,9 +166,9 @@ export async function checkTaskBadges(userId: string): Promise<string[]> {
   })
   if (!user) return awarded
 
-  // PREMIERE_LUMIERE — first task completed
+  // PREMIERE_CINEGENY — first task completed
   if (user.tasksCompleted >= 1) {
-    if (await awardBadge(userId, 'PREMIERE_LUMIERE')) awarded.push('PREMIERE_LUMIERE')
+    if (await awardBadge(userId, 'PREMIERE_CINEGENY')) awarded.push('PREMIERE_CINEGENY')
   }
 
   // MARATHONIEN — 10 tasks

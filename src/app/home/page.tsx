@@ -288,10 +288,10 @@ export default async function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'CINEGENY',
-    url: 'https://cinegen.studio',
+    url: 'https://cinegeny.studio',
     description: "Plateforme de cinema collaboratif propulsee par l'IA",
     foundingDate: '2025',
-    sameAs: ['https://github.com/Wonderself/lumiere-app'],
+    sameAs: ['https://github.com/Wonderself/cinegeny-app'],
   }
 
   return (

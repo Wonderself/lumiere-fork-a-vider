@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react'
 
-const STORAGE_KEY = 'cinegen-create-progress'
-const ACTIVE_FILM_KEY = 'cinegen-active-film'
+const STORAGE_KEY = 'cinegeny-create-progress'
+const ACTIVE_FILM_KEY = 'cinegeny-active-film'
 
 /**
  * Hook to manage film creation progress across steps.

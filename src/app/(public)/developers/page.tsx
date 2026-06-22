@@ -15,7 +15,7 @@ type Endpoint = {
   response: string
 }
 
-const BASE_URL = 'https://cinegen.studio/api/v1'
+const BASE_URL = 'https://cinegeny.studio/api/v1'
 
 const endpoints: Endpoint[] = [
   {
@@ -66,7 +66,7 @@ const endpoints: Endpoint[] = [
     "title": "Le Dernier Spectacle",
     "slug": "le-dernier-spectacle",
     "genre": "DRAMA",
-    "catalog": "LUMIERE_ORIGINAL",
+    "catalog": "CINEGENY_ORIGINAL",
     "status": "IN_PRODUCTION",
     "synopsis": "...",
     "coverImageUrl": "...",

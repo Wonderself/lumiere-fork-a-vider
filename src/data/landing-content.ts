@@ -92,21 +92,21 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 // ─── Competitor Comparison ──────────────────────────────────────────
 
-export interface CompetitorFeature { feature: string; cinegen: string; competitor1: string; competitor2: string; competitor3: string }
+export interface CompetitorFeature { feature: string; cinegeny: string; competitor1: string; competitor2: string; competitor3: string }
 
-export const COMPETITORS = { cinegen: 'CineGeny', competitor1: 'Runway ML', competitor2: 'Pika', competitor3: 'Studios traditionnels' }
+export const COMPETITORS = { cinegeny: 'CineGeny', competitor1: 'Runway ML', competitor2: 'Pika', competitor3: 'Studios traditionnels' }
 
 export const COMPARISON_FEATURES: CompetitorFeature[] = [
-  { feature: 'Cinéma participatif', cinegen: '✅ Complet', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Agents IA spécialisés', cinegen: '✅ 113 agents', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Génération vidéo', cinegen: '✅ 7 providers', competitor1: '✅ Propre', competitor2: '✅ Propre', competitor3: '❌' },
-  { feature: 'Mémoire Film (RAG)', cinegen: '✅ 8 catégories', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Commission', cinegen: '✅ 0%', competitor1: '⚠️ Abonnement', competitor2: '⚠️ Crédits', competitor3: '❌ 15-40%' },
-  { feature: 'Crowdfunding intégré', cinegen: '✅ Smart contracts', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Externe' },
-  { feature: 'Chat IA streaming', cinegen: '✅ SSE', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Multi-agent meetings', cinegen: '✅', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Documents juridiques', cinegen: '✅ 8 templates', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Avocat' },
-  { feature: 'Team workspace', cinegen: '✅ 7 rôles', competitor1: '⚠️ Basique', competitor2: '❌', competitor3: '✅' },
+  { feature: 'Cinéma participatif', cinegeny: '✅ Complet', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
+  { feature: 'Agents IA spécialisés', cinegeny: '✅ 113 agents', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
+  { feature: 'Génération vidéo', cinegeny: '✅ 7 providers', competitor1: '✅ Propre', competitor2: '✅ Propre', competitor3: '❌' },
+  { feature: 'Mémoire Film (RAG)', cinegeny: '✅ 8 catégories', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
+  { feature: 'Commission', cinegeny: '✅ 0%', competitor1: '⚠️ Abonnement', competitor2: '⚠️ Crédits', competitor3: '❌ 15-40%' },
+  { feature: 'Crowdfunding intégré', cinegeny: '✅ Smart contracts', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Externe' },
+  { feature: 'Chat IA streaming', cinegeny: '✅ SSE', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
+  { feature: 'Multi-agent meetings', cinegeny: '✅', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
+  { feature: 'Documents juridiques', cinegeny: '✅ 8 templates', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Avocat' },
+  { feature: 'Team workspace', cinegeny: '✅ 7 rôles', competitor1: '⚠️ Basique', competitor2: '❌', competitor3: '✅' },
 ]
 
 // ─── API Pricing (for developers) ───────────────────────────────────

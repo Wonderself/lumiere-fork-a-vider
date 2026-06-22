@@ -1,4 +1,4 @@
-# Lumiere App — Security Policy
+# CINEGENY App — Security Policy
 
 > **Ce document décrit les pratiques de sécurité, les protections en place,
 > et les procédures de réponse aux incidents.**
@@ -191,7 +191,7 @@
 If you discover a security vulnerability:
 
 1. **DO NOT** open a public GitHub issue
-2. Email: **security@lumiere.film**
+2. Email: **security@cinegeny.film**
 3. Include: description, reproduction steps, potential impact
 4. We will respond within 48 hours
 5. Credit will be given in our security changelog

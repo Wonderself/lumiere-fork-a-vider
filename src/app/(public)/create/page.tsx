@@ -9,7 +9,7 @@ import { CREATE_STEPS } from '@/components/create/create-steps'
 import { useCreateProgress } from '@/components/create/use-create-progress'
 
 /* ── My Films localStorage ── */
-const FILMS_STORAGE_KEY = 'cinegen-my-films'
+const FILMS_STORAGE_KEY = 'cinegeny-my-films'
 
 interface UserFilm {
   id: string

@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cinegen.studio'),
+  metadataBase: new URL('https://cinegeny.studio'),
   title: {
     template: '%s | CINEGENY',
     default: 'CINEGENY — The AI Cinema Studio',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: 'CINEGENY',
     title: 'CINEGENY — The AI Cinema Studio',
     description: "Collaborative AI film production, creative micro-tasks, worldwide streaming.",
-    url: 'https://cinegen.studio',
+    url: 'https://cinegeny.studio',
   },
   twitter: {
     card: 'summary_large_image',

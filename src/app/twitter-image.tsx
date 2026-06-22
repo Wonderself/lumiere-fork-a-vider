@@ -146,7 +146,7 @@ export default async function TwitterImage() {
             letterSpacing: '3px',
           }}
         >
-          cinegen.studio
+          cinegeny.studio
         </div>
       </div>
     ),

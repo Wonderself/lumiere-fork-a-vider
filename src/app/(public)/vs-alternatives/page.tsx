@@ -16,7 +16,7 @@ export default function VsAlternativesPage() {
           <table className="w-full min-w-[700px]">
             <thead><tr className="border-b border-gray-800">
               <th className="text-left text-xs text-gray-500 px-6 py-4">Feature</th>
-              <th className="text-center text-xs font-bold text-[#E50914] px-6 py-4 bg-[#E50914]/5">{COMPETITORS.cinegen}</th>
+              <th className="text-center text-xs font-bold text-[#E50914] px-6 py-4 bg-[#E50914]/5">{COMPETITORS.cinegeny}</th>
               <th className="text-center text-xs text-gray-400 px-6 py-4">{COMPETITORS.competitor1}</th>
               <th className="text-center text-xs text-gray-400 px-6 py-4">{COMPETITORS.competitor2}</th>
               <th className="text-center text-xs text-gray-400 px-6 py-4">{COMPETITORS.competitor3}</th>
@@ -25,7 +25,7 @@ export default function VsAlternativesPage() {
               {COMPARISON_FEATURES.map(row => (
                 <tr key={row.feature} className="hover:bg-gray-800/30">
                   <td className="text-sm text-white px-6 py-3">{row.feature}</td>
-                  <td className="text-center text-sm px-6 py-3 bg-[#E50914]/5">{row.cinegen}</td>
+                  <td className="text-center text-sm px-6 py-3 bg-[#E50914]/5">{row.cinegeny}</td>
                   <td className="text-center text-sm text-gray-400 px-6 py-3">{row.competitor1}</td>
                   <td className="text-center text-sm text-gray-400 px-6 py-3">{row.competitor2}</td>
                   <td className="text-center text-sm text-gray-400 px-6 py-3">{row.competitor3}</td>

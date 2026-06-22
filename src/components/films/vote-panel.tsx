@@ -22,7 +22,7 @@ const STAKE_OPTIONS = [1, 5, 10, 25, 50]
 function getStoredVote(slug: string): StoredVote | null {
   if (typeof window === 'undefined') return null
   try {
-    const raw = localStorage.getItem(`cinegen-votes-${slug}`)
+    const raw = localStorage.getItem(`cinegeny-votes-${slug}`)
     return raw ? (JSON.parse(raw) as StoredVote) : null
   } catch {
     return null
@@ -31,18 +31,18 @@ function getStoredVote(slug: string): StoredVote | null {
 
 function storeVote(slug: string, vote: StoredVote) {
   if (typeof window === 'undefined') return
-  localStorage.setItem(`cinegen-votes-${slug}`, JSON.stringify(vote))
+  localStorage.setItem(`cinegeny-votes-${slug}`, JSON.stringify(vote))
 }
 
 function deductPoints(amount: number) {
   if (typeof window === 'undefined') return
-  const current = Number(localStorage.getItem('cinegen-user-points') ?? '500')
-  localStorage.setItem('cinegen-user-points', String(Math.max(0, current - amount)))
+  const current = Number(localStorage.getItem('cinegeny-user-points') ?? '500')
+  localStorage.setItem('cinegeny-user-points', String(Math.max(0, current - amount)))
 }
 
 function getUserPoints(): number {
   if (typeof window === 'undefined') return 500
-  return Number(localStorage.getItem('cinegen-user-points') ?? '500')
+  return Number(localStorage.getItem('cinegeny-user-points') ?? '500')
 }
 
 export function VotePanel({

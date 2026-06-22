@@ -60,8 +60,8 @@ Ouvrir [http://localhost:3000](http://localhost:3000)
 
 | Rôle | Email | Mot de passe |
 |------|-------|-------------|
-| Admin | admin@lumiere.film | Admin1234! |
-| Contributeur | contributeur@lumiere.film | Test1234! |
+| Admin | admin@cinegeny.film | Admin1234! |
+| Contributeur | contributeur@cinegeny.film | Test1234! |
 
 ## Commandes Utiles
 

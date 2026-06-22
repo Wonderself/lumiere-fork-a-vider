@@ -9,7 +9,7 @@ const adapter = new PrismaPg(pool)
 const prisma = new PrismaClient({ adapter })
 
 async function main() {
-  const email = 'test-register@lumiere.film'
+  const email = 'test-register@cinegeny.film'
 
   // Clean up if exists
   await prisma.user.deleteMany({ where: { email } })

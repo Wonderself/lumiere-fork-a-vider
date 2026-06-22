@@ -246,17 +246,17 @@ interface CompRow {
   label: string
   hollywood: string | null
   netflix: string | null
-  cinegen: string | null
-  cinegenHighlight?: boolean
+  cinegeny: string | null
+  cinegenyHighlight?: boolean
 }
 
 const compRows: CompRow[] = [
-  { label: 'Cout par film', hollywood: '5-200M\u20AC', netflix: '5-50M\u20AC', cinegen: '25K\u20AC', cinegenHighlight: true },
-  { label: 'Delai', hollywood: '2-5 ans', netflix: '6-18 mois', cinegen: '3 mois', cinegenHighlight: true },
-  { label: 'Qui decide', hollywood: 'Studios / Banques', netflix: 'Algorithmes', cinegen: 'La communaute', cinegenHighlight: true },
-  { label: 'Participation', hollywood: 'Ferme aux elites', netflix: 'Abonnes passifs', cinegen: 'Tout le monde cree', cinegenHighlight: true },
-  { label: 'Intelligence Artificielle', hollywood: 'Opposition', netflix: 'Usage interne', cinegen: 'Outil transparent', cinegenHighlight: true },
-  { label: 'Blockchain / Web3', hollywood: null, netflix: null, cinegen: 'Full integration', cinegenHighlight: true },
+  { label: 'Cout par film', hollywood: '5-200M\u20AC', netflix: '5-50M\u20AC', cinegeny: '25K\u20AC', cinegenyHighlight: true },
+  { label: 'Delai', hollywood: '2-5 ans', netflix: '6-18 mois', cinegeny: '3 mois', cinegenyHighlight: true },
+  { label: 'Qui decide', hollywood: 'Studios / Banques', netflix: 'Algorithmes', cinegeny: 'La communaute', cinegenyHighlight: true },
+  { label: 'Participation', hollywood: 'Ferme aux elites', netflix: 'Abonnes passifs', cinegeny: 'Tout le monde cree', cinegenyHighlight: true },
+  { label: 'Intelligence Artificielle', hollywood: 'Opposition', netflix: 'Usage interne', cinegeny: 'Outil transparent', cinegenyHighlight: true },
+  { label: 'Blockchain / Web3', hollywood: null, netflix: null, cinegeny: 'Full integration', cinegenyHighlight: true },
 ]
 
 function CellIcon({ value }: { value: string | null }) {
@@ -324,12 +324,12 @@ export function ComparisonTable() {
               )}
             </div>
             <div className="p-6 md:p-7 flex items-center justify-center border-l border-[#E50914]/10 bg-[#E50914]/[0.03]">
-              {row.cinegen ? (
-                <p className={`text-[11px] md:text-[12px] text-center font-bold ${row.cinegenHighlight ? 'text-[#E50914]' : 'text-white/60'}`}>
-                  {row.cinegen}
+              {row.cinegeny ? (
+                <p className={`text-[11px] md:text-[12px] text-center font-bold ${row.cinegenyHighlight ? 'text-[#E50914]' : 'text-white/60'}`}>
+                  {row.cinegeny}
                 </p>
               ) : (
-                <CellIcon value={row.cinegen} />
+                <CellIcon value={row.cinegeny} />
               )}
             </div>
           </div>

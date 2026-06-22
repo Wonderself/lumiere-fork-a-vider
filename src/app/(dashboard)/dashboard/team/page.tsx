@@ -30,7 +30,7 @@ export default function TeamPage() {
   const [inviteEmail, setInviteEmail] = useState('')
   const [inviteRole, setInviteRole] = useState('contributor')
   const [copied, setCopied] = useState(false)
-  const inviteLink = 'https://cinegen.com/invite/abc123xyz'
+  const inviteLink = 'https://cinegeny.com/invite/abc123xyz'
 
   function sendInvite() {
     if (!inviteEmail.trim()) { toast.error('Email requis'); return }

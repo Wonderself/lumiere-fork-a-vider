@@ -51,8 +51,8 @@ export default function AdminSocialPage() {
 
     const posts = [
       { platform: 'twitter', content: `🎬 ${topic}\n\nLa plateforme de cinéma participatif #CineGeny continue d'innover. Rejoignez la communauté et créez votre film avec l'IA.\n\n#cinema #IA #filmmaking` },
-      { platform: 'linkedin', content: `🎬 ${topic}\n\nChez CineGeny, nous démocratisons la création cinématographique grâce à l'IA.\n\n${topic} — une avancée majeure pour notre communauté de créateurs.\n\nPoints clés :\n• Innovation technologique\n• Communauté grandissante\n• 0% de commission sur les tokens IA\n\nRejoignez-nous : cinegen.com\n\n#CinemaParticipatif #IntelligenceArtificielle #Innovation` },
-      { platform: 'instagram', content: `🎬 ${topic}\n\n✨ CineGeny repousse les limites de la création cinématographique.\n\n🎥 Créez votre film avec l'IA\n🤖 22 agents spécialisés cinéma\n💰 0% de commission\n\nLien en bio 👆\n\n#cinegen #cinema #ia #filmmaking #creativecommunity` },
+      { platform: 'linkedin', content: `🎬 ${topic}\n\nChez CineGeny, nous démocratisons la création cinématographique grâce à l'IA.\n\n${topic} — une avancée majeure pour notre communauté de créateurs.\n\nPoints clés :\n• Innovation technologique\n• Communauté grandissante\n• 0% de commission sur les tokens IA\n\nRejoignez-nous : cinegeny.com\n\n#CinemaParticipatif #IntelligenceArtificielle #Innovation` },
+      { platform: 'instagram', content: `🎬 ${topic}\n\n✨ CineGeny repousse les limites de la création cinématographique.\n\n🎥 Créez votre film avec l'IA\n🤖 22 agents spécialisés cinéma\n💰 0% de commission\n\nLien en bio 👆\n\n#cinegeny #cinema #ia #filmmaking #creativecommunity` },
     ]
 
     setGeneratedPosts(platform === 'all' ? posts : posts.filter(p => p.platform === platform))

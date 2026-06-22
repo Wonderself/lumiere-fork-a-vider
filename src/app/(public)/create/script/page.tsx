@@ -149,7 +149,7 @@ const FORMATTING_BUTTONS = [
   { label: 'Transition', icon: ChevronsRight, insert: '\n                                                      CUT TO:\n\n' },
 ]
 
-const AUTOSAVE_KEY = 'cinegen-script-draft'
+const AUTOSAVE_KEY = 'cinegeny-script-draft'
 
 /* ── Helper: letter grade color ── */
 function gradeColor(grade: string) {

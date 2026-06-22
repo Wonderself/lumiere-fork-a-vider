@@ -12,7 +12,7 @@ import { randomBytes } from 'crypto'
 import path from 'path'
 
 // ─── Configuration ──────────────────────────────────────────
-const BUCKET = process.env.S3_BUCKET || 'cinegen-uploads'
+const BUCKET = process.env.S3_BUCKET || 'cinegeny-uploads'
 const REGION = process.env.S3_REGION || 'eu-west-3'
 const ENDPOINT = process.env.S3_ENDPOINT // Custom endpoint for R2/MinIO/Supabase
 const MAX_FILE_SIZE = 500 * 1024 * 1024 // 500MB max

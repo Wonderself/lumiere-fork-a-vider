@@ -27,7 +27,7 @@ export default function RewardsPage() {
   const referralCode = 'CINEGENY-ABC123'
 
   async function copyReferral() {
-    await navigator.clipboard.writeText(`https://cinegen.com/register?ref=${referralCode}`)
+    await navigator.clipboard.writeText(`https://cinegeny.com/register?ref=${referralCode}`)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
     toast.success('Lien de parrainage copié !')

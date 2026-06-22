@@ -273,7 +273,7 @@ export async function pickScenarioWinnerAction(formData: FormData) {
         slug: filmSlug,
         synopsis: proposal.synopsis || proposal.logline,
         genre: proposal.genre || null,
-        catalog: 'LUMIERE',
+        catalog: 'CINEGENY',
         status: 'DRAFT',
         isPublic: false,
         phases: {

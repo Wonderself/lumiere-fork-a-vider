@@ -208,7 +208,7 @@ export default async function FilmsPage({
                           &#9679; {FILM_STATUS_LABELS[film.status]}
                         </span>
                       </div>
-                      {film.catalog && film.catalog !== 'LUMIERE' && (
+                      {film.catalog && film.catalog !== 'CINEGENY' && (
                         <div className="absolute top-3 left-3">
                           <span className="text-xs bg-white/10 text-white/60 rounded px-2 py-0.5 border border-white/10">
                             {CATALOG_LABELS[film.catalog]}

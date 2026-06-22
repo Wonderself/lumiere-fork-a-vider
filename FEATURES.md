@@ -1,4 +1,4 @@
-# Lumiere App — Complete Feature Inventory
+# CINEGENY App — Complete Feature Inventory
 
 > **Ce fichier documente TOUTES les fonctionnalités du site.**
 > **Doit être mis à jour à chaque ajout/modification de fonctionnalité.**
@@ -595,7 +595,7 @@ Each phase has: status (LOCKED/ACTIVE/COMPLETED), order, dependencies
 - **API endpoint** `GET /api/admin/export-payments` — admin-only
 - **CSV columns**: Date, Utilisateur, Email, Film, Tache, Montant EUR, Methode, Statut, Date Paiement, ID
 - **Proper escaping**: quotes in fields handled with double-quote CSV convention
-- **Dynamic filename**: `lumiere-paiements-YYYY-MM-DD.csv`
+- **Dynamic filename**: `cinegeny-paiements-YYYY-MM-DD.csv`
 - **Export button** added to admin payments page with Download icon
 
 ---

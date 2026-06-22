@@ -60,7 +60,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
           <Image
-            src="/images/cinegen-logo.svg"
+            src="/images/cinegeny-logo.svg"
             alt="CINEGENY Studio"
             width={140}
             height={40}

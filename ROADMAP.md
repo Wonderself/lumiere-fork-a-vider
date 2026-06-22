@@ -1,4 +1,4 @@
-# LUMIERE CINEMA — Roadmap Technique Detaillee
+# CINEGENY CINEMA — Roadmap Technique Detaillee
 
 > Chaque etape inclut le **prompt pret a copier** pour Claude Code et la **liste de prerequis** (ce que le fondateur doit fournir avant de lancer).
 
@@ -87,7 +87,7 @@
 **Statut**: A FAIRE
 **Prerequis fondateur**:
 - Compte Resend.com (service email) — gratuit 100 emails/jour
-- Domaine verifie sur Resend (lumiere.film ou autre)
+- Domaine verifie sur Resend (cinegeny.film ou autre)
 - Variable env: `RESEND_API_KEY`
 
 > **Prompt Claude Code:**
@@ -116,7 +116,7 @@
 > **Prompt Claude Code:**
 > ```
 > Cree une page /screenwriters (landing page publique) qui explique:
-> - Comment devenir scenariste sur Lumiere
+> - Comment devenir scenariste sur CINEGENY
 > - Les avantages (credits, blockchain, coproduction)
 > - Les films ouverts aux scenarios
 > - Formulaire de candidature (nom, email, bio, portfolio)
@@ -177,9 +177,9 @@
 > **Prompt Claude Code:**
 > ```
 > Deploie les smart contracts sur Polygon Mumbai testnet:
-> 1. LumiereVoting.sol — enregistrement des votes on-chain
-> 2. LumiereToken.sol — ERC-20 pour les Lumens
-> 3. LumiereNFT.sol — ERC-721 pour les credits de coproduction
+> 1. CinegenyVoting.sol — enregistrement des votes on-chain
+> 2. CinegenyToken.sol — ERC-20 pour les Lumens
+> 3. CinegenyNFT.sol — ERC-721 pour les credits de coproduction
 > Utilise Hardhat + ethers.js.
 > Cree contracts/ a la racine du projet.
 > Connecte src/lib/blockchain.ts aux vrais contrats.
@@ -255,7 +255,7 @@
 > 4. Ajoute OpenGraph images pour les films (og:image)
 > 5. Schema.org JSON-LD pour les films (Movie type)
 > 6. Canonical URLs sur toutes les pages
-> Langue: fr. Titre pattern: "Nom | Lumiere Cinema"
+> Langue: fr. Titre pattern: "Nom | CINEGENY Cinema"
 > ```
 
 ### 6.2 Performance & Core Web Vitals
@@ -282,7 +282,7 @@
 **Statut**: PARTIELLEMENT FAIT (docker-compose local existe)
 **Prerequis fondateur**:
 - Compte Vercel (gratuit) OU serveur VPS (Hetzner ~5EUR/mois)
-- Domaine (lumiere.film ou similaire)
+- Domaine (cinegeny.film ou similaire)
 - Variables env de production
 
 > **Prompt Claude Code:**

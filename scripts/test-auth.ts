@@ -27,7 +27,7 @@ async function main() {
 
   // ─── 1. TEST REGISTRATION ───────────────────
   console.log('📝 1. INSCRIPTION')
-  const testEmail = `test-${Date.now()}@lumiere.film`
+  const testEmail = `test-${Date.now()}@cinegeny.film`
   const testPassword = 'TestPass123!'
   const hash = await bcrypt.hash(testPassword, 12)
 
@@ -82,12 +82,12 @@ async function main() {
   // ─── 3. TEST SEED USERS ────────────────────
   console.log('\n👥 3. UTILISATEURS SEEDÉS')
   const seedUsers = [
-    { email: 'admin@lumiere.film', pw: 'Admin1234!', role: 'ADMIN' },
-    { email: 'contributeur@lumiere.film', pw: 'Test1234!', role: 'CONTRIBUTOR' },
-    { email: 'artiste@lumiere.film', pw: 'Test1234!', role: 'ARTIST' },
-    { email: 'scenariste@lumiere.film', pw: 'Test1234!', role: 'SCREENWRITER' },
-    { email: 'viewer@lumiere.film', pw: 'Test1234!', role: 'VIEWER' },
-    { email: 'nouveau@lumiere.film', pw: 'Test1234!', role: 'CONTRIBUTOR' },
+    { email: 'admin@cinegeny.film', pw: 'Admin1234!', role: 'ADMIN' },
+    { email: 'contributeur@cinegeny.film', pw: 'Test1234!', role: 'CONTRIBUTOR' },
+    { email: 'artiste@cinegeny.film', pw: 'Test1234!', role: 'ARTIST' },
+    { email: 'scenariste@cinegeny.film', pw: 'Test1234!', role: 'SCREENWRITER' },
+    { email: 'viewer@cinegeny.film', pw: 'Test1234!', role: 'VIEWER' },
+    { email: 'nouveau@cinegeny.film', pw: 'Test1234!', role: 'CONTRIBUTOR' },
   ]
 
   for (const su of seedUsers) {
@@ -101,8 +101,8 @@ async function main() {
 
   // ─── 4. TEST ADMIN CHECKS ─────────────────
   console.log('\n🛡️  4. CONTRÔLES ADMIN')
-  const admin = await prisma.user.findUnique({ where: { email: 'admin@lumiere.film' } })
-  const viewer = await prisma.user.findUnique({ where: { email: 'viewer@lumiere.film' } })
+  const admin = await prisma.user.findUnique({ where: { email: 'admin@cinegeny.film' } })
+  const viewer = await prisma.user.findUnique({ where: { email: 'viewer@cinegeny.film' } })
 
   if (admin?.role === 'ADMIN') ok('Admin a le rôle ADMIN')
   else fail('Admin role', `Rôle: ${admin?.role}`)
@@ -245,7 +245,7 @@ async function main() {
       description: 'Film de test automatisé',
       synopsis: 'Test pipeline complet',
       genre: 'Test',
-      catalog: 'LUMIERE' as never,
+      catalog: 'CINEGENY' as never,
       status: 'DRAFT' as never,
       isPublic: false,
       estimatedBudget: 10000,

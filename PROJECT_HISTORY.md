@@ -1,7 +1,7 @@
-# Lumiere App — Project History
+# CINEGENY App — Project History
 
-> **GitHub**: https://github.com/Wonderself/lumiere-app.git
-> **Production**: https://cinema.lumiere.film
+> **GitHub**: https://github.com/Wonderself/cinegeny-app.git
+> **Production**: https://cinema.cinegeny.film
 > **Ce fichier doit être mis à jour à chaque modification significative.**
 
 ---
@@ -324,7 +324,7 @@
 - **ManifestoSection**: cinematic fade-in text "Le cinema coute des millions. Nous le faisons pour 25K€"
 - **HowItWorks**: 5 pillar cards (Micro-Taches, Vote, IA Ethique, Watch/Create/Earn, France-Israel)
 - **PipelineVisual**: 8-step visual pipeline from idea to revenues (horizontal desktop, vertical mobile)
-- **ComparisonTable**: Hollywood vs Netflix vs Lumiere (cost, time, participation, AI, blockchain)
+- **ComparisonTable**: Hollywood vs Netflix vs CINEGENY (cost, time, participation, AI, blockchain)
 - **SocialProof**: credential badges (Innovation Authority, CNC, BPI, Fair AI Cinema) + founders quote
 - **FinalCTA**: full-width conversion section with "Le cinema de demain se construit maintenant"
 - **Header updated**: "Communaute" → "Voter", "S'inscrire" → "Rejoindre" (gold CTA)
@@ -355,7 +355,7 @@
 - **Login password minimum**: Fixed inconsistency (6->8 chars, matching registration)
 - **Investor page** (`/invest`): Professional landing page for investors
   - Key metrics, 6 advantage cards, market comparison table, 4-phase timeline
-  - CTA with email link (invest@lumiere.film)
+  - CTA with email link (invest@cinegeny.film)
   - Linked from footer "Investisseurs"
 
 ### 2026-02-24 — Build-Safe Prisma + Deployment Fixes + Roadmap Advance
@@ -592,7 +592,7 @@ page /pricing (Free/Premium/Producer), webhook met a jour tokens.
 ```
 Integre Resend: templates bienvenue/confirmation/shortlist/victoire/vote,
 sendEmailAction generique, appel auto dans registration/submit/vote/winner.
-Templates HTML branding Lumiere gold/dark.
+Templates HTML branding CINEGENY gold/dark.
 ```
 
 ---
@@ -997,7 +997,7 @@ Templates HTML branding Lumiere gold/dark.
 ### Session 2026-02-24 (suite) — Auth Fixes, Navigation, UX
 
 **Authentication Fixes**:
-- Fixed WRONG demo credentials in login form (`Admin123!` → `Admin1234!`, `user@lumiere.film` → `contributeur@lumiere.film / Test1234!`)
+- Fixed WRONG demo credentials in login form (`Admin123!` → `Admin1234!`, `user@cinegeny.film` → `contributeur@cinegeny.film / Test1234!`)
 - Added `AUTH_URL="http://localhost:3000"` to `.env` (required by NextAuth v5)
 - Created `src/middleware.ts` — NextAuth v5 route protection middleware:
   - Protects: /dashboard, /admin, /profile, /tasks, /lumens, /notifications, /screenplays, /tokenization

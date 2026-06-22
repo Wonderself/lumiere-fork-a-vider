@@ -104,7 +104,7 @@ export default function TermsPage() {
               connexion. Toute activité réalisée depuis son compte est réputée effectuée par lui.
               En cas de suspicion d&apos;utilisation frauduleuse, l&apos;utilisateur doit en informer
               CINEGENY sans délai à l&apos;adresse{' '}
-              <span className="text-[#E50914]">security@cinegen.studio</span>.
+              <span className="text-[#E50914]">security@cinegeny.studio</span>.
             </p>
           </section>
 
@@ -144,7 +144,7 @@ export default function TermsPage() {
               de Lumens pour exercer son droit de rétractation et obtenir un remboursement
               intégral, à condition que les Lumens n&apos;aient pas été utilisés. La demande de
               remboursement doit être adressée à{' '}
-              <span className="text-[#E50914]">billing@cinegen.studio</span>.
+              <span className="text-[#E50914]">billing@cinegeny.studio</span>.
             </p>
 
             <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">3.5. Conversion en euros</h3>
@@ -350,7 +350,7 @@ export default function TermsPage() {
             <p className="text-white/70 leading-relaxed">
               L&apos;utilisateur peut résilier son compte à tout moment depuis son espace
               personnel ou en contactant le support à{' '}
-              <span className="text-[#E50914]">support@cinegen.studio</span>. La résiliation
+              <span className="text-[#E50914]">support@cinegeny.studio</span>. La résiliation
               entraîne la suppression du compte dans un délai de 30 jours, sous réserve de
               la conversion des Lumens restants.
             </p>
@@ -393,7 +393,7 @@ export default function TermsPage() {
               Pour toute question relative aux présentes CGU, vous pouvez nous contacter :
             </p>
             <ul className="text-white/70 leading-relaxed mt-3 space-y-1 ml-4">
-              <li>Par email : <span className="text-[#E50914]">legal@cinegen.studio</span></li>
+              <li>Par email : <span className="text-[#E50914]">legal@cinegeny.studio</span></li>
               <li>Par courrier : CINEGENY Studio — [adresse à compléter], 75000 Paris, France</li>
             </ul>
           </section>

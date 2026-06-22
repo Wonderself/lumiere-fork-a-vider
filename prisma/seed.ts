@@ -37,10 +37,10 @@ async function main() {
   const pwUser = await bcrypt.hash('Test1234!', 12)
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@lumiere.film' },
+    where: { email: 'admin@cinegeny.film' },
     update: {},
     create: {
-      email: 'admin@lumiere.film',
+      email: 'admin@cinegeny.film',
       passwordHash: pw,
       displayName: 'Admin Lumière',
       role: 'ADMIN',
@@ -55,10 +55,10 @@ async function main() {
   })
 
   const contributor = await prisma.user.upsert({
-    where: { email: 'contributeur@lumiere.film' },
+    where: { email: 'contributeur@cinegeny.film' },
     update: {},
     create: {
-      email: 'contributeur@lumiere.film',
+      email: 'contributeur@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Jean Créatif',
       role: 'CONTRIBUTOR',
@@ -76,10 +76,10 @@ async function main() {
   })
 
   const artist = await prisma.user.upsert({
-    where: { email: 'artiste@lumiere.film' },
+    where: { email: 'artiste@cinegeny.film' },
     update: {},
     create: {
-      email: 'artiste@lumiere.film',
+      email: 'artiste@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Sophie Visuelle',
       role: 'ARTIST',
@@ -97,10 +97,10 @@ async function main() {
   })
 
   const screenwriter = await prisma.user.upsert({
-    where: { email: 'scenariste@lumiere.film' },
+    where: { email: 'scenariste@cinegeny.film' },
     update: {},
     create: {
-      email: 'scenariste@lumiere.film',
+      email: 'scenariste@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Marc Scénario',
       role: 'SCREENWRITER',
@@ -118,10 +118,10 @@ async function main() {
   })
 
   const stunt = await prisma.user.upsert({
-    where: { email: 'stunt@lumiere.film' },
+    where: { email: 'stunt@cinegeny.film' },
     update: {},
     create: {
-      email: 'stunt@lumiere.film',
+      email: 'stunt@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Léa Mouvement',
       role: 'STUNT_PERFORMER',
@@ -139,10 +139,10 @@ async function main() {
   })
 
   const viewer = await prisma.user.upsert({
-    where: { email: 'viewer@lumiere.film' },
+    where: { email: 'viewer@cinegeny.film' },
     update: {},
     create: {
-      email: 'viewer@lumiere.film',
+      email: 'viewer@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Paul Spectateur',
       role: 'VIEWER',
@@ -157,10 +157,10 @@ async function main() {
   })
 
   const rookie1 = await prisma.user.upsert({
-    where: { email: 'nouveau@lumiere.film' },
+    where: { email: 'nouveau@cinegeny.film' },
     update: {},
     create: {
-      email: 'nouveau@lumiere.film',
+      email: 'nouveau@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Emma Débutante',
       role: 'CONTRIBUTOR',
@@ -174,10 +174,10 @@ async function main() {
   })
 
   const rookie2 = await prisma.user.upsert({
-    where: { email: 'thomas@lumiere.film' },
+    where: { email: 'thomas@cinegeny.film' },
     update: {},
     create: {
-      email: 'thomas@lumiere.film',
+      email: 'thomas@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Thomas Pixel',
       role: 'CONTRIBUTOR',
@@ -195,10 +195,10 @@ async function main() {
   })
 
   const expert1 = await prisma.user.upsert({
-    where: { email: 'expert@lumiere.film' },
+    where: { email: 'expert@cinegeny.film' },
     update: {},
     create: {
-      email: 'expert@lumiere.film',
+      email: 'expert@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Yuki Tanaka',
       role: 'CONTRIBUTOR',
@@ -216,10 +216,10 @@ async function main() {
   })
 
   const vip1 = await prisma.user.upsert({
-    where: { email: 'vip@lumiere.film' },
+    where: { email: 'vip@cinegeny.film' },
     update: {},
     create: {
-      email: 'vip@lumiere.film',
+      email: 'vip@cinegeny.film',
       passwordHash: pwUser,
       displayName: 'Alexandre Lumens',
       role: 'CONTRIBUTOR',
@@ -366,7 +366,7 @@ async function main() {
       description: "Un thriller cyberpunk néo-noir dans une mégapole futuriste corrompue.",
       synopsis: "2087. New Babylon : ultra-riches vs sous-sols neon. Zara, hackeuse de génie, pénètre le plus grand secret d'une corporation. Traquée, elle choisit entre survie et humanité.",
       genre: 'Science-Fiction',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'PRE_PRODUCTION',
       isPublic: true,
       coverImageUrl: '/posters/keter.jpg',
@@ -449,7 +449,7 @@ async function main() {
       description: "Un conte poétique et écologique. Dans un monde ravagé, un enfant découvre le dernier jardin vivant.",
       synopsis: "2150. La Terre est devenue un désert de béton. Lila, 10 ans, vit dans une cité souterraine. Un jour, en explorant un tunnel condamné, elle découvre un jardin miraculeux. Des fleurs, des arbres, de l'eau pure. Poursuivie par ceux qui veulent exploiter cette ressource, elle devra protéger le dernier espoir de l'humanité.",
       genre: 'Animation',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/ortists.jpg',
@@ -519,7 +519,7 @@ async function main() {
       description: "Docu-serie sur les miracles du 7 octobre. Temoignages de survivants, reconstitutions cinematiques.",
       synopsis: "Quatre episodes de 52 minutes explorant les recits de miracles et de survie du 7 octobre. A travers des temoignages bouleversants et des reconstitutions cinematographiques, cette serie documentaire revele la dimension spirituelle et humaine de l'evenement.",
       genre: 'Documentaire',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'IN_PRODUCTION',
       isPublic: true,
       coverImageUrl: '/posters/miracle-protocol.jpg',
@@ -549,7 +549,7 @@ async function main() {
       description: "Christopher Nolan meets the Zohar. Thriller sci-fi ou physique quantique et Kabbale se rencontrent.",
       synopsis: "Un physicien de renom decouvre que le point de singularite quantique correspond exactement a la Keter (couronne) de l'Arbre de Vie kabbalistique. Alors qu'une intelligence artificielle tente d'utiliser cette decouverte pour recrire la realite, il doit affronter les limites de la science et de la foi dans une course contre la montre vertigineuse.",
       genre: 'Science-Fiction',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'PRE_PRODUCTION',
       isPublic: true,
       coverImageUrl: '/posters/keter.jpg',
@@ -609,7 +609,7 @@ async function main() {
       description: "L'histoire meconnue des communautes juives d'Afrique. Des Beta Israel aux Lemba.",
       synopsis: "Des Beta Israel d'Ethiopie aux Lemba du Zimbabwe, en passant par les communautes du Nigeria et d'Afrique du Sud, ce documentaire revelateur retrace l'heritage juif africain meconnu. Voyage a travers les siecles, les rituels, les genes et les traditions qui unissent ces peuples a une histoire commune.",
       genre: 'Documentaire',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/keter.jpg',
@@ -639,7 +639,7 @@ async function main() {
       description: "Le dernier convoi de deportation parti de France en 1944. Docu-drama poignant.",
       synopsis: "Aout 1944 : alors que Paris est sur le point d'etre libere, un dernier train quitte Bobigny vers les camps. A travers les destins croises de deportes, de resistants et de cheminots, ce film reconstitue les dernieres heures d'une tragedie historique basee sur des temoignages reels.",
       genre: 'Drame',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/last-train.jpg',
@@ -669,7 +669,7 @@ async function main() {
       description: "Court-metrage experimental. Un carnaval qui tourne au cauchemar. Demo technique IA.",
       synopsis: "Un jeune homme se retrouve piege dans un carnaval qui se transforme progressivement en cauchemar. Les masques deviennent reels, les couleurs virent au cauchemardesque, la realite se distord. Court-metrage experimental entierement genere par IA, servant de demonstration technique pour le studio.",
       genre: 'Horreur',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'PRE_PRODUCTION',
       isPublic: true,
       coverImageUrl: '/posters/esther-code.jpg',
@@ -699,7 +699,7 @@ async function main() {
       description: "Plongee dans l'univers Breslov. Musique, danse, priere et joie comme philosophie de vie.",
       synopsis: "Du Rabbi Nachman de Bratslav au phenomene mondial Na Nach, cette serie documentaire explore le mouvement hassidique le plus joyeux du monde. A travers la musique, la danse et la priere, decouvrez comment une philosophie du 18e siecle est devenue un phenomene de pop culture.",
       genre: 'Documentaire',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/the-rebbe.jpg',
@@ -729,7 +729,7 @@ async function main() {
       description: "Mini-serie animee sur des artistes autistes aux talents extraordinaires. 10x12 min.",
       synopsis: "Chaque episode de 12 minutes raconte l'histoire d'un artiste autiste au talent extraordinaire. Musique, peinture, calcul mental, memoire photographique : ces dons uniques sont reveles a travers une animation poetique entierement generee par IA, celebrant la neurodiversite.",
       genre: 'Animation',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/ortists.jpg',
@@ -759,7 +759,7 @@ async function main() {
       description: "Projet super-heros a la franchise israelienne. Action fantastique.",
       synopsis: "Le premier super-heros israelien. Ne dans les ruelles de Jaffa, dote de pouvoirs lies a la Kabbale, il doit proteger Tel Aviv d'une menace ancestrale tout en cachant sa double identite. Un film d'action spectaculaire melant mythologie juive et culture pop.",
       genre: 'Action',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/miracle-protocol.jpg',
@@ -789,7 +789,7 @@ async function main() {
       description: "Suite/hommage du Fabuleux Destin d'Amelie Poulain. Vision IA contemporaine.",
       synopsis: "20 ans apres, Amelie Poulain vit toujours a Montmartre mais le quartier a change. Quand une IA commence a predire les petits bonheurs des passants, Amelie se lance dans une quete pour prouver que la vraie magie ne se calcule pas. Un hommage poetique et decale au film culte.",
       genre: 'Comedie',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/the-rebbe.jpg',
@@ -817,9 +817,9 @@ async function main() {
       title: 'Royal Rumble',
       slug: 'royal-rumble',
       description: "Battle royale cinematique. Melange d'action et d'humour.",
-      synopsis: "16 acteurs IA s'affrontent dans une arene virtuelle pour le role principal du prochain blockbuster Lumiere. Elimination par elimination, chaque round revele leurs talents uniques. Action, comedie, et meta-cinema dans un format innovant.",
+      synopsis: "16 acteurs IA s'affrontent dans une arene virtuelle pour le role principal du prochain blockbuster CINEGENY. Elimination par elimination, chaque round revele leurs talents uniques. Action, comedie, et meta-cinema dans un format innovant.",
       genre: 'Action',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/secret-menorah.jpg',
@@ -849,7 +849,7 @@ async function main() {
       description: "Version musicale et extended du concept Carnaval. Trip visuel et sonore experimental.",
       synopsis: "Experience audiovisuelle immersive ou la musique electronique rencontre les visuels de carnaval generes par IA. 45 minutes de trip sensoriel a travers des paysages oniriques, des masques en mutation constante et des rythmes enivrants.",
       genre: 'Experimental',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/last-train.jpg',
@@ -879,7 +879,7 @@ async function main() {
       description: "Meta-documentaire sur la tokenisation du cinema. Financement decentralise de l'art.",
       synopsis: "Un film sur la tokenisation du cinema... finance par tokenisation. Ce meta-documentaire explore comment la blockchain revolutionne le financement de l'art, en suivant son propre parcours de financement decentralise. Interviews d'artistes, de technologues et d'investisseurs.",
       genre: 'Documentaire',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/ortists.jpg',
@@ -909,7 +909,7 @@ async function main() {
       description: "Satire de la ceremonie des Cesars. Comedie noire sur l'industrie du cinema francais.",
       synopsis: "La nuit des Cesars tourne au chaos quand un hacker diffuse en direct les conversations privees de tous les nomines. Secrets, trahisons et ridicule s'entrechoquent dans cette satire mordante de l'industrie du cinema francais, generee integralement par IA.",
       genre: 'Comedie',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/meam-loez.jpg',
@@ -939,7 +939,7 @@ async function main() {
       description: "Cinema qui parle de lui-meme. Experience immersive meta-cinematographique generee par IA.",
       synopsis: "Un film qui se sait etre un film. Les personnages decouvrent qu'ils sont generes par IA et commencent a questionner leur existence, leur createur et le public qui les regarde. Experience experimentale et philosophique qui repousse les limites du cinema genere par intelligence artificielle.",
       genre: 'Experimental',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/keter.jpg',
@@ -999,7 +999,7 @@ async function main() {
       description: "Aventure epique dans le desert du Negev. Prophetie ancienne et technologie futuriste.",
       synopsis: "Un archeologue decouvre dans le desert du Negev des inscriptions prophetiques vieilles de 3000 ans qui semblent predire l'avenement de l'intelligence artificielle. Course contre la montre entre chercheurs et mercenaires dans les dunes brulantes.",
       genre: 'Aventure',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'PRE_PRODUCTION',
       isPublic: true,
       coverImageUrl: '/posters/esther-code.jpg',
@@ -1028,7 +1028,7 @@ async function main() {
       description: "Romance et suspense dans les nuits de Tel Aviv. Thriller romantique urbain.",
       synopsis: "Une danseuse francaise et un hacker israelien se rencontrent dans un club underground de Tel Aviv. Leur histoire d'amour se complique quand ils decouvrent qu'ils travaillent pour des camps opposes dans une guerre de l'information qui menace la ville entiere.",
       genre: 'Thriller',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/miracle-protocol.jpg',
@@ -1057,7 +1057,7 @@ async function main() {
       description: "Fantasy juif : des gardiens mystiques protegent le monde chaque vendredi soir.",
       synopsis: "Chaque vendredi soir, quand le Shabat commence, 36 justes caches dans le monde activent une barriere mystique qui protege l'humanite. Quand l'un d'eux disparait, une jeune femme decouvre qu'elle est la prochaine gardienne. Fantasy epique ancre dans la tradition juive.",
       genre: 'Fantastique',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/secret-menorah.jpg',
@@ -1086,7 +1086,7 @@ async function main() {
       description: "Thriller musical autour de la frequence 432Hz et ses effets sur la conscience humaine.",
       synopsis: "Un ingenieur du son decouvre que la frequence 432Hz, longtemps consideree comme la 'frequence de l'univers', peut ouvrir des portails de conscience. Quand une corporation tente d'utiliser cette decouverte a des fins de controle mental, il doit choisir entre le silence et la revolution sonore.",
       genre: 'Thriller',
-      catalog: 'LUMIERE',
+      catalog: 'CINEGENY',
       status: 'DRAFT',
       isPublic: true,
       coverImageUrl: '/posters/last-train.jpg',
@@ -3073,19 +3073,19 @@ async function main() {
   // SUMMARY
   // =============================================
   console.log('\n' + '='.repeat(50))
-  console.log('🎬 Seed Lumière Brothers V10 terminé avec succès!')
+  console.log('🎬 Seed CINEGENY V10 terminé avec succès!')
   console.log('='.repeat(50))
   console.log('\n📋 Comptes de test:')
-  console.log('   Admin       : admin@lumiere.film         / Admin1234!')
-  console.log('   Contributeur: contributeur@lumiere.film  / Test1234!')
-  console.log('   Artiste     : artiste@lumiere.film       / Test1234!  (créateur, Pro)')
-  console.log('   Scénariste  : scenariste@lumiere.film    / Test1234!')
-  console.log('   Stunt       : stunt@lumiere.film         / Test1234!')
-  console.log('   Viewer      : viewer@lumiere.film        / Test1234!')
-  console.log('   Rookie      : nouveau@lumiere.film       / Test1234! (non vérifié)')
-  console.log('   Rookie 2    : thomas@lumiere.film        / Test1234!')
-  console.log('   Expert      : expert@lumiere.film        / Test1234!  (créateur, Starter)')
-  console.log('   VIP         : vip@lumiere.film           / Test1234!  (créateur, Business)')
+  console.log('   Admin       : admin@cinegeny.film         / Admin1234!')
+  console.log('   Contributeur: contributeur@cinegeny.film  / Test1234!')
+  console.log('   Artiste     : artiste@cinegeny.film       / Test1234!  (créateur, Pro)')
+  console.log('   Scénariste  : scenariste@cinegeny.film    / Test1234!')
+  console.log('   Stunt       : stunt@cinegeny.film         / Test1234!')
+  console.log('   Viewer      : viewer@cinegeny.film        / Test1234!')
+  console.log('   Rookie      : nouveau@cinegeny.film       / Test1234! (non vérifié)')
+  console.log('   Rookie 2    : thomas@cinegeny.film        / Test1234!')
+  console.log('   Expert      : expert@cinegeny.film        / Test1234!  (créateur, Starter)')
+  console.log('   VIP         : vip@cinegeny.film           / Test1234!  (créateur, Business)')
   console.log('\n🎞️  Films Studio (3 originaux + 20 Slate Deck 2026):')
   console.log('   - Exodus — La Traversée (Historique, IN_PRODUCTION)')
   console.log('   - Neon Babylon (Sci-Fi, PRE_PRODUCTION)')

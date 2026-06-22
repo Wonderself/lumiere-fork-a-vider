@@ -60,7 +60,7 @@ const sections: TodoSection[] = [
       { label: 'Legal (CGU, Confidentialite, Cookies)', done: true, note: 'Pages legales completes avec cookie banner', icon: FileText, helper: 'CLAUDE' },
       { label: 'Proxy auth (protection routes)', done: true, note: 'proxy.ts Next.js 16 — admin, dashboard, tasks proteges', icon: Shield, helper: 'CLAUDE' },
       { label: 'Images SEO-friendly (17 images renommees)', done: true, note: 'Noms descriptifs, alt tags, next/image', icon: Camera, helper: 'CLAUDE' },
-      { label: 'GitHub repos (cinema + creators)', done: true, note: 'Wonderself/lumiere-app + Wonderself/lumiere-brothers', icon: Code, helper: 'CLAUDE' },
+      { label: 'GitHub repos (cinema + creators)', done: true, note: 'Wonderself/cinegeny-app + Wonderself/cinegeny', icon: Code, helper: 'CLAUDE' },
     ],
   },
   {
@@ -290,7 +290,7 @@ const sections: TodoSection[] = [
         difficulty: 'trivial',
       },
       {
-        label: 'Domaine cinegen.studio + DNS',
+        label: 'Domaine cinegeny.studio + DNS',
         done: false,
         note: 'Acheter sur Namecheap/Cloudflare. Pointer vers Coolify. Claude configure.',
         icon: Globe,

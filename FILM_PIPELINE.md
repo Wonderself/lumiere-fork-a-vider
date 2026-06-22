@@ -1,4 +1,4 @@
-# Lumiere — Film Creation Pipeline (Vision Document)
+# CINEGENY — Film Creation Pipeline (Vision Document)
 
 > **Ce document décrit le workflow complet de création d'un film sur la plateforme Lumière.**
 > **De la soumission initiale jusqu'à la distribution finale.**
@@ -26,7 +26,7 @@ SOUMISSION → VALIDATION → DECOMPOSITION IA → DISTRIBUTION TACHES → EXECU
 - Le film gagnant entre en production
 
 #### B. Projet SAS Française (Développé en interne)
-- Lumière Brothers Pictures (SAS) décide de produire un film
+- CINEGENY Pictures (SAS) décide de produire un film
 - L'admin crée le film directement dans le système
 - Budget défini, phases auto-générées
 - Peut être combiné avec tokenization pour le financement

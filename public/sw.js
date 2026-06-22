@@ -1,7 +1,7 @@
-// Lumiere Cinema — Service Worker
+// CINEGENY Cinema — Service Worker
 // Provides offline caching and fast loading for the PWA
 
-const CACHE_NAME = 'lumiere-v1'
+const CACHE_NAME = 'cinegeny-v1'
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',

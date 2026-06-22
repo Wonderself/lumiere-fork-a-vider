@@ -7,11 +7,11 @@ export function SplashScreen() {
 
   useEffect(() => {
     // Only show once per session
-    if (sessionStorage.getItem('cinegen-splash')) {
+    if (sessionStorage.getItem('cinegeny-splash')) {
       setPhase('done')
       return
     }
-    sessionStorage.setItem('cinegen-splash', '1')
+    sessionStorage.setItem('cinegeny-splash', '1')
 
     const fadeTimer = setTimeout(() => setPhase('fading'), 2500)
     const doneTimer = setTimeout(() => setPhase('done'), 3300)

@@ -106,8 +106,8 @@ ID CINEGENY : ${data.contributorId}
 ---
 
 *Facture générée automatiquement par ${data.platformName}.*
-*En cas de litige : contact@cinegen.studio*
-*Conditions générales disponibles sur cinegen.studio/legal*
+*En cas de litige : contact@cinegeny.studio*
+*Conditions générales disponibles sur cinegeny.studio/legal*
 `
 }
 

@@ -27,7 +27,7 @@ const cuidSchema = z.string().min(1, 'ID requis').max(100)
 const createFilmSchema = z.object({
   title: z.string().min(1, 'Titre requis').max(300),
   genre: z.string().max(100).optional(),
-  catalog: z.enum(['LUMIERE', 'CLIENT', 'COMMUNITY']).default('LUMIERE'),
+  catalog: z.enum(['CINEGENY', 'CLIENT', 'COMMUNITY']).default('CINEGENY'),
   description: z.string().max(5000).optional(),
   synopsis: z.string().max(10000).optional(),
   coverImageUrl: z.string().url('URL invalide').max(2000).optional().or(z.literal('')),
@@ -117,7 +117,7 @@ export async function createFilmAction(formData: FormData) {
   const parsed = createFilmSchema.safeParse({
     title: formData.get('title') as string,
     genre: (formData.get('genre') as string) || undefined,
-    catalog: (formData.get('catalog') as string) || 'LUMIERE',
+    catalog: (formData.get('catalog') as string) || 'CINEGENY',
     description: (formData.get('description') as string) || undefined,
     synopsis: (formData.get('synopsis') as string) || undefined,
     coverImageUrl: (formData.get('coverImageUrl') as string) || '',

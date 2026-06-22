@@ -21,7 +21,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             <div className="absolute inset-0 bg-[#E50914]/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
           <span className="text-lg font-black text-white/90 tracking-[0.15em]">
-            CINE<span className="text-[#E50914]">GEN</span>
+            CINE<span className="text-[#E50914]">GENY</span>
           </span>
         </Link>
       </div>

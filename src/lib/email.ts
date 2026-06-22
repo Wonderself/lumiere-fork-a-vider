@@ -11,7 +11,7 @@ function getResend(): Resend | null {
   return _resend
 }
 
-const FROM = process.env.RESEND_FROM_EMAIL || 'CINEGENY <noreply@cinegen.studio>'
+const FROM = process.env.RESEND_FROM_EMAIL || 'CINEGENY <noreply@cinegeny.studio>'
 
 // ─── Generic send (logs in dev, sends in prod) ──────────────
 async function send(to: string, subject: string, html: string): Promise<boolean> {
@@ -48,7 +48,7 @@ function layout(title: string, body: string): string {
     <!-- Footer -->
     <div style="text-align:center;color:#ffffff30;font-size:12px;line-height:1.5;">
       <p>CINEGENY Studio SAS — Paris, France</p>
-      <p><a href="https://cinegen.studio" style="color:#E50914;text-decoration:none;">cinegen.studio</a></p>
+      <p><a href="https://cinegeny.studio" style="color:#E50914;text-decoration:none;">cinegeny.studio</a></p>
     </div>
   </div>
 </body>
@@ -63,7 +63,7 @@ function goldButton(text: string, href: string): string {
 
 /** Welcome email sent after registration (with optional verification link) */
 export async function sendWelcomeEmail(to: string, displayName: string, verificationToken?: string): Promise<boolean> {
-  const baseUrl = process.env.NEXTAUTH_URL || 'https://cinegen.studio'
+  const baseUrl = process.env.NEXTAUTH_URL || 'https://cinegeny.studio'
   const verifySection = verificationToken
     ? `
     <div style="text-align:center;margin-bottom:24px;">
@@ -97,7 +97,7 @@ export async function sendWelcomeEmail(to: string, displayName: string, verifica
 
 /** Password reset email */
 export async function sendPasswordResetEmail(to: string, token: string): Promise<boolean> {
-  const baseUrl = process.env.NEXTAUTH_URL || 'https://cinegen.studio'
+  const baseUrl = process.env.NEXTAUTH_URL || 'https://cinegeny.studio'
   const resetUrl = `${baseUrl}/reset-password?token=${token}`
   const html = layout('Réinitialisation du mot de passe', `
     <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Mot de passe oublié ?</h1>
@@ -136,7 +136,7 @@ export async function sendTaskValidatedEmail(
       <p style="margin:0;color:#E50914;font-weight:700;font-size:20px;">${amountEur.toFixed(2)} €</p>
     </div>
     <div style="text-align:center;">
-      ${goldButton('Voir mes revenus', 'https://cinegen.studio/dashboard/earnings')}
+      ${goldButton('Voir mes revenus', 'https://cinegeny.studio/dashboard/earnings')}
     </div>
   `)
   return send(to, `Tâche validée — ${amountEur.toFixed(2)}€ crédités`, html)
@@ -160,7 +160,7 @@ export async function sendPaymentEmail(
       <p style="margin:0;color:#ffffff60;font-size:13px;">via ${method}</p>
     </div>
     <div style="text-align:center;">
-      ${goldButton('Voir l\'historique', 'https://cinegen.studio/dashboard/earnings')}
+      ${goldButton('Voir l\'historique', 'https://cinegeny.studio/dashboard/earnings')}
     </div>
   `)
   return send(to, `Paiement de ${amountEur.toFixed(2)}€ envoyé`, html)
@@ -187,7 +187,7 @@ export async function sendScreenplayAcceptedEmail(
       </p>
     </div>
     <div style="text-align:center;">
-      ${goldButton('Voir mon scénario', 'https://cinegen.studio/screenplays')}
+      ${goldButton('Voir mon scénario', 'https://cinegeny.studio/screenplays')}
     </div>
   `)
   return send(to, `Scénario "${screenplayTitle}" accepté — Deal proposé`, html)
@@ -219,7 +219,7 @@ export async function sendWeeklyDigest(
       </div>
     </div>
     <div style="text-align:center;margin-top:24px;">
-      ${goldButton('Voir le Dashboard', 'https://cinegen.studio/dashboard')}
+      ${goldButton('Voir le Dashboard', 'https://cinegeny.studio/dashboard')}
     </div>
   `)
   return send(to, `Votre semaine CINEGENY — ${stats.tasksCompleted} tâches, ${stats.lumensEarned} Lumens`, html)

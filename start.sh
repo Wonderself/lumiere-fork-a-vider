@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "=== Lumiere Startup ==="
+echo "=== CINEGENY Startup ==="
 echo "Node: $(node -v)"
 echo "DATABASE_URL set: $([ -n "$DATABASE_URL" ] && echo 'yes' || echo 'NO — THIS WILL FAIL')"
 

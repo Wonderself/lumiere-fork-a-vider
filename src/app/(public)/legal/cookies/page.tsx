@@ -283,7 +283,7 @@ export default function CookiesPage() {
             <p className="text-white/70 leading-relaxed">
               Pour toute question relative à notre utilisation des cookies, vous pouvez
               contacter notre Délégué à la Protection des Données à l&apos;adresse{' '}
-              <span className="text-[#E50914]">dpo@cinegen.studio</span>.
+              <span className="text-[#E50914]">dpo@cinegeny.studio</span>.
             </p>
             <p className="text-white/70 leading-relaxed mt-3">
               Pour en savoir plus sur la protection de vos données personnelles, consultez

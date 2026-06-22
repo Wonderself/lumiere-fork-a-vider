@@ -9,7 +9,7 @@ export function HeroManifesto() {
         {/* Full-bleed bg */}
         <div className="absolute inset-0">
           <Image
-            src="/images/cinegen-studio-hero.jpg"
+            src="/images/cinegeny-studio-hero.jpg"
             alt="CINEGENY Studio"
             fill
             className="object-cover object-center"

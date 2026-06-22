@@ -6,18 +6,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: lumiere-app
+    container_name: cinegeny-app
     restart: unless-stopped
     ports:
       - "${APP_PORT:-3000}:3000"
     environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-lumiere}:${POSTGRES_PASSWORD:-lumiere_prod_password}@postgres:5432/${POSTGRES_DB:-lumiere_db}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-cinegeny}:${POSTGRES_PASSWORD:-cinegeny_prod_password}@postgres:5432/${POSTGRES_DB:-cinegeny_db}
       - REDIS_URL=redis://redis:6379
       - AUTH_SECRET=${AUTH_SECRET}
       - AUTH_URL=${AUTH_URL:-http://localhost:3000}
       - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3000}
       - RESEND_API_KEY=${RESEND_API_KEY:-}
-      - RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-noreply@lumiere.film}
+      - RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-noreply@cinegeny.film}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-}
       - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY:-}
@@ -25,7 +25,7 @@ services:
       - S3_ENDPOINT=${S3_ENDPOINT:-}
       - S3_ACCESS_KEY=${S3_ACCESS_KEY:-}
       - S3_SECRET_KEY=${S3_SECRET_KEY:-}
-      - S3_BUCKET=${S3_BUCKET:-lumiere-uploads}
+      - S3_BUCKET=${S3_BUCKET:-cinegeny-uploads}
       - S3_REGION=${S3_REGION:-eu-central-1}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
       - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME:-Lumière}
@@ -37,7 +37,7 @@ services:
       redis:
         condition: service_healthy
     networks:
-      - lumiere-network
+      - cinegeny-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/"]
       interval: 30s
@@ -48,20 +48,20 @@ services:
   # ========== PostgreSQL ==========
   postgres:
     image: postgres:16-alpine
-    container_name: lumiere-postgres
+    container_name: cinegeny-postgres
     restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-lumiere}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lumiere_prod_password}
-      POSTGRES_DB: ${POSTGRES_DB:-lumiere_db}
+      POSTGRES_USER: ${POSTGRES_USER:-cinegeny}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cinegeny_prod_password}
+      POSTGRES_DB: ${POSTGRES_DB:-cinegeny_db}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - lumiere-network
+      - cinegeny-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-lumiere} -d ${POSTGRES_DB:-lumiere_db}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cinegeny} -d ${POSTGRES_DB:-cinegeny_db}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -69,7 +69,7 @@ services:
   # ========== Redis ==========
   redis:
     image: redis:7-alpine
-    container_name: lumiere-redis
+    container_name: cinegeny-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -77,7 +77,7 @@ services:
     volumes:
       - redis_data:/data
     networks:
-      - lumiere-network
+      - cinegeny-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -91,5 +91,5 @@ volumes:
     driver: local
 
 networks:
-  lumiere-network:
+  cinegeny-network:
     driver: bridge

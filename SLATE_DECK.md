@@ -1,6 +1,6 @@
-# Lumiere Brothers Pictures — Pipeline Projects 2026
+# CINEGENY Pictures — Pipeline Projects 2026
 
-> **Company**: Lumiere Brothers Pictures
+> **Company**: CINEGENY Pictures
 > **Baseline**: We are light.
 > **Locations**: Paris, Tel Aviv, Hollywood
 
@@ -128,7 +128,7 @@
 ---
 
 ## Notes
-- All projects use Lumiere Brothers Pictures' collaborative pipeline
+- All projects use CINEGENY Pictures' collaborative pipeline
 - Community can vote on scenarios, participate in production tasks
 - Each project gets blockchain-recorded lifecycle events
 - Tokenization available for co-production financing

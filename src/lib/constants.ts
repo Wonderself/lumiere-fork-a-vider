@@ -89,7 +89,7 @@ export const TASK_TYPE_LABELS = {
 } as const
 
 export const CATALOG_LABELS = {
-  LUMIERE: 'CINEGENY Originals',
+  CINEGENY: 'CINEGENY Originals',
   RUPPIN: 'Ruppin College',
   BIBLE: 'Films Bibliques',
   ACTION: 'Action',

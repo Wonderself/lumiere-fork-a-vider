@@ -19,7 +19,7 @@ import { prisma } from '@/lib/prisma'
 
 const STRIPE_SECRET = process.env.STRIPE_SECRET_KEY
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://cinegen.studio'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://cinegeny.studio'
 
 type StripeMode = 'live' | 'test' | 'disabled'
 

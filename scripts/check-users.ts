@@ -11,12 +11,12 @@ const prisma = new PrismaClient({ adapter })
 async function main() {
   // Find admin user
   const admin = await prisma.user.findUnique({
-    where: { email: 'admin@lumiere.film' },
+    where: { email: 'admin@cinegeny.film' },
     select: { id: true, email: true, passwordHash: true, role: true },
   })
 
   if (!admin) {
-    console.log('ERROR: admin@lumiere.film not found!')
+    console.log('ERROR: admin@cinegeny.film not found!')
     return
   }
 
@@ -44,12 +44,12 @@ async function main() {
 
   // Test contributeur
   const contrib = await prisma.user.findUnique({
-    where: { email: 'contributeur@lumiere.film' },
+    where: { email: 'contributeur@cinegeny.film' },
     select: { passwordHash: true },
   })
   if (contrib) {
     const v = await bcrypt.compare('Test1234!', contrib.passwordHash)
-    console.log('\ncontributeur@lumiere.film + Test1234! =>', v ? 'PASS' : 'FAIL')
+    console.log('\ncontributeur@cinegeny.film + Test1234! =>', v ? 'PASS' : 'FAIL')
   }
 
   await prisma.$disconnect()

@@ -21,7 +21,7 @@ export default function PreferencesPage() {
   // Load from localStorage on mount (persists across sessions)
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('cinegen-preferences')
+      const saved = localStorage.getItem('cinegeny-preferences')
       if (saved) {
         const prefs = JSON.parse(saved)
         if (prefs.theme) setTheme(prefs.theme)
@@ -41,7 +41,7 @@ export default function PreferencesPage() {
     const prefs = { theme, language, pushNotifs, emailNotifs, lowBalanceAlert, taskAlerts, voteAlerts }
 
     // Save to localStorage for persistence
-    localStorage.setItem('cinegen-preferences', JSON.stringify(prefs))
+    localStorage.setItem('cinegeny-preferences', JSON.stringify(prefs))
 
     // Save language preference via server action (cookie for i18n)
     try {

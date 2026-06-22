@@ -233,13 +233,13 @@ export default function InvestPage() {
                   ['IA', 'Minimale', 'Recommandation', 'Production integrale'],
                   ['Blockchain', 'Non', 'Non', 'Tracabilite totale'],
                   ['Partage revenus', 'Studios only', 'Netflix only', 'Tous les contributeurs'],
-                ].map(([label, hollywood, netflix, cinegen]) => (
+                ].map(([label, hollywood, netflix, cinegeny]) => (
                   <tr key={label}>
                     <td className="p-4 text-white/60 font-medium">{label}</td>
                     <td className="p-4 text-white/30 text-center">{hollywood}</td>
                     <td className="p-4 text-white/30 text-center">{netflix}</td>
                     <td className="p-4 text-[#E50914] text-center font-semibold bg-[#E50914]/[0.03]">
-                      {cinegen}
+                      {cinegeny}
                     </td>
                   </tr>
                 ))}
@@ -428,7 +428,7 @@ export default function InvestPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:invest@cinegen.studio"
+              href="mailto:invest@cinegeny.studio"
               className="golden-border-btn golden-border-always inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold transition-all duration-500 shadow-lg shadow-[#E50914]/20 hover:shadow-[#E50914]/30 hover:scale-[1.02]"
             >
               Nous Contacter
@@ -442,7 +442,7 @@ export default function InvestPage() {
             </Link>
           </div>
           <p className="mt-8 text-xs text-white/20">
-            invest@cinegen.studio &middot; Paris &middot; Jerusalem
+            invest@cinegeny.studio &middot; Paris &middot; Jerusalem
           </p>
         </div>
       </section>
