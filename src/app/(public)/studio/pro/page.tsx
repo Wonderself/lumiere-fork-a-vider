@@ -121,7 +121,7 @@ export default function ProStudioPage() {
                 {/* Prompt */}
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
                   <label className="text-[10px] text-gray-400 mb-1 block">Prompt</label>
-                  <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Décrivez l'image..." rows={4} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
+                  <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the image..." rows={4} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
                   {/* Negative prompt */}
                   <details className="mt-2">
                     <summary className="text-[10px] text-gray-500 cursor-pointer hover:text-gray-400">Negative prompt</summary>

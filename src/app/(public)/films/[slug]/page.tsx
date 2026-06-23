@@ -196,7 +196,7 @@ async function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: 'Tâches dispo', value: availableTasks },
+                { label: 'Tasks available', value: availableTasks },
                 { label: 'Votes', value: voteState.total },
                 { label: 'Backers', value: film._count.backers },
                 { label: 'Phases', value: film.phases.length },

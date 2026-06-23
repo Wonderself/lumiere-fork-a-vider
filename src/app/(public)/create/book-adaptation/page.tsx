@@ -62,15 +62,15 @@ type ActionState = {
 } | null
 
 const FORMAT_LABELS = {
-  SHORT: 'Court métrage',
-  FEATURE: 'Long métrage',
-  SERIES: 'Série',
+  SHORT: 'Short film',
+  FEATURE: 'Feature film',
+  SERIES: 'Series',
 }
 
 const BUDGET_LABELS = {
   LOW: 'Budget Modeste',
   MEDIUM: 'Budget Moyen',
-  HIGH: 'Budget Élevé',
+  HIGH: 'High budget',
   BLOCKBUSTER: 'Blockbuster',
 }
 
@@ -136,9 +136,9 @@ export default function BookAdaptationPage() {
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
                   { label: 'Potentiel Visuel', value: analysis.visualPotential, icon: Film },
-                  { label: 'Densité Dialogues', value: analysis.dialogueDensity, icon: MessageSquare },
+                  { label: 'Dialogue density', value: analysis.dialogueDensity, icon: MessageSquare },
                   { label: 'Structure Narrative', value: analysis.narrativeStructure, icon: TrendingUp },
-                  { label: 'Attrait Marché', value: analysis.marketAppeal, icon: Star },
+                  { label: 'Market appeal', value: analysis.marketAppeal, icon: Star },
                 ].map((item) => (
                   <div key={item.label} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
                     <div className="flex items-center gap-2 mb-3">

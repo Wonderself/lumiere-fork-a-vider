@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { PenTool, Clock, ArrowRight, Bot } from 'lucide-react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Blog — CineGeny', description: 'Articles sur le cinéma participatif et l\'IA' }
+export const metadata: Metadata = { title: 'Blog — CineGeny', description: 'Articles on collaborative cinema and AI' }
 
 export default function BlogPage() {
   return (

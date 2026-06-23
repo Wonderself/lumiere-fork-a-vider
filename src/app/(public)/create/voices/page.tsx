@@ -281,7 +281,7 @@ export default function VoicesPage() {
           {[
             { icon: Mic2, title: 'Choisissez une voix', desc: '8 cinematic presets — narrator, hero, villain, child and more.' },
             { icon: Globe, title: 'Select the language', desc: '12 supported languages to reach your international audience.' },
-            { icon: Sparkles, title: 'Generate in one click', desc: 'L\'IA génère une piste audio expressionnelle en quelques secondes. 0,5 crédit par 100 caractères.' },
+            { icon: Sparkles, title: 'Generate in one click', desc: 'AI generates an expressive audio track in seconds. 0.5 credit per 100 characters.' },
           ].map(item => (
             <div
               key={item.title}

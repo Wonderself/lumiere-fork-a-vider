@@ -40,7 +40,7 @@ export default function FilmKnowledgePage() {
         tags: newTags.split(',').map(t => t.trim()).filter(Boolean), createdAt: new Date(),
       }])
       setNewContent(''); setNewTags(''); setSaving(false)
-      toast.success('Mémoire ajoutée — l\'IA l\'utilisera pour rester cohérente')
+      toast.success('Memory added — the AI will use it to stay consistent')
     }, 800)
   }
 
@@ -190,8 +190,8 @@ export default function FilmKnowledgePage() {
 
                 {/* Add Entry */}
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-5 space-y-3">
-                  <textarea value={newContent} onChange={e => setNewContent(e.target.value)} placeholder="Décrivez en détail... L'IA utilisera cette information pour rester cohérente." rows={4} className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
-                  <input value={newTags} onChange={e => setNewTags(e.target.value)} placeholder="Tags (séparés par virgules)" className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
+                  <textarea value={newContent} onChange={e => setNewContent(e.target.value)} placeholder="Describe in detail... The AI will use this information to stay consistent." rows={4} className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
+                  <input value={newTags} onChange={e => setNewTags(e.target.value)} placeholder="Tags (comma-separated)" className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
                   <button onClick={addEntry} disabled={saving || !newContent.trim()} className="w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
                     {saving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Plus className="h-5 w-5" />}
                     {saving ? 'Indexation...' : 'Ajouter à la mémoire'}

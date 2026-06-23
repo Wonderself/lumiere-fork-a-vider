@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 }
 
 const pipeline = [
-  { name: 'Project Heritage', desc: 'Biopics sourcés directement du catalogue d\'Éditions Ruppin', icon: BookOpen },
+  { name: 'Project Heritage', desc: 'Biopics sourced directly from the Ruppin Editions catalog', icon: BookOpen },
   { name: 'Project Hybrid', desc: 'Drames live-action enrichis par des environnements IA', icon: Layers },
   { name: 'Project Pulse', desc: 'Films de genre high-concept (Thriller/Sci-Fi)', icon: Sparkles },
 ]

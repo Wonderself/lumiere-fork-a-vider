@@ -97,7 +97,7 @@ export default function AgentBuilderPage() {
               <div className="flex gap-3">
                 <button onClick={buildAgent} disabled={building} className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
                   {building ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
-                  {building ? 'Creating...' : 'Créer l\'agent'}
+                  {building ? 'Creating...' : 'Create the agent'}
                 </button>
                 <button onClick={() => setTestMode(!testMode)} className={`px-4 py-3 rounded-xl text-sm font-medium ${testMode ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400'}`}>
                   <Play className="h-5 w-5" />
@@ -126,7 +126,7 @@ export default function AgentBuilderPage() {
                   <SelectedIcon className="h-8 w-8 text-[#E50914]" />
                 </div>
                 <p className="text-sm font-bold text-white">{values.name || 'Mon Agent'}</p>
-                <p className="text-xs text-gray-500 mt-0.5">{values.role || 'Rôle à définir'}</p>
+                <p className="text-xs text-gray-500 mt-0.5">{values.role || 'Role to be defined'}</p>
                 <p className="text-[10px] text-gray-600 mt-1">{values.model || 'claude-sonnet-4-6'} · {values.category || 'Autre'}</p>
               </div>
             </div>

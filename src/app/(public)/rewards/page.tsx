@@ -235,7 +235,7 @@ export default function RewardsPage() {
                 <code className="flex-1 text-sm font-mono text-white">{referralCode}</code>
                 <button onClick={copyReferral} className="px-3 py-1.5 rounded-lg text-xs bg-[#E50914] text-white hover:bg-[#FF2D2D]">
                   {copied ? <Check className="inline h-3.5 w-3.5" /> : <Copy className="inline h-3.5 w-3.5" />}
-                  {copied ? ' Copié' : ' Copier'}
+                  {copied ? ' Copied' : ' Copier'}
                 </button>
               </div>
             </div>

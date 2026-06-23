@@ -31,7 +31,7 @@ export default function TrailerMakerPage() {
 
   async function generateTrailers() {
     if (!filmTitle.trim() || !genre || !synopsis.trim()) { toast.error('Remplissez tous les champs'); return }
-    if (selectedStyles.length === 0) { toast.error('Sélectionnez au moins un style'); return }
+    if (selectedStyles.length === 0) { toast.error('Select at least one style'); return }
 
     setStep('generating')
     setProgress(0)
@@ -126,7 +126,7 @@ export default function TrailerMakerPage() {
                 </button>
               </div>
               {faceMode && (
-                <input value={faceUrl} onChange={e => setFaceUrl(e.target.value)} placeholder="URL de votre photo (portrait face caméra)..." className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
+                <input value={faceUrl} onChange={e => setFaceUrl(e.target.value)} placeholder="URL of your photo (front-facing portrait)..." className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
               )}
             </div>
 
@@ -217,7 +217,7 @@ export default function TrailerMakerPage() {
                   {/* Play Button */}
                   <div className="p-6 text-center">
                     <button
-                      onClick={() => toast.info('Lecteur vidéo en cours de génération — disponible sous peu !')}
+                      onClick={() => toast.info('Video player is being generated — available shortly!')}
                       className="inline-flex items-center gap-2 px-8 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl transition-colors"
                     >
                       <Play className="h-5 w-5" /> Lire la bande-annonce

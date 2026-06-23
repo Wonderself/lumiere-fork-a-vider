@@ -10,8 +10,8 @@ import {
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agents IA Cinéma — CINEGENY',
-  description: 'Découvrez nos agents IA spécialisés cinéma : scénariste, réalisateur, producteur, et plus encore.',
+  title: 'AI Cinema Agents — CINEGENY',
+  description: 'Discover our specialized AI cinema agents: screenwriter, director, producer, and more.',
 }
 
 const ICON_MAP: Record<string, typeof Bot> = {

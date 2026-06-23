@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Bot, Zap, Brain, GitBranch, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Agents IA Cinéma — CineGeny', description: 'Découvrez nos 113 agents IA spécialisés cinéma' }
+export const metadata: Metadata = { title: 'AI Cinema Agents — CineGeny', description: 'Discover our 113 specialized AI cinema agents' }
 
 export default function AgentsFeaturePage() {
   const tiers = [

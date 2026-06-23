@@ -41,8 +41,8 @@ export default async function ContestsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           {[
             { position: '1er', prize: '500€ + 1000 tokens', color: '#E50914' },
-            { position: '2ème', prize: '200€ + 500 tokens', color: '#C0C0C0' },
-            { position: '3ème', prize: '100€ + 200 tokens', color: '#CD7F32' },
+            { position: '2nd', prize: '200€ + 500 tokens', color: '#C0C0C0' },
+            { position: '3rd', prize: '100€ + 200 tokens', color: '#CD7F32' },
           ].map((p) => (
             <Card key={p.position} className="bg-white/[0.03] border-white/[0.08] text-center backdrop-blur-sm">
               <CardContent className="p-6">

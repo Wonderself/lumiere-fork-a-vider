@@ -29,7 +29,7 @@ const CORE_AGENTS = ALL_AGENTS.filter(a => a.category !== 'MARKETPLACE')
 const MEETING_PRESETS = [
   {
     name: 'Script Review',
-    description: 'Scénariste, Réalisateur et Producteur analysent un scénario',
+    description: 'Screenwriter, Director and Producer analyze a screenplay',
     agents: ['cg-scenariste', 'cg-realisateur', 'cg-producteur'],
   },
   {
@@ -44,12 +44,12 @@ const MEETING_PRESETS = [
   },
   {
     name: 'Strategic Review',
-    description: 'Creative Director, Studio Head et Investment Strategist évaluent un projet',
+    description: 'Creative Director, Studio Head and Investment Strategist evaluate a project',
     agents: ['cg-creative-director', 'cg-studio-head', 'cg-investment-strategist'],
   },
   {
     name: 'Launch Planning',
-    description: 'Marketing, Distribution et Community Manager préparent le lancement',
+    description: 'Marketing, Distribution and Community Manager prepare the launch',
     agents: ['cg-marketing-film', 'cg-distribution-manager', 'cg-community-manager'],
   },
 ]
@@ -81,7 +81,7 @@ export default function MeetingPage() {
 
   async function startMeeting() {
     if (!title.trim() || !topic.trim() || selectedAgents.length < 2) {
-      toast.error('Remplissez le titre, le sujet et sélectionnez au moins 2 agents')
+      toast.error('Fill in the title, the topic and select at least 2 agents')
       return
     }
 
@@ -111,7 +111,7 @@ export default function MeetingPage() {
         summary: data.summary,
         durationMs: data.durationMs,
       })
-      toast.success('Réunion terminée !')
+      toast.success('Meeting finished!')
     } catch (err: any) {
       toast.error(err.message)
     }
@@ -154,7 +154,7 @@ export default function MeetingPage() {
                 <input
                   value={title}
                   onChange={e => setTitle(e.target.value)}
-                  placeholder="Ex: Revue du scénario Act 2"
+                  placeholder="e.g. Act 2 screenplay review"
                   className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function MeetingPage() {
                 <textarea
                   value={topic}
                   onChange={e => setTopic(e.target.value)}
-                  placeholder="Décrivez le sujet que les agents doivent discuter..."
+                  placeholder="Describe the topic for the agents to discuss..."
                   rows={4}
                   className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none"
                 />

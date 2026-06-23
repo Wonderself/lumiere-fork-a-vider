@@ -83,7 +83,7 @@ export default async function SubmitFilmPage() {
                   </div>
                   <div>
                     <Label className="text-white/60">Synopsis *</Label>
-                    <Textarea name="synopsis" required className="bg-white/5 border-white/[0.08] text-white mt-1" rows={4} placeholder="Décrivez votre film..." />
+                    <Textarea name="synopsis" required className="bg-white/5 border-white/[0.08] text-white mt-1" rows={4} placeholder="Describe your film..." />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>

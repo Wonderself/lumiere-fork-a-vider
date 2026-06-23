@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Découvrez et regardez des films créés par l'intelligence artificielle. Catalogue de courts et longs métrages IA, bandes-annonces exclusives.",
   openGraph: {
     title: 'Streaming — Films IA en continu | CINEGENY',
-    description: "Découvrez et regardez des films créés par l'intelligence artificielle.",
+    description: "Discover and watch films created by artificial intelligence.",
   },
 }
 

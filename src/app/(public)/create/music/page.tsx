@@ -175,12 +175,12 @@ export default function MusicPage() {
           <h2 className="text-lg font-bold text-white/80">Music Library</h2>
           <button
             onClick={() => {
-              if (!unlocked) { toast.error('Complétez les étapes précédentes pour débloquer cette fonctionnalité'); return }
+              if (!unlocked) { toast.error('Complete the previous steps to unlock this feature'); return }
               toast.promise(
                 new Promise<void>((resolve) => setTimeout(resolve, 2500)),
                 {
                   loading: 'Composition IA en cours...',
-                  success: 'Piste originale générée et ajoutée à votre bibliothèque !',
+                  success: 'Original track generated and added to your library!',
                   error: 'Generation failed',
                 }
               )

@@ -53,7 +53,7 @@ export default function MarketingPage() {
     const generated = platforms.map(p => ({
       id: `post-${Date.now()}-${p.id}`,
       platform: p.id,
-      content: `${p.id === 'twitter' ? '🎬' : '🎥'} ${postTopic}\n\n${p.toneGuide.split('.')[0]}.\n\n${p.id === 'linkedin' ? 'Chez CineGeny, nous démocratisons le cinéma participatif grâce à l\'IA.\n\n' : ''}${p.id === 'instagram' ? '📸 Découvrez les coulisses sur notre profil\n\n' : ''}Rejoignez la communauté ! 🎬\n\n${CINEMA_HASHTAGS.platform.join(' ')} ${CINEMA_HASHTAGS.general.slice(0, 3).join(' ')}`,
+      content: `${p.id === 'twitter' ? '🎬' : '🎥'} ${postTopic}\n\n${p.toneGuide.split('.')[0]}.\n\n${p.id === 'linkedin' ? 'At CineGeny, we democratize collaborative cinema with AI.\n\n' : ''}${p.id === 'instagram' ? '📸 Discover the behind-the-scenes on our profile\n\n' : ''}Rejoignez la communauté ! 🎬\n\n${CINEMA_HASHTAGS.platform.join(' ')} ${CINEMA_HASHTAGS.general.slice(0, 3).join(' ')}`,
       hashtags: [...CINEMA_HASHTAGS.platform, ...CINEMA_HASHTAGS.general.slice(0, 3)],
       tone: postTone,
       createdAt: new Date(),
@@ -87,7 +87,7 @@ export default function MarketingPage() {
     }])
     setShowNewCampaign(false)
     setNewCampaign({ name: '', type: 'social', templateId: '' })
-    toast.success('Campagne créée')
+    toast.success('Campaign created')
   }
 
   const days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']

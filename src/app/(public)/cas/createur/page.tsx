@@ -2,16 +2,16 @@ import Link from 'next/link'
 import { Film, Zap, Star, ArrowRight, CheckCircle2, Bot, Shield } from 'lucide-react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Cas d\'usage — Créateur | CineGeny', description: 'Comment un créateur utilise CineGeny pour produire son film' }
+export const metadata: Metadata = { title: 'Use case — Creator | CineGeny', description: 'How a creator uses CineGeny to produce their film' }
 
 export default function CreateurCasePage() {
   const steps = [
-    { title: 'Écrivez votre scénario', desc: 'L\'agent Scénariste IA vous guide dans l\'écriture : structure 3 actes, dialogues, personnages.', icon: '✍️' },
-    { title: 'Construisez la mémoire du film', desc: 'Remplissez les 8 catégories de la bible film pour que chaque IA reste cohérente.', icon: '🧠' },
-    { title: 'Générez les visuels', desc: 'Storyboards, concept art, affiches — le Studio Créatif produit tout.', icon: '🎨' },
-    { title: 'Créez la bande-annonce', desc: 'Le Trailer Maker assemble une BA professionnelle en plusieurs styles.', icon: '🎬' },
-    { title: 'Soumettez au vote', desc: 'La communauté vote. Si le film est sélectionné, la production commence.', icon: '🗳️' },
-    { title: 'Collaborez et produisez', desc: 'Invitez des collaborateurs, distribuez les rôles, lancez la production.', icon: '🤝' },
+    { title: 'Write your screenplay', desc: 'The AI Screenwriter agent guides your writing: 3-act structure, dialogue, characters.', icon: '✍️' },
+    { title: 'Build the film memory', desc: 'Fill in the 8 categories of the film bible so every AI stays consistent.', icon: '🧠' },
+    { title: 'Generate the visuals', desc: 'Storyboards, concept art, posters — the Creative Studio produces it all.', icon: '🎨' },
+    { title: 'Create the trailer', desc: 'Le Trailer Maker assemble une BA professionnelle en plusieurs styles.', icon: '🎬' },
+    { title: 'Soumettez au vote', desc: 'The community votes. If the film is selected, production begins.', icon: '🗳️' },
+    { title: 'Collaborez et produisez', desc: 'Invite collaborators, assign roles, kick off production.', icon: '🤝' },
   ]
 
   return (
