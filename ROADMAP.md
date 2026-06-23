@@ -1,6 +1,20 @@
-# CINEGENY CINEMA — Roadmap Technique Detaillee
+# CINEGENY CINEMA — Roadmap
 
-> Chaque etape inclut le **prompt pret a copier** pour Claude Code et la **liste de prerequis** (ce que le fondateur doit fournir avant de lancer).
+## Platform Refresh 2026 (V14) — shipped
+
+The latest milestone — a clear single-account UX, a real money loop, learning, identity and full English:
+
+- **One account + capabilities** — signup asks only name/email/password; users watch & vote, then unlock Invest / Paid missions / Missions for shares / Submit a screenplay / Act / Produce via the `/participate` hub.
+- **Lumen economy in USD** — `1 Lumen = $1`; buy/withdraw with a one-time KYC before cash-out; Stripe-ready (simulated until keys); USDC + Bitcoin rails pluggable; reserve = USD + USDC.
+- **Academy** (`/academy`) — free, account-gated AI-filmmaking course, Level 1 + Level 2, text + images.
+- **Voting ladder** (`/vote`) — Screenplay → Trailer → Short film → Feature, ~10 active projects per stage.
+- **Premium** — Lumens, 2× voting power, fee discounts, priority missions, AI credits, early access.
+- **Full English UI** — default locale = English; entire user-facing app + displayed content translated (no franglais).
+- **Brand identity** — gold film-strip infinity logo + reusable `InfinityMark` / `InfinityDivider` motif.
+- **Google sign-in** + corrected Coolify env keys + startup integration status check.
+- **Quality** — internal links audited (0 broken), production build green at every step.
+
+> The detailed historical roadmap (in French) follows below.
 
 ---
 
