@@ -34,6 +34,112 @@ export interface Level {
 
 export const LEVELS: Level[] = [
   {
+    id: 'bootcamp',
+    badge: 'Free · 7 days',
+    title: 'The 7-Day Claude Filmmaking Bootcamp',
+    subtitle:
+      'The fastest way in: go from a blank page to a finished AI film in one week. Each day is one focused session with worked examples, illustrations and ready-to-copy prompt templates you can paste straight into Claude and your AI tools.',
+    modules: [
+      {
+        title: 'Your 7-day path — from first scene to finished film',
+        lessons: [
+          {
+            slug: 'day-1-your-first-ai-scene',
+            title: 'Day 1 — Your first AI scene: describe it, get a full shot plan',
+            minutes: 22,
+            summary:
+              'Talk to Claude like a director and turn a one-line idea into a complete, shoot-ready shot plan.',
+            body: [
+              { type: 'p', text: 'Today you produce your first real deliverable: a complete shot plan for one scene. You will not generate a single image yet — and that is on purpose. The films that work are planned before they are generated. By the end of this session you will have a numbered list of shots, each with a size, angle, movement, lighting and a one-line intention.' },
+              { type: 'h', text: 'What you will build today' },
+              { type: 'ul', items: [
+                'A one-sentence goal for your scene (your compass).',
+                'A beat list: entry, turn, exit.',
+                'A numbered shot plan with size, angle, movement, light and intent per shot.',
+                'A reusable prompt you can rerun for every future scene.',
+              ] },
+              { type: 'h', text: 'Talk to Claude like a director' },
+              { type: 'p', text: 'Claude is brilliant when you give it a role, a goal, constraints and a format. Vague asks ("write me a scene") give generic results. Specific asks ("you are a director of photography, give me a 6-shot plan for a tense kitchen argument, eye-level, natural light, output as a table") give you something you can actually shoot.' },
+              { type: 'ul', items: [
+                'Role — who Claude should act as (director, DP, editor).',
+                'Goal — the single change the scene must deliver.',
+                'Constraints — tone, location, number of shots, look.',
+                'Format — list, table, or shot cards, so the answer is usable.',
+              ] },
+              { type: 'img', alt: 'A four-part diagram: Role, Goal, Constraints, Format feeding into a clean shot list', caption: 'The four ingredients of a director-grade prompt. Miss one and the output drifts toward generic.' },
+              { type: 'h', text: 'The method: idea to shot plan' },
+              { type: 'ol', items: [
+                'Write your scene goal in one sentence ("Maya finds the letter and decides to leave").',
+                'List three beats: how we enter, the turning moment, how we leave.',
+                'Ask Claude for a shot plan that delivers those beats.',
+                'Read each shot and cut anything that does not advance focus, feeling, or story.',
+              ] },
+              { type: 'prompt', label: 'Prompt — idea to shot plan', text: 'You are an experienced film director and cinematographer.\nTurn my scene idea into a shot-ready plan.\n\nScene idea: <one or two sentences>\nTone: <e.g. tense, tender, playful>\nLocation: <where it happens>\nLength: about <N> shots\n\nReturn a numbered shot list. For each shot give:\n- Shot size (e.g. wide, medium, close-up)\n- Camera angle (low / eye-level / high)\n- Camera movement (static, slow push-in, pan, tracking)\n- Lighting and mood in one line\n- Intention: what the audience should feel or learn\n\nThen add one sentence on the single emotional change the scene delivers.' },
+              { type: 'h', text: 'How to read your shot plan' },
+              { type: 'p', text: 'A good plan starts wider to orient the audience and pushes closer as the stakes rise. Look for a clear "turn" shot — usually a close-up on the decision or discovery. If every shot is the same size, the scene will feel flat; vary the rhythm.' },
+              { type: 'img', alt: 'A numbered 6-shot plan from wide establishing to close-up on a decision', caption: 'A typical six-shot scene: orient wide, build in mediums, land the turn on a close-up.' },
+              { type: 'prompt', label: 'Prompt — refine a single shot', text: 'Here is shot <N> from my plan:\n<paste the shot>\n\nGive me three alternative versions of this shot that each raise the tension a little more. For each, change only one variable (size, angle, movement, or light) and explain in one line why it works better.' },
+              { type: 'h', text: 'Common Day 1 mistakes' },
+              { type: 'ul', items: [
+                'Skipping the goal sentence — the plan wanders with no compass.',
+                'Asking for too many shots — 5 to 8 is plenty for one scene.',
+                'No turn beat — the scene becomes two half-scenes with no change.',
+                'Accepting the first answer — always ask for one refinement pass.',
+              ] },
+              { type: 'tip', text: 'Save your favourite prompts in a notes file. By Day 7 you will have a personal prompt library that makes every new project faster.' },
+              { type: 'p', text: 'Your task today: pick one tiny moment (someone receives bad news, a first meeting, a goodbye) and produce a complete shot plan with the prompts above. That plan is the seed of everything you build this week.' },
+            ],
+          },
+          {
+            slug: 'day-2-ai-visuals-and-characters',
+            title: 'Day 2 — AI visuals & characters: generate cinematic images and animate them',
+            minutes: 24,
+            summary:
+              'Write cinematic image prompts, keep a character looking the same across shots, then bring stills to life.',
+            body: [
+              { type: 'p', text: 'With a shot plan in hand, today you turn shots into images — and keep your character recognisable from shot to shot. Consistency is the number-one thing that separates an amateur AI reel from a believable film, so we focus on it hard.' },
+              { type: 'h', text: 'The image-first workflow' },
+              { type: 'p', text: 'Generate a strong still for each shot first, then animate the best ones. Stills are fast and cheap to iterate; video is slow and expensive. Locking your look in stills saves you hours later.' },
+              { type: 'h', text: 'Anatomy of a cinematic image prompt' },
+              { type: 'ul', items: [
+                'Subject — who or what, with a few defining details.',
+                'Action / pose — what they are doing right now.',
+                'Shot — size and angle (medium close-up, low angle).',
+                'Lens & light — 35mm, soft window light, golden hour.',
+                'Mood & palette — melancholic, teal and amber.',
+                'Style & aspect — photoreal cinematic, 16:9.',
+              ] },
+              { type: 'img', alt: 'A labelled breakdown of a cinematic image prompt with each ingredient highlighted', caption: 'Every strong image prompt answers the same six questions. Keep the order and your results stay consistent.' },
+              { type: 'prompt', label: 'Prompt — cinematic still', text: 'Cinematic film still. <subject with 2-3 details>, <action/pose>.\nShot: <size + angle, e.g. medium close-up, slightly low angle>.\nLens & light: <e.g. 35mm, soft directional window light, shallow depth of field>.\nMood & palette: <e.g. quiet tension, teal and amber>.\nStyle: photorealistic, filmic color, fine grain, 16:9.\nNegative: no text, no watermark, no distortion, no extra limbs.' },
+              { type: 'h', text: 'Keeping a character consistent' },
+              { type: 'p', text: 'Write a character sheet once and reuse the exact same description in every prompt. Treat it like a copy-paste block: identical wording produces a far more identical face than retyping from memory.' },
+              { type: 'ol', items: [
+                'Define the character in fixed words (age, hair, face, build, signature wardrobe).',
+                'Generate a clean reference portrait you are happy with.',
+                'Paste the identical character block into every later prompt.',
+                'Where your tool supports it, feed the reference image back in for each new shot.',
+              ] },
+              { type: 'prompt', label: 'Prompt — character sheet', text: 'Create a reusable character description I can paste into every shot.\n\nCharacter: <name>\nFix these forever: approximate age, hair (color/length/style), face shape and notable features, build, skin tone, and one signature wardrobe item.\n\nWrite it as a single dense paragraph of concrete visual details (no backstory, no adjectives like beautiful). I will paste this exact paragraph into all my image prompts to keep the character consistent.' },
+              { type: 'tip', text: 'Lock wardrobe and hair early. Changing a jacket or hairstyle between shots is the fastest way to break the illusion that it is the same person.' },
+              { type: 'h', text: 'From still to motion' },
+              { type: 'p', text: 'Once a still is locked, animate it with a short, motivated movement. Simple moves (slow push-in, gentle parallax, subtle wind) generate far more reliably than complex action. Describe the motion, the duration, and what stays still.' },
+              { type: 'prompt', label: 'Prompt — image to video motion brief', text: 'Animate this still into a <N>-second clip.\nCamera: <slow push-in / gentle pan left / static with parallax>.\nSubject motion: <small, natural — e.g. breathing, a slow turn of the head, hair moving in a light breeze>.\nKeep: composition, lighting and the character identical to the still.\nMood: <same as the still>. No abrupt moves, no morphing, no warping of the face.' },
+              { type: 'h', text: 'Common Day 2 mistakes' },
+              { type: 'ul', items: [
+                'Re-describing the character from memory each time (the face drifts).',
+                'Over-animating — big actions cause warping; keep motion small.',
+                'Skipping the negative prompt, then fighting text and extra limbs.',
+                'Animating weak stills — fix the image first, animate second.',
+              ] },
+              { type: 'p', text: 'Your task today: generate a locked reference for your main character, then a cinematic still for two shots from your Day 1 plan, and animate the strongest one.' },
+            ],
+          },
+          /* BOOTCAMP_LESSONS_END */
+        ],
+      },
+    ],
+  },
+  {
     id: 'level-1',
     badge: 'Level 1',
     title: 'Foundations of AI Filmmaking',
