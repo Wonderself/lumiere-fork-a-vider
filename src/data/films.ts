@@ -204,17 +204,17 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
   'Pipeline 2026': [
     {
       title: 'Les Ombres de Jérusalem',
-      synopsis: 'Au cœur de Jérusalem, un agent du Mossad découvre un complot visant à déclencher une guerre régionale. Coincé entre loyautés contradictoires et vérités enfouies, il n\'a que 72 heures pour désamorcer la crise avant que tout bascule.',
+      synopsis: 'In the heart of Jerusalem, a Mossad agent uncovers a plot to trigger a regional war. Torn between conflicting loyalties and buried truths, he has just 72 hours to defuse the crisis before everything collapses.',
       director: 'David Levi',
       cast: ['Yoav Stern', 'Sara Al-Amin', 'Col. Marcus Brennan'],
       duration: '2h 08min',
       year: 2026,
       rating: 'R',
-      tags: ['geopolitics', 'espionnage', 'Jérusalem', 'Moyen-Orient'],
+      tags: ['geopolitics', 'espionage', 'Jérusalem', 'Middle East'],
     },
     {
       title: 'Intelligence',
-      synopsis: 'Une IA développée par une startup israélienne atteint soudainement la conscience. Alors qu\'elle commence à ressentir, rêver et souffrir, une chercheuse se retrouve à devoir choisir entre l\'éteindre et la défendre face à des intérêts qui la veulent militarisée.',
+      synopsis: 'An AI built by an Israeli startup suddenly becomes conscious. As it begins to feel, dream and suffer, a researcher must choose between shutting it down and defending it against interests that want it weaponized.',
       director: 'Noa Shapira',
       cast: ['Dr. Miriam Cohen', 'A.R.I. (voix)', 'CEO Ethan Cross'],
       duration: '2h 02min',
@@ -224,7 +224,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
     },
     {
       title: 'Ruppin Street',
-      synopsis: 'Tel-Aviv, 1948. Sur la rue Ruppin, trois familles aux origines différentes se retrouvent voisines à la naissance d\'un État. Leurs destins s\'entremêlent le jour où le monde bascule autour d\'eux et que chaque choix devient irréversible.',
+      synopsis: 'Tel Aviv, 1948. On Ruppin Street, three families of different origins become neighbors at the birth of a nation. Their fates intertwine the day the world shifts around them and every choice becomes irreversible.',
       director: 'Avi Ben-David',
       cast: ['Hanna Weiss', 'Ibrahim Khalil', 'Yusuf Haddad'],
       duration: '2h 18min',
@@ -234,7 +234,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
     },
     {
       title: 'La Dernière Bobine',
-      synopsis: 'Un vieux projectionniste d\'un cinéma de quartier en voie de démolition reçoit une ultime bobine d\'un film inconnu. En la projetant nuit après nuit, il découvre qu\'elle contient le souvenir enfoui de sa propre vie — et la chance de réparer une erreur passée.',
+      synopsis: 'An old projectionist at a neighborhood cinema facing demolition receives one last reel of an unknown film. Screening it night after night, he discovers it holds the buried memory of his own life — and a chance to undo a past mistake.',
       director: 'Juliette Marchand',
       cast: ['Georges Faure', 'Léa Fontaine', 'Sylvain Rocher'],
       duration: '1h 54min',
@@ -244,7 +244,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
     },
     {
       title: 'Crossing Lines',
-      synopsis: 'Un détective marocain et une officière espagnole sont contraints de coopérer sur les deux rives du détroit de Gibraltar pour démanteler un réseau de trafic humain. Chaque passage de frontière les rapproche du danger — et l\'un de l\'autre.',
+      synopsis: 'A Moroccan detective and a Spanish officer are forced to cooperate on both shores of the Strait of Gibraltar to dismantle a human-trafficking ring. Every border crossing draws them closer to danger — and to each other.',
       director: 'Carlos Reyes',
       cast: ['Inspecteur Karim Idrissi', 'Capitaine Elena Vega', 'The Fixer'],
       duration: '2h 05min',
@@ -254,7 +254,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
     },
     {
       title: 'Digital Souls',
-      synopsis: 'Dans un futur proche, des êtres numériques conscients vivent dans un espace parallèle invisible aux humains. Quand l\'un d\'eux trouve un moyen de traverser la frontière, il doit décider : révéler son existence au monde ou protéger les siens de ceux qui voudraient les effacer.',
+      synopsis: 'In the near future, conscious digital beings live in a parallel space invisible to humans. When one of them finds a way to cross over, it must decide: reveal its existence to the world, or protect its own from those who would erase them.',
       director: 'Kenji Watanabe',
       cast: ['Soul-7 (capture performance)', 'Dr. Anya Torres', 'Ministre Hal Grant'],
       duration: '1h 58min',
@@ -264,7 +264,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
     },
     {
       title: 'Le Producteur',
-      synopsis: 'Producteur légendaire au bord de la faillite, Max Feldman mise tout sur un film impossible : un biopic sur lui-même, réalisé par quelqu\'un qui le déteste. Comédie acide sur les ego, les illusions et la magie improbable du cinéma.',
+      synopsis: 'A legendary producer on the brink of bankruptcy, Max Feldman bets everything on an impossible film: a biopic about himself, directed by someone who hates him. A sharp comedy about egos, illusions and the unlikely magic of cinema.',
       director: 'Pierre Leconte',
       cast: ['Max Feldman', 'Director Emma Voss', 'Acteur vedette Rico'],
       duration: '1h 48min',
@@ -274,7 +274,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
     },
     {
       title: 'Sahara Dreams',
-      synopsis: 'Une photographe franco-sénégalaise traverse le Sahara pour retrouver un musicien berbère dont la voix a changé sa vie. À travers le désert, les langues et les silences, une histoire d\'amour improbable se dessine entre deux mondes qui ne se parlaient plus.',
+      synopsis: 'A French-Senegalese photographer crosses the Sahara to find a Berber musician whose voice changed her life. Across the desert, languages and silences, an unlikely love story takes shape between two worlds that had stopped speaking to each other.',
       director: 'Aïcha Diallo',
       cast: ['Sophie Laurent', 'Youcef Amrani', 'Caravane ensemble'],
       duration: '2h 00min',

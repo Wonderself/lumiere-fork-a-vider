@@ -9,13 +9,13 @@ export interface KnowledgeAgent {
 }
 
 export const KNOWLEDGE_AGENTS: KnowledgeAgent[] = [
-  { slug: 'cg-memory-manager', name: 'Memory Manager', role: 'Stockage & recherche vectorielle', description: 'Gère les embeddings vectoriels (pgvector), recherche sémantique par cosine similarity, indexation automatique du contenu.', icon: 'brain', color: '#8B5CF6', tier: 'L2' },
-  { slug: 'cg-knowledge-auditor', name: 'Knowledge Auditor', role: 'Audit connaissances', description: 'Audite la base de connaissances : détecte les informations obsolètes, les contradictions, les lacunes à combler.', icon: 'shield-check', color: '#3B82F6', tier: 'L2' },
-  { slug: 'cg-film-lore-keeper', name: 'Gardien du Lore', role: 'Film Memory / Bible', description: 'Maintient la bible de chaque film : personnages, lore, timeline, style visuel, contraintes. Garantit la cohérence de toute contribution IA.', icon: 'book-open', color: '#E50914', tier: 'L2' },
-  { slug: 'cg-character-memory', name: 'Character Memory', role: 'Character consistency', description: 'Garde en mémoire chaque personnage : apparence, personnalité, voix, relations, arc narratif. Vérifie toute incohérence.', icon: 'user-circle', color: '#EC4899', tier: 'L1' },
-  { slug: 'cg-style-guardian', name: 'Gardien du Style', role: 'Visual consistency', description: 'Préserve la cohérence visuelle du film : palette couleurs, éclairage, texture, direction artistique. Rejette les contributions hors-style.', icon: 'palette', color: '#F59E0B', tier: 'L1' },
-  { slug: 'cg-context-builder', name: 'Constructeur Contexte', role: 'Enrichissement contexte', description: 'Construit dynamiquement le contexte optimal pour chaque requête IA en combinant mémoire long-terme + conversation + bible film.', icon: 'layers', color: '#10B981', tier: 'L1' },
-  { slug: 'cg-embedding-engine', name: 'Moteur Embeddings', role: 'Vectorisation & indexation', description: 'Transforme le texte en vecteurs d\'embeddings pour la recherche sémantique. Gère l\'indexation, le batch processing et la fraîcheur.', icon: 'cpu', color: '#06B6D4', tier: 'L1' },
+  { slug: 'cg-memory-manager', name: 'Memory Manager', role: 'Stockage & recherche vectorielle', description: 'Manages vector embeddings (pgvector), semantic search via cosine similarity, and automatic content indexing.', icon: 'brain', color: '#8B5CF6', tier: 'L2' },
+  { slug: 'cg-knowledge-auditor', name: 'Knowledge Auditor', role: 'Audit connaissances', description: 'Audits the knowledge base: detects outdated information, contradictions, and gaps to fill.', icon: 'shield-check', color: '#3B82F6', tier: 'L2' },
+  { slug: 'cg-film-lore-keeper', name: 'Gardien du Lore', role: 'Film Memory / Bible', description: 'Maintains each film\'s bible: characters, lore, timeline, visual style, constraints. Ensures the consistency of every AI contribution.', icon: 'book-open', color: '#E50914', tier: 'L2' },
+  { slug: 'cg-character-memory', name: 'Character Memory', role: 'Character consistency', description: 'Remembers every character: appearance, personality, voice, relationships, narrative arc. Checks for any inconsistency.', icon: 'user-circle', color: '#EC4899', tier: 'L1' },
+  { slug: 'cg-style-guardian', name: 'Gardien du Style', role: 'Visual consistency', description: 'Preserves the film\'s visual consistency: color palette, lighting, texture, art direction. Rejects off-style contributions.', icon: 'palette', color: '#F59E0B', tier: 'L1' },
+  { slug: 'cg-context-builder', name: 'Constructeur Contexte', role: 'Enrichissement contexte', description: 'Dynamically builds the optimal context for each AI request by combining long-term memory + conversation + film bible.', icon: 'layers', color: '#10B981', tier: 'L1' },
+  { slug: 'cg-embedding-engine', name: 'Moteur Embeddings', role: 'Vectorisation & indexation', description: 'Turns text into embedding vectors for semantic search. Handles indexing, batch processing and freshness.', icon: 'cpu', color: '#06B6D4', tier: 'L1' },
 ]
 
 // ─── Film Memory Categories ─────────────────────────────────────────
@@ -31,13 +31,13 @@ export const FILM_MEMORY_CATEGORIES: FilmMemoryCategory[] = [
   {
     id: 'characters', label: 'Personnages', icon: 'users', color: '#EC4899',
     description: 'Each character with their appearance, personality, narrative arc, relationships and voice.',
-    requiredFields: ['Nom', 'Âge', 'Apparence physique', 'Personality', 'Backstory', 'Objectif', 'Voix/Ton', 'Relations'],
-    examples: ['Marie, 32 ans, brune aux yeux verts, déterminée mais vulnérable, ex-journaliste reconvertie en détective privée'],
+    requiredFields: ['Nom', 'Age', 'Apparence physique', 'Personality', 'Backstory', 'Objectif', 'Voix/Ton', 'Relations'],
+    examples: ['Marie, 32, brown hair and green eyes, determined yet vulnerable, a former journalist turned private detective'],
   },
   {
     id: 'world', label: 'Univers / Lore', icon: 'globe', color: '#3B82F6',
     description: 'The rules of the film\'s universe: era, place, technology, magic, society, history.',
-    requiredFields: ['Époque', 'Lieu principal', 'Special rules', 'Contexte historique', 'État du monde'],
+    requiredFields: ['Era', 'Lieu principal', 'Special rules', 'Contexte historique', 'World state'],
     examples: ['Paris 2045, post-climate-catastrophe, flooded zones, advanced technology but a fragmented society'],
   },
   {
@@ -50,7 +50,7 @@ export const FILM_MEMORY_CATEGORIES: FilmMemoryCategory[] = [
     id: 'timeline', label: 'Timeline', icon: 'clock', color: '#10B981',
     description: 'Timeline of the film\'s events: acts, sequences, turning points, flashbacks.',
     requiredFields: ['Structure', 'Points tournants', 'Timeline (linear/non-linear)', 'Narrative duration'],
-    examples: ['Acte 1 (setup 25min) → Inciting incident → Acte 2 (confrontation 50min) → Midpoint → Acte 3 (résolution 20min)'],
+    examples: ['Act 1 (setup 25min) → Inciting incident → Act 2 (confrontation 50min) → Midpoint → Act 3 (resolution 20min)'],
   },
   {
     id: 'sound', label: 'Sound identity', icon: 'volume-2', color: '#8B5CF6',
@@ -73,7 +73,7 @@ export const FILM_MEMORY_CATEGORIES: FilmMemoryCategory[] = [
   {
     id: 'production', label: 'Notes de Production', icon: 'clipboard', color: '#78716C',
     description: 'Technical constraints, budget, equipment, shooting locations, schedule.',
-    requiredFields: ['Budget', 'Jours de tournage', 'Équipement', 'Lieux', 'Équipe'],
+    requiredFields: ['Budget', 'Jours de tournage', 'Equipment', 'Lieux', 'Team'],
     examples: ['Budget $150K, 15 shooting days, RED Komodo, 3 studio sets + 2 Paris exteriors'],
   },
 ]
@@ -114,23 +114,23 @@ export const FILM_MEMORY_EXPLAINER = {
   sections: [
     {
       title: '🧠 What is Film Memory?',
-      content: 'Chaque film sur CineGeny a sa propre "memory" — une base de connaissances qui stocke tout ce qui définit votre film : personnages, univers, style visuel, timeline, contraintes. Cette mémoire est partagée avec tous les agents IA et contributeurs.',
+      content: 'Every film on CineGeny has its own "memory" — a knowledge base that stores everything defining your film: characters, world, visual style, timeline, constraints. This memory is shared with all AI agents and contributors.',
     },
     {
       title: '🎯 Pourquoi c\'est crucial ?',
-      content: 'Dans le cinéma participatif, plusieurs créateurs contribuent au même film. Sans mémoire partagée, chaque contribution risque d\'être incohérente. La mémoire film garantit que le scénariste IA, le concept artist et le compositeur travaillent tous dans le même univers.',
+      content: 'In collaborative cinema, several creators contribute to the same film. Without shared memory, each contribution risks being inconsistent. Film memory ensures the AI screenwriter, concept artist and composer all work within the same world.',
     },
     {
       title: '🤖 How does it work?',
-      content: 'Quand vous remplissez la bible de votre film, chaque information est transformée en "embedding" (vecteur mathématique) et stockée. Quand un agent IA travaille sur votre film, il recherche automatiquement les informations pertinentes pour rester cohérent.',
+      content: 'When you fill in your film\'s bible, each piece of information is turned into an "embedding" (mathematical vector) and stored. When an AI agent works on your film, it automatically retrieves the relevant information to stay consistent.',
     },
     {
       title: '✅ Que devez-vous faire ?',
-      content: 'Remplissez les 8 catégories de mémoire le plus précisément possible. Plus la bible est riche, plus les contributions IA seront cohérentes et de qualité. Vous pouvez la mettre à jour à tout moment.',
+      content: 'Fill in the 8 memory categories as precisely as possible. The richer the bible, the more consistent and higher-quality the AI contributions. You can update it at any time.',
     },
     {
       title: '🔒 Who has access?',
-      content: 'Seuls les contributeurs invités et les agents IA de votre film ont accès à la mémoire. Elle est chiffrée et isolée des autres projets.',
+      content: 'Only invited contributors and your film\'s AI agents can access the memory. It is encrypted and isolated from other projects.',
     },
   ],
 }

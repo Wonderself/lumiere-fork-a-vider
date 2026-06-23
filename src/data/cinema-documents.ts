@@ -157,7 +157,7 @@ export const CINEMA_DOC_TEMPLATES: CinemaDocTemplate[] = [
     category: 'creative',
     icon: 'presentation',
     description: 'Présentation professionnelle pour pitcher un projet de film à des investisseurs, producteurs ou distributeurs.',
-    sections: ['Couverture', 'Logline', 'Synopsis', 'Vision du réalisateur', 'Références visuelles', 'Personnages', 'Marché cible', 'Budget & Financement', 'Équipe', 'Planning', 'Contact'],
+    sections: ['Couverture', 'Logline', 'Synopsis', 'Vision du réalisateur', 'Références visuelles', 'Personnages', 'Marché cible', 'Budget & Financement', 'Team', 'Planning', 'Contact'],
     estimatedCredits: 3.5,
     estimatedPages: 15,
     requiredFields: [

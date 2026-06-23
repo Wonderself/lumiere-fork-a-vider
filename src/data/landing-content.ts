@@ -24,31 +24,31 @@ export interface FAQCategory { id: string; label: string; icon: string; color: s
 
 export const FAQ_CATEGORIES: FAQCategory[] = [
   { id: 'general', label: 'General', icon: 'help-circle', color: '#3B82F6', items: [
-    { q: 'Qu\'est-ce que CineGeny ?', a: 'CineGeny est la première plateforme de cinéma participatif propulsée par l\'IA. Elle permet à chacun de créer, financer et distribuer des films grâce à 113 agents IA spécialisés.' },
+    { q: 'Qu\'est-ce que CineGeny ?', a: 'CineGeny is the first AI-powered collaborative cinema platform. It lets anyone create, fund and distribute films with 113 specialized AI agents.' },
     { q: 'Do I need filmmaking experience?', a: 'No experience required. Our AI agents guide you at every step, from script to distribution.' },
-    { q: 'CineGeny est-il gratuit ?', a: 'L\'inscription est gratuite avec 2 crédits IA offerts. Les fonctionnalités avancées nécessitent des crédits supplémentaires (0% commission — vous ne payez que le coût réel des tokens IA).' },
-    { q: 'Dans quelles langues est disponible CineGeny ?', a: 'L\'interface est disponible en français et anglais. Notre agent Traducteur supporte 12 langues pour les contenus.' },
+    { q: 'CineGeny est-il gratuit ?', a: 'Sign-up is free with 2 AI credits included. Advanced features require extra credits (0% commission — you only pay the real cost of the AI tokens).' },
+    { q: 'Dans quelles langues est disponible CineGeny ?', a: 'The interface is available in English and French. Our Translator agent supports 12 languages for content.' },
   ]},
   { id: 'investment', label: 'Investissement', icon: 'trending-up', color: '#10B981', items: [
-    { q: 'Comment investir dans un film ?', a: 'Chaque film sur CineGeny peut proposer un crowdfunding. Vous choisissez le montant, et les revenus sont répartis : 25% investisseurs, 25% scénaristes, 25% contributeurs, 25% plateforme.' },
-    { q: 'Quel est le retour sur investissement ?', a: 'Le ROI dépend du succès du film. Notre agent Investment Strategist analyse chaque projet et fournit des estimations basées sur le genre, le budget et les comparables.' },
-    { q: 'Is my investment secure?', a: 'Les smart contracts Ethereum garantissent la transparence. Les fonds sont bloqués jusqu\'à ce que les conditions soient remplies.' },
+    { q: 'Comment investir dans un film ?', a: 'Every film on CineGeny can run a crowdfunding campaign. You set the amount, and revenue is split: 25% investors, 25% screenwriters, 25% contributors, 25% platform.' },
+    { q: 'Quel est le retour sur investissement ?', a: 'ROI depends on the film\'s success. Our Investment Strategist agent analyzes each project and provides estimates based on genre, budget and comparables.' },
+    { q: 'Is my investment secure?', a: 'Ethereum smart contracts guarantee transparency. Funds are locked until the conditions are met.' },
   ]},
   { id: 'creation', label: 'Creation', icon: 'film', color: '#E50914', items: [
-    { q: 'How do I create a film on CineGeny?', a: 'Suivez les 7 étapes guidées : Script → Storyboard → Casting → Setups → Stills → Vidéos → Musique. Chaque étape est assistée par un agent IA dédié.' },
-    { q: 'Can I collaborate with other creators?', a: 'Oui ! Le Team Workspace permet d\'inviter des collaborateurs avec 7 rôles différents (réalisateur, scénariste, artiste, etc.).' },
-    { q: 'What is Film Memory?', a: 'Chaque film a sa propre base de connaissances (personnages, univers, style) qui garantit la cohérence de toutes les contributions IA.' },
+    { q: 'How do I create a film on CineGeny?', a: 'Follow the 7 guided steps: Script → Storyboard → Casting → Setups → Stills → Videos → Music. Each step is assisted by a dedicated AI agent.' },
+    { q: 'Can I collaborate with other creators?', a: 'Yes! The Team Workspace lets you invite collaborators with 7 different roles (director, screenwriter, artist, etc.).' },
+    { q: 'What is Film Memory?', a: 'Each film has its own knowledge base (characters, world, style) that ensures the consistency of all AI contributions.' },
   ]},
   { id: 'tokens', label: 'Tokens IA', icon: 'zap', color: '#F59E0B', items: [
-    { q: 'What is an AI credit?', a: '1 crédit = 1 000 000 micro-crédits. Les crédits servent à payer les actions IA (génération d\'images, vidéos, analyse de script, etc.).' },
-    { q: 'How much does an AI action cost?', a: 'Les prix varient : analyse de script (~0.5 cr), storyboard frame (~1 cr), clip vidéo 5s (~10 cr), trailer complet (~50 cr). Voir /pricing-ia pour le détail.' },
+    { q: 'What is an AI credit?', a: '1 credit = 1,000,000 micro-credits. Credits pay for AI actions (image generation, videos, script analysis, etc.).' },
+    { q: 'How much does an AI action cost?', a: 'Prices vary: script analysis (~0.5 cr), storyboard frame (~1 cr), 5s video clip (~10 cr), full trailer (~50 cr). See /pricing for details.' },
     { q: 'Y a-t-il une commission ?', a: '0% commission. You only pay the real cost of the provider\'s AI tokens (Anthropic, Runway, etc.).' },
-    { q: 'Can I choose the AI model?', a: 'Oui pour les tâches créatives libres. Pour les tâches qui impactent la cohérence du film, le modèle est imposé par le système.' },
+    { q: 'Can I choose the AI model?', a: 'Yes for free creative tasks. For tasks that affect the film\'s consistency, the model is set by the system.' },
   ]},
   { id: 'security', label: 'Security', icon: 'shield', color: '#8B5CF6', items: [
-    { q: 'Is my data protected?', a: 'Oui. PII masking (7 patterns), injection prevention, circuit breakers, et 10 modules de guardrails protègent la plateforme.' },
+    { q: 'Is my data protected?', a: 'Yes. PII masking (7 patterns), injection prevention, circuit breakers, and 10 guardrail modules protect the platform.' },
     { q: 'CineGeny est-il conforme RGPD ?', a: 'Yes. Automatic monthly GDPR cleanup, right to be forgotten, personal data export on request.' },
-    { q: 'Who has access to my films?', a: 'Seuls les collaborateurs invités et les agents IA de votre projet. La mémoire film est isolée et chiffrée par projet.' },
+    { q: 'Who has access to my films?', a: 'Only invited collaborators and your project\'s AI agents. Film memory is isolated and encrypted per project.' },
   ]},
 ]
 
@@ -72,7 +72,7 @@ export interface DemoScenario {
 export const DEMO_SCENARIOS: DemoScenario[] = [
   { id: 'script-analysis', title: 'Analysez un script', description: 'Submit a screenplay idea and receive a complete AI analysis.', icon: 'pen-tool', color: '#3B82F6', steps: ['Describe your film idea', 'The Screenwriter agent analyzes the structure', 'Receive detailed feedback'], agentUsed: 'cg-scenariste' },
   { id: 'poster-generate', title: 'Create a poster', description: 'Generate a professional film poster in 30 seconds.', icon: 'image', color: '#E50914', steps: ['Choisissez un titre et un genre', 'Select a visual style', 'The AI generates your poster'], agentUsed: 'cg-studio-poster' },
-  { id: 'investment-analysis', title: 'Évaluez un investissement', description: 'Analysez le potentiel ROI d\'un projet de film.', icon: 'trending-up', color: '#10B981', steps: ['Entrez le genre et le budget', 'L\'agent analyse les comparables', 'Receive a ROI estimate'], agentUsed: 'cg-investment-strategist' },
+  { id: 'investment-analysis', title: 'Evaluate an investment', description: 'Analysez le potentiel ROI d\'un projet de film.', icon: 'trending-up', color: '#10B981', steps: ['Entrez le genre et le budget', 'L\'agent analyse les comparables', 'Receive a ROI estimate'], agentUsed: 'cg-investment-strategist' },
 ]
 
 // ─── Blog Articles ──────────────────────────────────────────────────
@@ -82,12 +82,12 @@ export interface BlogArticle {
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
-  { slug: 'cinema-participatif-revolution', title: 'Collaborative cinema: the silent revolution', excerpt: 'Comment la technologie IA et le crowdfunding transforment la production cinématographique, la rendant accessible à tous.', category: 'Industrie', author: 'CineGeny Team', date: '2026-03-15', readTime: '8 min', coverImage: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80' },
-  { slug: 'ia-scenariste-avenir', title: 'The AI screenwriter: tool or threat?', excerpt: 'Analyse approfondie du rôle de l\'IA dans l\'écriture de scénarios. Collaboration homme-machine plutôt que remplacement.', category: 'AI & Cinema', author: 'CineGeny Team', date: '2026-03-10', readTime: '6 min', coverImage: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80' },
+  { slug: 'cinema-participatif-revolution', title: 'Collaborative cinema: the silent revolution', excerpt: 'How AI technology and crowdfunding are transforming film production, making it accessible to everyone.', category: 'Industrie', author: 'CineGeny Team', date: '2026-03-15', readTime: '8 min', coverImage: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80' },
+  { slug: 'ia-scenariste-avenir', title: 'The AI screenwriter: tool or threat?', excerpt: 'An in-depth look at AI\'s role in screenwriting. Human-machine collaboration rather than replacement.', category: 'AI & Cinema', author: 'CineGeny Team', date: '2026-03-10', readTime: '6 min', coverImage: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80' },
   { slug: 'guide-premier-film', title: 'Guide: Create your first film on CineGeny', excerpt: 'Step-by-step tutorial to create, produce and distribute your first film using the CineGeny platform.', category: 'Tutoriel', author: 'CineGeny Team', date: '2026-03-05', readTime: '12 min', coverImage: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80' },
-  { slug: 'investir-cinema-ia', title: 'Investing in AI cinema: the complete guide', excerpt: 'Tout ce que vous devez savoir sur l\'investissement dans le cinéma participatif : ROI, risques, smart contracts.', category: 'Investissement', author: 'CineGeny Team', date: '2026-02-28', readTime: '10 min', coverImage: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=800&q=80' },
+  { slug: 'investir-cinema-ia', title: 'Investing in AI cinema: the complete guide', excerpt: 'Everything you need to know about investing in collaborative cinema: ROI, risks, smart contracts.', category: 'Investissement', author: 'CineGeny Team', date: '2026-02-28', readTime: '10 min', coverImage: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=800&q=80' },
   { slug: 'agents-ia-cinema', title: '113 AI cinema agents: CineGeny\'s strength', excerpt: 'See how our 113 specialized agents cover every aspect of film production.', category: 'Produit', author: 'CineGeny Team', date: '2026-02-20', readTime: '7 min', coverImage: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80' },
-  { slug: 'memoire-film-coherence', title: 'Film Memory: the key to AI consistency', excerpt: 'Comment la base de connaissances par film garantit que chaque contribution IA reste cohérente avec l\'univers du projet.', category: 'Technologie', author: 'CineGeny Team', date: '2026-02-15', readTime: '5 min', coverImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80' },
+  { slug: 'memoire-film-coherence', title: 'Film Memory: the key to AI consistency', excerpt: 'How the per-film knowledge base ensures every AI contribution stays consistent with the project\'s world.', category: 'Technologie', author: 'CineGeny Team', date: '2026-02-15', readTime: '5 min', coverImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80' },
 ]
 
 // ─── Competitor Comparison ──────────────────────────────────────────
@@ -101,12 +101,12 @@ export const COMPARISON_FEATURES: CompetitorFeature[] = [
   { feature: 'Specialized AI agents', cinegeny: '✅ 113 agents', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
   { feature: 'Video generation', cinegeny: '✅ 7 providers', competitor1: '✅ Propre', competitor2: '✅ Propre', competitor3: '❌' },
   { feature: 'Film Memory (RAG)', cinegeny: '✅ 8 categories', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Commission', cinegeny: '✅ 0%', competitor1: '⚠️ Abonnement', competitor2: '⚠️ Credits', competitor3: '❌ 15-40%' },
-  { feature: 'Built-in crowdfunding', cinegeny: '✅ Smart contracts', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Externe' },
+  { feature: 'Commission', cinegeny: '✅ 0%', competitor1: '⚠️ Subscription', competitor2: '⚠️ Credits', competitor3: '❌ 15-40%' },
+  { feature: 'Built-in crowdfunding', cinegeny: '✅ Smart contracts', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ External' },
   { feature: 'Chat IA streaming', cinegeny: '✅ SSE', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
   { feature: 'Multi-agent meetings', cinegeny: '✅', competitor1: '❌', competitor2: '❌', competitor3: '❌' },
-  { feature: 'Documents juridiques', cinegeny: '✅ 8 templates', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Avocat' },
-  { feature: 'Team workspace', cinegeny: '✅ 7 roles', competitor1: '⚠️ Basique', competitor2: '❌', competitor3: '✅' },
+  { feature: 'Documents juridiques', cinegeny: '✅ 8 templates', competitor1: '❌', competitor2: '❌', competitor3: '⚠️ Lawyer' },
+  { feature: 'Team workspace', cinegeny: '✅ 7 roles', competitor1: '⚠️ Basic', competitor2: '❌', competitor3: '✅' },
 ]
 
 // ─── API Pricing (for developers) ───────────────────────────────────
