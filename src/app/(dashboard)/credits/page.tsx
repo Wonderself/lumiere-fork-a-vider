@@ -18,18 +18,18 @@ import type { Metadata } from 'next'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Wallet & Crédits IA — CINEGENY',
-  description: 'Gérez vos crédits pour la génération IA — 0% de commission',
+  title: 'Wallet & AI Credits — CINEGENY',
+  description: 'Manage your AI generation credits — 0% commission',
 }
 
 const CREDIT_PACKS = [
   {
     id: 'decouverte',
-    name: 'Découverte',
+    name: 'Starter',
     credits: 100,
     bonus: 0,
     price: 4.99,
-    features: ['~2 scènes vidéo', 'Storyboards inclus', 'Support standard'],
+    features: ['~2 video scenes', 'Storyboards inclus', 'Support standard'],
     popular: false,
   },
   {
@@ -38,7 +38,7 @@ const CREDIT_PACKS = [
     credits: 500,
     bonus: 50,
     price: 19.99,
-    features: ['~1 bande-annonce complète', 'Toutes les fonctionnalités', 'Support prioritaire'],
+    features: ['~1 full trailer', 'All features', 'Support prioritaire'],
     popular: true,
   },
   {
@@ -47,7 +47,7 @@ const CREDIT_PACKS = [
     credits: 2000,
     bonus: 400,
     price: 69.99,
-    features: ['~4 bandes-annonces', 'Qualité premium', 'Support dédié', 'Exports illimités'],
+    features: ['~4 bandes-annonces', 'Premium quality', 'Dedicated support', 'Unlimited exports'],
     popular: false,
   },
   {
@@ -56,23 +56,23 @@ const CREDIT_PACKS = [
     credits: 10000,
     bonus: 3000,
     price: 299.99,
-    features: ['Production intensive', 'Tous les modèles IA', 'Account manager', 'API access'],
+    features: ['Production intensive', 'All AI models', 'Account manager', 'API access'],
     popular: false,
   },
 ]
 
 const TX_TYPE_CONFIG: Record<string, { label: string; icon: typeof TrendingUp; color: string }> = {
   PACK_PURCHASE: { label: 'Achat de pack', icon: CreditCard, color: 'text-green-600' },
-  ADMIN_GRANT: { label: 'Crédit admin', icon: Crown, color: 'text-purple-600' },
-  SUBSCRIPTION_GRANT: { label: 'Crédit abonnement', icon: Sparkles, color: 'text-blue-600' },
+  ADMIN_GRANT: { label: 'Admin credit', icon: Crown, color: 'text-purple-600' },
+  SUBSCRIPTION_GRANT: { label: 'Subscription credit', icon: Sparkles, color: 'text-blue-600' },
   AI_USAGE: { label: 'Utilisation IA', icon: Zap, color: 'text-orange-600' },
   REFUND: { label: 'Remboursement', icon: RefreshCcw, color: 'text-green-600' },
   CONTEST_PRIZE: { label: 'Prix concours', icon: Crown, color: 'text-[#E50914]' },
   REFERRAL_BONUS: { label: 'Bonus parrainage', icon: Gift, color: 'text-emerald-600' },
   PROMO_CODE: { label: 'Code promo', icon: Sparkles, color: 'text-pink-600' },
-  HOLD: { label: 'Réservation crédits', icon: Lock, color: 'text-yellow-600' },
-  HOLD_RELEASE: { label: 'Libération réservation', icon: RefreshCcw, color: 'text-green-600' },
-  HOLD_OVERAGE: { label: 'Ajustement coût', icon: AlertTriangle, color: 'text-orange-600' },
+  HOLD: { label: 'Credit hold', icon: Lock, color: 'text-yellow-600' },
+  HOLD_RELEASE: { label: 'Hold release', icon: RefreshCcw, color: 'text-green-600' },
+  HOLD_OVERAGE: { label: 'Cost adjustment', icon: AlertTriangle, color: 'text-orange-600' },
   AUTO_TOPUP: { label: 'Rechargement auto', icon: RefreshCcw, color: 'text-blue-600' },
   EXPIRY: { label: 'Expiration', icon: Clock, color: 'text-white/50' },
 }
@@ -109,17 +109,17 @@ export default async function WalletCreditsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
-            Wallet & Crédits IA
+            Wallet & AI Credits
           </h1>
           <p className="text-sm text-white/60 mt-2">
-            Gérez vos crédits pour la création de contenu IA
+            Manage your credits for AI content creation
           </p>
         </div>
         <Link
           href="/pricing-ia"
           className="flex items-center gap-1.5 text-sm text-[#E50914] hover:text-[#FF2D2D] transition-colors"
         >
-          Voir les tarifs détaillés
+          See detailed pricing
           <ChevronRight className="h-4 w-4" />
         </Link>
       </div>
@@ -133,7 +133,7 @@ export default async function WalletCreditsPage() {
           <div>
             <p className="text-sm font-semibold text-emerald-400">0% de commission</p>
             <p className="text-xs text-emerald-400/70 mt-0.5">
-              Vous ne payez que le coût réel des tokens IA. Aucune marge, aucun surcoût caché.
+              You only pay the real cost of AI tokens. No margin, no hidden fees.
               Consultez nos <Link href="/pricing-ia" className="underline hover:text-emerald-300">tarifs transparents</Link>.
             </p>
           </div>
@@ -150,7 +150,7 @@ export default async function WalletCreditsPage() {
             <div>
               <p className="text-xs text-white/60 font-medium">Solde actuel</p>
               <p className="text-2xl font-bold text-[#E50914]">{balanceDisplay.toFixed(2)}</p>
-              <p className="text-[10px] text-white/50">{balance.toLocaleString()} µ-crédits</p>
+              <p className="text-[10px] text-white/50">{balance.toLocaleString()} µ-credits</p>
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default async function WalletCreditsPage() {
             <Crown className="h-5 w-5 text-purple-400" />
             <div>
               <p className="text-sm font-semibold text-purple-400">Abonnement Premium</p>
-              <p className="text-xs text-purple-400/70">1 bande-annonce gratuite par semaine incluse — {creditAccount.weeklyFreeUsed}/1 utilisée</p>
+              <p className="text-xs text-purple-400/70">1 free trailer per week included — {creditAccount.weeklyFreeUsed}/1 used</p>
             </div>
           </div>
         </div>
@@ -227,11 +227,11 @@ export default async function WalletCreditsPage() {
                   <span className="text-3xl font-bold text-white">{pack.price}€</span>
                 </div>
                 <p className="text-sm text-[#E50914] font-semibold mt-1">
-                  {pack.credits.toLocaleString()} crédits
+                  {pack.credits.toLocaleString()} credits
                   {pack.bonus > 0 && <span className="text-green-600"> +{pack.bonus} bonus</span>}
                 </p>
                 <p className="text-xs text-white/50 mt-0.5">
-                  {(pack.price / (pack.credits + pack.bonus) * 100).toFixed(1)} centimes/crédit
+                  {(pack.price / (pack.credits + pack.bonus) * 100).toFixed(1)} cents/credit
                 </p>
               </div>
               <ul className="space-y-2.5 mb-5">
@@ -252,7 +252,7 @@ export default async function WalletCreditsPage() {
         </div>
         <div className="mt-4 flex items-center gap-2 text-xs text-white/50">
           <Info className="h-3.5 w-3.5" />
-          <span>Paiement sécurisé via Stripe. Crédits crédités instantanément après confirmation.</span>
+          <span>Secure payment via Stripe. Credits added instantly after confirmation.</span>
         </div>
       </div>
 
@@ -263,7 +263,7 @@ export default async function WalletCreditsPage() {
           <div className="rounded-2xl border border-white/10 bg-white/5 shadow-[0_2px_8px_rgba(0,0,0,0.3)] p-8 text-center">
             <Clock className="h-10 w-10 text-white/30 mx-auto mb-3" />
             <p className="text-sm text-white/60">Aucune transaction pour le moment</p>
-            <p className="text-xs text-white/50 mt-1">Vos achats et utilisations de crédits apparaîtront ici</p>
+            <p className="text-xs text-white/50 mt-1">Your credit purchases and usage will appear here</p>
           </div>
         ) : (
           <div className="rounded-2xl border border-white/10 bg-white/5 shadow-[0_2px_8px_rgba(0,0,0,0.3)] overflow-hidden">

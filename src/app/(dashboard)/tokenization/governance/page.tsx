@@ -25,7 +25,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Gouvernance — Tokenization',
-  description: 'Votez sur les décisions créatives des films dans lesquels vous avez investi.',
+  description: 'Vote on the creative decisions of the films you have invested in.',
 }
 
 // Sub-navigation
@@ -61,13 +61,13 @@ function ProposalStatusBadge({ status }: { status: string }) {
     case 'ACTIVE':
       return <Badge variant="warning" className="text-xs"><Timer className="h-3 w-3 mr-1" />In progress</Badge>
     case 'PASSED':
-      return <Badge variant="success" className="text-xs"><CheckCircle2 className="h-3 w-3 mr-1" />Adoptée</Badge>
+      return <Badge variant="success" className="text-xs"><CheckCircle2 className="h-3 w-3 mr-1" />Passed</Badge>
     case 'REJECTED':
       return <Badge variant="destructive" className="text-xs"><XCircle className="h-3 w-3 mr-1" />Rejected</Badge>
     case 'EXECUTED':
-      return <Badge className="text-xs border-purple-500/30 bg-purple-500/10 text-purple-600"><Gavel className="h-3 w-3 mr-1" />Exécutée</Badge>
+      return <Badge className="text-xs border-purple-500/30 bg-purple-500/10 text-purple-600"><Gavel className="h-3 w-3 mr-1" />Executed</Badge>
     case 'EXPIRED':
-      return <Badge variant="secondary" className="text-xs"><Clock className="h-3 w-3 mr-1" />Expirée</Badge>
+      return <Badge variant="secondary" className="text-xs"><Clock className="h-3 w-3 mr-1" />Expired</Badge>
     default:
       return <Badge variant="secondary" className="text-xs">{status}</Badge>
   }
@@ -157,7 +157,7 @@ export default async function GovernancePage() {
           <h1 className="text-xl sm:text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
             Gouvernance
           </h1>
-          <p className="text-white/40 mt-1 text-sm">Votez sur les décisions créatives des films dans lesquels vous avez investi.</p>
+          <p className="text-white/40 mt-1 text-sm">Vote on the creative decisions of the films you have invested in.</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10">
@@ -172,8 +172,8 @@ export default async function GovernancePage() {
         <Card className="bg-white/[0.03] border-white/10">
           <CardContent className="p-8 text-center">
             <Vote className="h-12 w-12 text-white/10 mx-auto mb-4" />
-            <p className="text-white/50 text-sm">Vous ne détenez aucun token pour le moment.</p>
-            <p className="text-white/30 text-xs mt-1">Investissez dans un film pour participer à la gouvernance.</p>
+            <p className="text-white/50 text-sm">You don't hold any tokens yet.</p>
+            <p className="text-white/30 text-xs mt-1">Invest in a film to take part in governance.</p>
             <Link href="/tokenization" className="mt-4 inline-block">
               <Button variant="outline" className="min-h-[44px]">
                 <Coins className="h-4 w-4 mr-2" />
@@ -301,7 +301,7 @@ export default async function GovernancePage() {
                           <div className="flex items-center gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5">
                             <CheckCircle2 className="h-4 w-4 text-[#E50914]" />
                             <span className="text-white/50 text-sm">
-                              Vous avez voté : <strong className={
+                              You voted: <strong className={
                                 userVote === 'FOR' ? 'text-green-600' :
                                 userVote === 'AGAINST' ? 'text-red-400' : 'text-white/50'
                               }>
@@ -367,7 +367,7 @@ export default async function GovernancePage() {
           {pastProposals.length > 0 && (
             <section>
               <h2 className="text-lg font-bold text-white font-[family-name:var(--font-playfair)] mb-4">
-                Propositions Passées
+                Past proposals
               </h2>
               <div className="space-y-2">
                 {pastProposals.map((proposal) => {
@@ -414,7 +414,7 @@ export default async function GovernancePage() {
           {userOfferings.length > 0 && (
             <section>
               <h2 className="text-lg font-bold text-white font-[family-name:var(--font-playfair)] mb-4">
-                Créer une Proposition
+                Create a proposal
               </h2>
               <Card variant="glass">
                 <CardContent className="p-5 sm:p-6">
@@ -444,7 +444,7 @@ export default async function GovernancePage() {
                         required
                         className="flex h-10 w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 focus:border-[#E50914]/50 transition-all duration-200"
                       >
-                        <option value="" className="bg-[#111]">Sélectionner un type</option>
+                        <option value="" className="bg-[#111]">Select a type</option>
                         {Object.entries(PROPOSAL_TYPE_LABELS).map(([key, label]) => (
                           <option key={key} value={key} className="bg-[#111]">{label}</option>
                         ))}
@@ -473,14 +473,14 @@ export default async function GovernancePage() {
                         required
                         minLength={20}
                         rows={4}
-                        placeholder="Décrivez votre proposition en détail..."
+                        placeholder="Describe your proposal in detail..."
                         className="flex min-h-[100px] w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 focus:border-[#E50914]/50 transition-all duration-200 resize-vertical"
                       />
                     </div>
 
                     {/* Deadline */}
                     <div>
-                      <label className="text-white/50 text-xs mb-1.5 block">Durée du vote (jours)</label>
+                      <label className="text-white/50 text-xs mb-1.5 block">Voting period (days)</label>
                       <input
                         type="number"
                         name="deadlineDays"
@@ -511,11 +511,11 @@ export default async function GovernancePage() {
             <div className="space-y-2">
               <h3 className="text-white/50 text-sm font-medium">Comment fonctionne la gouvernance ?</h3>
               <ul className="text-white/30 text-xs leading-relaxed space-y-1">
-                <li>Chaque token détenu représente une voix. Plus vous détenez de tokens, plus votre vote a de poids.</li>
-                <li>Les propositions doivent atteindre le quorum (généralement 30% des tokens) pour être valides.</li>
-                <li>Les décisions adoptées sont exécutées par l&apos;équipe de production dans un délai raisonnable.</li>
-                <li>Vous recevez 5 Lumens de récompense pour chaque vote effectué.</li>
-                <li>Tout détenteur de tokens peut soumettre une proposition.</li>
+                <li>Each token you hold is one vote. The more tokens you hold, the more weight your vote carries.</li>
+                <li>Proposals must reach quorum (usually 30% of tokens) to be valid.</li>
+                <li>Passed decisions are carried out by the production team within a reasonable time.</li>
+                <li>You earn 5 Lumens for every vote you cast.</li>
+                <li>Any token holder can submit a proposal.</li>
               </ul>
             </div>
           </div>

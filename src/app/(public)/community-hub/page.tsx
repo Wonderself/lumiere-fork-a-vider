@@ -15,8 +15,8 @@ import { sendCollabRequestAction, respondToCollabAction } from '@/app/actions/co
 const MOCK_CREATORS = [
   { id: '1', name: 'Sophie M.', reputation: 78, level: 'Expert', badge: '🏆', specialties: ['Screenplay', 'Directing'], tasksCompleted: 34, votesReceived: 156, isMentor: true },
   { id: '2', name: 'Alex D.', reputation: 65, level: 'Expert', badge: '🏆', specialties: ['VFX', 'Montage'], tasksCompleted: 22, votesReceived: 89, isMentor: true },
-  { id: '3', name: 'Marie L.', reputation: 52, level: 'Créateur Confirmé', badge: '🎬', specialties: ['Composition', 'Sound Design'], tasksCompleted: 15, votesReceived: 67, isMentor: false },
-  { id: '4', name: 'Lucas R.', reputation: 41, level: 'Créateur Confirmé', badge: '🎬', specialties: ['Production', 'Marketing'], tasksCompleted: 11, votesReceived: 45, isMentor: false },
+  { id: '3', name: 'Marie L.', reputation: 52, level: 'Established Creator', badge: '🎬', specialties: ['Composition', 'Sound Design'], tasksCompleted: 15, votesReceived: 67, isMentor: false },
+  { id: '4', name: 'Lucas R.', reputation: 41, level: 'Established Creator', badge: '🎬', specialties: ['Production', 'Marketing'], tasksCompleted: 11, votesReceived: 45, isMentor: false },
   { id: '5', name: 'Emma K.', reputation: 28, level: 'Contributeur', badge: '⭐', specialties: ['Photographie'], tasksCompleted: 5, votesReceived: 23, isMentor: false },
 ]
 
@@ -26,7 +26,7 @@ const MOCK_FEED = [
   { user: 'Marie L.', type: 'task_completed', detail: 'Composition Act 2', time: '5h' },
   { user: 'Lucas R.', type: 'vote_cast', detail: 'Film "Aurora"', time: '6h' },
   { user: 'Emma K.', type: 'level_up', detail: 'Niveau Contributeur', time: '8h' },
-  { user: 'Sophie M.', type: 'collab_started', detail: 'Co-écriture avec Alex D.', time: '12h' },
+  { user: 'Sophie M.', type: 'collab_started', detail: 'Co-writing with Alex D.', time: '12h' },
   { user: 'Alex D.', type: 'comment_posted', detail: 'Sur "Les Ombres de Minuit"', time: '1j' },
   { user: 'Marie L.', type: 'mentor_assigned', detail: 'Mentor pour Emma K.', time: '2j' },
 ]
@@ -34,7 +34,7 @@ const MOCK_FEED = [
 const MOCK_COLLABS = [
   { id: '1', type: 'co-write', from: 'Sophie M.', to: 'Lucas R.', film: 'Projet Aurore', status: 'active' },
   { id: '2', type: 'skill-trade', from: 'Alex D.', to: 'Marie L.', film: 'VFX↔Musique', status: 'pending' },
-  { id: '3', type: 'mentoring', from: 'Sophie M.', to: 'Emma K.', film: 'Mentorat scénario', status: 'active' },
+  { id: '3', type: 'mentoring', from: 'Sophie M.', to: 'Emma K.', film: 'Screenplay mentorship', status: 'active' },
 ]
 
 export default function CommunityHubPage() {
@@ -66,11 +66,11 @@ export default function CommunityHubPage() {
       if (result?.error) {
         // "Destinataire requis" tells the user they need to pick a creator first
         toast.error(result.error === 'Destinataire requis'
-          ? 'Sélectionnez d\'abord un créateur pour proposer une collaboration'
+          ? 'Select a creator first to propose a collaboration'
           : result.error
         )
       } else if (result?.success) {
-        toast.success(`Demande de ${collabTypeLabel} envoyée !`)
+        toast.success(`${collabTypeLabel} request sent!`)
       }
     })
   }
@@ -83,7 +83,7 @@ export default function CommunityHubPage() {
       formData.set('response', action === 'accept' ? 'Accepted' : 'Rejected')
 
       await respondToCollabAction(formData)
-      toast.success(action === 'accept' ? 'Collaboration acceptée !' : 'Collaboration refusée')
+      toast.success(action === 'accept' ? 'Collaboration accepted!' : 'Collaboration declined')
     })
   }
 
@@ -102,14 +102,14 @@ export default function CommunityHubPage() {
             <span className="text-sm font-medium text-blue-400">Community Hub</span>
           </div>
           <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-3">
-            Communauté <span className="text-[#E50914]">CineGeny</span>
+            Community <span className="text-[#E50914]">CineGeny</span>
           </h1>
           <p className="text-gray-400 max-w-lg mx-auto">
-            Créateurs, mentors, collaborations. Rejoignez la communauté du cinéma participatif.
+            Creators, mentors, collaborations. Join the collaborative cinema community.
           </p>
           <div className="flex justify-center gap-4 mt-6">
             <Link href="/community" className="text-xs text-gray-500 hover:text-white">← Community Governance</Link>
-            <Link href="/rewards" className="text-xs text-gray-500 hover:text-white">Récompenses →</Link>
+            <Link href="/rewards" className="text-xs text-gray-500 hover:text-white">Rewards →</Link>
           </div>
         </div>
 
@@ -126,8 +126,8 @@ export default function CommunityHubPage() {
         {/* Tabs */}
         <div className="flex gap-2 mb-8">
           {[
-            { key: 'feed' as const, label: 'Activité', icon: Activity },
-            { key: 'creators' as const, label: 'Créateurs', icon: Users },
+            { key: 'feed' as const, label: 'Activity', icon: Activity },
+            { key: 'creators' as const, label: 'Creators', icon: Users },
             { key: 'mentors' as const, label: 'Mentors', icon: Heart },
             { key: 'collabs' as const, label: 'Collaborations', icon: Handshake },
           ].map(t => {
@@ -139,7 +139,7 @@ export default function CommunityHubPage() {
         {/* FEED */}
         {tab === 'feed' && (
           <div className="space-y-3">
-            <p className="text-xs text-gray-500 mb-4">Fil d&apos;activité en temps réel — social proof</p>
+            <p className="text-xs text-gray-500 mb-4">Real-time activity feed — social proof</p>
             {MOCK_FEED.map((event, i) => {
               const config = FEED_EVENT_TYPES.find(f => f.type === event.type) || FEED_EVENT_TYPES[0]
               const EIcon = FEED_ICONS[config.icon] || Activity
@@ -162,7 +162,7 @@ export default function CommunityHubPage() {
           <div className="space-y-4">
             <div className="relative mb-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
-              <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Rechercher un créateur..." className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-800 bg-gray-900/50 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
+              <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search for a creator..." className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-800 bg-gray-900/50 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
             </div>
             {MOCK_CREATORS.filter(c => !search || c.name.toLowerCase().includes(search.toLowerCase())).map(creator => {
               const repLevel = [...REPUTATION_LEVELS].reverse().find(l => creator.reputation >= l.min) || REPUTATION_LEVELS[0]
@@ -181,7 +181,7 @@ export default function CommunityHubPage() {
                   </div>
                   <div className="text-right">
                     <p className="text-lg font-bold" style={{ color: repLevel.color }}>{creator.reputation}</p>
-                    <p className="text-[10px] text-gray-500">{creator.tasksCompleted} tâches · {creator.votesReceived} votes</p>
+                    <p className="text-[10px] text-gray-500">{creator.tasksCompleted} tasks · {creator.votesReceived} votes</p>
                   </div>
                 </div>
               )
@@ -197,13 +197,13 @@ export default function CommunityHubPage() {
                 <Heart className="h-5 w-5 text-pink-400" />
                 <div>
                   <p className="text-sm font-semibold text-white">Programme de Mentorat</p>
-                  <p className="text-xs text-gray-400">Créateurs expérimentés (rep ≥{MENTOR_CONFIG.minReputation}) qui guident les nouveaux</p>
+                  <p className="text-xs text-gray-400">Experienced creators (rep ≥{MENTOR_CONFIG.minReputation}) who guide newcomers</p>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div><p className="text-lg font-bold text-pink-400">{MOCK_CREATORS.filter(c => c.isMentor).length}</p><p className="text-[10px] text-gray-500">Mentors actifs</p></div>
                 <div><p className="text-lg font-bold text-white">{MENTOR_CONFIG.maxMentees}</p><p className="text-[10px] text-gray-500">Filleuls max/mentor</p></div>
-                <div><p className="text-lg font-bold text-emerald-400">+50 XP</p><p className="text-[10px] text-gray-500">Par mentorat réussi</p></div>
+                <div><p className="text-lg font-bold text-emerald-400">+50 XP</p><p className="text-[10px] text-gray-500">Per successful mentorship</p></div>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -216,7 +216,7 @@ export default function CommunityHubPage() {
                       <div className="flex gap-1">{mentor.specialties.map(s => <span key={s} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-400">{s}</span>)}</div>
                     </div>
                   </div>
-                  <button onClick={() => toast.success('Demande de mentorat envoyée')} className="w-full py-2 bg-pink-500/10 text-pink-400 text-xs rounded-lg hover:bg-pink-500/20 transition-colors">Demander un mentorat</button>
+                  <button onClick={() => toast.success('Mentorship request sent')} className="w-full py-2 bg-pink-500/10 text-pink-400 text-xs rounded-lg hover:bg-pink-500/20 transition-colors">Demander un mentorat</button>
                 </div>
               ))}
             </div>
@@ -226,7 +226,7 @@ export default function CommunityHubPage() {
         {/* COLLABS */}
         {tab === 'collabs' && (
           <div className="space-y-6">
-            <p className="text-xs text-gray-500 mb-3">Sélectionnez un créateur dans l&apos;onglet Créateurs, puis proposez une collaboration :</p>
+            <p className="text-xs text-gray-500 mb-3">Select a creator in the Creators tab, then propose a collaboration:</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
               {COLLAB_TYPES.map(type => (
                 <button
