@@ -38,7 +38,7 @@ const PHASES = [
   {
     id: 1,
     name: 'Family & Friends',
-    subtitle: 'SAFE — Cercle fondateur',
+    subtitle: 'SAFE — Founders\' circle',
     tokenPrice: 0.05,
     discount: 50,
     raiseTarget: 50000,
@@ -46,14 +46,14 @@ const PHASES = [
     startDate: new Date('2026-04-01'),
     endDate: new Date('2026-05-31T23:59:59'),
     status: 'ACTIVE' as const,
-    perks: ['SAFE avec 50% discount sur le prochain tour', 'Accès le plus anticipé', 'Upside maximum', 'Appels mensuels avec les fondateurs'],
+    perks: ['SAFE with a 50% discount on the next round', 'Earliest access', 'Maximum upside', 'Monthly calls with the founders'],
     color: COLORS.gold,
     raisedSoFar: 0,
   },
   {
     id: 2,
-    name: 'Pré-Seed',
-    subtitle: 'Investisseurs stratégiques',
+    name: 'Pre-Seed',
+    subtitle: 'Strategic investors',
     tokenPrice: 0.08,
     discount: 20,
     raiseTarget: 200000,
@@ -61,14 +61,14 @@ const PHASES = [
     startDate: new Date('2026-06-01'),
     endDate: new Date('2026-07-31T23:59:59'),
     status: 'UPCOMING' as const,
-    perks: ['Droits de gouvernance', 'Rapports trimestriels', 'Accès bêta plateforme', 'Invitations événements'],
+    perks: ['Governance rights', 'Quarterly reports', 'Platform beta access', 'Event invitations'],
     color: COLORS.red,
     raisedSoFar: 0,
   },
   {
     id: 3,
     name: 'Seed',
-    subtitle: 'Croissance accélérée — Rentrée',
+    subtitle: 'Accelerated growth — Fall',
     tokenPrice: 0.10,
     discount: 0,
     raiseTarget: 500000,
@@ -76,18 +76,18 @@ const PHASES = [
     startDate: new Date('2026-08-01'),
     endDate: new Date('2026-09-30T23:59:59'),
     status: 'UPCOMING' as const,
-    perks: ['Revenue share', 'Accès complet plateforme', 'Token liquidity post-lockup', 'Co-branding opportunités'],
+    perks: ['Revenue share', 'Full platform access', 'Token liquidity post-lockup', 'Co-branding opportunities'],
     color: '#4A90D9',
     raisedSoFar: 0,
   },
 ]
 
 const TOKENOMICS_SLICES = [
-  { label: 'Vente publique (Phases)', pct: 30, color: COLORS.red },
-  { label: 'Team & Fondateurs', pct: 25, color: COLORS.gold },
-  { label: 'Trésorerie & Opérations', pct: 20, color: '#4A90D9' },
-  { label: 'Grants & Écosystème', pct: 15, color: '#2ECC71' },
-  { label: 'Advisors & Partenaires', pct: 10, color: '#9B59B6' },
+  { label: 'Public sale (Phases)', pct: 30, color: COLORS.red },
+  { label: 'Team & Founders', pct: 25, color: COLORS.gold },
+  { label: 'Treasury & Operations', pct: 20, color: '#4A90D9' },
+  { label: 'Grants & Ecosystem', pct: 15, color: '#2ECC71' },
+  { label: 'Advisors & Partners', pct: 10, color: '#9B59B6' },
 ]
 
 const PIPELINE_PROJECTS = [
@@ -99,7 +99,7 @@ const PIPELINE_PROJECTS = [
     format: '4x52\'',
     status: 'Development',
     financing: 'CNC, CIR, Fondation Shoah, Coprod Jessica Philippe',
-    pitch: 'Le 7 Octobre à travers les miracles et la résilience humaine.',
+    pitch: 'October 7 told through miracles and human resilience.',
     color: COLORS.red,
   },
   {
@@ -108,9 +108,9 @@ const PIPELINE_PROJECTS = [
     subtitle: 'The Singularity Point',
     genre: 'Thriller Sci-Fi',
     format: 'Feature film',
-    status: 'Écriture',
+    status: 'Writing',
     financing: 'BPI Deeptech, IIA R&D, CNC',
-    pitch: '"Nolan meets Zohar" — quand l\'IA atteint la conscience, la Kabbale avait la réponse.',
+    pitch: '"Nolan meets Zohar" — when AI reaches consciousness, Kabbalah had the answer.',
     color: '#4A90D9',
   },
   {
@@ -119,20 +119,20 @@ const PIPELINE_PROJECTS = [
     subtitle: 'Docu-fiction',
     genre: 'Docu-fiction',
     format: 'Feature film',
-    status: 'Droits acquis',
-    financing: 'CNC, Europe Créative, Fondation Judaïsme Français',
-    pitch: 'Adaptation du best-seller. Le Da Vinci Code juif.',
+    status: 'Rights acquired',
+    financing: 'CNC, Creative Europe, French Judaism Foundation',
+    pitch: 'Adaptation of the best-seller. The Jewish Da Vinci Code.',
     color: COLORS.gold,
   },
   {
     num: 4,
     title: 'ZION OF AFRICA',
-    subtitle: 'Docu-historique',
-    genre: 'Documentaire',
-    format: 'Série 6x52\'',
-    status: 'Recherche',
-    financing: 'AFD, Europe Créative, Eurimages, Fonds Cinémas du Monde',
-    pitch: 'Les tribus juives oubliées d\'Afrique — une odyssée méconnue.',
+    subtitle: 'Historical documentary',
+    genre: 'Documentary',
+    format: 'Series 6x52\'',
+    status: 'Research',
+    financing: 'AFD, Creative Europe, Eurimages, World Cinema Fund',
+    pitch: 'The forgotten Jewish tribes of Africa — a little-known odyssey.',
     color: '#2ECC71',
   },
   {
@@ -142,8 +142,8 @@ const PIPELINE_PROJECTS = [
     genre: 'Docu-drama',
     format: 'Feature film',
     status: 'Development',
-    financing: 'Fondation Shoah, Claims Conference, CNC, connexion Kev Adams',
-    pitch: 'La Shoah en Afrique du Nord — l\'histoire jamais racontée.',
+    financing: 'Shoah Foundation, Claims Conference, CNC, Kev Adams connection',
+    pitch: 'The Holocaust in North Africa — the untold story.',
     color: '#E67E22',
   },
   {
@@ -152,74 +152,74 @@ const PIPELINE_PROJECTS = [
     subtitle: 'Bad Trip',
     genre: 'Short film',
     format: '15\'',
-    status: 'PRÊT À PRODUIRE',
-    financing: 'Autofinancement + CNC court-métrage',
-    pitch: 'Démo technologique VFX — script verrouillé, équipe confirmée.',
+    status: 'READY TO PRODUCE',
+    financing: 'Self-funded + CNC short film',
+    pitch: 'VFX technology demo — script locked, crew confirmed.',
     color: '#E50914',
   },
   {
     num: 7,
     title: 'NA NAH NAHMA',
     subtitle: 'Docu-series',
-    genre: 'Documentaire',
-    format: 'Série 4x52\'',
-    status: 'Recherche',
+    genre: 'Documentary',
+    format: 'Series 4x52\'',
+    status: 'Research',
     financing: 'Jewish Story Partners, Fondation Rothschild',
-    pitch: 'Rabbi Nahman et la philosophie du bonheur — sagesse ancestrale, résonance moderne.',
+    pitch: 'Rabbi Nachman and the philosophy of happiness — ancient wisdom, modern resonance.',
     color: '#9B59B6',
   },
   {
     num: 8,
     title: 'ORTISTES',
     subtitle: 'The Gift',
-    genre: 'Mini-série animée',
+    genre: 'Animated mini-series',
     format: '8x26\'',
     status: 'Concept',
     financing: 'Fondation Autisme, AGEFIPH, CNC Animation',
-    pitch: 'Artistes autistes — innovation sociale et célébration de la neurodiversité.',
+    pitch: 'Autistic artists — social innovation and a celebration of neurodiversity.',
     color: '#1ABC9C',
   },
 ]
 
 const GRANTS_DATA = {
   israel: [
-    { name: 'IIA Tnufa (Ideation)', organism: 'Israel Innovation Authority', maxAmount: '60K€', eligibility: '85% du budget approuvé', status: 'NOT_STARTED' },
+    { name: 'IIA Tnufa (Ideation)', organism: 'Israel Innovation Authority', maxAmount: '60K€', eligibility: '85% of approved budget', status: 'NOT_STARTED' },
     { name: 'IIA Startup Fund Seed', organism: 'Israel Innovation Authority', maxAmount: '1.25M€', eligibility: '50% matching', status: 'NOT_STARTED' },
     { name: 'IIA R&D Fund / National AI Program', organism: 'Israel Innovation Authority', maxAmount: 'Variable', eligibility: '20-50%', status: 'NOT_STARTED' },
-    { name: 'JDA Jnext Employment', organism: 'Jewish Agency / Jnext', maxAmount: '~15K€/employé', eligibility: 'Par employé qualifié', status: 'NOT_STARTED' },
+    { name: 'JDA Jnext Employment', organism: 'Jewish Agency / Jnext', maxAmount: '~$15K/employee', eligibility: 'Per qualified employee', status: 'NOT_STARTED' },
     { name: 'JDA/JFF Film Fund', organism: 'Jewish Agency / JFF', maxAmount: '500K-1M NIS', eligibility: 'Par projet', status: 'NOT_STARTED' },
-    { name: 'Human Capital Fund AI', organism: 'Gouvernement Israël', maxAmount: '7M NIS (total)', eligibility: 'Programme IA national', status: 'NOT_STARTED' },
+    { name: 'Human Capital Fund AI', organism: 'Israeli Government', maxAmount: '7M NIS (total)', eligibility: 'Programme IA national', status: 'NOT_STARTED' },
   ],
   france: [
     { name: 'BPI Bourse French Tech', organism: 'Bpifrance', maxAmount: '90K€', eligibility: 'Deeptech', status: 'IN_PROGRESS' },
-    { name: 'BPI Aide Développement Deeptech', organism: 'Bpifrance', maxAmount: '2M€', eligibility: 'Deeptech validé', status: 'NOT_STARTED' },
-    { name: 'BPI Transition Numérique Culture & IA', organism: 'Bpifrance', maxAmount: '50% (min 400K budget)', eligibility: 'Culture + IA', status: 'NOT_STARTED' },
+    { name: 'BPI Deeptech Development Grant', organism: 'Bpifrance', maxAmount: '2M€', eligibility: 'Validated deeptech', status: 'NOT_STARTED' },
+    { name: 'BPI Digital Transition Culture & AI', organism: 'Bpifrance', maxAmount: '50% (min 400K budget)', eligibility: 'Culture + IA', status: 'NOT_STARTED' },
     { name: 'CNC Grande Fabrique de l\'Image / AMT', organism: 'CNC', maxAmount: '40-50%', eligibility: 'Innovation audiovisuelle', status: 'NOT_STARTED' },
-    { name: 'CNC Aide au développement', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Société agréée', status: 'NOT_STARTED' },
-    { name: 'CNC Aide au court-métrage', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Short film', status: 'NOT_STARTED' },
-    { name: 'CIR (Crédit Impôt Recherche)', organism: 'French State', maxAmount: '30% dépenses R&D', eligibility: 'Toute entreprise R&D', status: 'IN_PROGRESS' },
-    { name: 'C2I (Crédit Impôt International)', organism: 'CNC / État', maxAmount: '30-40% production France', eligibility: 'Coproduction internationale', status: 'NOT_STARTED' },
-    { name: 'CII (Crédit Impôt Innovation)', organism: 'French State', maxAmount: '20-30%', eligibility: 'PME innovante', status: 'NOT_STARTED' },
-    { name: 'JEI (Jeune Entreprise Innovante)', organism: 'French State', maxAmount: 'Exonérations charges', eligibility: '<8 ans, >15% R&D', status: 'NOT_STARTED' },
+    { name: 'CNC Development Grant', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Approved company', status: 'NOT_STARTED' },
+    { name: 'CNC Short Film Grant', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Short film', status: 'NOT_STARTED' },
+    { name: 'CIR (Research Tax Credit)', organism: 'French State', maxAmount: '30% of R&D spend', eligibility: 'Toute entreprise R&D', status: 'IN_PROGRESS' },
+    { name: 'C2I (International Tax Credit)', organism: 'CNC / State', maxAmount: '30-40% France production', eligibility: 'International co-production', status: 'NOT_STARTED' },
+    { name: 'CII (Innovation Tax Credit)', organism: 'French State', maxAmount: '20-30%', eligibility: 'PME innovante', status: 'NOT_STARTED' },
+    { name: 'JEI (Jeune Entreprise Innovante)', organism: 'French State', maxAmount: 'Payroll exemptions', eligibility: '<8 ans, >15% R&D', status: 'NOT_STARTED' },
     { name: 'France 2030 Pionniers IA', organism: 'French State', maxAmount: 'Multi-millions', eligibility: 'IA souveraine', status: 'NOT_STARTED' },
-    { name: 'Régions (Île-de-France, etc.)', organism: 'Conseils Régionaux', maxAmount: '4K-8K (écriture) + prod', eligibility: 'Par région', status: 'NOT_STARTED' },
+    { name: 'Regions (Île-de-France, etc.)', organism: 'Regional Councils', maxAmount: '$4K-8K (writing) + production', eligibility: 'Per region', status: 'NOT_STARTED' },
   ],
   international: [
-    { name: 'Europe Créative MEDIA', organism: 'Commission Européenne', maxAmount: 'Variable', eligibility: 'Programme cinéma UE', status: 'NOT_STARTED' },
-    { name: 'Eurimages (Conseil de l\'Europe)', organism: 'Conseil de l\'Europe', maxAmount: 'Variable', eligibility: 'Coproduction européenne', status: 'NOT_STARTED' },
-    { name: 'Fonds Cinémas du Monde ACM', organism: 'ACM / CNC', maxAmount: 'Par projet', eligibility: 'Films du Sud', status: 'NOT_STARTED' },
-    { name: 'FIRAD (Bilatéral France-Israël)', organism: 'France & Israël', maxAmount: '50% chaque côté', eligibility: 'R&D bilatéral', status: 'NOT_STARTED' },
-    { name: 'MOST-France Academic', organism: 'MOST / CNRS', maxAmount: '80K€/côté (3 ans)', eligibility: 'Recherche académique', status: 'NOT_STARTED' },
+    { name: 'Creative Europe MEDIA', organism: 'European Commission', maxAmount: 'Variable', eligibility: 'EU cinema program', status: 'NOT_STARTED' },
+    { name: 'Eurimages (Conseil de l\'Europe)', organism: 'Conseil de l\'Europe', maxAmount: 'Variable', eligibility: 'European co-production', status: 'NOT_STARTED' },
+    { name: 'World Cinema Fund (ACM)', organism: 'ACM / CNC', maxAmount: 'Par projet', eligibility: 'Films du Sud', status: 'NOT_STARTED' },
+    { name: 'FIRAD (France-Israel bilateral)', organism: 'France & Israel', maxAmount: '50% each side', eligibility: 'Bilateral R&D', status: 'NOT_STARTED' },
+    { name: 'MOST-France Academic', organism: 'MOST / CNRS', maxAmount: '$80K/side (3 years)', eligibility: 'Academic research', status: 'NOT_STARTED' },
   ],
   projectSpecific: [
-    { name: 'Fondation pour la Mémoire de la Shoah', organism: 'FMS', maxAmount: 'Variable', eligibility: 'Projets Mémoire', status: 'NOT_STARTED' },
+    { name: 'Foundation for the Memory of the Shoah', organism: 'FMS', maxAmount: 'Variable', eligibility: 'Memory projects', status: 'NOT_STARTED' },
     { name: 'Jewish Story Partners (Spielberg)', organism: 'USC / Spielberg Foundation', maxAmount: 'Variable', eligibility: 'Histoires juives', status: 'NOT_STARTED' },
     { name: 'USC Shoah Foundation', organism: 'USC', maxAmount: 'Variable', eligibility: 'Holocaust remembrance', status: 'NOT_STARTED' },
-    { name: 'Fondation du Judaïsme Français', organism: 'FJF', maxAmount: 'Variable', eligibility: 'Culture juive', status: 'NOT_STARTED' },
-    { name: 'Fondation Rothschild', organism: 'Rothschild', maxAmount: 'Variable', eligibility: 'Culture & Éducation', status: 'NOT_STARTED' },
+    { name: 'French Judaism Foundation', organism: 'FJF', maxAmount: 'Variable', eligibility: 'Culture juive', status: 'NOT_STARTED' },
+    { name: 'Fondation Rothschild', organism: 'Rothschild', maxAmount: 'Variable', eligibility: 'Culture & Education', status: 'NOT_STARTED' },
     { name: 'Claims Conference', organism: 'Claims Conference', maxAmount: 'Variable', eligibility: 'Holocaust remembrance', status: 'NOT_STARTED' },
     { name: 'Fondation Autisme / AGEFIPH', organism: 'French State', maxAmount: 'Variable', eligibility: 'Handicap & Inclusion', status: 'NOT_STARTED' },
-    { name: 'AFD (Agence Française de Développement)', organism: 'AFD', maxAmount: 'Variable', eligibility: 'Développement & Culture', status: 'NOT_STARTED' },
+    { name: 'AFD (French Development Agency)', organism: 'AFD', maxAmount: 'Variable', eligibility: 'Development & Culture', status: 'NOT_STARTED' },
   ],
 }
 
@@ -227,12 +227,12 @@ const ROADMAP_PHASES = [
   {
     phase: 'Phase 1',
     period: 'M1 — M6',
-    title: 'Fondation',
+    title: 'Foundation',
     items: [
-      'Structuration juridique (Israeli Ltd + SAS)',
-      'Levée Family & Friends (50K€)',
-      'Candidatures BPI / Tnufa',
-      'Production court-métrage Carnaval',
+      'Legal structuring (Israeli Ltd + SAS)',
+      'Family & Friends round ($50K)',
+      'BPI / Tnufa applications',
+      'Production of the short film Carnaval',
       'MVP plateforme CINEGENY',
     ],
     color: COLORS.gold,
@@ -242,24 +242,24 @@ const ROADMAP_PHASES = [
     period: 'M6 — M12',
     title: 'Validation',
     items: [
-      'Levée Pré-Seed (200K€)',
-      'Premier film pilote (Merci)',
-      'API v1 — pipeline de production',
-      'Candidatures CNC',
-      'Premiers revenus Service',
+      'Pre-Seed round ($200K)',
+      'First pilot film (Merci)',
+      'API v1 — production pipeline',
+      'CNC applications',
+      'First Service revenue',
     ],
     color: COLORS.red,
   },
   {
     phase: 'Phase 3',
     period: 'M12 — M18',
-    title: 'Accélération',
+    title: 'Acceleration',
     items: [
-      'Levée Seed (500K€)',
-      'Scale-up équipe',
-      'Activation C2I',
-      'Équipe R&D complète Jérusalem',
-      'Logiciel complet de production',
+      'Seed round ($500K)',
+      'Scale up the team',
+      'C2I activation',
+      'Full R&D team in Jerusalem',
+      'Complete production software',
     ],
     color: '#4A90D9',
   },
@@ -268,9 +268,9 @@ const ROADMAP_PHASES = [
     period: 'M18 — M24',
     title: 'Expansion',
     items: [
-      'Series A cible (15-17M€ valorisation)',
-      '3 films en production parallèle',
-      'Distribution internationale',
+      'Series A target ($15-17M valuation)',
+      '3 films in parallel production',
+      'International distribution',
       'Delaware C-Corp pour US',
       'Token public listing',
     ],
@@ -279,16 +279,16 @@ const ROADMAP_PHASES = [
 ]
 
 const COMPETITIVE_TABLE = {
-  headers: ['Critère', 'CINEGENY', 'Hollywood', 'Netflix', 'Studio Traditionnel'],
+  headers: ['Criterion', 'CINEGENY', 'Hollywood', 'Netflix', 'Traditional Studio'],
   rows: [
-    ['Budget moyen / film', '50K-200K€', '50-200M€', '10-30M€', '1-5M€'],
-    ['Délai de production', '3-6 mois', '18-36 mois', '12-24 mois', '12-18 mois'],
-    ['Utilisation IA', '90%+ pipeline', '< 5%', '~15% post-prod', '~5%'],
-    ['Participation communauté', 'Gouvernance token', 'Aucune', 'Aucune', 'Aucune'],
+    ['Average budget / film', '50K-200K€', '50-200M€', '10-30M€', '1-5M€'],
+    ['Production time', '3-6 mois', '18-36 mois', '12-24 mois', '12-18 mois'],
+    ['AI usage', '90%+ pipeline', '< 5%', '~15% post-prod', '~5%'],
+    ['Community participation', 'Token governance', 'None', 'None', 'None'],
     ['Revenue sharing', '25% aux holders', '0%', '0%', '0%'],
-    ['Blockchain / Web3', 'Token CINE natif', 'Non', 'Non', 'Non'],
-    ['Coût marginal /10', 'Oui (IA)', 'Non', 'Partiellement', 'Non'],
-    ['Levier subventions', 'x2.5', 'Non applicable', 'Non', 'Partiellement'],
+    ['Blockchain / Web3', 'Token CINE natif', 'No', 'No', 'No'],
+    ['Marginal cost /10', 'Yes (AI)', 'No', 'Partially', 'No'],
+    ['Grant leverage', 'x2.5', 'Not applicable', 'No', 'Partially'],
   ],
 }
 
@@ -460,7 +460,7 @@ function StatusBadge({ status }: { status: string }) {
 export default function InvestorsPage() {
   // Set document title
   useEffect(() => {
-    document.title = 'Investisseurs | CineGeny Pictures'
+    document.title = 'Investors | CineGeny Pictures'
   }, [])
 
   // JSON-LD schema
@@ -471,7 +471,7 @@ export default function InvestorsPage() {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'CineGeny Pictures / CINEGENY',
-      description: 'Premier Studio AI-Native — Tech Company qui produit des films',
+      description: 'The first AI-native studio — a tech company that produces films',
       url: 'https://cinegeny.studio',
       email: 'invest@cinegeny.studio',
       foundingDate: '2025',
@@ -528,7 +528,7 @@ export default function InvestorsPage() {
             transition={{ duration: 0.6 }}
           >
             <Badge className="mb-6 border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] text-sm px-4 py-1.5">
-              Phase {currentPhase.id} — {currentPhase.name} | EN COURS
+              Phase {currentPhase.id} — {currentPhase.name} | LIVE
             </Badge>
           </motion.div>
 
@@ -539,7 +539,7 @@ export default function InvestorsPage() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]"
           >
             <span className="bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
-              Investissez dans le
+              Invest in the
             </span>
             <br />
             <span className="bg-gradient-to-r from-[#E50914] via-[#FF2D2D] to-[#D4AF37] bg-clip-text text-transparent">
@@ -553,9 +553,9 @@ export default function InvestorsPage() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10"
           >
-            <span className="text-white/80 font-medium">CineGeny Pictures</span> — la Tech Company qui produit des films.
+            <span className="text-white/80 font-medium">CineGeny Pictures</span> — the tech company that produces films.
             <br className="hidden md:block" />
-            Intelligence artificielle, cinéma, blockchain. Un modèle sans précédent.
+            Artificial intelligence, cinema, blockchain. An unprecedented model.
           </motion.p>
 
           {/* Key metrics */}
@@ -592,10 +592,10 @@ export default function InvestorsPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button size="xl" className="text-base font-semibold" onClick={() => document.getElementById('phases')?.scrollIntoView({ behavior: 'smooth' })}>
-              Découvrir l&apos;opportunité
+              Explore the opportunity
             </Button>
             <Button variant="outline" size="xl" className="text-base font-semibold" asChild>
-              <a href="mailto:invest@cinegeny.studio">Contacter l&apos;équipe</a>
+              <a href="mailto:invest@cinegeny.studio">Contact the team</a>
             </Button>
           </motion.div>
 
@@ -624,9 +624,9 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="phases" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="PHASES D'INVESTISSEMENT"
-          title="Rejoindre l'aventure"
-          subtitle="Trois phases stratégiques avec des prix progressifs. Plus vous investissez tôt, plus votre avantage est grand."
+          badge="INVESTMENT PHASES"
+          title="Join the adventure"
+          subtitle="Three strategic phases with progressive pricing. The earlier you invest, the greater your advantage."
         />
 
         {/* Timeline connector */}
@@ -693,7 +693,7 @@ export default function InvestorsPage() {
                         ACTIVE
                       </Badge>
                     ) : (
-                      <Badge variant="secondary">À VENIR</Badge>
+                      <Badge variant="secondary">UPCOMING</Badge>
                     )}
                   </div>
 
@@ -713,11 +713,11 @@ export default function InvestorsPage() {
                   {/* Stats */}
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/50">Objectif levée</span>
+                      <span className="text-white/50">Raise target</span>
                       <span className="text-white font-medium">{(phase.raiseTarget).toLocaleString('fr-FR')}€</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/50">Tokens alloués</span>
+                      <span className="text-white/50">Tokens allocated</span>
                       <span className="text-white font-medium">{phase.tokensAllocated.toLocaleString('fr-FR')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
@@ -732,7 +732,7 @@ export default function InvestorsPage() {
                   {phase.status === 'ACTIVE' && (
                     <div className="mb-6">
                       <div className="flex justify-between text-xs text-white/40 mb-2">
-                        <span>{phase.raisedSoFar.toLocaleString('fr-FR')}€ levés</span>
+                        <span>{phase.raisedSoFar.toLocaleString('fr-FR')} raised</span>
                         <span>{Math.round((phase.raisedSoFar / phase.raiseTarget) * 100)}%</span>
                       </div>
                       <Progress
@@ -746,14 +746,14 @@ export default function InvestorsPage() {
                   {/* Countdown (active phase) */}
                   {phase.status === 'ACTIVE' && (
                     <div className="mb-6">
-                      <div className="text-xs text-white/40 mb-2">Temps restant :</div>
+                      <div className="text-xs text-white/40 mb-2">Time left:</div>
                       <CountdownTimer targetDate={phase.endDate} />
                     </div>
                   )}
 
                   {/* Perks */}
                   <div className="space-y-2">
-                    <div className="text-xs text-white/30 uppercase tracking-wider mb-2">Avantages</div>
+                    <div className="text-xs text-white/30 uppercase tracking-wider mb-2">Perks</div>
                     {phase.perks.map((perk, j) => (
                       <div key={j} className="flex items-start gap-2 text-sm">
                         <span className="mt-0.5" style={{ color: phase.color }}>&#10003;</span>
@@ -767,12 +767,12 @@ export default function InvestorsPage() {
                     {phase.status === 'ACTIVE' ? (
                       <Button className="w-full bg-[#D4AF37] hover:bg-[#F4D35E] text-black font-semibold" size="lg" asChild>
                         <a href="mailto:invest@cinegeny.studio?subject=Phase 1 - Family %26 Friends">
-                          Investir maintenant
+                          Invest now
                         </a>
                       </Button>
                     ) : (
                       <Button variant="secondary" className="w-full" size="lg" disabled>
-                        Bientôt disponible
+                        Coming soon
                       </Button>
                     )}
                   </div>
@@ -785,10 +785,10 @@ export default function InvestorsPage() {
         {/* Post-seed box */}
         <MotionCard delay={0.5}>
           <div className="border border-white/[0.06] bg-white/[0.02] rounded-xl p-6 md:p-8 text-center">
-            <Badge variant="secondary" className="mb-3">POST-SEED — RENTRÉE OCTOBRE 2026</Badge>
-            <h3 className="text-xl font-bold text-white mb-2">Prix public du token PRODCOIN</h3>
+            <Badge variant="secondary" className="mb-3">POST-SEED — FALL 2026</Badge>
+            <h3 className="text-xl font-bold text-white mb-2">PRODCOIN public token price</h3>
             <div className="text-4xl font-bold text-white mb-2">$0.10</div>
-            <p className="text-white/40 text-sm">Accès complet à la plateforme. Pas de réduction.</p>
+            <p className="text-white/40 text-sm">Full platform access. No discount.</p>
           </div>
         </MotionCard>
       </section>
@@ -801,8 +801,8 @@ export default function InvestorsPage() {
       <section id="tokenomics" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
           badge="TOKEN ECONOMICS"
-          title="Le Token PRODCOIN"
-          subtitle="Un token dual — Utility & Security — conçu pour aligner les intérêts de la communauté, des créateurs et des investisseurs."
+          title="The PRODCOIN Token"
+          subtitle="A dual token — Utility & Security — designed to align the interests of the community, creators and investors."
           gold
         />
 
@@ -830,7 +830,7 @@ export default function InvestorsPage() {
           {/* Pie chart */}
           <MotionCard delay={0.2}>
             <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-white mb-6 text-center">Répartition des tokens</h3>
+              <h3 className="text-lg font-semibold text-white mb-6 text-center">Token distribution</h3>
               <PieChart slices={TOKENOMICS_SLICES} />
               <div className="mt-6 space-y-3">
                 {TOKENOMICS_SLICES.map((s, i) => (
@@ -849,33 +849,33 @@ export default function InvestorsPage() {
           {/* Token utility */}
           <MotionCard delay={0.35}>
             <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-white mb-6">Utilité du token PRODCOIN</h3>
+              <h3 className="text-lg font-semibold text-white mb-6">PRODCOIN token utility</h3>
               <div className="space-y-5">
                 {[
                   {
                     icon: '🗳️',
                     title: 'Gouvernance',
-                    desc: 'Vote sur les décisions de production, choix des projets, orientations stratégiques.',
+                    desc: 'Vote on production decisions, project selection and strategic direction.',
                   },
                   {
                     icon: '💰',
                     title: 'Revenue Share',
-                    desc: '25% des profits des films redistribués aux détenteurs de tokens.',
+                    desc: '25% of film profits redistributed to token holders.',
                   },
                   {
                     icon: '⭐',
-                    title: 'Accès Premium',
-                    desc: 'Fonctionnalités exclusives de la plateforme CINEGENY pour les holders.',
+                    title: 'Premium access',
+                    desc: 'Exclusive CINEGENY platform features for holders.',
                   },
                   {
                     icon: '📈',
                     title: 'Staking',
-                    desc: 'Staker ses tokens pour accéder à des tiers supérieurs et des avantages accrus.',
+                    desc: 'Stake your tokens to reach higher tiers and greater benefits.',
                   },
                   {
                     icon: '🔄',
-                    title: 'Trading secondaire',
-                    desc: 'Échange sur le marché secondaire après la période de lockup.',
+                    title: 'Secondary trading',
+                    desc: 'Trade on the secondary market after the lockup period.',
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
@@ -890,10 +890,10 @@ export default function InvestorsPage() {
 
               {/* Vesting note */}
               <div className="mt-8 p-4 rounded-lg bg-[#D4AF37]/[0.06] border border-[#D4AF37]/15">
-                <div className="text-xs text-[#D4AF37] font-medium mb-1">VESTING TEAM & FONDATEURS</div>
+                <div className="text-xs text-[#D4AF37] font-medium mb-1">TEAM & FOUNDERS VESTING</div>
                 <p className="text-sm text-white/50">
-                  4 ans de vesting linéaire avec 1 an de cliff. Garantit l&apos;alignement long-terme
-                  des fondateurs avec les investisseurs.
+                  4-year linear vesting with a 1-year cliff. Ensures long-term alignment
+                  between founders and investors.
                 </p>
               </div>
             </div>
@@ -908,9 +908,9 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="financials" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="PRÉVISIONNEL FINANCIER"
-          title="Projections P&L sur 3 ans"
-          subtitle="Un modèle hybride Films + Tech avec des marges croissantes grâce à l'effet d'échelle de l'IA."
+          badge="FINANCIAL FORECAST"
+          title="3-year P&L projections"
+          subtitle="A hybrid Films + Tech model with growing margins thanks to AI's economies of scale."
         />
 
         <MotionCard delay={0.15}>
@@ -933,15 +933,15 @@ export default function InvestorsPage() {
                 </thead>
                 <tbody>
                   {[
-                    { label: 'Revenue Total', y1: '900K€', y2: '3 000K€', y3: '6 400K€', bold: true, highlight: false },
-                    { label: '  dont Films', y1: '800K€', y2: '2 400K€', y3: '4 000K€', bold: false, highlight: false },
-                    { label: '  dont Tech (API/SaaS)', y1: '100K€', y2: '600K€', y3: '2 400K€', bold: false, highlight: false },
+                    { label: 'Total revenue', y1: '900K€', y2: '3 000K€', y3: '6 400K€', bold: true, highlight: false },
+                    { label: '  of which Films', y1: '800K€', y2: '2 400K€', y3: '4 000K€', bold: false, highlight: false },
+                    { label: '  of which Tech (API/SaaS)', y1: '100K€', y2: '600K€', y3: '2 400K€', bold: false, highlight: false },
                     { label: 'COGS', y1: '(420K€)', y2: '(1 300K€)', y3: '(2 200K€)', bold: false, highlight: false },
-                    { label: 'Marge Brute', y1: '480K€ (53%)', y2: '1 700K€ (57%)', y3: '4 200K€ (65%)', bold: true, highlight: true },
-                    { label: 'Charges de structure', y1: '(540K€)', y2: '(980K€)', y3: '(1 450K€)', bold: false, highlight: false },
+                    { label: 'Gross margin', y1: '480K€ (53%)', y2: '1 700K€ (57%)', y3: '4 200K€ (65%)', bold: true, highlight: true },
+                    { label: 'Operating costs', y1: '(540K€)', y2: '(980K€)', y3: '(1 450K€)', bold: false, highlight: false },
                     { label: 'EBITDA', y1: '(60K€)', y2: '720K€', y3: '2 750K€', bold: true, highlight: false },
-                    { label: 'Financement non-dilutif', y1: '+500K€', y2: '+600K€', y3: '+400K€', bold: false, highlight: false },
-                    { label: 'Résultat Net', y1: '+440K€', y2: '+1 320K€', y3: '+3 150K€', bold: true, highlight: true },
+                    { label: 'Non-dilutive financing', y1: '+500K€', y2: '+600K€', y3: '+400K€', bold: false, highlight: false },
+                    { label: 'Net result', y1: '+440K€', y2: '+1 320K€', y3: '+3 150K€', bold: true, highlight: true },
                   ].map((row, i) => (
                     <tr
                       key={i}
@@ -1001,9 +1001,9 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="leverage" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="LE MÉCANISME CLÉ"
-          title="L'Effet de Levier x2.5"
-          subtitle="Pour chaque 1€ investi, 2.5€ de budget de production grâce aux subventions publiques."
+          badge="THE KEY MECHANISM"
+          title="The x2.5 Leverage Effect"
+          subtitle="For every $1 invested, $2.5 of production budget thanks to public grants."
           gold
         />
 
@@ -1017,7 +1017,7 @@ export default function InvestorsPage() {
                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#D4AF37]/10 border-2 border-[#D4AF37]/30 flex items-center justify-center mx-auto mb-3">
                   <div>
                     <div className="text-2xl md:text-3xl font-bold text-[#D4AF37]">1€</div>
-                    <div className="text-xs text-white/40">investi</div>
+                    <div className="text-xs text-white/40">invested</div>
                   </div>
                 </div>
               </div>
@@ -1049,7 +1049,7 @@ export default function InvestorsPage() {
                     <div className="text-xl md:text-2xl font-bold text-[#E50914]">x2.5</div>
                   </div>
                 </div>
-                <div className="text-xs text-white/40">Levier subventions</div>
+                <div className="text-xs text-white/40">Grant leverage</div>
               </div>
 
               {/* Arrow */}
@@ -1079,7 +1079,7 @@ export default function InvestorsPage() {
                     <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#F4D35E] bg-clip-text text-transparent">
                       2.5€
                     </div>
-                    <div className="text-xs text-white/40">budget prod</div>
+                    <div className="text-xs text-white/40">prod budget</div>
                   </div>
                 </div>
               </div>
@@ -1088,10 +1088,10 @@ export default function InvestorsPage() {
             {/* Grant sources */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {[
-                { name: 'C2I', pct: '30%', desc: 'Crédit Impôt International' },
-                { name: 'CIR', pct: '30%', desc: 'Crédit Impôt Recherche' },
+                { name: 'C2I', pct: '30%', desc: 'International Tax Credit' },
+                { name: 'CIR', pct: '30%', desc: 'Research Tax Credit' },
                 { name: 'BPI', pct: 'Variable', desc: 'Bpifrance Deeptech' },
-                { name: 'CNC', pct: 'Variable', desc: 'Aides au cinéma' },
+                { name: 'CNC', pct: 'Variable', desc: 'Cinema grants' },
                 { name: 'JDA', pct: 'Variable', desc: 'Jewish Agency grants' },
               ].map((g, i) => (
                 <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-lg p-3 text-center">
@@ -1106,8 +1106,8 @@ export default function InvestorsPage() {
             <div className="mt-8 relative">
               <div className="absolute -top-3 left-4 text-5xl text-[#D4AF37]/20 font-serif">&ldquo;</div>
               <blockquote className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-6 pl-12 italic text-white/60">
-                L&apos;argent investi ne sert pas à payer les murs, il sert à déclencher des fonds publics.
-                Chaque euro privé est un catalyseur de financements institutionnels.
+                The money invested doesn't pay for walls — it unlocks public funds.
+                Every private dollar is a catalyst for institutional financing.
               </blockquote>
             </div>
           </div>
@@ -1121,9 +1121,9 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="pipeline" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="PIPELINE CRÉATIF"
-          title="8 Projets en développement"
-          subtitle="Un catalogue diversifié mêlant documentaire, fiction, animation — tous amplifiés par l'IA."
+          badge="CREATIVE PIPELINE"
+          title="8 projects in development"
+          subtitle="A diverse catalog spanning documentary, fiction and animation — all amplified by AI."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -1141,7 +1141,7 @@ export default function InvestorsPage() {
                     </span>
                     <Badge
                       className={`text-[10px] ${
-                        project.status === 'PRÊT À PRODUIRE'
+                        project.status === 'READY TO PRODUCE'
                           ? 'border-green-500/30 bg-green-500/10 text-green-400 animate-pulse'
                           : 'border-white/10 bg-white/5 text-white/50'
                       }`}
@@ -1167,7 +1167,7 @@ export default function InvestorsPage() {
 
                   {/* Financing */}
                   <div className="text-[10px] text-white/25">
-                    <span className="text-white/40">Financements :</span> {project.financing}
+                    <span className="text-white/40">Financing:</span> {project.financing}
                   </div>
                 </div>
               </div>
@@ -1183,19 +1183,19 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="grants" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="SUBVENTIONS & AIDES"
-          title="Cartographie des financements"
-          subtitle="Un écosystème riche de subventions publiques et privées — notre avantage structurel."
+          badge="GRANTS & SUBSIDIES"
+          title="Funding map"
+          subtitle="A rich ecosystem of public and private grants — our structural advantage."
         />
 
         {/* Scenario badges */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
           <div className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-5 text-center flex-1 max-w-xs">
-            <div className="text-xs text-white/40 mb-1">Scénario conservateur</div>
+            <div className="text-xs text-white/40 mb-1">Conservative scenario</div>
             <div className="text-2xl font-bold text-white">~255K€</div>
           </div>
           <div className="bg-[#D4AF37]/[0.05] border border-[#D4AF37]/20 rounded-xl p-5 text-center flex-1 max-w-xs">
-            <div className="text-xs text-[#D4AF37] mb-1">Scénario réaliste</div>
+            <div className="text-xs text-[#D4AF37] mb-1">Realistic scenario</div>
             <div className="text-2xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#F4D35E] bg-clip-text text-transparent">~2.45M€</div>
           </div>
         </div>
@@ -1205,7 +1205,7 @@ export default function InvestorsPage() {
           { title: 'Israel', flag: '🇮🇱', data: GRANTS_DATA.israel },
           { title: 'France', flag: '🇫🇷', data: GRANTS_DATA.france },
           { title: 'International', flag: '🌍', data: GRANTS_DATA.international },
-          { title: 'Spécifiques aux projets', flag: '🎯', data: GRANTS_DATA.projectSpecific },
+          { title: 'Project-specific', flag: '🎯', data: GRANTS_DATA.projectSpecific },
         ].map((section, si) => (
           <MotionCard key={si} delay={si * 0.1}>
             <div className="mb-8">
@@ -1262,7 +1262,7 @@ export default function InvestorsPage() {
               pillar: '01',
               title: 'Service',
               subtitle: 'Cash Flow',
-              desc: 'Production pour clients externes. L\'IA réduit les coûts de 60-80%, générant des marges de 40%+. Revenus dès le jour 1.',
+              desc: 'Production pour clients externes. L\'AI cuts costs by 60-80%, generating 40%+ margins. Revenue from day one.',
               icon: '⚡',
               color: COLORS.red,
               metric: '40%+ marge',
@@ -1271,16 +1271,16 @@ export default function InvestorsPage() {
               pillar: '02',
               title: 'IP Originale',
               subtitle: 'Value Creation',
-              desc: 'Films & séries développés en interne. Coût /10 grâce au pipeline IA. Chaque IP est un actif qui génère de la valeur long terme.',
+              desc: 'Films & series developed in-house. 10x lower cost thanks to the AI pipeline. Each IP is an asset that generates long-term value.',
               icon: '🎬',
               color: COLORS.gold,
-              metric: 'Coût /10 via IA',
+              metric: '10x lower cost via AI',
             },
             {
               pillar: '03',
               title: 'Tech Licensing',
               subtitle: 'Recurring Upside',
-              desc: 'Notre pipeline de production devient une API puis un SaaS. Revenue récurrent avec des marges logiciel de 80%+.',
+              desc: 'Our production pipeline becomes an API and then a SaaS. Recurring revenue with 80%+ software margins.',
               icon: '🔧',
               color: '#4A90D9',
               metric: '80%+ marge SaaS',
@@ -1307,7 +1307,7 @@ export default function InvestorsPage() {
             <h3 className="text-center text-lg font-semibold text-white mb-8">L&apos;effet Flywheel</h3>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
               {[
-                { label: 'Service génère\ndu cash flow', color: COLORS.red },
+                { label: 'Service generates\ncash flow', color: COLORS.red },
                 { label: 'Cash flow finance\nles IPs originales', color: COLORS.gold },
                 { label: 'IPs valident\nla technologie', color: '#4A90D9' },
                 { label: 'Tech attire\ndes clients Service', color: '#2ECC71' },
@@ -1340,8 +1340,8 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="competitive" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="AVANTAGE COMPÉTITIF"
-          title="Pourquoi CINEGENY gagne"
+          badge="COMPETITIVE ADVANTAGE"
+          title="Why CINEGENY gagne"
           subtitle="Comparaison avec les acteurs traditionnels de l'industrie."
         />
 
@@ -1394,7 +1394,7 @@ export default function InvestorsPage() {
         <SectionTitle
           badge="ROADMAP"
           title="Feuille de route 24 mois"
-          subtitle="De la structuration à la Series A — chaque phase construit sur la précédente."
+          subtitle="From structuring to Series A — each phase builds on the previous one."
         />
 
         <div className="relative">
@@ -1454,9 +1454,9 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="team" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="L'ÉQUIPE"
+          badge="THE TEAM"
           title="Les Fondateurs"
-          subtitle="Deux entrepreneurs complémentaires à la croisée du cinéma, de la tech et de la finance."
+          subtitle="Two complementary entrepreneurs at the crossroads of cinema, tech and finance."
         />
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -1465,7 +1465,7 @@ export default function InvestorsPage() {
               name: 'Emmanuel Smadja',
               role: 'CEO & Co-Fondateur',
               focus: 'Finance & Ventes',
-              bio: 'Entrepreneur Franco-Israélien, expert en structuration fiscale hybride et levée de fonds. Spécialiste de la co-production internationale et des mécanismes de financement public. Maîtrise des environnements réglementaires France-Israël.',
+              bio: 'French-Israeli entrepreneur, expert in hybrid tax structuring and fundraising. Specialist in international co-production and public-funding mechanisms. Deep knowledge of the France-Israel regulatory environments.',
               color: COLORS.gold,
               initials: 'E',
             },
@@ -1473,7 +1473,7 @@ export default function InvestorsPage() {
               name: 'Eric Haldezos',
               role: 'Co-Founder & Managing Director',
               focus: 'IA & Production',
-              bio: 'Expert en IA générative et pipeline de production cinématographique. Architecture logicielle, développement de la plateforme CINEGENY, supervision créative. Pionnier de l\'utilisation de l\'IA dans la production audiovisuelle.',
+              bio: 'Expert in generative AI and the film production pipeline. Software architecture, development of the CINEGENY platform, creative supervision. A pioneer of AI use in audiovisual production.',
               color: COLORS.red,
               initials: 'É',
             },
@@ -1509,22 +1509,22 @@ export default function InvestorsPage() {
           ========================================================= */}
       <section id="legal" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
-          badge="STRUCTURE JURIDIQUE"
-          title="Architecture légale"
-          subtitle="Une structure optimisée pour la double résidence fiscale France-Israël."
+          badge="LEGAL STRUCTURE"
+          title="Legal architecture"
+          subtitle="A structure optimized for dual France-Israel tax residency."
         />
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* Current */}
           <MotionCard delay={0.1}>
             <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-6 md:p-8">
-              <Badge variant="warning" className="mb-4">EN COURS</Badge>
-              <h3 className="text-lg font-bold text-white mb-4">Statut actuel</h3>
+              <Badge variant="warning" className="mb-4">IN PROGRESS</Badge>
+              <h3 className="text-lg font-bold text-white mb-4">Current status</h3>
               <div className="space-y-3 text-sm text-white/50">
-                <p>Ossek Patoua&apos;h (auto-entrepreneur israélien)</p>
+                <p>Ossek Patoua'h (Israeli sole trader)</p>
                 <p className="flex items-center gap-2">
                   <span className="text-[#D4AF37]">&#10230;</span>
-                  <span>En transition vers <span className="text-white font-medium">Israeli Ltd</span></span>
+                  <span>Transitioning to <span className="text-white font-medium">Israeli Ltd</span></span>
                 </p>
               </div>
             </div>
@@ -1533,12 +1533,12 @@ export default function InvestorsPage() {
           {/* Target */}
           <MotionCard delay={0.2}>
             <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-6 md:p-8">
-              <Badge className="mb-4 border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">CIBLE</Badge>
-              <h3 className="text-lg font-bold text-white mb-4">Structure cible</h3>
+              <Badge className="mb-4 border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">TARGET</Badge>
+              <h3 className="text-lg font-bold text-white mb-4">Target structure</h3>
               <div className="space-y-3 text-sm text-white/50">
                 <p><span className="text-white font-medium">Israeli Ltd</span> — Holding, R&D, Jérusalem Zone A</p>
                 <p><span className="text-white font-medium">French SAS</span> — Production, IP Films, Paris</p>
-                <p><span className="text-white font-medium">Delaware C-Corp</span> — Post-seed, marché US</p>
+                <p><span className="text-white font-medium">Delaware C-Corp</span> — Post-seed, US market</p>
               </div>
             </div>
           </MotionCard>
@@ -1550,32 +1550,32 @@ export default function InvestorsPage() {
             {
               title: 'Partenariat Ruppin',
               desc: '33% participation, accord first-look — en finalisation',
-              badge: 'Éditions Ruppin',
+              badge: 'Ruppin Editions',
             },
             {
               title: 'ISA Compliance',
-              desc: 'Offre exemptée (<5M ILS). KYC requis pour tout investissement.',
-              badge: 'Réglementation',
+              desc: 'Exempt offering (<5M ILS). KYC required for any investment.',
+              badge: 'Regulation',
             },
             {
-              title: 'Traité France-Israël',
-              desc: 'Convention de coproduction cinématographique bilatérale (2002)',
+              title: 'France-Israel treaty',
+              desc: 'Bilateral film co-production agreement (2002)',
               badge: 'Coproduction',
             },
             {
               title: 'IR-PME / Madelin',
-              desc: 'Réduction d\'impôt de 25% pour les investisseurs français éligibles.',
+              desc: '25% tax reduction for eligible French investors.',
               badge: 'Avantage fiscal FR',
             },
             {
-              title: 'IP Stratégie',
-              desc: 'Tech IP → entité israélienne (Patent Box 12%). Film IP → entité française.',
-              badge: 'Propriété intellectuelle',
+              title: 'IP strategy',
+              desc: 'Tech IP → Israeli entity (Patent Box 12%). Film IP → French entity.',
+              badge: 'Intellectual property',
             },
             {
               title: 'KYC Obligatoire',
-              desc: 'Vérification d\'identité requise avant toute participation à une phase d\'investissement.',
-              badge: 'Conformité',
+              desc: 'Identity verification required before participating in any investment phase.',
+              badge: 'Compliance',
             },
           ].map((item, i) => (
             <MotionCard key={i} delay={i * 0.08}>
@@ -1597,47 +1597,47 @@ export default function InvestorsPage() {
       <section id="risks" className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <SectionTitle
           badge="AVERTISSEMENT"
-          title="Facteurs de risque"
-          subtitle="Investir dans une startup comporte des risques importants. Lisez attentivement."
+          title="Risk factors"
+          subtitle="Investing in a startup carries significant risks. Read carefully."
         />
 
         <MotionCard delay={0.15}>
           <div className="bg-white/[0.02] border border-[#E50914]/10 rounded-xl p-6 md:p-10">
             <div className="space-y-4 text-sm text-white/50 leading-relaxed">
               <p>
-                <strong className="text-white/70">Risque de perte en capital :</strong> L&apos;investissement dans
-                CineGeny Pictures / CINEGENY est un investissement à haut risque. Le capital investi peut être
-                partiellement ou totalement perdu. Les performances passées ne préjugent pas des performances futures.
+                <strong className="text-white/70">Risk of capital loss:</strong> Investing in
+                CineGeny Pictures / CINEGENY is a high-risk investment. The capital invested may be
+                partially or totally lost. Past performance is no guarantee of future results.
               </p>
               <p>
-                <strong className="text-white/70">Risque de liquidité :</strong> Les tokens CINE ne sont pas cotés sur
-                un marché réglementé. Il n&apos;existe aucune garantie de liquidité ou de marché secondaire. Les tokens
-                sont soumis à des périodes de lockup variables selon la phase d&apos;investissement.
+                <strong className="text-white/70">Liquidity risk:</strong> CINE tokens are not listed on
+                a regulated market. There is no guarantee of liquidity or a secondary market. Tokens
+                are subject to lockup periods that vary by investment phase.
               </p>
               <p>
-                <strong className="text-white/70">Risque réglementaire :</strong> L&apos;environnement réglementaire des
-                actifs numériques évolue rapidement en France, en Israël et dans le monde. Des changements réglementaires
-                pourraient affecter la valeur, la transférabilité ou l&apos;utilité des tokens.
+                <strong className="text-white/70">Regulatory risk:</strong> The regulatory environment for
+                digital assets is evolving rapidly in France, Israel and worldwide. Regulatory changes
+                could affect the value, transferability or utility of the tokens.
               </p>
               <p>
-                <strong className="text-white/70">Risque opérationnel :</strong> L&apos;entreprise est en phase de
-                démarrage (early-stage). Les projections financières sont des estimations et non des garanties. La
-                réalisation des subventions dépend de l&apos;approbation d&apos;organismes tiers.
+                <strong className="text-white/70">Operational risk:</strong> The company is at an
+                early stage. Financial projections are estimates, not guarantees. Grant funding
+                depends on approval by third-party bodies.
               </p>
               <p>
-                <strong className="text-white/70">Risque technologique :</strong> Le secteur de l&apos;intelligence
-                artificielle évolue rapidement. Les avantages concurrentiels actuels pourraient être érodés par de
-                nouvelles technologies ou des concurrents mieux financés.
+                <strong className="text-white/70">Technology risk:</strong> The artificial-intelligence
+                sector evolves rapidly. Current competitive advantages could be eroded by
+                new technologies or better-funded competitors.
               </p>
               <p>
-                <strong className="text-white/70">Risque de marché :</strong> Le succès commercial des films et contenus
-                produits n&apos;est jamais garanti. L&apos;industrie du divertissement est intrinsèquement imprévisible.
+                <strong className="text-white/70">Market risk:</strong> The commercial success of the films and content
+                produced is never guaranteed. The entertainment industry is inherently unpredictable.
               </p>
               <p className="border-t border-white/[0.06] pt-4 text-xs text-white/30">
-                Ce document ne constitue pas un conseil en investissement. Nous recommandons de consulter un conseiller
-                financier, juridique et fiscal indépendant avant toute décision d&apos;investissement. Les informations
-                présentées sont fournies à titre informatif uniquement et ne constituent ni une offre ni une sollicitation
-                dans les juridictions où cela serait contraire à la loi.
+                This document does not constitute investment advice. We recommend consulting an independent
+                financial, legal and tax advisor before making any investment decision. The information
+                presented is provided for informational purposes only and constitutes neither an offer nor a solicitation
+                in jurisdictions where this would be unlawful.
               </p>
             </div>
           </div>
@@ -1660,15 +1660,15 @@ export default function InvestorsPage() {
 
               <div className="relative z-10 p-8 md:p-16 text-center">
                 <Badge className="mb-6 border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] text-sm px-4 py-1.5">
-                  PHASE 1 — FAMILY & FRIENDS | OUVERTE
+                  PHASE 1 — FAMILY & FRIENDS | OPEN
                 </Badge>
 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
-                  Rejoindre la Phase 1
+                  Join Phase 1
                 </h2>
                 <p className="text-white/50 text-lg mb-8 max-w-2xl mx-auto">
-                  Token CINE à <span className="text-[#D4AF37] font-semibold">0.004€</span> — le prix le plus bas avant l&apos;augmentation
-                  en juin. Places limitées pour le cercle fondateur.
+                  CINE token at <span className="text-[#D4AF37] font-semibold">$0.004</span> — the lowest price before the June
+                  increase. Limited spots for the founders' circle.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -1677,13 +1677,13 @@ export default function InvestorsPage() {
                     className="bg-[#D4AF37] hover:bg-[#F4D35E] text-black font-semibold text-base shadow-[0_0_30px_rgba(212,175,55,0.3)]"
                     asChild
                   >
-                    <a href="mailto:invest@cinegeny.studio?subject=Investissement Phase 1 - Family %26 Friends">
-                      Contacter pour investir
+                    <a href="mailto:invest@cinegeny.studio?subject=Investment Phase 1 - Family %26 Friends">
+                      Contact us to invest
                     </a>
                   </Button>
                   <Button variant="outline" size="xl" className="text-base font-semibold border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37]/10" asChild>
-                    <a href="mailto:invest@cinegeny.studio?subject=Deck investisseur">
-                      Recevoir le deck
+                    <a href="mailto:invest@cinegeny.studio?subject=Investor deck">
+                      Get the deck
                     </a>
                   </Button>
                 </div>
@@ -1722,8 +1722,8 @@ export default function InvestorsPage() {
 
         {/* Very bottom */}
         <div className="text-center mt-12 text-xs text-white/20">
-          <p>&copy; {new Date().getFullYear()} CineGeny Pictures / CINEGENY. Tous droits réservés.</p>
-          <p className="mt-1">Ce document est confidentiel et destiné aux investisseurs potentiels uniquement.</p>
+          <p>&copy; {new Date().getFullYear()} CineGeny Pictures / CINEGENY. All rights reserved.</p>
+          <p className="mt-1">This document is confidential and intended for potential investors only.</p>
         </div>
       </section>
     </div>
