@@ -134,10 +134,31 @@ export function LoginForm() {
                 disabled={loading}
                 className="w-full h-12 rounded-xl bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold shadow-lg shadow-[#E50914]/20 hover:shadow-[#E50914]/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center gap-2"
               >
-                {loading ? <><Loader2 className="h-5 w-5 animate-spin" /> Connexion...</> : t('sign_in')}
+                {loading ? <><Loader2 className="h-5 w-5 animate-spin" /> Signing in...</> : t('sign_in')}
               </button>
             </div>
           </form>
+
+          {/* OAuth */}
+          <div className="mt-8 flex items-center gap-3">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.06]" />
+            <span className="text-xs text-white/20 uppercase tracking-widest">or</span>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/[0.06]" />
+          </div>
+          <button
+            type="button"
+            disabled={loading}
+            onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
+            className="mt-5 w-full h-12 rounded-xl bg-white text-gray-800 font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-50"
+          >
+            <svg className="h-5 w-5" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1Z" />
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z" />
+              <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84Z" />
+              <path fill="#EA4335" d="M12 4.75c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 1.39 14.97.4 12 .4A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.3 9.14 4.75 12 4.75Z" />
+            </svg>
+            Continue with Google
+          </button>
 
           {/* Demo accounts */}
           <div className="mt-10 flex items-center gap-3">
@@ -158,7 +179,7 @@ export function LoginForm() {
                   <p className="text-[11px] text-white/35 mt-0.5">admin123 / admin123</p>
                 </div>
                 <span className="text-[10px] text-[#E50914]/40 group-hover:text-[#E50914]/70 uppercase tracking-wider font-medium">
-                  {loading ? 'Connexion...' : t('quick_login')}
+                  {loading ? 'Signing in...' : t('quick_login')}
                 </span>
               </div>
             </button>
