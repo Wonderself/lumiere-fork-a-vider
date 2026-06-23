@@ -4,7 +4,7 @@ import { auth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { createHash } from 'crypto'
 
-// ─── Export Personal Data (RGPD Art. 20 — Portabilité) ────────────
+// ─── Export Personal Data (GDPR Art. 20 — Portability) ────────────
 
 export async function exportPersonalDataAction() {
   const session = await auth()
@@ -223,7 +223,7 @@ export async function exportPersonalDataAction() {
   return { data: exportData }
 }
 
-// ─── Request Account Deletion (RGPD Art. 17 — Droit à l'effacement) ──
+// ─── Request Account Deletion (GDPR Art. 17 — Right to erasure) ──
 
 export async function requestAccountDeletionAction(confirmEmail: string) {
   const session = await auth()

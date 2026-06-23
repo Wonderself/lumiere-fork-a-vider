@@ -43,7 +43,7 @@ function evaluateScreenplay(content: string, title: string): { score: number; fe
   score = Math.min(score, 95)
 
   const feedbacks: Record<string, string> = {
-    excellent: `"${title}" présente une qualité narrative remarquable. La structure est solide, les dialogues sont naturels, et le potentiel visuel est élevé. Recommandé pour production.`,
+    excellent: `"${title}" shows remarkable narrative quality. The structure is solid, the dialogue is natural, and the visual potential is high. Recommended for production.`,
     good: `"${title}" is a promising screenplay with a solid narrative foundation. A few adjustments to pacing and transitions would improve the whole.`,
     average: `"${title}" needs more work. The narrative has potential but the structure and dialogue can be strengthened.`,
     poor: `"${title}" does not yet meet production criteria. Significant rework is recommended on the narrative structure and format.`,
@@ -139,7 +139,7 @@ export async function generateScreenplayDealAction(formData: FormData) {
   })
 
   if (!screenplay) return { error: 'Screenplay not found' }
-  if (screenplay.status !== 'ACCEPTED') return { error: 'Le scénario doit être accepté pour générer un deal' }
+  if (screenplay.status !== 'ACCEPTED') return { error: 'The screenplay must be accepted to generate a deal' }
 
   const revenueSharePct = screenplay.revenueShareBps > 0
     ? screenplay.revenueShareBps / 100
@@ -148,7 +148,7 @@ export async function generateScreenplayDealAction(formData: FormData) {
   const dealMarkdown = generateScreenplayDeal({
     writerName: screenplay.user.displayName || 'Auteur',
     screenplayTitle: screenplay.title,
-    genre: screenplay.genre || 'Non spécifié',
+    genre: screenplay.genre || 'Unspecified',
     revenueSharePct,
     modificationTolerancePct: screenplay.modificationTolerance,
     signDate: new Date().toISOString().split('T')[0],
@@ -164,7 +164,7 @@ export async function generateScreenplayDealAction(formData: FormData) {
   })
 
   // Notify writer
-  await createNotification(screenplay.userId, 'SYSTEM' as never, 'Deal proposé pour votre scénario', {
+  await createNotification(screenplay.userId, 'SYSTEM' as never, 'Deal offered for your screenplay', {
     body: `A ${revenueSharePct}% revenue-share contract is offered to you for "${screenplay.title}". See the details on your screenplays page.`,
     href: '/screenplays',
   })

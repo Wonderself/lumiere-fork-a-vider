@@ -84,6 +84,6 @@ export async function voteFilmByIpAction(filmId: string, voteType: 'up' | 'down'
     revalidatePath(`/films/${film.slug}`)
     return state
   } catch {
-    return { up: 0, down: 0, total: 0, forPct: 50, userVote: null, error: 'Erreur, réessayez' }
+    return { up: 0, down: 0, total: 0, forPct: 50, userVote: null, error: 'Error, please try again' }
   }
 }

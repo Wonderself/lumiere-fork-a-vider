@@ -14,7 +14,7 @@ async function requireAdmin() {
 
 /**
  * Calculate monthly payouts for all creators with films in the catalog
- * Ratio = (film monthly views / total platform monthly views) × pool
+ * Ratio = (film monthly views / total platform monthly views) x pool
  */
 export async function calculateMonthlyPayoutsAction(formData: FormData) {
   await requireAdmin()

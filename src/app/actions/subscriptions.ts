@@ -106,11 +106,11 @@ export async function cancelSubscriptionAction() {
   })
 
   if (!sub || sub.plan === 'FREE') {
-    return { error: 'Vous êtes sur le plan gratuit, aucun abonnement à annuler.' }
+    return { error: 'You are on the free plan, no subscription to cancel.' }
   }
 
   if (sub.status === 'cancelled') {
-    return { error: 'Votre abonnement est déjà annulé.' }
+    return { error: 'Your subscription is already cancelled.' }
   }
 
   // If Stripe is configured, cancel the Stripe subscription

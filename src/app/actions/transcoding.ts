@@ -1,8 +1,8 @@
 'use server'
 
 /**
- * Server Actions pour le transcodage vidéo.
- * Réservées aux administrateurs — gestion de la queue de transcodage.
+ * Server actions for video transcoding.
+ * Admin-only — transcoding queue management.
  */
 
 import { auth } from '@/lib/auth'
@@ -31,8 +31,8 @@ async function requireAdmin() {
 // ─── Actions ─────────────────────────────────────────────────
 
 /**
- * Démarre le transcodage d'un film.
- * Crée un job dans la queue avec les profils demandés.
+ * Starts transcoding a film.
+ * Creates a job in the queue with the requested profiles.
  */
 export async function startTranscodeAction(
   filmId: string,
@@ -96,7 +96,7 @@ export async function startTranscodeAction(
 }
 
 /**
- * Récupère le statut d'un job de transcodage.
+ * Retrieves the status of a transcoding job.
  */
 export async function getTranscodeStatusAction(jobId: string) {
   const result = await requireAdmin()
@@ -206,8 +206,8 @@ export async function getTranscodeQueueStatsAction() {
 }
 
 /**
- * Met à jour manuellement le statut/progrès d'un job.
- * Utile pour les webhooks ou la mise à jour manuelle par un admin.
+ * Manually updates the status/progress of a job.
+ * Useful for webhooks or manual updates by an admin.
  */
 export async function updateTranscodeJobAction(
   jobId: string,
@@ -220,7 +220,7 @@ export async function updateTranscodeJobAction(
   if (!job) return { error: 'Job introuvable' }
 
   const updated = updateTranscodeJob(jobId, updates)
-  if (!updated) return { error: 'Échec de la mise à jour' }
+  if (!updated) return { error: 'Update failed' }
 
   return {
     data: {

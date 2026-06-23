@@ -86,7 +86,7 @@ export async function setFilmBitrateConfigAction(filmId: string, enabledProfiles
   if (!session) return { success: false, error: 'Access denied' }
 
   if (!enabledProfiles || enabledProfiles.length === 0) {
-    return { success: false, error: 'Au moins un profil doit être activé' }
+    return { success: false, error: 'At least one profile must be enabled' }
   }
 
   const invalidProfiles = enabledProfiles.filter((p) => !VALID_PROFILES.includes(p))

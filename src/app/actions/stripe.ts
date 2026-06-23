@@ -279,7 +279,7 @@ export async function createConnectOnboardingAction() {
       data: {
         url: `${APP_URL}/dashboard?stripe=mock`,
         mock: true,
-        message: 'Stripe Connect n\'est pas configuré. Mode démonstration.',
+        message: 'Stripe Connect is not configured. Demo mode.',
       },
     }
   }

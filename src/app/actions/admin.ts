@@ -575,7 +575,7 @@ export async function rejectSubmissionAction(formData: FormData) {
 
   await createNotification(submission.userId, 'TASK_REJECTED', 'Submission rejected', {
     body: canRetry
-      ? `Votre soumission pour "${submission.task.title}" a été refusée. Vous pouvez réessayer (tentative ${submission.task.currentAttempt}/${submission.task.maxAttempts}).`
+      ? `Your submission for "${submission.task.title}" was rejected. You can try again (attempt ${submission.task.currentAttempt}/${submission.task.maxAttempts}).`
       : `Your submission for "${submission.task.title}" has been permanently rejected.`,
     href: `/tasks/${submission.taskId}`,
   })

@@ -473,7 +473,7 @@ export async function voteOnProposalAction(
     // Get user's token weight (balance = voting power)
     const tokenWeight = await getTokenBalance(proposal.offeringId, session.user.id)
     if (tokenWeight <= 0) {
-      return { success: false, error: 'Vous devez détenir des tokens pour voter.' }
+      return { success: false, error: 'You must hold tokens to vote.' }
     }
 
     // Record vote and update tallies
@@ -504,7 +504,7 @@ export async function voteOnProposalAction(
           userId: session.user.id,
           amount: 5,
           type: 'GOVERNANCE_REWARD',
-          description: 'Récompense de participation au vote de gouvernance',
+          description: 'Reward for participating in the governance vote',
           relatedId: proposalId,
         },
       })
@@ -527,7 +527,7 @@ export async function voteOnProposalAction(
     return { success: true }
   } catch (error) {
     console.error('voteOnProposalAction error:', error)
-    return { success: false, error: 'Erreur lors du vote. Veuillez réessayer.' }
+    return { success: false, error: 'Error while voting. Please try again.' }
   }
 }
 
@@ -560,11 +560,11 @@ export async function claimDividendAction(
     }
 
     if (dividend.status === 'PAID') {
-      return { success: false, error: 'Ce dividende a déjà été réclamé.' }
+      return { success: false, error: 'This dividend has already been claimed.' }
     }
 
     if (dividend.status !== 'CALCULATED' && dividend.status !== 'PENDING') {
-      return { success: false, error: 'Ce dividende ne peut pas être réclamé.' }
+      return { success: false, error: 'This dividend cannot be claimed.' }
     }
 
     // Pay out dividend
@@ -613,6 +613,6 @@ export async function claimDividendAction(
     return { success: true }
   } catch (error) {
     console.error('claimDividendAction error:', error)
-    return { success: false, error: 'Erreur lors de la réclamation du dividende.' }
+    return { success: false, error: 'Error claiming the dividend.' }
   }
 }

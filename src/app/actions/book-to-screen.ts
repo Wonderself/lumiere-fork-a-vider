@@ -80,53 +80,53 @@ function analyzeBookForAdaptation(params: {
 
   // Feedback
   const feedbackMap: Record<string, string> = {
-    high: `"${title}" présente un excellent potentiel d'adaptation cinématographique. Le genre ${genre}, combiné à une narration riche, offre de nombreuses possibilités visuelles. Recommandé pour production prioritaire.`,
-    medium: `"${title}" est un candidat prometteur pour l'adaptation. Le potentiel visuel est bon, mais certains aspects narratifs pourraient nécessiter un travail d'adaptation plus poussé.`,
-    low: `"${title}" nécessite une réflexion approfondie avant adaptation. Le passage du format littéraire au format cinématographique pourrait poser des défis importants.`,
+    high: `"${title}" shows excellent potential for a film adaptation. The ${genre} genre, combined with rich storytelling, offers many visual possibilities. Recommended for priority production.`,
+    medium: `"${title}" is a promising candidate for adaptation. The visual potential is good, but some narrative aspects may require deeper adaptation work.`,
+    low: `"${title}" needs careful consideration before adaptation. The move from the literary format to the cinematic format could pose significant challenges.`,
   }
 
   const feedbackKey = score >= 75 ? 'high' : score >= 55 ? 'medium' : 'low'
 
   // Generate adaptation outline
-  const adaptationOutline = `# OUTLINE D'ADAPTATION — "${title}"
+  const adaptationOutline = `# ADAPTATION OUTLINE — "${title}"
 
 ## Source
-- **Titre original** : ${title}
-- **Genre** : ${genre}
-- **Pages** : ${pageCount}
-- **Format suggéré** : ${suggestedFormat === 'SERIES' ? 'Series (6-10 episodes)' : suggestedFormat === 'FEATURE' ? 'Feature film (90-120 min)' : 'Short film (15-30 min)'}
+- **Original title**: ${title}
+- **Genre**: ${genre}
+- **Pages**: ${pageCount}
+- **Suggested format**: ${suggestedFormat === 'SERIES' ? 'Series (6-10 episodes)' : suggestedFormat === 'FEATURE' ? 'Feature film (90-120 min)' : 'Short film (15-30 min)'}
 
-## Structure Proposée
+## Proposed Structure
 
-### Acte I — Mise en Place (25%)
-- Présentation du monde et du personnage principal
-- Établissement des enjeux
-- Incident déclencheur
+### Act I — Setup (25%)
+- Introduce the world and the main character
+- Establish the stakes
+- Inciting incident
 
-### Acte II — Confrontation (50%)
-- Obstacles croissants
-- Développement des relations
-- Point médian / révélation
-- Montée en tension
+### Act II — Confrontation (50%)
+- Rising obstacles
+- Development of relationships
+- Midpoint / revelation
+- Escalating tension
 
-### Acte III — Résolution (25%)
+### Act III — Resolution (25%)
 - Climax
-- Résolution des conflits
-- Dénouement / ouverture
+- Resolution of conflicts
+- Denouement / open ending
 
-## Notes d'Adaptation
-- **Éléments à conserver** : personnages principaux, arc narratif central, atmosphère du genre ${genre}
-- **Éléments à adapter** : monologues intérieurs → dialogues, descriptions → visuels
-- **Ajouts possibles** : scènes d'action visuelles, dialogues condensés, rythme cinématographique
+## Adaptation Notes
+- **Elements to keep**: main characters, central narrative arc, atmosphere of the ${genre} genre
+- **Elements to adapt**: inner monologues → dialogue, descriptions → visuals
+- **Possible additions**: visual action scenes, condensed dialogue, cinematic pacing
 ${estimatedBudget === 'HIGH' ? '\n- **VFX budget**: plan a significant budget for visual effects' : ''}
 
-## Équipe Recommandée
-- 1 scénariste adaptateur
-- 1 story-boarder
-- ${estimatedBudget === 'HIGH' ? '2-3 designers concept art' : '1 designer concept art'}
-- 1 directeur artistique
+## Recommended Team
+- 1 adaptation screenwriter
+- 1 storyboard artist
+- ${estimatedBudget === 'HIGH' ? '2-3 concept artists' : '1 concept artist'}
+- 1 art director
 
-*Outline généré automatiquement par le Pipeline CINEGENY Studio.*
+*Outline generated automatically by the CINEGENY Studio Pipeline.*
 `
 
   return {
@@ -165,7 +165,7 @@ export async function submitBookForAdaptationAction(
   const isbn = formData.get('isbn') as string
 
   if (!title || !synopsis || !genre) {
-    return { error: 'Titre, synopsis et genre sont requis' }
+    return { error: 'Title, synopsis and genre are required' }
   }
 
   // Run analysis
@@ -178,7 +178,7 @@ export async function submitBookForAdaptationAction(
     data: {
       userId: session.user.id,
       title: `[Adaptation] ${title}`,
-      logline: `Adaptation cinématographique du livre "${title}" de ${author || 'Inconnu'}${publisher ? ` (${publisher})` : ''}${isbn ? ` — ISBN: ${isbn}` : ''}`,
+      logline: `Film adaptation of the book "${title}" by ${author || 'Unknown'}${publisher ? ` (${publisher})` : ''}${isbn ? ` — ISBN: ${isbn}` : ''}`,
       genre,
       content: analysis.adaptationOutline,
       aiScore: analysis.score,

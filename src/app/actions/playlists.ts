@@ -315,7 +315,7 @@ export async function updatePlaylistAction(
   if (!session?.user?.id) return { error: 'You must be signed in to edit a playlist.' }
 
   if (!playlistId) return { error: 'Identifiant de playlist manquant.' }
-  if (!data || Object.keys(data).length === 0) return { error: 'Aucune donnée à mettre à jour.' }
+  if (!data || Object.keys(data).length === 0) return { error: 'No data to update.' }
 
   const trimmedTitle = data.title?.trim()
   if (trimmedTitle !== undefined && (trimmedTitle.length < 1 || trimmedTitle.length > 100)) {
@@ -339,6 +339,6 @@ export async function updatePlaylistAction(
     return { success: true }
   } catch (error) {
     console.error('[playlists] updatePlaylistAction error:', error)
-    return { error: 'Erreur lors de la mise à jour de la playlist.' }
+    return { error: 'Error updating the playlist.' }
   }
 }

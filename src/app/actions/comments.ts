@@ -280,7 +280,7 @@ export async function editCommentAction(
     })
 
     if (!comment) return { error: 'Commentaire introuvable.' }
-    if (comment.isHidden) return { error: 'Ce commentaire a été supprimé.' }
+    if (comment.isHidden) return { error: 'This comment has been deleted.' }
     if (comment.userId !== session.user.id) return { error: 'Not authorized.' }
 
     await prisma.filmComment.update({
