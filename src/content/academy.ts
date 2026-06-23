@@ -9,6 +9,7 @@ export type Block =
   | { type: 'ol'; items: string[] }
   | { type: 'tip'; text: string }
   | { type: 'img'; alt: string; caption: string }
+  | { type: 'prompt'; label?: string; text: string }
 
 export interface Lesson {
   slug: string

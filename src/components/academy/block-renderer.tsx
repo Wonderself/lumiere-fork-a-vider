@@ -1,5 +1,6 @@
 import { Lightbulb, ImageIcon } from 'lucide-react'
 import type { Block } from '@/content/academy'
+import { CopyPrompt } from './copy-prompt'
 
 export function BlockRenderer({ blocks }: { blocks: Block[] }) {
   return (
@@ -64,6 +65,8 @@ export function BlockRenderer({ blocks }: { blocks: Block[] }) {
                 <figcaption className="text-center text-xs text-white/40">{block.caption}</figcaption>
               </figure>
             )
+          case 'prompt':
+            return <CopyPrompt key={i} label={block.label} text={block.text} />
           default:
             return null
         }
