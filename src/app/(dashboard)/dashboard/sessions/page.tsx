@@ -43,9 +43,9 @@ export default function SessionsPage() {
     const result = await revokeSessionAction(id)
     if (result.success) {
       setSessions(prev => prev.filter(s => s.id !== id))
-      toast.success('Session révoquée')
+      toast.success('Session revoked')
     } else {
-      toast.error(result.error || 'Erreur')
+      toast.error(result.error || 'Error')
     }
     setRevoking(null)
   }
@@ -55,9 +55,9 @@ export default function SessionsPage() {
     const result = await revokeAllSessionsAction()
     if (result.success) {
       setSessions(prev => prev.slice(0, 1)) // keep current only
-      toast.success(`${result.count} session(s) révoquée(s)`)
+      toast.success(`${result.count} session(s) revoked`)
     } else {
-      toast.error(result.error || 'Erreur')
+      toast.error(result.error || 'Error')
     }
     setRevoking(null)
   }
@@ -79,7 +79,7 @@ export default function SessionsPage() {
     <div className="space-y-8 max-w-2xl">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Sessions Actives</h1>
-        <p className="text-sm text-white/50 mt-1">Gérez vos sessions de connexion</p>
+        <p className="text-sm text-white/50 mt-1">Manage your login sessions</p>
       </div>
 
       <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-5">
@@ -87,7 +87,7 @@ export default function SessionsPage() {
           <Key className="h-5 w-5 text-blue-400" />
           <div>
             <p className="text-sm font-semibold text-blue-300">Authentification JWT</p>
-            <p className="text-xs text-blue-400/70">Tokens signés côté serveur · Expiration automatique · Révocation instantanée</p>
+            <p className="text-xs text-blue-400/70">Server-signed tokens · Automatic expiration · Instant revocation</p>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function SessionsPage() {
                       disabled={revoking === sess.id}
                       className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs text-red-400 bg-red-500/10 hover:bg-red-500/20 transition-colors disabled:opacity-50"
                     >
-                      {revoking === sess.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Trash2 className="h-3.5 w-3.5" />} Révoquer
+                      {revoking === sess.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Trash2 className="h-3.5 w-3.5" />} Revoke
                     </button>
                   )}
                 </div>
@@ -138,15 +138,15 @@ export default function SessionsPage() {
           disabled={revoking === 'all'}
           className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-red-500/20 text-red-400 rounded-xl hover:bg-red-500/10 transition-colors text-sm font-medium disabled:opacity-50"
         >
-          {revoking === 'all' ? <Loader2 className="h-4 w-4 animate-spin" /> : <AlertTriangle className="h-4 w-4" />} Révoquer toutes les autres sessions
+          {revoking === 'all' ? <Loader2 className="h-4 w-4 animate-spin" /> : <AlertTriangle className="h-4 w-4" />} Revoke all other sessions
         </button>
       )}
 
       <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2"><Shield className="h-4 w-4 text-green-500" /> Conseils sécurité</h3>
+        <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2"><Shield className="h-4 w-4 text-green-500" /> Security tips</h3>
         <ul className="space-y-2 text-xs text-white/50">
-          <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-green-500 shrink-0" />Révoquez les sessions que vous ne reconnaissez pas</li>
-          <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-green-500 shrink-0" />Activez le 2FA pour une sécurité renforcée</li>
+          <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-green-500 shrink-0" />Revoke any sessions you don't recognize</li>
+          <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-green-500 shrink-0" />Enable 2FA for stronger security</li>
           <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-green-500 shrink-0" />Utilisez un mot de passe unique et fort</li>
         </ul>
       </div>

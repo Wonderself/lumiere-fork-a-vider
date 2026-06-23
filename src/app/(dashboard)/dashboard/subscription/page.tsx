@@ -67,7 +67,7 @@ export default async function SubscriptionPage() {
           Mon Abonnement
         </h1>
         <p className="text-white/50 mt-1">
-          Gérez votre plan de streaming et vos préférences.
+          Manage your streaming plan and preferences.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export default async function SubscriptionPage() {
                 )}
                 {isFree && (
                   <p className="text-white/50 text-sm mt-0.5">
-                    Plan gratuit avec fonctionnalités limitées
+                    Free plan with limited features
                   </p>
                 )}
               </div>
@@ -110,15 +110,15 @@ export default async function SubscriptionPage() {
               {'startedAt' in subscription && subscription.startedAt && (
                 <div className="flex items-center gap-2 text-white/50">
                   <CreditCard className="h-4 w-4 text-white/50" />
-                  <span>Depuis le {new Date(subscription.startedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                  <span>Depuis le {new Date(subscription.startedAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                 </div>
               )}
               {'expiresAt' in subscription && subscription.expiresAt && (
                 <div className="flex items-center gap-2 text-white/50">
                   <Shield className="h-4 w-4 text-white/50" />
                   <span>
-                    {currentStatus === 'cancelled' ? 'Accès jusqu\'au' : 'Renouvellement le'}{' '}
-                    {new Date(subscription.expiresAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    {currentStatus === 'cancelled' ? 'Access until' : 'Renews on'}{' '}
+                    {new Date(subscription.expiresAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
                   </span>
                 </div>
               )}
@@ -147,7 +147,7 @@ export default async function SubscriptionPage() {
             <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/10">
               <Monitor className="h-5 w-5 text-white/50 mx-auto mb-1.5" />
               <p className="text-sm font-semibold text-white">{subscription.maxQuality}</p>
-              <p className="text-xs text-white/50">Qualité max</p>
+              <p className="text-xs text-white/50">Max quality</p>
             </div>
             <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/10">
               <Tv className="h-5 w-5 text-white/50 mx-auto mb-1.5" />
@@ -189,15 +189,15 @@ export default async function SubscriptionPage() {
           <div>
             <h3 className="text-sm font-semibold text-white/90">Subscription cancelled</h3>
             <p className="text-sm text-white/60 mt-1">
-              Votre abonnement a été annulé. Vous conservez l&apos;accès à toutes les fonctionnalités premium
-              jusqu&apos;à la fin de votre période de facturation en cours.
-              Vous pouvez réactiver votre abonnement à tout moment.
+              Your subscription has been cancelled. You keep access to all premium features
+              until the end of your current billing period.
+              You can reactivate your subscription at any time.
             </p>
             <Link
               href="/streaming"
               className="inline-flex items-center gap-1.5 mt-3 text-sm text-[#E50914] hover:text-[#FF2D2D] font-medium"
             >
-              Réactiver mon abonnement <ArrowRight className="h-3.5 w-3.5" />
+              Reactivate my subscription <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
@@ -214,10 +214,10 @@ export default async function SubscriptionPage() {
               <h3
                 className="text-lg font-bold text-white"
               >
-                Passez à un plan supérieur
+                Upgrade your plan
               </h3>
               <p className="text-sm text-white/60 mt-1">
-                Débloquez le streaming illimité, la HD/4K, les téléchargements hors ligne et bien plus.
+                Unlock unlimited streaming, HD/4K, offline downloads and much more.
               </p>
               <div className="flex flex-wrap gap-3 mt-4">
                 {Object.values(PLAN_CONFIGS).filter(p => p.priceEur > 0).map((plan) => (

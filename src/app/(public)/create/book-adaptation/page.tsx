@@ -368,7 +368,7 @@ export default function BookAdaptationPage() {
                     name="synopsis"
                     rows={5}
                     required
-                    placeholder="Résumez l'histoire en quelques phrases ou paragraphes. Plus le synopsis est détaillé, meilleure sera l'analyse d'adaptation..."
+                    placeholder="Summarize the story in a few sentences or paragraphs. The more detailed the synopsis, the better the adaptation analysis..."
                     className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:outline-none focus:border-[#E50914]/40 focus:ring-1 focus:ring-[#E50914]/20 transition-all duration-300 text-sm resize-none"
                   />
                 </div>
@@ -386,7 +386,7 @@ export default function BookAdaptationPage() {
                     id="whyAdapt"
                     name="whyAdapt"
                     rows={3}
-                    placeholder="Quels éléments rendent ce livre particulièrement cinématographique ? (personnages forts, univers visuel, thèmes universels...)"
+                    placeholder="What makes this book especially cinematic? (strong characters, visual world, universal themes...)"
                     className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:outline-none focus:border-[#E50914]/40 focus:ring-1 focus:ring-[#E50914]/20 transition-all duration-300 text-sm resize-none"
                   />
                 </div>

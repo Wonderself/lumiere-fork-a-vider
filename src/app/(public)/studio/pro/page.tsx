@@ -229,7 +229,7 @@ export default function ProStudioPage() {
                 <div className="flex gap-2">{([5, 10, 15] as const).map(d => (
                   <button key={d} onClick={() => setVideoDuration(d)} className={`flex-1 py-2 rounded-lg text-xs ${videoDuration === d ? 'bg-[#E50914] text-white' : 'bg-gray-800 text-gray-400'}`}>{d}s</button>
                 ))}</div>
-                <button onClick={() => { toast.info('Vidéo en génération async...'); generate() }} disabled={generating || !prompt.trim()} className="w-full py-3 bg-[#E50914] text-white font-semibold rounded-xl disabled:opacity-50">
+                <button onClick={() => { toast.info('Video generating (async)...'); generate() }} disabled={generating || !prompt.trim()} className="w-full py-3 bg-[#E50914] text-white font-semibold rounded-xl disabled:opacity-50">
                   {generating ? <Loader2 className="inline h-5 w-5 animate-spin" /> : <Film className="inline h-5 w-5 mr-2" />}Générer la vidéo
                 </button>
               </div>
@@ -265,7 +265,7 @@ export default function ProStudioPage() {
                       <img src={item.url} alt={item.prompt} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5">
                         <button onClick={() => toast.success('Downloaded')} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><Download className="h-4 w-4 text-white" /></button>
-                        <button onClick={() => { setPrompt(item.prompt); setStyle(item.style.split('+')[0]); toast.success('Prompt chargé') }} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><RefreshCcw className="h-4 w-4 text-white" /></button>
+                        <button onClick={() => { setPrompt(item.prompt); setStyle(item.style.split('+')[0]); toast.success('Prompt loaded') }} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><RefreshCcw className="h-4 w-4 text-white" /></button>
                         <button onClick={() => setGallery(prev => prev.filter(g => g.id !== item.id))} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><Trash2 className="h-4 w-4 text-white" /></button>
                         {compareMode && (
                           <button onClick={() => setCompareItems(prev => prev.includes(item.id) ? prev.filter(i => i !== item.id) : [...prev, item.id].slice(-2))} className="p-2 rounded-lg bg-blue-500/30 hover:bg-blue-500/50">

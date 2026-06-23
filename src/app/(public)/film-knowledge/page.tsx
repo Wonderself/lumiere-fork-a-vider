@@ -194,7 +194,7 @@ export default function FilmKnowledgePage() {
                   <input value={newTags} onChange={e => setNewTags(e.target.value)} placeholder="Tags (comma-separated)" className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
                   <button onClick={addEntry} disabled={saving || !newContent.trim()} className="w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
                     {saving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Plus className="h-5 w-5" />}
-                    {saving ? 'Indexation...' : 'Ajouter à la mémoire'}
+                    {saving ? 'Indexation...' : 'Add to memory'}
                   </button>
                 </div>
 
@@ -207,7 +207,7 @@ export default function FilmKnowledgePage() {
                           <div className="flex gap-1.5">
                             {entry.tags.map(tag => <span key={tag} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-500">#{tag}</span>)}
                           </div>
-                          <button onClick={() => { setEntries(prev => prev.filter(e => e.id !== entry.id)); toast.success('Supprimé') }} className="text-gray-600 hover:text-red-400"><Trash2 className="h-3.5 w-3.5" /></button>
+                          <button onClick={() => { setEntries(prev => prev.filter(e => e.id !== entry.id)); toast.success('Deleted') }} className="text-gray-600 hover:text-red-400"><Trash2 className="h-3.5 w-3.5" /></button>
                         </div>
                         <p className="text-sm text-gray-300 whitespace-pre-wrap">{entry.content}</p>
                         <p className="text-[10px] text-gray-600 mt-2 flex items-center gap-1">
