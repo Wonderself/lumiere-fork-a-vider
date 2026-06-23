@@ -239,7 +239,7 @@ export function NetflixHome({ data }: { data: HomeData }) {
               return (
                 <Link
                   key={genre}
-                  href={`#genre-${genre.toLowerCase().replace(/[^a-z]/g, '')}`}
+                  href={`/films?genre=${encodeURIComponent(genre)}`}
                   className="group/pill flex-shrink-0 snap-start relative w-[130px] md:w-[160px] h-[80px] md:h-[100px] rounded-xl transition-all duration-500 hover:-translate-y-1 hover:scale-[1.04] overflow-hidden"
                   style={{
                     boxShadow: `0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)`,
@@ -334,7 +334,7 @@ export function NetflixHome({ data }: { data: HomeData }) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { icon: MessageSquare, title: 'Submit a Story', desc: 'Propose your screenplay idea', href: '/community/scenarios', accent: '#E50914' },
-                  { icon: Vote, title: 'Vote on Scripts', desc: 'Read and vote for your favorites', href: '/community/vote', accent: '#F59E0B' },
+                  { icon: Vote, title: 'Vote on Scripts', desc: 'Read and vote for your favorites', href: '/community/scenarios', accent: '#F59E0B' },
                   { icon: Users, title: 'Join Community', desc: 'Collaborate and earn Lumens', href: '/community', accent: '#3B82F6' },
                 ].map((cta) => (
                   <Link

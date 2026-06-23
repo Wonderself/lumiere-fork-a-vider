@@ -1,5 +1,6 @@
 import { auth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { Prisma } from '@prisma/client'
 import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -24,33 +25,51 @@ export default async function AdminPage() {
   const session = await auth()
   if (!session?.user || session.user.role !== 'ADMIN') redirect('/dashboard')
 
-  const [
-    usersCount, pendingUsers, filmsCount, tasksCount, availableTasks,
-    totalPayments, pendingReviews, validatedTasks, submissionsTotal,
-    recentSubmissions, todos, recentNotifications,
-    featuredCreatorResult,
-  ] = await Promise.all([
-    prisma.user.count(),
-    prisma.user.count({ where: { isVerified: false } }),
-    prisma.film.count(),
-    prisma.task.count(),
-    prisma.task.count({ where: { status: 'AVAILABLE' } }),
-    prisma.payment.aggregate({ where: { status: 'COMPLETED' }, _sum: { amountEur: true } }),
-    prisma.taskSubmission.count({ where: { status: 'AI_FLAGGED' } }),
-    prisma.task.count({ where: { status: 'VALIDATED' } }),
-    prisma.taskSubmission.count(),
-    prisma.taskSubmission.findMany({
-      include: {
-        task: { select: { title: true, priceEuros: true } },
-        user: { select: { displayName: true } },
-      },
-      orderBy: { createdAt: 'desc' },
-      take: 8,
-    }),
-    prisma.adminTodo.findMany({ orderBy: [{ completed: 'asc' }, { priority: 'desc' }, { createdAt: 'desc' }], take: 8 }),
-    prisma.notification.findMany({ orderBy: { createdAt: 'desc' }, take: 10, include: { user: { select: { displayName: true } } } }),
-    getFeaturedCreatorAction(),
-  ])
+  // Defaults so the admin dashboard stays accessible online even if the
+  // database is unavailable (empty stats instead of a hard 500).
+  let usersCount = 0, pendingUsers = 0, filmsCount = 0, tasksCount = 0, availableTasks = 0
+  let totalPayments: { _sum: { amountEur: number | null } } = { _sum: { amountEur: 0 } }
+  let pendingReviews = 0, validatedTasks = 0, submissionsTotal = 0
+  let recentSubmissions: Prisma.TaskSubmissionGetPayload<{
+    include: { task: { select: { title: true; priceEuros: true } }; user: { select: { displayName: true } } }
+  }>[] = []
+  let todos: Awaited<ReturnType<typeof prisma.adminTodo.findMany>> = []
+  let recentNotifications: Prisma.NotificationGetPayload<{
+    include: { user: { select: { displayName: true } } }
+  }>[] = []
+  let featuredCreatorResult: Awaited<ReturnType<typeof getFeaturedCreatorAction>> = { creator: null }
+
+  try {
+    ;[
+      usersCount, pendingUsers, filmsCount, tasksCount, availableTasks,
+      totalPayments, pendingReviews, validatedTasks, submissionsTotal,
+      recentSubmissions, todos, recentNotifications,
+      featuredCreatorResult,
+    ] = await Promise.all([
+      prisma.user.count(),
+      prisma.user.count({ where: { isVerified: false } }),
+      prisma.film.count(),
+      prisma.task.count(),
+      prisma.task.count({ where: { status: 'AVAILABLE' } }),
+      prisma.payment.aggregate({ where: { status: 'COMPLETED' }, _sum: { amountEur: true } }),
+      prisma.taskSubmission.count({ where: { status: 'AI_FLAGGED' } }),
+      prisma.task.count({ where: { status: 'VALIDATED' } }),
+      prisma.taskSubmission.count(),
+      prisma.taskSubmission.findMany({
+        include: {
+          task: { select: { title: true, priceEuros: true } },
+          user: { select: { displayName: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+        take: 8,
+      }),
+      prisma.adminTodo.findMany({ orderBy: [{ completed: 'asc' }, { priority: 'desc' }, { createdAt: 'desc' }], take: 8 }),
+      prisma.notification.findMany({ orderBy: { createdAt: 'desc' }, take: 10, include: { user: { select: { displayName: true } } } }),
+      getFeaturedCreatorAction(),
+    ])
+  } catch (err) {
+    console.error('[admin] dashboard data unavailable:', err)
+  }
 
   const completionRate = tasksCount > 0 ? Math.round((validatedTasks / tasksCount) * 100) : 0
   const revenue = totalPayments._sum.amountEur || 0

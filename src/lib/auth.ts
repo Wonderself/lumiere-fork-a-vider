@@ -12,6 +12,13 @@ const loginSchema = z.object({
   password: z.string().min(8),
 })
 
+/* Admin access codes — to be changed later. The admin can sign in with the
+   simple login "admin123" / "admin123" from anywhere, online, even if the
+   database is unavailable (a JWT-only admin session is issued as fallback). */
+const ADMIN_LOGIN = 'admin123'
+const ADMIN_PASSWORD = 'admin123'
+const ADMIN_EMAIL = 'admin@admin.com'
+
 const nextAuth = NextAuth({
   trustHost: true,
   session: { strategy: 'jwt' },
@@ -34,22 +41,24 @@ const nextAuth = NextAuth({
         password: { label: 'Mot de passe', type: 'password' },
       },
       async authorize(credentials) {
-        const parsed = loginSchema.safeParse(credentials)
-        if (!parsed.success) {
-          throw new Error('Invalid credentials format')
-        }
+        const identifier = String(credentials?.email ?? '').trim()
+        const rawPassword = String(credentials?.password ?? '')
 
-        const { email, password } = parsed.data
+        /* ── Admin access — works online even without a database ──
+           Login: admin123 · Password: admin123 (to be changed later).
+           The legacy admin@admin.com / adminadmin pair still works. */
+        const isAdminLogin =
+          (identifier.toLowerCase() === ADMIN_LOGIN || identifier.toLowerCase() === ADMIN_EMAIL) &&
+          (rawPassword === ADMIN_PASSWORD || rawPassword === 'adminadmin')
 
-        /* ── Dev/demo bypass: hardcoded admin account ── */
-        if (email.toLowerCase() === 'admin@admin.com' && password === 'adminadmin') {
+        if (isAdminLogin) {
           // Upsert admin user in DB so dashboard pages can find it
           try {
             const adminUser = await prisma.user.upsert({
-              where: { email: 'admin@admin.com' },
+              where: { email: ADMIN_EMAIL },
               update: { role: 'ADMIN', level: 'VIP', isVerified: true },
               create: {
-                email: 'admin@admin.com',
+                email: ADMIN_EMAIL,
                 displayName: 'Admin',
                 passwordHash: '',
                 role: 'ADMIN',
@@ -66,10 +75,10 @@ const nextAuth = NextAuth({
               isVerified: adminUser.isVerified,
             }
           } catch {
-            // DB not available — fallback to hardcoded ID
+            // DB not available — fallback to a hardcoded admin identity (JWT session)
             return {
               id: 'admin-bypass-001',
-              email: 'admin@admin.com',
+              email: ADMIN_EMAIL,
               name: 'Admin',
               role: 'ADMIN',
               level: 'VIP',
@@ -77,6 +86,13 @@ const nextAuth = NextAuth({
             }
           }
         }
+
+        const parsed = loginSchema.safeParse(credentials)
+        if (!parsed.success) {
+          throw new Error('Invalid credentials format')
+        }
+
+        const { email, password } = parsed.data
 
         let user
         try {
