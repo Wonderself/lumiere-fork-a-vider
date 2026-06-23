@@ -67,7 +67,7 @@ export default async function AdminPaymentsPage() {
         {[
           { icon: CheckCircle, label: 'Completed', value: formatPrice(totalCompleted), sub: `${countCompleted} paiements`, color: 'text-green-600' },
           { icon: Clock, label: 'En attente', value: formatPrice(totalPending), sub: `${countPending} paiements`, color: 'text-yellow-600' },
-          { icon: CreditCard, label: 'Total distribué', value: formatPrice(totalCompleted + totalPending), sub: 'toutes méthodes', color: 'text-[#E50914]' },
+          { icon: CreditCard, label: 'Total distributed', value: formatPrice(totalCompleted + totalPending), sub: 'toutes méthodes', color: 'text-[#E50914]' },
           { icon: AlertCircle, label: 'Moy. par paiement', value: formatPrice(countCompleted > 0 ? totalCompleted / countCompleted : 0), sub: 'paiements complétés', color: 'text-blue-600' },
         ].map((s) => (
           <Card key={s.label} className="sm:rounded-2xl hover:shadow-md hover:-translate-y-[1px]">

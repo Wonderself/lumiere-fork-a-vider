@@ -17,7 +17,7 @@ export default async function NewFilmPage() {
     <div className="max-w-2xl space-y-8">
       <div>
         <h1 className="text-3xl sm:text-4xl font-bold font-playfair">Nouveau Film</h1>
-        <p className="text-white/50">Créez un nouveau projet de film sur la plateforme.</p>
+        <p className="text-white/50">Create a new film project on the platform.</p>
       </div>
 
       <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
@@ -26,7 +26,7 @@ export default async function NewFilmPage() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2 col-span-2">
             <Label htmlFor="title">Titre *</Label>
-            <Input id="title" name="title" required placeholder="Ex : Exodus — La Traversée" />
+            <Input id="title" name="title" required placeholder="e.g. Exodus — The Crossing" />
           </div>
 
           <div className="space-y-2">
@@ -61,7 +61,7 @@ export default async function NewFilmPage() {
             id="description"
             name="description"
             rows={3}
-            placeholder="Description affichée dans le catalogue..."
+            placeholder="Description shown in the catalog..."
             className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 resize-vertical transition-colors duration-300"
           />
         </div>
@@ -72,7 +72,7 @@ export default async function NewFilmPage() {
             id="synopsis"
             name="synopsis"
             rows={5}
-            placeholder="Synopsis détaillé du film..."
+            placeholder="Detailed film synopsis..."
             className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 resize-vertical transition-colors duration-300"
           />
         </div>
@@ -94,7 +94,7 @@ export default async function NewFilmPage() {
         </div>
 
         <div className="flex gap-3">
-          <Button type="submit" size="lg">Créer le Film</Button>
+          <Button type="submit" size="lg">Create film</Button>
           <Button type="button" variant="outline" size="lg" onClick={() => history.back()}>Cancel</Button>
         </div>
       </form>

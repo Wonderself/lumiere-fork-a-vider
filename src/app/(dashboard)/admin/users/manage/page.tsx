@@ -162,7 +162,7 @@ export default async function UserManagementPage() {
               </Link>
             ))}
             {topConsumers.length === 0 && (
-              <div className="p-8 text-center text-sm text-white/50">Pas encore de données de consommation</div>
+              <div className="p-8 text-center text-sm text-white/50">No usage data yet</div>
             )}
           </div>
         </div>
@@ -179,7 +179,7 @@ export default async function UserManagementPage() {
             <thead>
               <tr className="bg-white/[0.03] border-b border-white/10">
                 <th className="text-left text-[10px] font-medium text-white/50 uppercase tracking-wider px-5 py-3">Utilisateur</th>
-                <th className="text-left text-[10px] font-medium text-white/50 uppercase tracking-wider px-5 py-3">Rôle</th>
+                <th className="text-left text-[10px] font-medium text-white/50 uppercase tracking-wider px-5 py-3">Role</th>
                 <th className="text-left text-[10px] font-medium text-white/50 uppercase tracking-wider px-5 py-3">Level</th>
                 <th className="text-right text-[10px] font-medium text-white/50 uppercase tracking-wider px-5 py-3">Balance</th>
                 <th className="text-right text-[10px] font-medium text-white/50 uppercase tracking-wider px-5 py-3">Activity</th>

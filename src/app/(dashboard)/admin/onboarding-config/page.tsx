@@ -38,7 +38,7 @@ export default function OnboardingConfigPage() {
       <div className="flex gap-2">
         {[
           { key: 'tiers' as const, label: '4 Tiers', icon: Layers },
-          { key: 'demo' as const, label: 'Comptes Démo', icon: Clock },
+          { key: 'demo' as const, label: 'Demo accounts', icon: Clock },
           { key: 'bonus' as const, label: 'Signup Bonus', icon: Gift },
           { key: 'steps' as const, label: 'Étapes Onboarding', icon: Compass },
         ].map(t => {
@@ -85,13 +85,13 @@ export default function OnboardingConfigPage() {
       {/* DEMO */}
       {tab === 'demo' && (
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6 max-w-lg space-y-4">
-          <h2 className="text-sm font-semibold text-white flex items-center gap-2"><Clock className="h-4 w-4 text-yellow-500" />Configuration comptes démo</h2>
+          <h2 className="text-sm font-semibold text-white flex items-center gap-2"><Clock className="h-4 w-4 text-yellow-500" />Demo account configuration</h2>
           <div className="grid grid-cols-2 gap-4">
-            <div><p className="text-[10px] text-white/50">Durée par défaut</p><p className="text-lg font-bold text-white">{DEMO_CONFIG.defaultDuration} jours</p></div>
-            <div><p className="text-[10px] text-white/50">Durée max</p><p className="text-lg font-bold text-white">{DEMO_CONFIG.maxDuration} jours</p></div>
-            <div><p className="text-[10px] text-white/50">Auto-désactivation</p><p className="text-lg font-bold text-green-600">{DEMO_CONFIG.autoDisableEnabled ? 'Oui (cron)' : 'Non'}</p></div>
+            <div><p className="text-[10px] text-white/50">Default duration</p><p className="text-lg font-bold text-white">{DEMO_CONFIG.defaultDuration} jours</p></div>
+            <div><p className="text-[10px] text-white/50">Max duration</p><p className="text-lg font-bold text-white">{DEMO_CONFIG.maxDuration} jours</p></div>
+            <div><p className="text-[10px] text-white/50">Auto-disable</p><p className="text-lg font-bold text-green-600">{DEMO_CONFIG.autoDisableEnabled ? 'Oui (cron)' : 'Non'}</p></div>
             <div><p className="text-[10px] text-white/50">Rappel conversion</p><p className="text-lg font-bold text-white">J-{DEMO_CONFIG.conversionReminder}</p></div>
-            <div><p className="text-[10px] text-white/50">Crédits initiaux</p><p className="text-lg font-bold text-[#E50914]">{microToCredits(DEMO_CONFIG.initialCredits).toFixed(0)} cr</p></div>
+            <div><p className="text-[10px] text-white/50">Initial credits</p><p className="text-lg font-bold text-[#E50914]">{microToCredits(DEMO_CONFIG.initialCredits).toFixed(0)} cr</p></div>
           </div>
         </div>
       )}
@@ -104,7 +104,7 @@ export default function OnboardingConfigPage() {
           <p className="text-3xl font-bold text-emerald-600 mb-2">{SIGNUP_BONUS.label}</p>
           <p className="text-sm text-white/50">{SIGNUP_BONUS.description}</p>
           <div className="mt-4 grid grid-cols-2 gap-4">
-            <div className="rounded-xl bg-white/5 p-4"><p className="text-2xl font-bold text-[#E50914]">{microToCredits(SIGNUP_BONUS.credits).toFixed(0)}</p><p className="text-[10px] text-white/50">crédits IA</p></div>
+            <div className="rounded-xl bg-white/5 p-4"><p className="text-2xl font-bold text-[#E50914]">{microToCredits(SIGNUP_BONUS.credits).toFixed(0)}</p><p className="text-[10px] text-white/50">AI credits</p></div>
             <div className="rounded-xl bg-white/5 p-4"><p className="text-2xl font-bold text-yellow-500">{SIGNUP_BONUS.xp}</p><p className="text-[10px] text-white/50">XP bonus</p></div>
           </div>
         </div>

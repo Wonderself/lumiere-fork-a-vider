@@ -39,7 +39,7 @@ export function FeaturedCreatorPanel({ initialCreator }: Props) {
         setCreator(result.creator as FeaturedCreator)
         toast.success(`Créateur en vedette : ${result.creator.displayName}`)
       } else {
-        toast.error(result.error || 'Échec de la sélection automatique')
+        toast.error(result.error || 'Automatic selection failed')
       }
     })
   }
@@ -50,13 +50,13 @@ export function FeaturedCreatorPanel({ initialCreator }: Props) {
     startTransition(async () => {
       const result = await setFeaturedCreatorAction(manualUserId.trim(), manualHeadline, manualAchievement)
       if (result.success) {
-        toast.success('Créateur en vedette mis à jour')
+        toast.success('Featured creator updated')
         setShowManualForm(false)
         setManualUserId('')
         setManualHeadline('')
         setManualAchievement('')
       } else {
-        toast.error(result.error || 'Erreur lors de la mise à jour')
+        toast.error(result.error || 'Update failed')
       }
     })
   }
@@ -87,7 +87,7 @@ export function FeaturedCreatorPanel({ initialCreator }: Props) {
           </div>
         </div>
       ) : (
-        <p className="text-sm text-white/40 py-2">Aucun créateur en vedette cette semaine.</p>
+        <p className="text-sm text-white/40 py-2">No featured creator this week.</p>
       )}
 
       {/* Actions */}
@@ -127,7 +127,7 @@ export function FeaturedCreatorPanel({ initialCreator }: Props) {
             <input
               value={manualHeadline}
               onChange={e => setManualHeadline(e.target.value)}
-              placeholder="Créateur de la semaine..."
+              placeholder="Creator of the week..."
               className="w-full rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-white focus:border-yellow-500/50 focus:outline-none"
             />
           </div>
@@ -136,7 +136,7 @@ export function FeaturedCreatorPanel({ initialCreator }: Props) {
             <input
               value={manualAchievement}
               onChange={e => setManualAchievement(e.target.value)}
-              placeholder="A validé 12 tâches cette semaine..."
+              placeholder="Validated 12 tasks this week..."
               className="w-full rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-white focus:border-yellow-500/50 focus:outline-none"
             />
           </div>

@@ -15,7 +15,7 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Admin — Conformité Juridique Israélienne' }
+export const metadata: Metadata = { title: 'Admin — Israeli Legal Compliance' }
 
 // ============================================
 // Server Action
@@ -72,17 +72,17 @@ const priorityConfig: Record<number, { label: string; color: string }> = {
 
 const sectionConfig: Record<string, { title: string; icon: typeof Scale; description: string }> = {
   ISA: {
-    title: 'A. Autorité Israélienne des Marchés (ISA)',
+    title: 'A. Israel Securities Authority (ISA)',
     icon: Landmark,
     description: 'Exigences réglementaires de l\'Israel Securities Authority pour les offres de tokens.',
   },
   KYC: {
-    title: 'B. Conformité KYC/AML',
+    title: 'B. KYC/AML compliance',
     icon: ShieldCheck,
     description: 'Vérification d\'identité et lutte anti-blanchiment conformément à la loi israélienne.',
   },
   TAX: {
-    title: 'C. Fiscalité & Comptabilité (Israël)',
+    title: 'C. Taxation & Accounting (Israel)',
     icon: Receipt,
     description: 'Obligations fiscales israéliennes pour la tokenisation et les revenus de la plateforme.',
   },
@@ -92,7 +92,7 @@ const sectionConfig: Record<string, { title: string; icon: typeof Scale; descrip
     description: 'Infrastructure technique pour la gestion sécurisée des tokens et des données.',
   },
   CORPORATE: {
-    title: 'E. Opérations de la Plateforme',
+    title: 'E. Platform operations',
     icon: Globe,
     description: 'Documents opérationnels et procédures pour le fonctionnement légal de la plateforme.',
   },
@@ -105,7 +105,7 @@ const sectionConfig: Record<string, { title: string; icon: typeof Scale; descrip
 const DEFAULT_LEGAL_CHECKLIST = [
   // Section A: ISA
   {
-    category: 'ISA', item: 'Enregistrement entité juridique', priority: 3, responsible: 'HUMAN',
+    category: 'ISA', item: 'Legal entity registration', priority: 3, responsible: 'HUMAN',
     description: 'Créer une société israélienne (Ltd ou LLC) pour héberger la plateforme de tokenisation.',
   },
   {
@@ -113,21 +113,21 @@ const DEFAULT_LEGAL_CHECKLIST = [
     description: 'Déposer une demande auprès du sandbox réglementaire de l\'ISA pour les offres de tokens. Lien: https://www.isa.gov.il',
   },
   {
-    category: 'ISA', item: 'Documentation offre exemptée (<5M ILS)', priority: 3, responsible: 'BOTH',
+    category: 'ISA', item: 'Exempt offering documentation (<5M ILS)', priority: 3, responsible: 'BOTH',
     description: 'Préparer la documentation pour une offre exemptée sous le seuil de 5 millions ILS (~1,2M EUR). Claude peut rédiger le brouillon, un avocat doit valider.',
   },
   {
-    category: 'ISA', item: 'Processus vérification investisseurs accrédités', priority: 2, responsible: 'BOTH',
+    category: 'ISA', item: 'Accredited investor verification process', priority: 2, responsible: 'BOTH',
     description: 'Mettre en place un processus de vérification du statut d\'investisseur accrédité conforme à la réglementation israélienne.',
   },
   {
-    category: 'ISA', item: 'Préparation prospectus (offres >5M ILS)', priority: 1, responsible: 'BOTH',
+    category: 'ISA', item: 'Prospectus preparation (offerings >5M ILS)', priority: 1, responsible: 'BOTH',
     description: 'Pour les futures levées dépassant 5M ILS, préparer un prospectus complet. Claude rédige, avocat valide.',
   },
 
   // Section B: KYC/AML
   {
-    category: 'KYC', item: 'Intégration fournisseur KYC', priority: 3, responsible: 'HUMAN',
+    category: 'KYC', item: 'KYC provider integration', priority: 3, responsible: 'HUMAN',
     description: 'Contracter avec un fournisseur KYC (Sumsub, Jumio ou Onfido) et intégrer leur API.',
   },
   {
@@ -135,11 +135,11 @@ const DEFAULT_LEGAL_CHECKLIST = [
     description: 'Rédiger la politique anti-blanchiment de la plateforme conformément à la loi israélienne sur le blanchiment (2000).',
   },
   {
-    category: 'KYC', item: 'Procédure signalement activités suspectes', priority: 2, responsible: 'HUMAN',
+    category: 'KYC', item: 'Suspicious activity reporting procedure', priority: 2, responsible: 'HUMAN',
     description: 'Définir la procédure de signalement des transactions suspectes auprès de l\'Autorité israélienne de lutte contre le blanchiment (IMPA).',
   },
   {
-    category: 'KYC', item: 'Conservation des données (7 ans minimum)', priority: 1, responsible: 'AUTO',
+    category: 'KYC', item: 'Data retention (7 years minimum)', priority: 1, responsible: 'AUTO',
     description: 'Le système conserve automatiquement toutes les données de transaction et vérification pendant minimum 7 ans.',
     status: 'DONE',
   },
@@ -164,7 +164,7 @@ const DEFAULT_LEGAL_CHECKLIST = [
 
   // Section D: Smart Contracts & Technical
   {
-    category: 'CONTRACT', item: 'Sélection standard de token', priority: 2, responsible: 'BOTH',
+    category: 'CONTRACT', item: 'Standard token selection', priority: 2, responsible: 'BOTH',
     description: 'Décider entre un token ERC-20 compatible sur blockchain ou un système basé sur base de données. Analyse coût/bénéfice requise.',
   },
   {
@@ -172,12 +172,12 @@ const DEFAULT_LEGAL_CHECKLIST = [
     description: 'Contracter avec un fournisseur de custody licencié en Israël pour les paiements en crypto-monnaie.',
   },
   {
-    category: 'CONTRACT', item: 'Piste d\'audit complète', priority: 1, responsible: 'AUTO',
+    category: 'CONTRACT', item: 'Full audit trail', priority: 1, responsible: 'AUTO',
     description: 'Piste d\'audit intégrée dans la base de données pour toutes les transactions token et mouvements financiers.',
     status: 'DONE',
   },
   {
-    category: 'CONTRACT', item: 'Protection des données (RGPD + loi israélienne)', priority: 2, responsible: 'BOTH',
+    category: 'CONTRACT', item: 'Data protection (GDPR + Israeli law)', priority: 2, responsible: 'BOTH',
     description: 'Conformité au RGPD européen et à la Loi israélienne sur la Protection de la Vie Privée (1981). Politique de confidentialité et DPO.',
   },
 
@@ -195,7 +195,7 @@ const DEFAULT_LEGAL_CHECKLIST = [
     description: 'Créer les templates d\'emails et notifications pour les investisseurs (confirmation, dividendes, gouvernance).',
   },
   {
-    category: 'CORPORATE', item: 'Processus résolution des litiges', priority: 2, responsible: 'HUMAN',
+    category: 'CORPORATE', item: 'Dispute resolution process', priority: 2, responsible: 'HUMAN',
     description: 'Définir un processus de résolution des litiges conforme au droit israélien (arbitrage, médiation).',
   },
 ]
@@ -234,10 +234,10 @@ export default async function AdminLegalPage() {
   const stats = [
     { label: 'Progression', value: `${progressPct}%`, sub: `${done}/${total} complétés`, color: 'text-[#E50914]', icon: CheckCircle },
     { label: 'In progress', value: inProgress.toString(), sub: 'items actifs', color: 'text-yellow-600', icon: Clock },
-    { label: 'Bloqués', value: blocked.toString(), sub: 'à débloquer', color: 'text-red-600', icon: Ban },
-    { label: 'Priorité haute', value: highPriority.toString(), sub: 'restants', color: 'text-orange-600', icon: AlertTriangle },
-    { label: 'Tâches Claude', value: claudeTasks.toString(), sub: 'automatisables', color: 'text-purple-600', icon: Bot },
-    { label: 'Tâches Humain', value: humanTasks.toString(), sub: 'manuelles', color: 'text-blue-600', icon: User },
+    { label: 'Locked', value: blocked.toString(), sub: 'to unlock', color: 'text-red-600', icon: Ban },
+    { label: 'High priority', value: highPriority.toString(), sub: 'restants', color: 'text-orange-600', icon: AlertTriangle },
+    { label: 'Claude tasks', value: claudeTasks.toString(), sub: 'automatisables', color: 'text-purple-600', icon: Bot },
+    { label: 'Human tasks', value: humanTasks.toString(), sub: 'manuelles', color: 'text-blue-600', icon: User },
   ]
 
   return (

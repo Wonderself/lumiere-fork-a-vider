@@ -44,9 +44,9 @@ const ACTION_FOLDERS: ActionFolder[] = [
 export default function MyStrategyPage() {
   const [tab, setTab] = useState<'objectives' | 'actions' | 'plan' | 'notes'>('objectives')
   const [objectives, setObjectives] = useState<Objective[]>([
-    { id: '1', title: 'Lancer la V1 publique', description: 'Déployer la première version accessible au public', deadline: '2026-04-15', priority: 'high', completed: false },
+    { id: '1', title: 'Lancer la V1 publique', description: 'Deploy the first publicly accessible version', deadline: '2026-04-15', priority: 'high', completed: false },
     { id: '2', title: 'Premiers 100 utilisateurs', description: 'Atteindre 100 inscrits actifs', deadline: '2026-05-01', priority: 'high', completed: false },
-    { id: '3', title: 'Intégration API Anthropic', description: 'Connecter les agents IA au vrai modèle Claude', deadline: '2026-04-01', priority: 'medium', completed: false },
+    { id: '3', title: 'Anthropic API integration', description: 'Connect the AI agents to the real Claude model', deadline: '2026-04-01', priority: 'medium', completed: false },
   ])
   const [notes, setNotes] = useState<Note[]>([])
   const [newNote, setNewNote] = useState('')
@@ -63,7 +63,7 @@ export default function MyStrategyPage() {
     setObjectives(prev => [...prev, { ...newObj, id: `obj-${Date.now()}`, completed: false }])
     setNewObj({ title: '', description: '', deadline: '', priority: 'medium' })
     setShowNewObj(false)
-    toast.success('Objectif ajouté')
+    toast.success('Goal added')
   }
 
   function toggleObjective(id: string) {

@@ -75,10 +75,10 @@ export default function InfrastructurePage() {
       {/* Tabs */}
       <div className="flex flex-wrap gap-2">
         {[
-          { key: 'health' as const, label: 'Santé', icon: HeartPulse },
+          { key: 'health' as const, label: 'Health', icon: HeartPulse },
           { key: 'autonomy' as const, label: `Autonomie (${autonomy.total}/100)`, icon: Gauge },
           { key: 'crons' as const, label: `Crons (${EXTENDED_CRON_JOBS.length})`, icon: Clock },
-          { key: 'metrics' as const, label: 'Métriques', icon: BarChart2 },
+          { key: 'metrics' as const, label: 'Metrics', icon: BarChart2 },
           { key: 'events' as const, label: 'Events', icon: ScrollText },
         ].map(t => {
           const TIcon = t.icon
@@ -93,8 +93,8 @@ export default function InfrastructurePage() {
             <div className="flex items-center gap-3">
               {health?.status === 'healthy' ? <CheckCircle2 className="h-8 w-8 text-green-500" /> : <AlertTriangle className="h-8 w-8 text-yellow-500" />}
               <div>
-                <p className="text-lg font-bold text-white">Système {health?.status === 'healthy' ? 'Opérationnel' : 'Dégradé'}</p>
-                <p className="text-xs text-white/50">Dernière vérification: maintenant</p>
+                <p className="text-lg font-bold text-white">Système {health?.status === 'healthy' ? 'Operational' : 'Degraded'}</p>
+                <p className="text-xs text-white/50">Last check: now</p>
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function InfrastructurePage() {
               { label: 'PostgreSQL', status: 'ok', icon: Database, detail: 'Connected' },
               { label: 'Next.js', status: 'ok', icon: Server, detail: `Node ${typeof process !== 'undefined' ? 'v22' : 'N/A'}` },
               { label: 'Redis', status: 'warning', icon: HardDrive, detail: 'Fallback actif' },
-              { label: 'Mémoire', status: 'ok', icon: Cpu, detail: '~50% heap' },
+              { label: 'Memory', status: 'ok', icon: Cpu, detail: '~50% heap' },
             ].map(check => (
               <div key={check.label} className="rounded-xl border border-white/10 bg-white/5 p-4">
                 <div className="flex items-center gap-2 mb-2">
@@ -126,7 +126,7 @@ export default function InfrastructurePage() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
             <Gauge className="h-12 w-12 text-blue-500 mx-auto mb-4" />
             <p className="text-5xl font-bold text-white">{autonomy.total}<span className="text-xl text-white/50">/100</span></p>
-            <p className="text-sm text-white/50 mt-2">Score d&apos;autonomie du système</p>
+            <p className="text-sm text-white/50 mt-2">System autonomy score</p>
             <div className="w-full max-w-md mx-auto h-4 bg-white/[0.05] rounded-full mt-4 overflow-hidden">
               <div className={`h-full rounded-full transition-all ${autonomy.total >= 75 ? 'bg-green-500' : autonomy.total >= 50 ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${autonomy.total}%` }} />
             </div>
@@ -211,7 +211,7 @@ export default function InfrastructurePage() {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2"><Database className="h-4 w-4 text-purple-500" />Base de données</h3>
+            <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2"><Database className="h-4 w-4 text-purple-500" />Database</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {Object.entries(metrics.database).map(([key, val]) => (
                 <div key={key} className="text-center">
@@ -235,8 +235,8 @@ export default function InfrastructurePage() {
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
             <ScrollText className="h-10 w-10 text-white/20 mx-auto mb-3" />
-            <p className="text-sm text-white/50">Journal d&apos;événements</p>
-            <p className="text-xs text-white/50 mt-1">Les événements système seront enregistrés ici en temps réel</p>
+            <p className="text-sm text-white/50">Event log</p>
+            <p className="text-xs text-white/50 mt-1">System events will be logged here in real time</p>
           </div>
         </div>
       )}

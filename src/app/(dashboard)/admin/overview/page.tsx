@@ -97,7 +97,7 @@ export default async function AdminOverviewPage() {
           <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
             Admin Overview
           </h1>
-          <p className="text-sm text-white/50 mt-1">Tableau de bord temps réel de la plateforme CineGeny</p>
+          <p className="text-sm text-white/50 mt-1">Real-time dashboard for the CineGeny platform</p>
         </div>
         <div className="flex gap-2 flex-wrap">
           {pendingProposals > 0 && (
@@ -222,7 +222,7 @@ export default async function AdminOverviewPage() {
 
           {/* Quick Links */}
           <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Accès rapide</h2>
+            <h2 className="text-lg font-semibold text-white mb-4">Quick access</h2>
             <div className="space-y-2">
               {[
                 { href: '/admin/users', label: 'Gestion utilisateurs', icon: Users },

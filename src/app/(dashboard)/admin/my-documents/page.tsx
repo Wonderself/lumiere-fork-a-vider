@@ -28,36 +28,36 @@ interface SavedDoc {
 
 const TEMPLATES: DocTemplate[] = [
   // Business
-  { id: 'business-plan', name: 'Business Plan', category: 'Business', icon: Briefcase, prompt: 'Génère un business plan structuré pour un projet cinéma participatif.' },
-  { id: 'pitch-deck', name: 'Pitch Deck', category: 'Business', icon: Presentation, prompt: 'Crée un pitch deck percutant pour présenter le projet à des investisseurs.' },
-  { id: 'swot', name: 'Analyse SWOT', category: 'Business', icon: Target, prompt: 'Réalise une analyse SWOT complète du projet.' },
-  { id: 'financial-proj', name: 'Projections Financières', category: 'Business', icon: DollarSign, prompt: 'Génère des projections financières sur 3 ans.' },
-  { id: 'exec-summary', name: 'Executive Summary', category: 'Business', icon: ClipboardList, prompt: 'Rédige un executive summary d\'une page.' },
+  { id: 'business-plan', name: 'Business Plan', category: 'Business', icon: Briefcase, prompt: 'Generates a structured business plan for a collaborative cinema project.' },
+  { id: 'pitch-deck', name: 'Pitch Deck', category: 'Business', icon: Presentation, prompt: 'Creates a compelling pitch deck to present the project to investors.' },
+  { id: 'swot', name: 'Analyse SWOT', category: 'Business', icon: Target, prompt: 'Runs a complete SWOT analysis of the project.' },
+  { id: 'financial-proj', name: 'Financial projections', category: 'Business', icon: DollarSign, prompt: 'Generates 3-year financial projections.' },
+  { id: 'exec-summary', name: 'Executive Summary', category: 'Business', icon: ClipboardList, prompt: 'Writes a one-page executive summary.' },
   // Communication
-  { id: 'email-investor', name: 'Email Investisseur', category: 'Communication', icon: Mail, prompt: 'Rédige un email professionnel pour contacter un investisseur potentiel.' },
-  { id: 'email-partner', name: 'Email Partenariat', category: 'Communication', icon: Mail, prompt: 'Rédige un email de proposition de partenariat.' },
-  { id: 'press-release', name: 'Communiqué de Presse', category: 'Communication', icon: Megaphone, prompt: 'Rédige un communiqué de presse pour une annonce importante.' },
-  { id: 'newsletter', name: 'Newsletter', category: 'Communication', icon: Mail, prompt: 'Rédige une newsletter mensuelle pour la communauté.' },
-  { id: 'social-post', name: 'Posts Réseaux Sociaux', category: 'Communication', icon: Globe, prompt: 'Génère 5 posts pour les réseaux sociaux (LinkedIn, Twitter, Instagram).' },
+  { id: 'email-investor', name: 'Email Investisseur', category: 'Communication', icon: Mail, prompt: 'Writes a professional email to reach out to a potential investor.' },
+  { id: 'email-partner', name: 'Email Partenariat', category: 'Communication', icon: Mail, prompt: 'Writes a partnership proposal email.' },
+  { id: 'press-release', name: 'Press release', category: 'Communication', icon: Megaphone, prompt: 'Writes a press release for a major announcement.' },
+  { id: 'newsletter', name: 'Newsletter', category: 'Communication', icon: Mail, prompt: 'Writes a monthly newsletter for the community.' },
+  { id: 'social-post', name: 'Social media posts', category: 'Communication', icon: Globe, prompt: 'Generates 5 social media posts (LinkedIn, Twitter, Instagram).' },
   // Legal
-  { id: 'contract-collab', name: 'Contrat Collaboration', category: 'Juridique', icon: FileSignature, prompt: 'Rédige un template de contrat de collaboration créative.' },
-  { id: 'nda', name: 'NDA', category: 'Juridique', icon: Shield, prompt: 'Génère un accord de non-divulgation standard.' },
-  { id: 'cgu', name: 'CGU / CGV', category: 'Juridique', icon: Scale, prompt: 'Rédige les conditions générales d\'utilisation.' },
-  { id: 'license', name: 'Licence Contenu', category: 'Juridique', icon: FileSignature, prompt: 'Génère une licence d\'utilisation de contenu créatif.' },
+  { id: 'contract-collab', name: 'Contrat Collaboration', category: 'Juridique', icon: FileSignature, prompt: 'Writes a creative collaboration contract template.' },
+  { id: 'nda', name: 'NDA', category: 'Juridique', icon: Shield, prompt: 'Generates a standard non-disclosure agreement.' },
+  { id: 'cgu', name: 'CGU / CGV', category: 'Juridique', icon: Scale, prompt: 'Writes the terms of service.' },
+  { id: 'license', name: 'Licence Contenu', category: 'Juridique', icon: FileSignature, prompt: 'Generates a creative content usage license.' },
   // Reports
-  { id: 'weekly-report', name: 'Rapport Hebdomadaire', category: 'Rapports', icon: BarChart3, prompt: 'Génère un template de rapport hebdomadaire d\'activité.' },
-  { id: 'monthly-report', name: 'Rapport Mensuel', category: 'Rapports', icon: BarChart3, prompt: 'Génère un rapport mensuel complet avec KPIs.' },
-  { id: 'incident-report', name: 'Rapport d\'Incident', category: 'Rapports', icon: Shield, prompt: 'Rédige un template de rapport d\'incident technique.' },
-  { id: 'audit-report', name: 'Rapport d\'Audit', category: 'Rapports', icon: ClipboardList, prompt: 'Génère un rapport d\'audit de sécurité/qualité.' },
+  { id: 'weekly-report', name: 'Rapport Hebdomadaire', category: 'Rapports', icon: BarChart3, prompt: 'Generates a weekly activity report template.' },
+  { id: 'monthly-report', name: 'Rapport Mensuel', category: 'Rapports', icon: BarChart3, prompt: 'Generates a complete monthly report with KPIs.' },
+  { id: 'incident-report', name: 'Rapport d\'Incident', category: 'Rapports', icon: Shield, prompt: 'Writes a technical incident report template.' },
+  { id: 'audit-report', name: 'Rapport d\'Audit', category: 'Rapports', icon: ClipboardList, prompt: 'Generates a security/quality audit report.' },
   // Creative
-  { id: 'brief-creatif', name: 'Brief Créatif', category: 'Creative', icon: Lightbulb, prompt: 'Rédige un brief créatif pour un nouveau film.' },
-  { id: 'synopsis', name: 'Synopsis Film', category: 'Creative', icon: Film, prompt: 'Génère un synopsis de film basé sur un concept.' },
-  { id: 'character-bible', name: 'Bible Personnages', category: 'Creative', icon: Users, prompt: 'Crée une bible de personnages détaillée.' },
-  { id: 'mood-board-desc', name: 'Description Mood Board', category: 'Creative', icon: PenTool, prompt: 'Décris un mood board visuel pour un projet.' },
+  { id: 'brief-creatif', name: 'Creative brief', category: 'Creative', icon: Lightbulb, prompt: 'Writes a creative brief for a new film.' },
+  { id: 'synopsis', name: 'Synopsis Film', category: 'Creative', icon: Film, prompt: 'Generates a film synopsis from a concept.' },
+  { id: 'character-bible', name: 'Bible Personnages', category: 'Creative', icon: Users, prompt: 'Creates a detailed character bible.' },
+  { id: 'mood-board-desc', name: 'Description Mood Board', category: 'Creative', icon: PenTool, prompt: 'Describes a visual mood board for a project.' },
   // Strategy
-  { id: 'roadmap', name: 'Roadmap Produit', category: 'Strategy', icon: Calendar, prompt: 'Génère une roadmap produit sur 6 mois.' },
-  { id: 'competitive', name: 'Analyse Concurrentielle', category: 'Strategy', icon: Award, prompt: 'Réalise une analyse concurrentielle détaillée.' },
-  { id: 'okr', name: 'OKRs Trimestriels', category: 'Strategy', icon: Target, prompt: 'Définis les OKRs du trimestre.' },
+  { id: 'roadmap', name: 'Roadmap Produit', category: 'Strategy', icon: Calendar, prompt: 'Generates a 6-month product roadmap.' },
+  { id: 'competitive', name: 'Analyse Concurrentielle', category: 'Strategy', icon: Award, prompt: 'Runs a detailed competitive analysis.' },
+  { id: 'okr', name: 'OKRs Trimestriels', category: 'Strategy', icon: Target, prompt: 'Defines the quarter\'s OKRs.' },
 ]
 
 const CATEGORIES = Array.from(new Set(TEMPLATES.map(t => t.category)))
@@ -117,7 +117,7 @@ export default function MyDocumentsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">My Documents</h1>
-          <p className="text-sm text-white/50 mt-1">25 templates · Génération IA · Bibliothèque personnelle</p>
+          <p className="text-sm text-white/50 mt-1">25 templates · AI generation · Personal library</p>
         </div>
         <div className="flex gap-2">
           <button onClick={() => setView('templates')} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${view === 'templates' ? 'bg-[#E50914] text-white' : 'bg-white/[0.05] text-white/60'}`}>Templates</button>
@@ -172,7 +172,7 @@ export default function MyDocumentsPage() {
               <PenTool className="h-4 w-4 text-purple-500" /> Document personnalisé
             </h3>
             <div className="flex gap-3">
-              <input value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder="Décrivez le document à générer..." className="flex-1 rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
+              <input value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder="Describe the document to generate..." className="flex-1 rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
               <button
                 onClick={() => { if (customPrompt) generateDoc({ id: 'custom', name: 'Custom document', category: 'Custom', icon: FileText, prompt: customPrompt }) }}
                 disabled={!customPrompt || !!generating}
@@ -210,8 +210,8 @@ export default function MyDocumentsPage() {
           {savedDocs.length === 0 ? (
             <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center">
               <FileText className="h-10 w-10 text-white/50 mx-auto mb-3" />
-              <p className="text-sm text-white/50">Aucun document sauvegardé</p>
-              <p className="text-xs text-white/50 mt-1">Générez un document puis cliquez sur Sauver</p>
+              <p className="text-sm text-white/50">No saved documents</p>
+              <p className="text-xs text-white/50 mt-1">Generate a document then click Save</p>
             </div>
           ) : savedDocs.map(doc => (
             <div key={doc.id} className="rounded-xl border border-white/10 bg-white/5 p-5">

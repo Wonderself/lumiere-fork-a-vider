@@ -77,7 +77,7 @@ export default async function FinancialPage() {
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
           Financial Dashboard
         </h1>
-        <p className="text-sm text-white/50 mt-1">KPIs financiers détaillés et ventilation des coûts</p>
+        <p className="text-sm text-white/50 mt-1">Detailed financial KPIs and cost breakdown</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">

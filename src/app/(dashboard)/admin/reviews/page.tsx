@@ -43,7 +43,7 @@ export default async function AdminReviewsPage() {
         <div className="text-center py-24 text-white/50">
           <ClipboardCheck className="h-16 w-16 mx-auto mb-4 opacity-30" />
           <p className="text-xl">Aucune review en attente</p>
-          <p className="text-sm mt-2">Toutes les soumissions sont à jour.</p>
+          <p className="text-sm mt-2">All submissions are up to date.</p>
         </div>
       ) : (
         <div className="space-y-6">

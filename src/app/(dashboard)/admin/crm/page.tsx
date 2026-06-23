@@ -29,11 +29,11 @@ interface Contact {
 }
 
 const MOCK_CONTACTS: Contact[] = [
-  { id: '1', name: 'Sophie Martin', company: 'Canal+ Invest', email: 'sophie@canal.fr', phone: '+33612345678', type: 'investor', stage: 'negotiation', notes: 'Intéressée par les films IA', lastContact: new Date(Date.now() - 86400000), nextFollowUp: new Date(Date.now() + 172800000), value: 50000, tags: ['prioritaire', 'cinéma IA'], createdAt: new Date(Date.now() - 30 * 86400000) },
+  { id: '1', name: 'Sophie Martin', company: 'Canal+ Invest', email: 'sophie@canal.fr', phone: '+33612345678', type: 'investor', stage: 'negotiation', notes: 'Interested in AI films', lastContact: new Date(Date.now() - 86400000), nextFollowUp: new Date(Date.now() + 172800000), value: 50000, tags: ['prioritaire', 'AI cinema'], createdAt: new Date(Date.now() - 30 * 86400000) },
   { id: '2', name: 'Marc Dupont', company: 'Wild Bunch', email: 'marc@wildbunch.eu', phone: '+33698765432', type: 'distributor', stage: 'proposal', notes: 'Distribution Europe', lastContact: new Date(Date.now() - 3 * 86400000), nextFollowUp: new Date(Date.now() + 86400000), value: 30000, tags: ['europe', 'VOD'], createdAt: new Date(Date.now() - 60 * 86400000) },
   { id: '3', name: 'Lisa Chen', company: 'A24 Asia', email: 'lisa@a24.com', phone: '', type: 'partner', stage: 'meeting', notes: 'Partenariat tech', lastContact: new Date(Date.now() - 7 * 86400000), nextFollowUp: null, value: 0, tags: ['tech', 'international'], createdAt: new Date(Date.now() - 14 * 86400000) },
-  { id: '4', name: 'Festival de Cannes', company: 'FDC', email: 'submissions@festival-cannes.fr', phone: '', type: 'festival', stage: 'lead', notes: 'Deadline février', lastContact: null, nextFollowUp: new Date('2027-02-01'), value: 0, tags: ['A-list', 'prioritaire'], createdAt: new Date() },
-  { id: '5', name: 'Pierre Lemaire', company: 'Le Monde Cinéma', email: 'plemaire@lemonde.fr', phone: '+33611223344', type: 'press', stage: 'contacted', notes: 'Article sur le cinéma participatif', lastContact: new Date(Date.now() - 5 * 86400000), nextFollowUp: new Date(Date.now() + 3 * 86400000), value: 0, tags: ['presse nationale'], createdAt: new Date(Date.now() - 10 * 86400000) },
+  { id: '4', name: 'Festival de Cannes', company: 'FDC', email: 'submissions@festival-cannes.fr', phone: '', type: 'festival', stage: 'lead', notes: 'February deadline', lastContact: null, nextFollowUp: new Date('2027-02-01'), value: 0, tags: ['A-list', 'prioritaire'], createdAt: new Date() },
+  { id: '5', name: 'Pierre Lemaire', company: 'Le Monde Cinema', email: 'plemaire@lemonde.fr', phone: '+33611223344', type: 'press', stage: 'contacted', notes: 'Article on collaborative cinema', lastContact: new Date(Date.now() - 5 * 86400000), nextFollowUp: new Date(Date.now() + 3 * 86400000), value: 0, tags: ['presse nationale'], createdAt: new Date(Date.now() - 10 * 86400000) },
 ]
 
 export default function CRMPage() {
@@ -55,12 +55,12 @@ export default function CRMPage() {
     }])
     setNewContact({ name: '', company: '', email: '', phone: '', type: 'investor', notes: '' })
     setView('pipeline')
-    toast.success('Contact ajouté')
+    toast.success('Contact added')
   }
 
   function moveContact(id: string, newStage: PipelineStage) {
     setContacts(prev => prev.map(c => c.id === id ? { ...c, stage: newStage } : c))
-    toast.success('Contact déplacé')
+    toast.success('Contact moved')
   }
 
   const TYPE_ICONS: Record<string, typeof Users> = {
@@ -72,7 +72,7 @@ export default function CRMPage() {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">CRM Cinéma</h1>
+          <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Cinema CRM</h1>
           <p className="text-sm text-white/50 mt-1">{contacts.length} contacts · Pipeline investisseurs, distributeurs, partenaires</p>
         </div>
         <div className="flex gap-2">
@@ -216,7 +216,7 @@ export default function CRMPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="text-xs text-white/50 mb-1 block">Nom *</label>
-              <input value={newContact.name} onChange={e => setNewContact(p => ({ ...p, name: e.target.value }))} placeholder="Prénom Nom" className="w-full rounded-xl border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
+              <input value={newContact.name} onChange={e => setNewContact(p => ({ ...p, name: e.target.value }))} placeholder="First name Last name" className="w-full rounded-xl border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
             </div>
             <div>
               <label className="text-xs text-white/50 mb-1 block">Entreprise</label>
@@ -227,7 +227,7 @@ export default function CRMPage() {
               <input type="email" value={newContact.email} onChange={e => setNewContact(p => ({ ...p, email: e.target.value }))} placeholder="email@..." className="w-full rounded-xl border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
             </div>
             <div>
-              <label className="text-xs text-white/50 mb-1 block">Téléphone</label>
+              <label className="text-xs text-white/50 mb-1 block">Phone</label>
               <input value={newContact.phone} onChange={e => setNewContact(p => ({ ...p, phone: e.target.value }))} placeholder="+33..." className="w-full rounded-xl border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
             </div>
           </div>

@@ -53,7 +53,7 @@ export default function ModulesMonitorPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Modules Monitor</h1>
-        <p className="text-sm text-white/50 mt-1">Modules créés par les utilisateurs (forms, CRM, agents, dashboards)</p>
+        <p className="text-sm text-white/50 mt-1">Modules created by users (forms, CRM, agents, dashboards)</p>
       </div>
 
       {/* KPIs */}

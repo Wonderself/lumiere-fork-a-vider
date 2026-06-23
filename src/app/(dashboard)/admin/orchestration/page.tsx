@@ -81,14 +81,14 @@ export default function OrchestrationPage() {
                   <div className="flex justify-between"><span className="text-white/50">Auto-expire</span><span className="text-white font-medium">{level.autoExpireHours}h</span></div>
                   <div className="flex justify-between"><span className="text-white/50">Auto-approval</span><span className={level.autoApprovalEnabled ? 'text-green-600' : 'text-red-500'}>{level.autoApprovalEnabled ? 'Oui' : 'Non'}</span></div>
                   <div className="flex justify-between"><span className="text-white/50">Canaux</span><span className="text-white">{level.channels.join(', ')}</span></div>
-                  <div className="flex justify-between"><span className="text-white/50">Rôle requis</span><span className="text-white">{level.requiredRole}</span></div>
+                  <div className="flex justify-between"><span className="text-white/50">Required role</span><span className="text-white">{level.requiredRole}</span></div>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="bg-white/5 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-white/10 p-4 sm:p-6">
-            <h3 className="text-sm font-semibold text-white mb-4">Règles auto-approval</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">Auto-approval rules</h3>
             <div className="space-y-2">
               {AUTO_APPROVAL_RULES.map(rule => {
                 const level = APPROVAL_LEVELS.find(l => l.level === rule.level)
@@ -234,11 +234,11 @@ export default function OrchestrationPage() {
             <h3 className="text-sm font-semibold text-white mb-4">Boucle principale (30s)</h3>
             <div className="space-y-2">
               {[
-                { step: '1', label: 'Check expired approvals', desc: 'Auto-deny les propositions expirées', icon: Clock },
-                { step: '2', label: 'SSE heartbeat', desc: 'Ping tous les clients connectés', icon: Wifi },
-                { step: '3', label: 'Task scheduler', desc: 'Exécuter les tâches planifiées', icon: Zap },
-                { step: '4', label: 'Event processing', desc: 'Traiter les événements en queue', icon: Activity },
-                { step: '5', label: 'Metrics update', desc: 'Mettre à jour les métriques système', icon: BarChart3 },
+                { step: '1', label: 'Check expired approvals', desc: 'Auto-deny expired proposals', icon: Clock },
+                { step: '2', label: 'SSE heartbeat', desc: 'Ping all connected clients', icon: Wifi },
+                { step: '3', label: 'Task scheduler', desc: 'Run scheduled tasks', icon: Zap },
+                { step: '4', label: 'Event processing', desc: 'Process queued events', icon: Activity },
+                { step: '5', label: 'Metrics update', desc: 'Update system metrics', icon: BarChart3 },
               ].map(item => {
                 const SIcon = item.icon
                 return (

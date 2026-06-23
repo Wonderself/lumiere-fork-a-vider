@@ -10,7 +10,7 @@ import { TASK_TYPE_LABELS, DIFFICULTY_LABELS, PHASE_LABELS } from '@/lib/constan
 import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Admin — Nouvelle Tâche' }
+export const metadata: Metadata = { title: 'Admin — New task' }
 
 export default async function NewTaskPage() {
   const session = await auth()
@@ -25,7 +25,7 @@ export default async function NewTaskPage() {
     <div className="max-w-2xl space-y-8">
       <div>
         <h1 className="text-3xl sm:text-4xl font-bold font-playfair">New task</h1>
-        <p className="text-white/50">Créer une nouvelle tâche pour un film.</p>
+        <p className="text-white/50">Create a new task for a film.</p>
       </div>
 
       <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
@@ -34,7 +34,7 @@ export default async function NewTaskPage() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2 col-span-2">
             <Label htmlFor="title">Titre *</Label>
-            <Input id="title" name="title" required placeholder="Ex : Storyboard Scène 3 — La Révélation" />
+            <Input id="title" name="title" required placeholder="e.g. Storyboard Scene 3 — The Reveal" />
           </div>
 
           <div className="space-y-2">
@@ -60,7 +60,7 @@ export default async function NewTaskPage() {
               required
               className="h-10 w-full rounded-xl border border-white/10 bg-white/5 px-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 transition-colors duration-300"
             >
-              <option value="">Sélectionner une phase</option>
+              <option value="">Select a phase</option>
               {films.flatMap((film) =>
                 film.phases.map((phase) => (
                   <option key={phase.id} value={phase.id}>
@@ -145,24 +145,24 @@ export default async function NewTaskPage() {
             name="descriptionMd"
             required
             rows={4}
-            placeholder="Description de la tâche (markdown supporté)..."
+            placeholder="Task description (markdown supported)..."
             className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 resize-vertical transition-colors duration-300"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="instructionsMd">Instructions détaillées</Label>
+          <Label htmlFor="instructionsMd">Detailed instructions</Label>
           <textarea
             id="instructionsMd"
             name="instructionsMd"
             rows={5}
-            placeholder="Instructions pas-à-pas pour le contributeur..."
+            placeholder="Step-by-step instructions for the contributor..."
             className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 resize-vertical transition-colors duration-300"
           />
         </div>
 
         <div className="flex gap-3">
-          <Button type="submit" size="lg">Créer la Tâche</Button>
+          <Button type="submit" size="lg">Create task</Button>
           <Link href="/admin/tasks">
             <Button type="button" variant="outline" size="lg">Cancel</Button>
           </Link>

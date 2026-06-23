@@ -18,15 +18,15 @@ interface GeneratedMedia {
 }
 
 const PHOTO_STYLES = [
-  { id: 'cinematic', label: 'Cinematic', desc: 'Éclairage cinéma, profondeur de champ' },
+  { id: 'cinematic', label: 'Cinematic', desc: 'Cinematic lighting, depth of field' },
   { id: 'noir', label: 'Film Noir', desc: 'Noir et blanc, contrastes forts' },
-  { id: 'scifi', label: 'Sci-Fi', desc: 'Futuriste, néons, atmosphérique' },
-  { id: 'documentary', label: 'Documentaire', desc: 'Réaliste, naturel, authenticité' },
-  { id: 'animated', label: 'Animation', desc: 'Style animé, couleurs vives' },
+  { id: 'scifi', label: 'Sci-Fi', desc: 'Futuristic, neon, atmospheric' },
+  { id: 'documentary', label: 'Documentaire', desc: 'Realistic, natural, authentic' },
+  { id: 'animated', label: 'Animation', desc: 'Animated style, vivid colors' },
 ]
 
 const RATIOS = [
-  { id: '1:1', label: '1:1', desc: 'Carré', w: 1024, h: 1024 },
+  { id: '1:1', label: '1:1', desc: 'Square', w: 1024, h: 1024 },
   { id: '16:9', label: '16:9', desc: 'Cinema', w: 1280, h: 720 },
   { id: '9:16', label: '9:16', desc: 'Portrait', w: 720, h: 1280 },
   { id: '4:3', label: '4:3', desc: 'Classique', w: 1024, h: 768 },
@@ -50,7 +50,7 @@ export default function MyStudioPage() {
   const [previewItem, setPreviewItem] = useState<GeneratedMedia | null>(null)
 
   async function generatePhoto() {
-    if (!prompt.trim()) { toast.error('Décrivez l\'image à générer'); return }
+    if (!prompt.trim()) { toast.error('Describe the image to generate'); return }
     setGenerating(true)
 
     await new Promise(r => setTimeout(r, 3000))
@@ -66,15 +66,15 @@ export default function MyStudioPage() {
     }
     setGallery(prev => [item, ...prev])
     setGenerating(false)
-    toast.success('Image générée')
+    toast.success('Image generated')
   }
 
   async function generateVideo() {
-    if (!prompt.trim()) { toast.error('Décrivez la vidéo à générer'); return }
+    if (!prompt.trim()) { toast.error('Describe the video to generate'); return }
     setGenerating(true)
 
     // Simulate async polling
-    toast.info('Vidéo en cours de génération... (polling async)')
+    toast.info('Video generating... (async polling)')
     await new Promise(r => setTimeout(r, 5000))
 
     const item: GeneratedMedia = {
@@ -88,14 +88,14 @@ export default function MyStudioPage() {
     }
     setGallery(prev => [item, ...prev])
     setGenerating(false)
-    toast.success('Vidéo générée')
+    toast.success('Video generated')
   }
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">My Studio</h1>
-        <p className="text-sm text-white/50 mt-1">Génération photos & vidéos IA · Galerie personnelle</p>
+        <p className="text-sm text-white/50 mt-1">AI photo & video generation · Personal gallery</p>
       </div>
 
       {/* Tabs */}
@@ -119,7 +119,7 @@ export default function MyStudioPage() {
           {/* Prompt */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <label className="text-xs text-white/50 mb-1.5 block">Prompt</label>
-            <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Décrivez l'image que vous souhaitez générer..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
+            <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the image you want to generate..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
           </div>
 
           {/* Style */}
@@ -157,7 +157,7 @@ export default function MyStudioPage() {
 
           {/* Generate */}
           <button onClick={generatePhoto} disabled={generating || !prompt.trim()} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-            {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Generating...</> : <><Wand2 className="h-5 w-5" /> Générer l&apos;image</>}
+            {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Generating...</> : <><Wand2 className="h-5 w-5" /> Generate image</>}
           </button>
         </div>
       )}
@@ -165,7 +165,7 @@ export default function MyStudioPage() {
       {tab === 'video' && (
         <div className="space-y-6">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <label className="text-xs text-white/50 mb-1.5 block">Prompt vidéo</label>
+            <label className="text-xs text-white/50 mb-1.5 block">Video prompt</label>
             <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the video sequence..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
           </div>
 
@@ -192,7 +192,7 @@ export default function MyStudioPage() {
             <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center">
               <Image className="h-10 w-10 text-white/40 mx-auto mb-3" />
               <p className="text-sm text-white/50">Galerie vide</p>
-              <p className="text-xs text-white/40 mt-1">Générez des photos ou vidéos pour les voir ici</p>
+              <p className="text-xs text-white/40 mt-1">Generate photos or videos to see them here</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

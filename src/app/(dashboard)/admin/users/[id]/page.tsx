@@ -57,7 +57,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
     { label: 'Tasks', value: user._count.claimedTasks, icon: Zap },
     { label: 'Votes', value: user._count.filmVotes, icon: Star },
     { label: 'Chats', value: user._count.conversations, icon: MessageSquare },
-    { label: 'Exécutions', value: user._count.agentExecutions, icon: Bot },
+    { label: 'Executions', value: user._count.agentExecutions, icon: Bot },
     { label: 'Messages', value: user._count.chatMessages, icon: MessageSquare },
     { label: 'Transactions', value: user._count.lumenTransactions, icon: CreditCard },
   ]
@@ -113,20 +113,20 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
         {user.creditAccount ? (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div><p className="text-[10px] text-white/50">Balance</p><p className="text-lg font-bold text-[#E50914]">{microToCredits(user.creditAccount.balance).toFixed(2)}</p></div>
-            <div><p className="text-[10px] text-white/50">Total acheté</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalPurchased).toFixed(2)}</p></div>
-            <div><p className="text-[10px] text-white/50">Total accordé</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalGranted).toFixed(2)}</p></div>
+            <div><p className="text-[10px] text-white/50">Total purchased</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalPurchased).toFixed(2)}</p></div>
+            <div><p className="text-[10px] text-white/50">Total granted</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalGranted).toFixed(2)}</p></div>
             <div><p className="text-[10px] text-white/50">Total used</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalUsed).toFixed(2)}</p></div>
-            <div><p className="text-[10px] text-white/50">Remboursé</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalRefunded).toFixed(2)}</p></div>
+            <div><p className="text-[10px] text-white/50">Refunded</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalRefunded).toFixed(2)}</p></div>
           </div>
         ) : (
-          <p className="text-sm text-white/50">Aucun compte crédit</p>
+          <p className="text-sm text-white/50">No credit account</p>
         )}
       </div>
 
       {/* Recent Transactions */}
       <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
         <div className="px-6 py-4 border-b border-white/10">
-          <h2 className="text-sm font-semibold text-white">Transactions récentes</h2>
+          <h2 className="text-sm font-semibold text-white">Recent transactions</h2>
         </div>
         <div className="divide-y divide-white/10">
           {recentTransactions.length === 0 ? (

@@ -32,9 +32,9 @@ export default function ImageBankPage() {
   const [copied, setCopied] = useState<string | null>(null)
 
   function addToMoodboard(img: ImageResult) {
-    if (moodboard.find(m => m.id === img.id)) { toast.error('Déjà dans le moodboard'); return }
+    if (moodboard.find(m => m.id === img.id)) { toast.error('Already in the moodboard'); return }
     setMoodboard(prev => [...prev, img])
-    toast.success('Ajouté au moodboard')
+    toast.success('Added to the moodboard')
   }
 
   async function copyUrl(url: string, id: string) {

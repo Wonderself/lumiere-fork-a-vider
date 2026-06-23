@@ -41,7 +41,7 @@ export default async function AdminFilmsPage() {
         <div className="text-center py-20 text-white/50">
           <Film className="h-16 w-16 mx-auto mb-4 opacity-40" />
           <p className="text-xl">Aucun film</p>
-          <p className="text-sm mt-2">Créez votre premier film.</p>
+          <p className="text-sm mt-2">Create your first film.</p>
         </div>
       ) : (
         <div className="space-y-4">

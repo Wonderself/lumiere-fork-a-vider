@@ -83,9 +83,9 @@ export default async function AdminPage() {
     { icon: Users, label: 'Users', value: usersCount, sub: `${pendingUsers} non vérifiés`, href: '/admin/users', color: 'text-blue-400', sparkline: userSparkline, trend: pendingUsers > 0 ? 'up' : 'stable' },
     { icon: Film, label: 'Films', value: filmsCount, sub: 'projets actifs', href: '/admin/films', color: 'text-purple-400', sparkline: [1, 1, 2, 2, 3, 3, filmsCount], trend: 'up' },
     { icon: Star, label: 'Tasks', value: tasksCount, sub: `${availableTasks} disponibles`, href: '/admin/tasks', color: 'text-[#E50914]', sparkline: taskSparkline, trend: 'up' },
-    { icon: CreditCard, label: 'Revenus', value: formatPrice(revenue), sub: 'total distribué', href: '/admin/payments', color: 'text-green-400', sparkline: revenueSparkline, trend: revenue > 0 ? 'up' : 'stable' },
+    { icon: CreditCard, label: 'Revenus', value: formatPrice(revenue), sub: 'total distributed', href: '/admin/payments', color: 'text-green-400', sparkline: revenueSparkline, trend: revenue > 0 ? 'up' : 'stable' },
     { icon: ClipboardCheck, label: 'Soumissions', value: submissionsTotal, sub: `${pendingReviews} à reviewer`, href: '/admin/reviews', color: 'text-orange-400', sparkline: [0, 1, 2, 3, 2, 4, submissionsTotal], trend: pendingReviews > 0 ? 'alert' : 'stable' },
-    { icon: Target, label: 'Taux Complétion', value: `${completionRate}%`, sub: `${validatedTasks}/${tasksCount}`, href: '/admin/analytics', color: 'text-cyan-400', sparkline: [10, 20, 30, 40, 50, 60, completionRate], trend: 'up' },
+    { icon: Target, label: 'Completion rate', value: `${completionRate}%`, sub: `${validatedTasks}/${tasksCount}`, href: '/admin/analytics', color: 'text-cyan-400', sparkline: [10, 20, 30, 40, 50, 60, completionRate], trend: 'up' },
   ]
 
   const priorityColors: Record<string, string> = {
@@ -157,7 +157,7 @@ export default async function AdminPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {todos.length === 0 ? (
-              <p className="text-sm text-white/30 text-center py-4">Aucune tâche admin</p>
+              <p className="text-sm text-white/30 text-center py-4">No admin tasks</p>
             ) : (
               todos.map((todo) => (
                 <div key={todo.id} className={`flex items-center gap-3.5 p-4 rounded-lg border ${todo.completed ? 'border-white/5 opacity-50' : 'border-white/10'}`}>
@@ -181,11 +181,11 @@ export default async function AdminPage() {
         {/* Activity Feed */}
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-base">Activité Récente</CardTitle>
+            <CardTitle className="text-base">Recent activity</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {recentNotifications.length === 0 && recentSubmissions.length === 0 ? (
-              <p className="text-sm text-white/30 text-center py-4">Aucune activité</p>
+              <p className="text-sm text-white/30 text-center py-4">No activity</p>
             ) : (
               [...recentSubmissions.slice(0, 5)].map((sub) => (
                 <div key={sub.id} className="flex items-center gap-3.5 p-4 rounded-lg border border-white/5">

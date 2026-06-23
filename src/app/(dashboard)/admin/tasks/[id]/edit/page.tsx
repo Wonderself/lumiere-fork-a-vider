@@ -11,7 +11,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Admin — Modifier Tâche' }
+export const metadata: Metadata = { title: 'Admin — Edit task' }
 
 const TASK_TYPES = [
   'PROMPT_WRITING', 'IMAGE_GEN', 'VIDEO_REVIEW', 'STUNT_CAPTURE',
@@ -25,8 +25,8 @@ const LEVELS = ['ROOKIE', 'PRO', 'EXPERT', 'VIP']
 const STATUSES = ['LOCKED', 'AVAILABLE', 'CLAIMED', 'SUBMITTED', 'AI_REVIEW', 'HUMAN_REVIEW', 'VALIDATED', 'REJECTED']
 
 const typeLabels: Record<string, string> = {
-  PROMPT_WRITING: 'Rédaction de Prompts',
-  IMAGE_GEN: 'Génération d\'Images',
+  PROMPT_WRITING: 'Prompt writing',
+  IMAGE_GEN: 'Image generation',
   VIDEO_REVIEW: 'Video review',
   STUNT_CAPTURE: 'Capture Stunt',
   DANCE_CAPTURE: 'Capture Danse',
@@ -37,7 +37,7 @@ const typeLabels: Record<string, string> = {
   QA_REVIEW: 'QA Review',
   CHARACTER_DESIGN: 'Design Personnage',
   ENV_DESIGN: 'Design Environnement',
-  MOTION_REF: 'Référence Motion',
+  MOTION_REF: 'Motion reference',
   COMPOSITING: 'Compositing',
   TRANSLATION: 'Traduction',
   SUBTITLE: 'Sous-titrage',
@@ -68,7 +68,7 @@ export default async function AdminTaskEditPage({ params }: { params: Promise<{ 
           <ArrowLeft className="h-5 w-5" />
         </Link>
         <div>
-          <h1 className="text-2xl font-bold font-playfair">Modifier la Tâche</h1>
+          <h1 className="text-2xl font-bold font-playfair">Edit task</h1>
           <p className="text-sm text-white/40">
             {task.film.title} · Phase {task.phase.phaseName}
           </p>
@@ -196,7 +196,7 @@ export default async function AdminTaskEditPage({ params }: { params: Promise<{ 
 
             {/* Input Files URLs */}
             <div className="space-y-2">
-              <Label htmlFor="inputFilesUrls">URLs fichiers d&apos;entrée (une par ligne)</Label>
+              <Label htmlFor="inputFilesUrls">Input file URLs (one per line)</Label>
               <textarea
                 id="inputFilesUrls"
                 name="inputFilesUrls"
@@ -234,7 +234,7 @@ export default async function AdminTaskEditPage({ params }: { params: Promise<{ 
           <h3 className="text-sm font-semibold text-red-400 mb-3">Zone Dangereuse</h3>
           <form action={deleteTaskAction} className="flex items-center justify-between">
             <input type="hidden" name="taskId" value={task.id} />
-            <p className="text-xs text-white/40">Supprimer définitivement cette tâche et toutes ses soumissions.</p>
+            <p className="text-xs text-white/40">Permanently delete this task and all its submissions.</p>
             <Button type="submit" variant="outline" size="sm" className="text-red-400 border-red-500/20 hover:bg-red-500/10 gap-1.5">
               <Trash2 className="h-3.5 w-3.5" /> Supprimer
             </Button>

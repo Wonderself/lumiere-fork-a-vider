@@ -12,7 +12,7 @@ const SUPPORTED_LANGUAGES = [
   { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
   { code: 'it', label: 'Italiano', flag: '🇮🇹' },
-  { code: 'pt', label: 'Português', flag: '🇵🇹' },
+  { code: 'pt', label: 'Portuguese', flag: '🇵🇹' },
   { code: 'ar', label: 'العربية', flag: '🇸🇦' },
   { code: 'zh', label: '中文', flag: '🇨🇳' },
   { code: 'ja', label: '日本語', flag: '🇯🇵' },
@@ -62,7 +62,7 @@ function AddSubtitlePanel({ film, onClose, onSuccess }: { film: Film; onClose: (
     const file = e.target.files?.[0]
     if (!file) return
     if (!file.name.endsWith('.vtt') && !file.name.endsWith('.srt')) {
-      toast.error('Seuls les fichiers .vtt et .srt sont acceptés')
+      toast.error('Only .vtt and .srt files are accepted')
       return
     }
     setFileName(file.name)
@@ -78,7 +78,7 @@ function AddSubtitlePanel({ film, onClose, onSuccess }: { film: Film; onClose: (
   }
 
   async function handleUploadSubmit() {
-    if (!fileContent) { toast.error('Veuillez sélectionner un fichier de sous-titres'); return }
+    if (!fileContent) { toast.error('Please select a subtitle file'); return }
 
     const fd = new FormData()
     fd.set('filmId', film.id)
@@ -97,7 +97,7 @@ function AddSubtitlePanel({ film, onClose, onSuccess }: { film: Film; onClose: (
   }
 
   async function handleAutoGenerate() {
-    if (autoLangs.length === 0) { toast.error('Sélectionnez au moins une langue cible'); return }
+    if (autoLangs.length === 0) { toast.error('Select at least one target language'); return }
 
     setIsGenerating(true)
     // Simulated auto-generation — in production this calls a transcription/translation API
@@ -138,7 +138,7 @@ function AddSubtitlePanel({ film, onClose, onSuccess }: { film: Film; onClose: (
           <div className="flex rounded-xl border border-white/[0.08] bg-white/[0.02] p-1 gap-1 mb-5">
             {([
               { id: 'upload' as const, label: 'Importer un fichier', icon: Upload },
-              { id: 'auto' as const, label: 'Génération auto', icon: Sparkles },
+              { id: 'auto' as const, label: 'Auto generation', icon: Sparkles },
             ] as const).map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
@@ -190,12 +190,12 @@ function AddSubtitlePanel({ film, onClose, onSuccess }: { film: Film; onClose: (
                   {fileName ? (
                     <div className="text-center">
                       <p className="text-sm font-medium text-white/80">{fileName}</p>
-                      <p className="text-[10px] text-[#E50914] mt-0.5">Fichier prêt · cliquez pour changer</p>
+                      <p className="text-[10px] text-[#E50914] mt-0.5">File ready · click to change</p>
                     </div>
                   ) : (
                     <div className="text-center">
                       <p className="text-xs text-white/40">Glissez un fichier ici ou cliquez pour importer</p>
-                      <p className="text-[10px] text-white/20 mt-0.5">Formats acceptés : .srt .vtt</p>
+                      <p className="text-[10px] text-white/20 mt-0.5">Accepted formats: .srt .vtt</p>
                     </div>
                   )}
                   <input type="file" accept=".srt,.vtt" onChange={handleFileChange} className="absolute inset-0 opacity-0 cursor-pointer" />
@@ -287,7 +287,7 @@ export default function AdminSubtitlesPage() {
       setFilms([
         {
           id: '1',
-          title: 'La Dernière Lumière',
+          title: 'The Last Light',
           slug: 'la-derniere-lumiere',
           thumbnailUrl: null,
           status: 'LIVE',
@@ -306,7 +306,7 @@ export default function AdminSubtitlesPage() {
         },
         {
           id: '3',
-          title: 'Le Dernier Témoin',
+          title: 'The Last Witness',
           slug: 'le-dernier-temoin',
           thumbnailUrl: null,
           status: 'PENDING',
@@ -327,7 +327,7 @@ export default function AdminSubtitlesPage() {
         },
         {
           id: '5',
-          title: 'Ombres et Lumières',
+          title: 'Shadows and Light',
           slug: 'ombres-et-lumieres',
           thumbnailUrl: null,
           status: 'LIVE',
@@ -341,7 +341,7 @@ export default function AdminSubtitlesPage() {
 
   function handleSuccess() {
     setActiveFilm(null)
-    toast.success('Sous-titres mis à jour')
+    toast.success('Subtitles updated')
   }
 
   const filtered = films.filter(f =>
@@ -480,7 +480,7 @@ export default function AdminSubtitlesPage() {
 
         {/* Supported languages grid */}
         <div>
-          <h2 className="text-base font-bold text-white/70 mb-4">Langues supportées</h2>
+          <h2 className="text-base font-bold text-white/70 mb-4">Supported languages</h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
             {SUPPORTED_LANGUAGES.map(lang => (
               <div

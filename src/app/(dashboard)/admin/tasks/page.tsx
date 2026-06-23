@@ -11,7 +11,7 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Admin — Tâches' }
+export const metadata: Metadata = { title: 'Admin — Tasks' }
 
 export default async function AdminTasksPage() {
   const session = await auth()
@@ -49,7 +49,7 @@ export default async function AdminTasksPage() {
       {tasks.length === 0 ? (
         <div className="text-center py-20 text-white/50">
           <Star className="h-16 w-16 mx-auto mb-4 opacity-40" />
-          <p className="text-xl">Aucune tâche</p>
+          <p className="text-xl">No tasks</p>
         </div>
       ) : (
         <div className="space-y-2">

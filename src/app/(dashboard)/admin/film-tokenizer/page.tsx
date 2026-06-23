@@ -233,7 +233,7 @@ export default async function AdminFilmTokenizerPage() {
         <Card>
           <CardContent className="p-12 text-center">
             <Film className="h-12 w-12 text-white/10 mx-auto mb-4" />
-            <p className="text-white/40 text-lg mb-2">Tous les films sont déjà tokenisés</p>
+            <p className="text-white/40 text-lg mb-2">All films are already tokenized</p>
             <p className="text-white/25 text-sm max-w-md mx-auto">
               Créez un nouveau film depuis l&apos;admin ou ajoutez-en via le seed pour pouvoir le tokeniser.
             </p>
@@ -614,22 +614,22 @@ export default async function AdminFilmTokenizerPage() {
                 <div className="text-center p-3 rounded-lg bg-white/[0.02] border border-white/5">
                   <Coins className="h-5 w-5 text-[#E50914] mx-auto mb-1" />
                   <p className="text-lg font-bold text-[#E50914]">{demoDecomp.tokens.totalTokens}</p>
-                  <p className="text-[10px] text-white/40">Tokens à émettre</p>
+                  <p className="text-[10px] text-white/40">Tokens to issue</p>
                 </div>
                 <div className="text-center p-3 rounded-lg bg-white/[0.02] border border-white/5">
                   <Target className="h-5 w-5 text-green-600 mx-auto mb-1" />
                   <p className="text-lg font-bold text-green-600">{formatPrice(demoDecomp.tokens.hardCap)}</p>
-                  <p className="text-[10px] text-white/40">Objectif de levée</p>
+                  <p className="text-[10px] text-white/40">Raise target</p>
                 </div>
                 <div className="text-center p-3 rounded-lg bg-white/[0.02] border border-white/5">
                   <ListChecks className="h-5 w-5 text-blue-600 mx-auto mb-1" />
                   <p className="text-lg font-bold text-blue-600">{demoTasks.length}</p>
-                  <p className="text-[10px] text-white/40">Tâches générées</p>
+                  <p className="text-[10px] text-white/40">Tasks generated</p>
                 </div>
                 <div className="text-center p-3 rounded-lg bg-white/[0.02] border border-white/5">
                   <Clock className="h-5 w-5 text-purple-600 mx-auto mb-1" />
                   <p className="text-lg font-bold text-purple-600">{Math.ceil(totalTimelineWeeks / 4)} mois</p>
-                  <p className="text-[10px] text-white/40">Durée estimée</p>
+                  <p className="text-[10px] text-white/40">Estimated duration</p>
                 </div>
               </div>
             </CardContent>

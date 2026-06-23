@@ -17,7 +17,7 @@ export const metadata: Metadata = { title: 'Admin — Éditer Film' }
 
 const FILM_STATUSES = [
   { value: 'DRAFT', label: 'Draft' },
-  { value: 'PRE_PRODUCTION', label: 'Pré-Production' },
+  { value: 'PRE_PRODUCTION', label: 'Pre-production' },
   { value: 'IN_PRODUCTION', label: 'En Production' },
   { value: 'POST_PRODUCTION', label: 'Post-Production' },
   { value: 'RELEASED', label: 'Sorti' },

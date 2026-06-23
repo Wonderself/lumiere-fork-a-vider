@@ -67,7 +67,7 @@ export default function InvoicingPage() {
           <p className="text-sm text-white/50 mt-1">Devis, factures, TVA automatique, suivi paiements</p>
         </div>
         <button onClick={() => setView(view === 'list' ? 'create' : 'list')} className="flex items-center gap-1.5 px-4 py-2 bg-[#E50914] text-white text-xs font-medium rounded-lg hover:bg-[#FF2D2D]">
-          {view === 'list' ? <><Plus className="h-4 w-4" />Nouvelle facture</> : 'Retour à la liste'}
+          {view === 'list' ? <><Plus className="h-4 w-4" />Nouvelle facture</> : 'Back to list'}
         </button>
       </div>
 
@@ -83,7 +83,7 @@ export default function InvoicingPage() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
             <h2 className="text-sm font-semibold text-white">Informations client</h2>
             <div className="grid grid-cols-2 gap-3">
-              <input value={clientName} onChange={e => setClientName(e.target.value)} placeholder="Nom / Société *" className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
+              <input value={clientName} onChange={e => setClientName(e.target.value)} placeholder="Name / Company *" className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
               <input value={clientEmail} onChange={e => setClientEmail(e.target.value)} placeholder="Email" className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
             </div>
           </div>
