@@ -110,7 +110,7 @@ const DEFAULT_LEGAL_CHECKLIST = [
   },
   {
     category: 'ISA', item: 'Demande sandbox ISA', priority: 3, responsible: 'HUMAN',
-    description: 'Déposer une demande auprès du sandbox réglementaire de l\'ISA pour les offres de tokens. Lien: https://www.isa.gov.il',
+    description: 'File an application with the ISA regulatory sandbox for token offerings. Link: https://www.isa.gov.il',
   },
   {
     category: 'ISA', item: 'Exempt offering documentation (<5M ILS)', priority: 3, responsible: 'BOTH',
@@ -118,11 +118,11 @@ const DEFAULT_LEGAL_CHECKLIST = [
   },
   {
     category: 'ISA', item: 'Accredited investor verification process', priority: 2, responsible: 'BOTH',
-    description: 'Mettre en place un processus de vérification du statut d\'investisseur accrédité conforme à la réglementation israélienne.',
+    description: 'Set up a process to verify accredited-investor status compliant with Israeli regulations.',
   },
   {
     category: 'ISA', item: 'Prospectus preparation (offerings >5M ILS)', priority: 1, responsible: 'BOTH',
-    description: 'Pour les futures levées dépassant 5M ILS, préparer un prospectus complet. Claude rédige, avocat valide.',
+    description: 'For future raises exceeding 5M ILS, prepare a full prospectus. Claude drafts, a lawyer validates.',
   },
 
   // Section B: KYC/AML
@@ -132,71 +132,71 @@ const DEFAULT_LEGAL_CHECKLIST = [
   },
   {
     category: 'KYC', item: 'Document politique AML', priority: 2, responsible: 'CLAUDE',
-    description: 'Rédiger la politique anti-blanchiment de la plateforme conformément à la loi israélienne sur le blanchiment (2000).',
+    description: 'Draft the platform anti-money-laundering policy in compliance with the Israeli money-laundering law (2000).',
   },
   {
     category: 'KYC', item: 'Suspicious activity reporting procedure', priority: 2, responsible: 'HUMAN',
-    description: 'Définir la procédure de signalement des transactions suspectes auprès de l\'Autorité israélienne de lutte contre le blanchiment (IMPA).',
+    description: 'Define the procedure for reporting suspicious transactions to the Israeli Anti-Money Laundering Authority (IMPA).',
   },
   {
     category: 'KYC', item: 'Data retention (7 years minimum)', priority: 1, responsible: 'AUTO',
-    description: 'Le système conserve automatiquement toutes les données de transaction et vérification pendant minimum 7 ans.',
+    description: 'The system automatically retains all transaction and verification data for a minimum of 7 years.',
     status: 'DONE',
   },
 
   // Section C: Tax
   {
     category: 'TAX', item: 'Inscription TVA (Ma\'am)', priority: 3, responsible: 'HUMAN',
-    description: 'S\'inscrire auprès de l\'administration fiscale israélienne pour la TVA (Ma\'am) sur les services de la plateforme.',
+    description: 'Register with the Israeli tax authority for VAT (Ma\'am) on the platform services.',
   },
   {
     category: 'TAX', item: 'Classification fiscale des tokens', priority: 3, responsible: 'HUMAN',
-    description: 'Obtenir un avis juridique sur la classification fiscale des tokens (utility vs security) auprès de l\'administration fiscale israélienne.',
+    description: 'Obtain a legal opinion on the tax classification of tokens (utility vs security) from the Israeli tax authority.',
   },
   {
     category: 'TAX', item: 'Certificats fiscaux investisseurs (annuels)', priority: 2, responsible: 'CLAUDE',
-    description: 'Générer automatiquement les certificats fiscaux annuels pour les investisseurs. Claude peut créer le template.',
+    description: 'Automatically generate annual tax certificates for investors. Claude can create the template.',
   },
   {
     category: 'TAX', item: 'Documentation prix de transfert', priority: 1, responsible: 'BOTH',
-    description: 'Documenter les prix de transfert pour les transactions avec des entités liées internationales.',
+    description: 'Document transfer pricing for transactions with international related entities.',
   },
 
   // Section D: Smart Contracts & Technical
   {
     category: 'CONTRACT', item: 'Standard token selection', priority: 2, responsible: 'BOTH',
-    description: 'Décider entre un token ERC-20 compatible sur blockchain ou un système basé sur base de données. Analyse coût/bénéfice requise.',
+    description: 'Decide between a blockchain-compatible ERC-20 token or a database-based system. Cost/benefit analysis required.',
   },
   {
     category: 'CONTRACT', item: 'Solution de custody crypto', priority: 2, responsible: 'HUMAN',
-    description: 'Contracter avec un fournisseur de custody licencié en Israël pour les paiements en crypto-monnaie.',
+    description: 'Contract a licensed custody provider in Israel for cryptocurrency payments.',
   },
   {
     category: 'CONTRACT', item: 'Full audit trail', priority: 1, responsible: 'AUTO',
-    description: 'Piste d\'audit intégrée dans la base de données pour toutes les transactions token et mouvements financiers.',
+    description: 'Built-in audit trail in the database for all token transactions and financial movements.',
     status: 'DONE',
   },
   {
     category: 'CONTRACT', item: 'Data protection (GDPR + Israeli law)', priority: 2, responsible: 'BOTH',
-    description: 'Conformité au RGPD européen et à la Loi israélienne sur la Protection de la Vie Privée (1981). Politique de confidentialité et DPO.',
+    description: 'Compliance with the EU GDPR and the Israeli Privacy Protection Law (1981). Privacy policy and DPO.',
   },
 
   // Section E: Platform Operations
   {
     category: 'CORPORATE', item: 'CGU pour les offres de tokens', priority: 3, responsible: 'BOTH',
-    description: 'Rédiger les conditions générales d\'utilisation spécifiques aux offres de tokens. Claude rédige, avocat valide.',
+    description: 'Draft the terms of use specific to token offerings. Claude drafts, a lawyer validates.',
   },
   {
     category: 'CORPORATE', item: 'Document de divulgation des risques', priority: 3, responsible: 'BOTH',
-    description: 'Document informant les investisseurs de tous les risques associés à l\'investissement en tokens de films IA.',
+    description: 'A document informing investors of all the risks associated with investing in AI film tokens.',
   },
   {
     category: 'CORPORATE', item: 'Templates communication investisseurs', priority: 1, responsible: 'CLAUDE',
-    description: 'Créer les templates d\'emails et notifications pour les investisseurs (confirmation, dividendes, gouvernance).',
+    description: 'Create the email and notification templates for investors (confirmation, dividends, governance).',
   },
   {
     category: 'CORPORATE', item: 'Dispute resolution process', priority: 2, responsible: 'HUMAN',
-    description: 'Définir un processus de résolution des litiges conforme au droit israélien (arbitrage, médiation).',
+    description: 'Define a dispute-resolution process compliant with Israeli law (arbitration, mediation).',
   },
 ]
 

@@ -200,7 +200,7 @@ export default function OrchestrationPage() {
                 <XCircle className="h-4 w-4 text-red-500" />
                 <div className="flex-1">
                   <p className="text-xs font-medium text-white">Critical à {SSE_CONFIG.criticalThreshold} clients (80%)</p>
-                  <p className="text-[10px] text-white/50">Alerte urgente — augmenter maxClients IMMÉDIATEMENT</p>
+                  <p className="text-[10px] text-white/50">Urgent alert — increase maxClients IMMEDIATELY</p>
                 </div>
               </div>
             </div>

@@ -32,22 +32,22 @@ type Institution = {
 
 // ==================== STRUCTURE ISSUES ====================
 const INIT_STRUCTURE_ISSUES: StructureIssue[] = [
-  { id:"s1", cat: "FATAL", item: "Undocumented transfer pricing", desc: "Si la Ltd IL facture des royalties/licences à la SAS FR sans étude TP, le fisc FR requalifie en distribution déguisée de dividendes → amende 40% + intérêts. DOUBLEMENT critique car Emmanuel + Éric sont actionnaires des DEUX entités = parties liées.", action: "Commander une étude TP (3-8K€) AVANT le premier flux financier entre les 2 entités. Documenter chaque transaction inter-sociétés.", entity: "BOTH", status: "todo" },
+  { id:"s1", cat: "FATAL", item: "Undocumented transfer pricing", desc: "Si la Ltd IL facture des royalties/licences à la SAS FR sans étude TP, le fisc FR requalifie en distribution déguisée de dividendes → amende 40% + intérêts. DOUBLEMENT critique car Emmanuel + Éric sont actionnaires des DEUX entités = parties liées.", action: "Commission a TP study (3-8K€) BEFORE the first financial flow between the 2 entities. Document every inter-company transaction.", entity: "BOTH", status: "todo" },
   { id:"s2", cat: "FATAL", item: "Tech IP created by the French SAS, assigned to the IL Ltd", desc: "Des devs FR qui créent du code/IP attribué à la Ltd IL = transfert d'actif imposable. Le fisc FR peut imposer une plus-value fictive sur l'IP transférée.", action: "Les devs FR travaillent UNIQUEMENT sur des livrables FR (films, contenus, pipeline de post-prod FR). L'IP tech (micro-task engine, AI, platform) is developed ONLY by the'équipe IL.", entity: "BOTH", status: "todo" },
-  { id:"s3", cat: "FATAL", item: "IIA IP Lock — 6x penalty", desc: "L'IP financée par l'Autorité de l'Innovation ne peut PAS être transférée à la SAS FR. Une licence exclusive mal rédigée = transfert → pénalité = 6x le grant + intérêts.", action: "Licence d'utilisation NON-exclusive avec clause de retour automatique. Faire valider par avocat IL spécialisé IIA (ex: Pearl Cohen, Meitar).", entity: "IL", status: "todo" },
+  { id:"s3", cat: "FATAL", item: "IIA IP Lock — 6x penalty", desc: "L'IP financée par l'Autorité de l'Innovation ne peut PAS être transférée à la SAS FR. Une licence exclusive mal rédigée = transfert → pénalité = 6x le grant + intérêts.", action: "NON-exclusive usage license with an automatic reversion clause. Have it validated by an IL lawyer specialized in IIA (e.g. Pearl Cohen, Meitar).", entity: "IL", status: "todo" },
   { id:"s4", cat: "FATAL", item: "Undeclared permanent establishment", desc: "Si Emmanuel dirige de facto la SAS FR depuis Jérusalem, la France considère que la Ltd IL a un établissement stable (PE) en France → imposition FR sur les revenus de la Ltd IL.", action: "La SAS FR DOIT avoir un dirigeant résident FR (même temps partiel). Emmanuel = CEO de la Ltd IL uniquement. Recommandation: nommer Éric comme Président de la SAS si Éric est aussi à JLM → trouver un 3ème résident FR.", entity: "BOTH", status: "todo" },
   { id:"s5", cat: "RISQUE", item: "JEI lost if the IL Ltd holds >50% of the SAS", desc: "Le statut JEI exige 50%+ du capital détenu par des personnes physiques. Avec le montage 51% fondateurs / 49% Ltd → JEI PRÉSERVÉ. Mais attention: si Ltd IL monte à 50%+ → JEI perdu = ~80-160K€/an de charges en plus.", action: "MAINTENIR strictement 51%+ aux personnes physiques dans la SAS FR. Le pacte d'actionnaires doit verrouiller cette répartition. Prévoir une clause anti-dilution JEI.", entity: "FR", status: "todo" },
-  { id:"s6", cat: "RISQUE", item: "CNC: French vs foreign initiative", desc: "Un film 'commandité' par la Ltd IL = initiative étrangère → pas de soutien automatique CNC ni de CIA. Seul le C2I (20%) reste accessible.", action: "La SAS FR DOIT être producteur délégué avec droits Europe. Le scénario naît à la SAS, pas à la Ltd IL. Pour les films internationaux → initiative IL via C2I.", entity: "FR", status: "todo" },
+  { id:"s6", cat: "RISQUE", item: "CNC: French vs foreign initiative", desc: "A film 'commissioned' by the IL Ltd = foreign initiative → no automatic CNC support or CIA. Only the C2I (20%) remains accessible.", action: "La SAS FR DOIT être producteur délégué avec droits Europe. Le scénario naît à la SAS, pas à la Ltd IL. Pour les films internationaux → initiative IL via C2I.", entity: "FR", status: "todo" },
   { id:"s7", cat: "RISQUE", item: "IFCIC: production independence", desc: "L'IFCIC exige que la prod déléguée ne soit PAS majoritairement détenue par un groupe. Avec Ltd IL à 49% → PASSE, mais vérifier les critères exacts de 'control' vs 'ownership'.", action: "Confirmer avec l'IFCIC requires 49% corporate + 51% individuals = independent. Careful with a shareholders\''actionnaires donne des droits de veto à la Ltd → pourrait être requalifié en contrôle.", entity: "FR", status: "todo" },
-  { id:"s8", cat: "RISQUE", item: "Double imposition des royalties FR↔IL", desc: "Sans activation de la convention fiscale FR-IL de 1995, les royalties peuvent être imposées 2 fois.", action: "Déposer les formulaires 5000-FR + 5002-FR dès le 1er paiement. Taux conventionnel: max 10% retenue à la source.", entity: "BOTH", status: "todo" },
-  { id:"s9", cat: "RISQUE", item: "CIR: strict eligible spend", desc: "Utiliser l'app de la Ltd IL pour créer des films ≠ R&D. Le CIR ne couvre que les dépenses de R&D PROPRES de la SAS FR.", action: "La SAS FR doit avoir ses propres projets R&D distincts: workflow IA cinéma, QC automatisé, pipeline post-prod. Séparer clairement R&D (CIR) vs production.", entity: "FR", status: "todo" },
-  { id:"s10", cat: "RISQUE", item: "JLM Film Fund: Jerusalem Project", desc: "Le fonds cinéma de Jérusalem exige que 2 des 3 postes clés (scriptwriter, director, producer) résident à Jérusalem. Résidence récente → la JDA pourrait questionner la bona fide.", action: "S'inscrire à Jérusalem AVANT la candidature. Pas de condition d'ancienneté explicite dans la procédure mais la JDA peut vérifier.", entity: "IL", status: "todo" },
-  { id:"s11", cat: "ASTUCE", item: "C2I = designed for this structure", desc: "Le C2I est FAIT pour les films d'initiative étrangère fabriqués en France. La Ltd IL commande, la SAS FR exécute → 20% des dépenses FR remboursées (max 4M€/œuvre).", action: "Films internationaux/anglais = initiative IL → C2I via SAS FR. Structurer le deal memo correctement (Ltd IL = producteur délégué, SAS FR = exécutif).", entity: "FR", status: "todo" },
-  { id:"s12", cat: "ASTUCE", item: "Dual track: initiative FR + initiative IL", desc: "Rien n'interdit d'avoir des films d'initiative FR (→ CNC automatique) ET des films d'initiative IL (→ C2I). Les 2 dispositifs coexistent.", action: "Films à forte DA française = initiative FR → CNC. Films internationaux = initiative IL → C2I. Maximiser les 2.", entity: "BOTH", status: "todo" },
-  { id:"s13", cat: "ASTUCE", item: "FR-IL co-production treaty 2002", desc: "Ce traité permet la double nationalité du film → ouvre TOUS les dispositifs des 2 pays simultanément.", action: "Vérifier si l'auto-coprod (mêmes fondateurs dans les 2 entités) est acceptée ou si un 3ème partenaire est requis. QUESTION PRIORITAIRE pour l'avocat.", entity: "BOTH", status: "todo" },
-  { id:"s14", cat: "ASTUCE", item: "SAS FR = cost center liquidable", desc: "Pour un exit US propre, la SAS FR doit pouvoir être fermée sans impact sur la valuation de la Ltd IL.", action: "NE JAMAIS mettre d'IP tech dans la SAS FR. Le catalogue de films = actif SAS, mais les droits internationaux restent chez la Ltd IL via licence.", entity: "FR", status: "todo" },
-  { id:"s15", cat: "ASTUCE", item: "Label Fair AI Cinema = avantage CNC", desc: "Le CNC réfléchit à l'IA dans la création. Premier studio avec un label éthique IA = avantage compétitif dans les commissions.", action: "Write a formal AI ethics charter. Use it in every CNC and Rabinovich application.", entity: "BOTH", status: "todo" },
-  { id:"s16", cat: "ASTUCE", item: "JNEXT Rova HaKnisa = grants DOUBLÉS", desc: "Le nouveau quartier d'entrée de Jérusalem offre des grants DOUBLÉS: 120K NIS/employé résident JLM (au lieu de 60K), 60K hors JLM, 50K/stagiaire. Max 7.2M NIS.", action: "Vérifier si des bureaux sont disponibles au Rova HaKnisa. Si oui → les grants sont DOUBLÉS vs le programme standard JNEXT.", entity: "IL", status: "todo" },
+  { id:"s8", cat: "RISQUE", item: "Double imposition des royalties FR↔IL", desc: "Without activating the 1995 FR-IL tax treaty, royalties may be taxed twice.", action: "File forms 5000-FR + 5002-FR from the first payment. Treaty rate: max 10% withholding at source.", entity: "BOTH", status: "todo" },
+  { id:"s9", cat: "RISQUE", item: "CIR: strict eligible spend", desc: "Using the IL Ltd's app to create films ≠ R&D. The CIR only covers the FR SAS's OWN R&D expenses.", action: "La SAS FR doit avoir ses propres projets R&D distincts: workflow IA cinéma, QC automatisé, pipeline post-prod. Séparer clairement R&D (CIR) vs production.", entity: "FR", status: "todo" },
+  { id:"s10", cat: "RISQUE", item: "JLM Film Fund: Jerusalem Project", desc: "Le fonds cinéma de Jérusalem exige que 2 des 3 postes clés (scriptwriter, director, producer) résident à Jérusalem. Résidence récente → la JDA pourrait questionner la bona fide.", action: "Register in Jerusalem BEFORE applying. No explicit seniority requirement in the procedure, but the JDA may check.", entity: "IL", status: "todo" },
+  { id:"s11", cat: "ASTUCE", item: "C2I = designed for this structure", desc: "Le C2I est FAIT pour les films d'initiative étrangère fabriqués en France. La Ltd IL commande, la SAS FR exécute → 20% des dépenses FR remboursées (max 4M€/œuvre).", action: "International/English films = IL initiative → C2I via FR SAS. Structure the deal memo correctly (IL Ltd = delegate producer, FR SAS = executive).", entity: "FR", status: "todo" },
+  { id:"s12", cat: "ASTUCE", item: "Dual track: initiative FR + initiative IL", desc: "Rien n'interdit d'avoir des films d'initiative FR (→ CNC automatique) ET des films d'initiative IL (→ C2I). Les 2 dispositifs coexistent.", action: "Films with strong French artistic direction = FR initiative → CNC. International films = IL initiative → C2I. Maximize both.", entity: "BOTH", status: "todo" },
+  { id:"s13", cat: "ASTUCE", item: "FR-IL co-production treaty 2002", desc: "This treaty allows the film dual nationality → unlocks ALL programs in both countries simultaneously.", action: "Check whether self-coproduction (same founders in both entities) is accepted or if a 3rd partner is required. PRIORITY QUESTION for the lawyer.", entity: "BOTH", status: "todo" },
+  { id:"s14", cat: "ASTUCE", item: "SAS FR = cost center liquidable", desc: "For a clean US exit, the FR SAS must be closeable without affecting the valuation of the IL Ltd.", action: "NE JAMAIS mettre d'IP tech dans la SAS FR. Le catalogue de films = actif SAS, mais les droits internationaux restent chez la Ltd IL via licence.", entity: "FR", status: "todo" },
+  { id:"s15", cat: "ASTUCE", item: "Label Fair AI Cinema = avantage CNC", desc: "The CNC is reviewing AI in creation. The first studio with an AI ethics label = a competitive advantage in commissions.", action: "Write a formal AI ethics charter. Use it in every CNC and Rabinovich application.", entity: "BOTH", status: "todo" },
+  { id:"s16", cat: "ASTUCE", item: "JNEXT Rova HaKnisa = DOUBLED grants", desc: "Le nouveau quartier d'entrée de Jérusalem offre des grants DOUBLÉS: 120K NIS/employé résident JLM (au lieu de 60K), 60K hors JLM, 50K/stagiaire. Max 7.2M NIS.", action: "Check whether offices are available at Rova HaKnisa. If so → grants are DOUBLED vs the standard JNEXT program.", entity: "IL", status: "todo" },
   { id:"s17", cat: "RISQUE", item: "SAS 51% physiques / 49% Ltd IL → Question expert-comptable", desc: "Les fondateurs (Emmanuel 25.5% + Éric 25.5%) détiennent 51% de la SAS directement, et leur propre Ltd IL détient 49%. Légal en droit FR = OUI. MAIS: le fisc FR peut requalifier en 'control' si le pacte d'actionnaires ou les votes sont alignés. L'enjeu = JEI (50%+ physiques) + IFCIC (indépendance) + CNC (initiative française).", action: "DEMANDER À L'EXPERT-COMPTABLE: 1) Confirmer éligibilité JEI avec ce montage exact. 2) Vérifier que les droits de vote sont bien 51/49. 3) Rédiger un pacte d'actionnaires avec clause de sauvegarde JEI. 4) Prévoir rescrit fiscal JEI.", entity: "BOTH", status: "in-progress" },
 ]
 
@@ -57,7 +57,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
   { id: "jnext-startup", name: "JNEXT — Grant Startups", entity: "IL", cat: "Jerusalem", amount: "Up to 60K NIS/employee (max 600K NIS / ~$150K)", rate: "Grant direct", timing: "Ongoing — Five-year plan until end of 2026", difficulty: 2, priority: 1, deadline: "Ongoing (limited budget, end of 2026)", status: "todo",
     url: "https://jnext.org.il/grant-application/",
     desc: "Grant JDA/JNEXT pour startups hi-tech à Jérusalem. 60K NIS par employé éligible résidant à Jérusalem, 40K NIS hors Jérusalem, 26K NIS par student. Max 10 employés = 600K NIS. Versement étalé sur 2 ans.",
-    residency: "L'employé doit être résident Jérusalem pour le taux max 60K. Pas de durée minimum de résidence. Le siège social doit être à Jérusalem.",
+    residency: "The employee must be a Jerusalem resident for the max 60K rate. No minimum residency duration. The head office must be in Jerusalem.",
     tasks: [
       {t:"Check registration in the Companies Registry with a Jerusalem address",done:false},
       {t:"Obtain an IIA certificate confirming R&D activity",done:false},
@@ -81,21 +81,21 @@ const INIT_SUBSIDIES: Subsidy[] = [
     ],
     docs: ["Bail bureau Rova HaKnisa", "Same application as standard JNEXT"] },
 
-  { id: "min-eco-salaires", name: "Min. Économie — Subvention Salaires Zone A", entity: "IL", cat: "Jerusalem", amount: "30% of salaries Y1, 20% Y2 (max 30K NIS/month/employee)", rate: "30% puis 20%", timing: "24 mois, candidature continue", difficulty: 1, priority: 1, deadline: "Ongoing", status: "todo",
+  { id: "min-eco-salaires", name: "Ministry of Economy — Zone A Salary Subsidy", entity: "IL", cat: "Jerusalem", amount: "30% of salaries Y1, 20% Y2 (max 30K NIS/month/employee)", rate: "30% puis 20%", timing: "24 mois, candidature continue", difficulty: 1, priority: 1, deadline: "Ongoing", status: "todo",
     url: "https://jnext.org.il/information/government-funding_non-jda_grants/",
     desc: "Financement partiel des salaires pendant 24 mois pour entreprises en Zone A. Jérusalem = seule ville du centre à être Zone A! CUMULABLE avec les grants JNEXT.",
     residency: "THE COMPANY must be in Zone A (= Jerusalem).",
     tasks: [
       {t:"Check sector eligibility (knowledge-intensive industry)",done:false},
       {t:"Prepare projected payslips",done:false},
-      {t:"Soumettre via portail Min. Économie",done:false},
+      {t:"Submit via the Ministry of Economy portal",done:false},
     ],
-    docs: ["Enregistrement sectoriel", "Fiches de paie", "Formulaire Min. Économie"] },
+    docs: ["Enregistrement sectoriel", "Fiches de paie", "Ministry of Economy form"] },
 
   { id: "jda-office-grant", name: "JDA — Grant Bureaux 400 NIS/m²", entity: "IL", cat: "Jerusalem", amount: "400 NIS/m² (max 2,000 m²) = up to 800K NIS (~$200K)", rate: "250 NIS/m² Y1 + 150 NIS/m² Y2", timing: "Lors de l'installation", difficulty: 1, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://www.jda.gov.il/",
-    desc: "Grant pour entreprises hi-tech qui s'installent à Jérusalem. Min 100 m² pour transfert ou 700 m² pour extension.",
-    residency: "Pas de condition de résidence personnelle. L'activité doit être dans les limites municipales de Jérusalem.",
+    desc: "Grant for hi-tech companies relocating to Jerusalem. Min 100 m² for relocation or 700 m² for expansion.",
+    residency: "No personal residency requirement. The activity must be within the municipal limits of Jerusalem.",
     tasks: [
       {t:"Find an office in Jerusalem (min 100 m²)",done:false},
       {t:"Signer bail",done:false},
@@ -118,7 +118,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
   { id: "jda-film-fund", name: "Jerusalem Film Fund", entity: "IL", cat: "Jerusalem Cinema", amount: "100K-2M NIS/projet (budget ~16M NIS/an)", rate: "Selective investment", timing: "Multiple calls for projects per year", difficulty: 3, priority: 1, deadline: "thejerusalemfilmfund.com", status: "todo",
     url: "https://thejerusalemfilmfund.com/",
     desc: "Plus gros fonds cinéma municipal d'Israël. ~142M NIS investis depuis 2008. Parcours: développement scénario, production séries TV, séries web (min 4 épisodes), film petit budget (<2M NIS), productions internationales.",
-    residency: "CRITIQUE: 2 des 3 postes clés (scriptwriter/director/producer) doivent résider à Jérusalem.",
+    residency: "CRITICAL: 2 of the 3 key roles (scriptwriter/director/producer) must reside in Jerusalem.",
     tasks: [
       {t:"Check the next call dates on thejerusalemfilmfund.com",done:false},
       {t:"Develop a project rooted in Jerusalem",done:false},
@@ -131,7 +131,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
   { id: "jda-film-intl", name: "JLM Film Fund — International Productions", entity: "IL", cat: "Jerusalem Cinema", amount: "Variable selon taille du projet", rate: "Investissement", timing: "Ongoing", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://thejerusalemfilmfund.com/",
     desc: "Parcours spécial pour productions internationales filmées à Jérusalem. Conditions: financement principal étranger (80%+), producteur et société enregistrés à l'étranger → la SAS FR!, langue principale non-hébreu.",
-    residency: "Pas de condition de résidence — programme pour les étrangers. La SAS FR = le producteur étranger parfait!",
+    residency: "No residency requirement — a program for foreigners. The FR SAS = the perfect foreign producer!",
     tasks: [
       {t:"Structure a project with the French SAS as foreign co-producer",done:false},
       {t:"Prepare a complete production package",done:false},
@@ -164,9 +164,9 @@ const INIT_SUBSIDIES: Subsidy[] = [
     docs: ["Formulaire 200-05", "Management declaration", "Rapport comptable", "Audited financial statements"] },
 
   // ===== ISRAEL - IIA NATIONAL =====
-  { id: "tnufa", name: "IIA Tnufa (Élan)", entity: "IL", cat: "IIA National", amount: "200K NIS (~50K€)", rate: "85% of approved budget", timing: "Ongoing, response ~3 months", difficulty: 2, priority: 1, deadline: "Ongoing", status: "todo",
+  { id: "tnufa", name: "IIA Tnufa (Momentum)", entity: "IL", cat: "IIA National", amount: "200K NIS (~50K€)", rate: "85% of approved budget", timing: "Ongoing, response ~3 months", difficulty: 2, priority: 1, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/en/programs/ideation-tnufa-incentive-program/",
-    desc: "Premier étage de la fusée IIA. POC, prototypage, dépôt brevet, développement business. ~100 entrepreneurs/an financés.",
+    desc: "The first stage of the IIA rocket. POC, prototyping, patent filing, business development. ~100 entrepreneurs/year funded.",
     residency: "The applicant must be an Israeli resident.",
     tasks: [
       {t:"Prepare a 10-page tech business plan",done:false},
@@ -179,7 +179,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
 
   { id: "iia-preseed", name: "IIA Startup Fund — Pre-Seed", entity: "IL", cat: "IIA National", amount: "Up to 1.65M NIS (~$410K) [+10% Zone A]", rate: "60% du tour d'investissement", timing: "Continu, process 4-6 mois", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/programs/preseed/",
-    desc: "L'IIA matche 60% de votre tour pre-seed. Max 1.5M NIS (+10% Zone A = 1.65M NIS). NON-DILUTIF. Condition: un investisseur privé pour les 40%.",
+    desc: "The IIA matches 60% of your pre-seed round. Max 1.5M NIS (+10% Zone A = 1.65M NIS). NON-DILUTIVE. Condition: a private investor for the remaining 40%.",
     residency: "Company registered in Israel. Zone A = +10% bonus.",
     tasks: [
       {t:"Identifier investisseur: angel/VC",done:false},
@@ -191,7 +191,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
 
   { id: "iia-seed", name: "IIA Startup Fund — Seed", entity: "IL", cat: "IIA National", amount: "Up to 5.5M NIS (~$1.37M) [+10% Zone A]", rate: "50% du tour", timing: "Process ~6 mois", difficulty: 4, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/programs/startup-fund/",
-    desc: "IIA matche 50% de votre Seed. Max 5M NIS (+10% Zone A). Condition: <15M NIS levés au total.",
+    desc: "The IIA matches 50% of your Seed. Max 5M NIS (+10% Zone A). Condition: <15M NIS raised in total.",
     residency: "IL company. Zone A bonus.",
     tasks: [{t:"Lead investor committed",done:false},{t:"Track record POC/Tnufa",done:false},{t:"Product metrics",done:false}],
     docs: ["Term Sheet Seed", "Product metrics", "Projections 5 ans"] },
@@ -205,21 +205,21 @@ const INIT_SUBSIDIES: Subsidy[] = [
 
   { id: "bilateral-fril", name: "IIA — FR-IL bilateral", entity: "IL", cat: "IIA National", amount: "50-60% du budget R&D pendant 3 ans", rate: "50-60%", timing: "Appel annuel", difficulty: 3, priority: 3, deadline: "Check the 2026 call", status: "todo",
     url: "https://innovationisrael.org.il/en/programs/bilateral-rd-incentive-program/",
-    desc: "Programme conjoint IIA + BPI France. Chaque pays finance sa partie. La SAS FR = le partenaire français.",
+    desc: "Joint IIA + BPI France program. Each country funds its part. The FR SAS = the French partner.",
     residency: "IL company + FR partner.",
     tasks: [{t:"Identifier projet R&D conjoint FR-IL",done:false},{t:"Aligner dossiers IIA + BPI",done:false},{t:"Trouver timing appel 2026",done:false}],
     docs: ["Dossier technique conjoint", "Budget FR/IL", "Accord collaboration"] },
 
   { id: "rabinovich", name: "Fondation Rabinovich", entity: "IL", cat: "Israel cinema", amount: "400K-2M NIS/film (budget ~28M NIS/an)", rate: "Selective grant", timing: "Plusieurs sessions/an", difficulty: 4, priority: 2, deadline: "Sessions sur cinema-project.org.il", status: "todo",
     url: "https://cinema-project.org.il/",
-    desc: "Plus grand fonds cinéma d'Israël. Fiction, documentaire, animation. 7-8 films/an gros budget.",
+    desc: "Israel\'s largest film fund. Fiction, documentary, animation. 7-8 big-budget films/year.",
     residency: "Israeli resident.",
     tasks: [{t:"Develop a full film project",done:false},{t:"Identify an Israeli director",done:false},{t:"Soumettre au calendrier Rabinovich",done:false}],
     docs: ["Screenplay", "Note intention", "Budget prod", "CV"] },
 
   { id: "nfct", name: "NFCT (New Fund for Cinema & TV)", entity: "IL", cat: "Israel cinema", amount: "Variable — development, production, post-production", rate: "Max 80% du budget", timing: "2 appels/an", difficulty: 3, priority: 2, deadline: "Appels sur nfct.org.il", status: "todo",
     url: "https://nfct.org.il/",
-    desc: "Parcours: développement, production, finalisation. Producteur peut soumettre 5 projets max/appel.",
+    desc: "Tracks: development, production, finalization. A producer may submit up to 5 projects per call.",
     residency: "Israeli residents aged 18+.",
     tasks: [{t:"Check dates on nfct.org.il",done:false},{t:"Prepare a strong-track-record application",done:false}],
     docs: ["Screenplay", "Note intention", "Budget"] },
@@ -229,24 +229,24 @@ const INIT_SUBSIDIES: Subsidy[] = [
     url: "https://entreprendre.service-public.fr/vosdroits/F31188",
     desc: "Exonération charges sociales sur salariés R&D + CFE/CVAE. Conditions: <8 ans, <250 salariés, CA<50M€, 20%+ charges en R&D, 50%+ capital = personnes physiques. AVEC le montage 51% physiques / 49% Ltd IL → JEI PRÉSERVÉ.",
     residency: "N/A (France)",
-    tasks: [{t:"Emmanuel 25.5% + Éric 25.5% = 51% SAS en direct (CONFIRMER)",done:false},{t:"20%+ charges = R&D",done:false},{t:"Declare JEI status to URSSAF",done:false},{t:"JEI tax ruling (recommended)",done:false}],
+    tasks: [{t:"Emmanuel 25.5% + Eric 25.5% = 51% of the SAS directly (CONFIRM)",done:false},{t:"20%+ charges = R&D",done:false},{t:"Declare JEI status to URSSAF",done:false},{t:"JEI tax ruling (recommended)",done:false}],
     docs: ["Statuts SAS (51%/49%)", "Rescrit JEI", "Justificatifs R&D"] },
 
   { id: "cir", name: "CIR (Research Tax Credit)", entity: "FR", cat: "France taxation", amount: "30% of R&D spend", rate: "30%", timing: "Annual corporate tax return", difficulty: 2, priority: 1, deadline: "Annuel", status: "todo",
     url: "https://www.enseignementsup-recherche.gouv.fr/fr/le-credit-d-impot-recherche-cir-46364",
-    desc: "30% des dépenses R&D remboursées. La SAS FR doit avoir ses PROPRES projets R&D (distincts de l'IP de la Ltd IL).",
+    desc: "30% of R&D expenses reimbursed. The FR SAS must have its OWN R&D projects (distinct from the IP of the IL Ltd).",
     residency: "N/A",
     tasks: [{t:"Identify the French SAS's own R&D (AI film workflow, auto QC)",done:false},{t:"Recruit at least 1 French R&D engineer",done:false},{t:"Tenir cahier de labo",done:false},{t:"Remplir formulaire 2069-A",done:false}],
     docs: ["Formulaire 2069-A", "Dossier technique CIR", "Cahier de labo", "Fiches de paie R&D"] },
 
   { id: "c2i", name: "C2I (International Tax Credit)", entity: "FR", cat: "CNC", amount: "20% of FR spend (max €4M/work)", rate: "20%", timing: "Avant fabrication", difficulty: 3, priority: 2, deadline: "Avant chaque film", status: "todo",
     url: "https://www.cnc.fr/",
-    desc: "Films d'initiative ÉTRANGÈRE fabriqués en France. La Ltd IL commande (initiative), la SAS FR exécute.",
+    desc: "FOREIGN-initiative films made in France. The IL Ltd commissions (initiative), the FR SAS executes.",
     residency: "N/A",
     tasks: [{t:"Film = IL initiative (Ltd = lead producer)",done:false},{t:"French SAS = executive producer",done:false},{t:"Deal memo Ltd ↔ SAS",done:false},{t:"Dossier CNC avant fabrication",done:false}],
     docs: ["Deal memo", "Formulaire C2I CNC", "FR spend quote"] },
 
-  { id: "cia", name: "CIA (Audiovisual Tax Credit)", entity: "FR", cat: "CNC", amount: "25% of eligible spend", rate: "25%", timing: "Approval before shooting", difficulty: 3, priority: 2, deadline: "Avant chaque œuvre", status: "todo",
+  { id: "cia", name: "CIA (Audiovisual Tax Credit)", entity: "FR", cat: "CNC", amount: "25% of eligible spend", rate: "25%", timing: "Approval before shooting", difficulty: 3, priority: 2, deadline: "Before each work", status: "todo",
     url: "https://www.cnc.fr/",
     desc: "Audiovisual works of French initiative. French SAS = lead producer.",
     residency: "N/A",
@@ -269,7 +269,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
 
   { id: "acm", name: "ACM — World Cinema Support", entity: "FR", cat: "CNC", amount: "50-200K€/film", rate: "Selective grant", timing: "Ongoing", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://www.cnc.fr/",
-    desc: "Coprod internationale FR + monde. Réalisateur étranger (israélien OK). SAS FR = coproducteur FR.",
+    desc: "International coproduction FR + worldwide. Foreign director (Israeli OK). FR SAS = FR coproducer.",
     residency: "N/A",
     tasks: [{t:"FR-IL co-production with an Israeli director",done:false},{t:"Submit on CNC MesAides",done:false}],
     docs: ["Contrat coprod FR-IL", "Screenplay", "Bilateral budget"] },
@@ -335,7 +335,7 @@ const INIT_INSTITUTIONS: Institution[] = [
   {id:"i-avi-chai",name:"Fondation Avi Chai",cat:"Fondation",type:"Philanthropie",focus:"Jewish culture, education, identity, cinema",stage:"Projet par projet",ticket:"Grants variables",url:"https://avichai.org.il/",contact:"Via site web",what_to_send:"Proposal related to Jewish culture/identity",why:"If the content touches on Jewish/Israeli identity. Significant philanthropic budget.",status:"todo"},
 
   // Banques Israel
-  {id:"i-poalim",name:"Bank HaPoalim HiTech",cat:"Banque",type:"Tech loans",focus:"Startups tech, venture lending",stage:"Post-seed (avec investisseurs)",ticket:"Loans 500K-5M NIS",url:"https://www.poalimhitech.co.il/",contact:"poalim.hitech@bankhapoalim.co.il",what_to_send:"Business plan, preuve d'investisseurs, projections",why:"Premier à développer une division hi-tech dédiée. Venture lending complémentaire aux grants.",status:"todo"},
+  {id:"i-poalim",name:"Bank HaPoalim HiTech",cat:"Banque",type:"Tech loans",focus:"Startups tech, venture lending",stage:"Post-seed (avec investisseurs)",ticket:"Loans 500K-5M NIS",url:"https://www.poalimhitech.co.il/",contact:"poalim.hitech@bankhapoalim.co.il",what_to_send:"Business plan, preuve d'investisseurs, projections",why:"First to develop a dedicated hi-tech division. Venture lending complementary to grants.",status:"todo"},
   {id:"i-leumi",name:"Leumi Tech",cat:"Banque",type:"Tech loans",focus:"Venture lending, startups tech",stage:"Post-seed",ticket:"Variables",url:"https://www.leumi.co.il/",contact:"Via succursale tech",what_to_send:"Business plan + investisseurs",why:"Second banking option for venture lending.",status:"todo"},
 
   // France — BPI

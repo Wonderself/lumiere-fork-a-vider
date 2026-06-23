@@ -28,7 +28,7 @@ const statusColors: Record<string, string> = {
 
 const statusLabels: Record<string, string> = {
   NOT_STARTED: 'Not started',
-  ELIGIBLE: 'Éligible',
+  ELIGIBLE: 'Eligible',
   IN_PROGRESS: 'In progress',
   SUBMITTED: 'Application submitted',
   ACCEPTED: 'Obtenu',

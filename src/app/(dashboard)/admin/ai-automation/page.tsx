@@ -81,7 +81,7 @@ const fullyAutomated: AutomationItem[] = [
     id: 'marketing-copy',
     title: 'Marketing & social media',
     description: 'Writing posts, emails and marketing copy.',
-    detail: 'Génère du contenu marketing adapté à chaque plateforme (X, Instagram, LinkedIn, TikTok) avec les bons formats, hashtags et appels à l\'action.',
+    detail: 'Generates marketing content tailored to each platform (X, Instagram, LinkedIn, TikTok) with the right formats, hashtags and calls to action.',
     icon: Megaphone,
     costSaving: 1200,
     active: false,
@@ -117,7 +117,7 @@ const fullyAutomated: AutomationItem[] = [
     id: 'ab-testing',
     title: 'Variantes A/B testing',
     description: 'Variant generation for creative testing.',
-    detail: 'Crée automatiquement des variantes (titres, thumbnails, descriptions) pour les vidéos des créateurs et analyse les performances pour optimiser.',
+    detail: 'Automatically creates variants (titles, thumbnails, descriptions) for creators\' videos and analyzes performance to optimize.',
     icon: Palette,
     costSaving: 400,
     active: false,
@@ -144,7 +144,7 @@ const fullyAutomated: AutomationItem[] = [
     id: 'analytics',
     title: 'Analytics & reporting',
     description: 'Rapports automatiques et insights.',
-    detail: 'Génère des rapports hebdomadaires/mensuels avec KPIs, tendances, alertes et recommandations actionables pour le fondateur.',
+    detail: 'Generates weekly/monthly reports with KPIs, trends, alerts and actionable recommendations for the founder.',
     icon: BarChart3,
     costSaving: 700,
     active: true,
@@ -231,7 +231,7 @@ const humanOnly: AutomationItem[] = [
     id: 'kyc-contracts',
     title: 'Contrats fournisseurs KYC',
     description: 'Negotiation and signing with Sumsub/Jumio.',
-    detail: 'La sélection, négociation tarifaire et signature de contrats avec les fournisseurs de vérification d\'identité requièrent un interlocuteur humain.',
+    detail: 'Selecting, negotiating rates and signing contracts with identity-verification providers requires a human contact.',
     icon: Shield,
     costSaving: 0,
     active: false,
@@ -240,7 +240,7 @@ const humanOnly: AutomationItem[] = [
     id: 'incorporation',
     title: 'Company incorporation',
     description: 'Creation of the legal entity in Israel.',
-    detail: 'L\'immatriculation d\'une société (Ltd/LLC) auprès du Registraire des Sociétés israélien nécessite des documents physiques et un avocat local.',
+    detail: 'Registering a company (Ltd/LLC) with the Israeli Registrar of Companies requires physical documents and a local lawyer.',
     icon: Building2,
     costSaving: 0,
     active: false,
@@ -249,7 +249,7 @@ const humanOnly: AutomationItem[] = [
     id: 'tax-declarations',
     title: 'Tax filings',
     description: 'VAT and corporate tax filings.',
-    detail: 'Les déclarations fiscales auprès de l\'administration israélienne (Mas Hachnasa, Ma\'am) doivent être signées par un comptable agréé (Ro\'e Heshbon).',
+    detail: 'Tax filings with the Israeli authorities (Mas Hachnasa, Ma\'am) must be signed by a certified accountant (Ro\'e Heshbon).',
     icon: Calculator,
     costSaving: 0,
     active: false,
@@ -258,7 +258,7 @@ const humanOnly: AutomationItem[] = [
     id: 'signatures',
     title: 'Signatures physiques',
     description: 'Documents requiring a handwritten signature.',
-    detail: 'Certains documents légaux israéliens requièrent une signature physique authentifiée ou certifiée par un notaire (No\'tar).',
+    detail: 'Some Israeli legal documents require a physical signature authenticated or certified by a notary (No\'tar).',
     icon: Stamp,
     costSaving: 0,
     active: false,
@@ -267,7 +267,7 @@ const humanOnly: AutomationItem[] = [
     id: 'court',
     title: 'Litiges juridiques & tribunaux',
     description: 'Court representation and hearings.',
-    detail: 'Toute procédure devant les tribunaux israéliens nécessite un avocat inscrit au Barreau israélien (Lishkat Orchei HaDin).',
+    detail: 'Any proceeding before Israeli courts requires a lawyer admitted to the Israeli Bar (Lishkat Orchei HaDin).',
     icon: Gavel,
     costSaving: 0,
     active: false,
@@ -305,7 +305,7 @@ export default async function AdminAIAutomationPage() {
     { label: 'Humain uniquement', value: humanOnly.length.toString(), sub: 'non automatisable', color: 'text-red-400', icon: XCircle },
     { label: 'Modules enabled', value: `${activatedCount}/${totalActivatable}`, sub: 'en production', color: 'text-blue-600', icon: Zap },
     { label: 'Claude API cost', value: `${claudeApiCost} EUR/mois`, sub: 'budget API actuel', color: 'text-purple-600', icon: Brain },
-    { label: 'Économies actives', value: `${new Intl.NumberFormat('fr-FR').format(activeSavings)} EUR`, sub: '/month est.', color: 'text-[#E50914]', icon: DollarSign },
+    { label: 'Active savings', value: `${new Intl.NumberFormat('fr-FR').format(activeSavings)} EUR`, sub: '/month est.', color: 'text-[#E50914]', icon: DollarSign },
   ]
 
   return (
@@ -335,7 +335,7 @@ export default async function AdminAIAutomationPage() {
               <p className="text-3xl font-bold text-green-600">
                 {new Intl.NumberFormat('fr-FR').format(totalMonthlySavings)} EUR
               </p>
-              <p className="text-xs text-white/50 mt-1">Économie potentielle / mois</p>
+              <p className="text-xs text-white/50 mt-1">Potential savings / month</p>
             </div>
             <div className="text-center">
               <Sparkles className="h-8 w-8 text-purple-600 mx-auto mb-2" />
@@ -484,7 +484,7 @@ export default async function AdminAIAutomationPage() {
                   <th className="text-left py-3 px-2">Category</th>
                   <th className="text-right py-3 px-2">Avec Humains</th>
                   <th className="text-right py-3 px-2">Avec Claude</th>
-                  <th className="text-right py-3 px-2">Économie</th>
+                  <th className="text-right py-3 px-2">Economy</th>
                 </tr>
               </thead>
               <tbody className="text-white/60">

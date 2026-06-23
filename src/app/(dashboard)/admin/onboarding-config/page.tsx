@@ -40,7 +40,7 @@ export default function OnboardingConfigPage() {
           { key: 'tiers' as const, label: '4 Tiers', icon: Layers },
           { key: 'demo' as const, label: 'Demo accounts', icon: Clock },
           { key: 'bonus' as const, label: 'Signup Bonus', icon: Gift },
-          { key: 'steps' as const, label: 'Étapes Onboarding', icon: Compass },
+          { key: 'steps' as const, label: 'Onboarding steps', icon: Compass },
         ].map(t => {
           const TIcon = t.icon
           return <button key={t.key} onClick={() => setTab(t.key)} className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium ${tab === t.key ? 'bg-[#E50914] text-white' : 'bg-white/[0.05] text-white/60'}`}><TIcon className="h-3.5 w-3.5" />{t.label}</button>

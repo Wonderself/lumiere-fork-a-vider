@@ -36,7 +36,7 @@ const ACTION_FOLDERS: ActionFolder[] = [
   { name: 'Finance', icon: Target, color: '#10B981', items: [] },
   { name: 'Tech', icon: Brain, color: '#8B5CF6', items: [] },
   { name: 'Juridique', icon: Shield, color: '#6366F1', items: [] },
-  { name: 'Équipe', icon: Flag, color: '#F59E0B', items: [] },
+  { name: 'Team', icon: Flag, color: '#F59E0B', items: [] },
   { name: 'Partenariats', icon: Eye, color: '#EC4899', items: [] },
   { name: 'Community', icon: Calendar, color: '#14B8A6', items: [] },
 ]

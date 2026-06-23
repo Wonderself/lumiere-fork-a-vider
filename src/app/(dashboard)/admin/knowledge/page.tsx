@@ -20,7 +20,7 @@ export default function KnowledgeAdminPage() {
     setSearching(true)
     await new Promise(r => setTimeout(r, 1000))
     setSearchResults([
-      { content: 'Résultat sémantique simulé pour "' + searchQuery.substring(0, 40) + '..."', score: 0.92, type: 'film_bible' },
+      { content: 'Simulated semantic result for "' + searchQuery.substring(0, 40) + '..."', score: 0.92, type: 'film_bible' },
       { content: 'Second result with lower similarity', score: 0.81, type: 'character' },
       { content: 'Text result (fallback)', score: 0.50, type: 'general' },
     ])

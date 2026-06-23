@@ -303,7 +303,7 @@ export default function DocumentFactoryPage() {
               <ShieldCheck className={`h-5 w-5 ${reviewScore >= 80 ? 'text-green-600' : reviewScore >= 60 ? 'text-yellow-600' : 'text-red-600'}`} />
               <span className="text-sm font-semibold text-white">Review juridique : {reviewScore}/100</span>
             </div>
-            <p className="text-xs text-white/50 mt-1">Révisé par l&apos;agent cg-doc-reviewer · Faites relire par un professionnel avant signature</p>
+            <p className="text-xs text-white/50 mt-1">Reviewed by the cg-doc-reviewer agent · Have a professional review it before signing</p>
           </div>
         )}
 

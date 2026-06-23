@@ -35,7 +35,7 @@ const RATIOS = [
 const VIDEO_DURATIONS = [
   { id: '3s', label: '3 secondes', desc: 'Clip rapide' },
   { id: '5s', label: '5 secondes', desc: 'Standard' },
-  { id: '10s', label: '10 secondes', desc: 'Étendu' },
+  { id: '10s', label: '10 secondes', desc: 'Extended' },
 ]
 
 export default function MyStudioPage() {

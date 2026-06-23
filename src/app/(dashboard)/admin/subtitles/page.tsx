@@ -298,7 +298,7 @@ export default function AdminSubtitlesPage() {
         },
         {
           id: '2',
-          title: 'Nuit Éternelle',
+          title: 'Eternal Night',
           slug: 'nuit-eternelle',
           thumbnailUrl: null,
           status: 'LIVE',

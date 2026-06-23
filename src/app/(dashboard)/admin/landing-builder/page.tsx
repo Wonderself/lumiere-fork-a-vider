@@ -149,7 +149,7 @@ export default function LandingBuilderPage() {
         </div>
         <div className="flex gap-2">
           <button onClick={() => setPreview(!preview)} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${preview ? 'bg-blue-50 text-blue-700' : 'bg-white/[0.05] text-white/60'}`}>
-            <Eye className="inline h-3.5 w-3.5 mr-1" />{preview ? 'Éditer' : 'Preview'}
+            <Eye className="inline h-3.5 w-3.5 mr-1" />{preview ? 'Edit' : 'Preview'}
           </button>
           <button onClick={savePage} disabled={saving} className="px-4 py-1.5 bg-[#E50914] text-white text-xs font-medium rounded-lg disabled:opacity-50">
             {saving ? <Loader2 className="inline h-3.5 w-3.5 animate-spin mr-1" /> : <Save className="inline h-3.5 w-3.5 mr-1" />}Save
