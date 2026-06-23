@@ -194,7 +194,7 @@ export default async function StreamingFilmPage(props: { params: Promise<{ slug:
                   </div>
                   <div>
                     <p className="text-white font-medium">{film.submittedBy.displayName || 'Anonyme'}</p>
-                    <p className="text-white/30 text-sm">Créateur vérifié</p>
+                    <p className="text-white/30 text-sm">Verified creator</p>
                   </div>
                 </div>
                 {film.submittedBy.bio && (

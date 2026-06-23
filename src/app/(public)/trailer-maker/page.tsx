@@ -100,7 +100,7 @@ export default function TrailerMakerPage() {
 
             {/* Styles */}
             <div>
-              <label className="text-xs text-gray-400 mb-2 block">Styles de bande-annonce (multi-sélection)</label>
+              <label className="text-xs text-gray-400 mb-2 block">Trailer styles (multi-select)</label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {TRAILER_STYLES.map(s => (
                   <button key={s.id} onClick={() => toggleStyle(s.id)} className={`text-left rounded-xl border p-4 transition-colors ${selectedStyles.includes(s.id) ? 'border-[#E50914] bg-[#E50914]/10' : 'border-gray-800 hover:border-gray-700'}`}>
@@ -118,7 +118,7 @@ export default function TrailerMakerPage() {
                   <User className="h-5 w-5 text-purple-400" />
                   <div>
                     <p className="text-sm font-medium text-white">Mettez votre visage</p>
-                    <p className="text-[10px] text-gray-500">Devenez le héros de votre film</p>
+                    <p className="text-[10px] text-gray-500">Become the hero of your film</p>
                   </div>
                 </div>
                 <button onClick={() => setFaceMode(!faceMode)} className={`relative h-6 w-11 rounded-full transition-colors ${faceMode ? 'bg-[#E50914]' : 'bg-gray-600'}`}>
@@ -141,7 +141,7 @@ export default function TrailerMakerPage() {
           <div className="text-center py-20">
             <Loader2 className="h-16 w-16 text-[#E50914] mx-auto mb-6 animate-spin" />
             <h2 className="text-2xl font-bold text-white mb-2">Creating...</h2>
-            <p className="text-gray-400 mb-6">L&apos;IA génère les scènes, les images et assemble votre bande-annonce</p>
+            <p className="text-gray-400 mb-6">AI generates the scenes and images and assembles your trailer</p>
             <div className="w-full max-w-md mx-auto h-3 bg-gray-800 rounded-full overflow-hidden">
               <div className="h-full bg-[#E50914] rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
             </div>
@@ -153,7 +153,7 @@ export default function TrailerMakerPage() {
           <div className="space-y-8">
             <div className="text-center">
               <Sparkles className="h-10 w-10 text-[#E50914] mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-white mb-2">{results.length} bande{results.length > 1 ? 's' : ''}-annonce créée{results.length > 1 ? 's' : ''} !</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">{results.length} trailer{results.length > 1 ? 's' : ''} created!</h2>
               <p className="text-gray-400">Pour &quot;{filmTitle}&quot; — {genre}</p>
             </div>
 
@@ -222,13 +222,13 @@ export default function TrailerMakerPage() {
                     >
                       <Play className="h-5 w-5" /> Lire la bande-annonce
                     </button>
-                    <p className="text-[10px] text-gray-600 mt-2">Vidéo assemblée automatiquement · Lecteur HTML5</p>
+                    <p className="text-[10px] text-gray-600 mt-2">Video assembled automatically · HTML5 player</p>
                   </div>
                 </div>
               )
             })}
 
-            <button onClick={() => { setStep('setup'); setResults([]) }} className="w-full py-3 bg-gray-800 text-gray-400 rounded-xl hover:bg-gray-700 transition-colors text-sm">Créer une autre bande-annonce</button>
+            <button onClick={() => { setStep('setup'); setResults([]) }} className="w-full py-3 bg-gray-800 text-gray-400 rounded-xl hover:bg-gray-700 transition-colors text-sm">Create another trailer</button>
           </div>
         )}
       </div>

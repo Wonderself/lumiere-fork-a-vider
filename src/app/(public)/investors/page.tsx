@@ -1536,7 +1536,7 @@ export default function InvestorsPage() {
               <Badge className="mb-4 border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">TARGET</Badge>
               <h3 className="text-lg font-bold text-white mb-4">Target structure</h3>
               <div className="space-y-3 text-sm text-white/50">
-                <p><span className="text-white font-medium">Israeli Ltd</span> — Holding, R&D, Jérusalem Zone A</p>
+                <p><span className="text-white font-medium">Israeli Ltd</span> — Holding, R&D, Jerusalem Zone A</p>
                 <p><span className="text-white font-medium">French SAS</span> — Production, IP Films, Paris</p>
                 <p><span className="text-white font-medium">Delaware C-Corp</span> — Post-seed, US market</p>
               </div>

@@ -48,7 +48,7 @@ export default function ReferralPage() {
               {copied ? <><Check className="inline h-4 w-4 mr-1" />Copied</> : <><Copy className="inline h-4 w-4 mr-1" />Copy link</>}
             </button>
           </div>
-          <p className="text-xs text-gray-500">Vous avez parrainé <span className="text-white font-bold">{referralCount}</span> personne(s)</p>
+          <p className="text-xs text-gray-500">You have referred <span className="text-white font-bold">{referralCount}</span> personne(s)</p>
         </div>
 
         {/* Rewards Grid */}
@@ -56,7 +56,7 @@ export default function ReferralPage() {
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 text-center">
             <Gift className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
             <p className="text-sm font-semibold text-white">Pour vous (parrain)</p>
-            <p className="text-xs text-gray-400 mt-1">Jusqu&apos;à 25 crédits par filleul + XP + badges</p>
+            <p className="text-xs text-gray-400 mt-1">Up to 25 credits per referral + XP + badges</p>
           </div>
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 text-center">
             <Heart className="h-8 w-8 text-pink-400 mx-auto mb-3" />

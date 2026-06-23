@@ -44,7 +44,7 @@ export default function MarketplacePage() {
             <span className="text-sm font-medium text-indigo-400">Marketplace</span>
           </div>
           <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-4">
-            Templates d&apos;Agents <span className="text-indigo-400">Spécialisés</span>
+            Templates d&apos;Agents <span className="text-indigo-400">Specialized</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Des agents pré-configurés pour des besoins spécifiques : soumission festivals,
@@ -84,7 +84,7 @@ export default function MarketplacePage() {
                       ))}
                     </div>
                     <div className="flex items-center gap-3 mt-4 text-[10px] text-gray-600">
-                      <span>Modèle: Sonnet</span>
+                      <span>Model: Sonnet</span>
                       <span>·</span>
                       <span>{agent.tags.join(', ')}</span>
                     </div>
@@ -98,7 +98,7 @@ export default function MarketplacePage() {
         {/* Coming Soon */}
         <div className="rounded-2xl border border-dashed border-gray-700 bg-gray-900/30 p-12 text-center">
           <Store className="h-12 w-12 text-gray-600 mx-auto mb-4" />
-          <h3 className="text-lg font-bold text-white mb-2">Plus d&apos;agents à venir</h3>
+          <h3 className="text-lg font-bold text-white mb-2">More agents coming soon</h3>
           <p className="text-sm text-gray-500 max-w-md mx-auto">
             La marketplace s&apos;enrichira de nouveaux templates créés par la communauté.
             Bientôt, vous pourrez aussi créer et partager vos propres agents.

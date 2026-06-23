@@ -56,7 +56,7 @@ export default function FilmKnowledgePage() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
               <Brain className="h-4 w-4 text-purple-400" />
-              <span className="text-sm font-medium text-purple-400">Mémoire Film</span>
+              <span className="text-sm font-medium text-purple-400">Film Memory</span>
             </div>
             <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-4">
               {FILM_MEMORY_EXPLAINER.title}
@@ -86,7 +86,7 @@ export default function FilmKnowledgePage() {
 
           {/* Categories Preview */}
           <div className="mb-12">
-            <h2 className="text-xl font-bold text-white mb-6 text-center">8 Catégories de Mémoire</h2>
+            <h2 className="text-xl font-bold text-white mb-6 text-center">8 Memory Categories</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {FILM_MEMORY_CATEGORIES.map(cat => {
                 const CIcon = CAT_ICONS[cat.icon] || Brain
@@ -107,7 +107,7 @@ export default function FilmKnowledgePage() {
               <BookOpen className="h-6 w-6" />
               Construire la Mémoire de Mon Film
             </button>
-            <p className="text-xs text-gray-600 mt-3">Plus la bible est riche, plus les contributions IA seront cohérentes</p>
+            <p className="text-xs text-gray-600 mt-3">The richer the bible, the more consistent the AI contributions</p>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function FilmKnowledgePage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <button onClick={() => setView('explain')} className="text-xs text-gray-500 hover:text-white mb-2 block">← Retour aux explications</button>
-            <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Bible Film — Mémoire IA</h1>
+            <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Film Bible — AI Memory</h1>
             <p className="text-sm text-gray-400 mt-1">Complétude: {completeness}% · {entries.length} entrées</p>
           </div>
           <div className="text-right">
@@ -165,7 +165,7 @@ export default function FilmKnowledgePage() {
             {!activeCategory ? (
               <div className="rounded-2xl border border-dashed border-gray-700 bg-gray-900/30 p-12 text-center">
                 <Brain className="h-12 w-12 text-gray-600 mx-auto mb-4" />
-                <p className="text-sm text-gray-500">Sélectionnez une catégorie pour commencer à remplir la mémoire de votre film</p>
+                <p className="text-sm text-gray-500">Select a category to start filling your film's memory</p>
               </div>
             ) : (
               <div className="space-y-6">

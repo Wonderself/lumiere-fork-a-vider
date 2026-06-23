@@ -66,7 +66,7 @@ export default function AgentBuilderPage() {
           <h1 className="text-3xl font-bold text-white font-[family-name:var(--font-playfair)] mb-3">
             Créez votre <span className="text-[#E50914]">Agent IA</span>
           </h1>
-          <p className="text-gray-400">Configurez un agent personnalisé pour vos projets cinéma</p>
+          <p className="text-gray-400">Configure a custom agent for your film projects</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -137,7 +137,7 @@ export default function AgentBuilderPage() {
               {myAgents.length === 0 ? (
                 <div className="rounded-xl border border-dashed border-gray-700 p-6 text-center">
                   <Bot className="h-8 w-8 text-gray-600 mx-auto mb-2" />
-                  <p className="text-xs text-gray-500">Aucun agent créé</p>
+                  <p className="text-xs text-gray-500">No agents yet</p>
                 </div>
               ) : (
                 <div className="space-y-2">

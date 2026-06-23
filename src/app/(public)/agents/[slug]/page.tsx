@@ -102,11 +102,11 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ sl
             <p className="text-sm font-semibold text-white">{agent.maxTokens.toLocaleString()}</p>
           </div>
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Température</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Temperature</p>
             <p className="text-sm font-semibold text-white">{agent.temperature}</p>
           </div>
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Entrées</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Entries</p>
             <p className="text-sm font-semibold text-white">{agent.inputTypes.join(', ')}</p>
           </div>
         </div>

@@ -64,7 +64,7 @@ export default async function ContestsPage() {
         {liveFilms.length === 0 ? (
           <div className="text-center py-16 mb-12">
             <Film className="h-12 w-12 text-white/10 mx-auto mb-3" />
-            <p className="text-white/30">Aucun film en compétition ce mois-ci</p>
+            <p className="text-white/30">No film competing this month</p>
             <Link href="/streaming/submit" className="inline-block mt-4 px-6 py-2.5 bg-[#E50914] text-white font-semibold rounded-lg hover:bg-[#FF2D2D] transition-colors duration-300">
               Soumettre le premier
             </Link>

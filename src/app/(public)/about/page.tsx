@@ -23,9 +23,9 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'À Propos — CINEGENY Studio',
+  title: 'About — CINEGENY Studio',
   description:
-    'Découvrez CINEGENY Studio : le studio de cinéma IA fondé par Emmanuel Smadja (TF1, Lagardère) et Eric Haldezos (réalisateur primé). Paris · Tel Aviv · Hollywood.',
+    'Discover CINEGENY Studio: the AI cinema studio founded by Emmanuel Smadja (TF1, Lagardère) and Eric Haldezos (award-winning director). Paris · Tel Aviv · Hollywood.',
 }
 
 const pipeline = [

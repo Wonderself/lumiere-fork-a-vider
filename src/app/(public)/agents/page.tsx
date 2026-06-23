@@ -162,7 +162,7 @@ export default function AgentsPage() {
             </div>
             <div>
               <h2 className="text-xl font-bold text-white">Marketplace</h2>
-              <p className="text-xs text-gray-500">Templates pré-configurés pour des besoins spécifiques</p>
+              <p className="text-xs text-gray-500">Preconfigured templates for specific needs</p>
             </div>
             <Link
               href="/agents/marketplace"

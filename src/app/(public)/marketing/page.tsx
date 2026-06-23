@@ -103,7 +103,7 @@ export default function MarketingPage() {
           <h1 className="text-3xl font-bold text-white font-[family-name:var(--font-playfair)] mb-2">
             Social Media & <span className="text-[#E50914]">Campagnes</span>
           </h1>
-          <p className="text-gray-400 text-sm">7 agents · Multi-plateforme · Calendrier éditorial · Campagnes</p>
+          <p className="text-gray-400 text-sm">7 agents · Multi-platform · Editorial calendar · Campaigns</p>
         </div>
 
         {/* Agents */}
@@ -153,7 +153,7 @@ export default function MarketingPage() {
                     <option value="professional">Pro</option>
                     <option value="casual">Casual</option>
                     <option value="enthusiastic">Enthousiaste</option>
-                    <option value="cinephile">Cinéphile</option>
+                    <option value="cinephile">Cinephile</option>
                   </select>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function MarketingPage() {
                 )
               })}
             </div>
-            {calendarItems.length === 0 && <p className="text-center text-sm text-gray-600 py-8">Calendrier vide — générez des posts et planifiez-les</p>}
+            {calendarItems.length === 0 && <p className="text-center text-sm text-gray-600 py-8">Empty calendar — generate posts and schedule them</p>}
           </div>
         )}
 

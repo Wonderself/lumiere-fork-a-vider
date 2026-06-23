@@ -40,7 +40,7 @@ export default function RewardsPage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-6">
             <Trophy className="h-4 w-4 text-yellow-400" />
-            <span className="text-sm font-medium text-yellow-400">Récompenses & Progression</span>
+            <span className="text-sm font-medium text-yellow-400">Rewards & Progression</span>
           </div>
           <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-3">
             Votre <span className="text-[#E50914]">Parcours</span> Cinéma
@@ -188,7 +188,7 @@ export default function RewardsPage() {
               <Target className="h-6 w-6 text-yellow-400" />
               <div>
                 <p className="text-sm font-semibold text-white">Daily challenges</p>
-                <p className="text-xs text-gray-400">Complétez les défis pour des récompenses bonus. Se renouvelle à minuit.</p>
+                <p className="text-xs text-gray-400">Complete the challenges for bonus rewards. Resets at midnight.</p>
               </div>
               <Clock className="h-4 w-4 text-gray-500 ml-auto" />
             </div>
@@ -252,7 +252,7 @@ export default function RewardsPage() {
                 <Heart className="h-6 w-6 text-pink-400 mx-auto mb-2" />
                 <p className="text-sm font-semibold text-white">Pour votre ami (filleul)</p>
                 <p className="text-lg font-bold text-pink-400 mt-1">{REFERRAL_CONFIG.refereeReward.label}</p>
-                <p className="text-[10px] text-gray-500">à l&apos;inscription</p>
+                <p className="text-[10px] text-gray-500">at sign-up</p>
               </div>
             </div>
 

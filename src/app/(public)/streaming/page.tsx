@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Streaming — Films IA en continu',
   description:
-    "Découvrez et regardez des films créés par l'intelligence artificielle. Catalogue de courts et longs métrages IA, bandes-annonces exclusives.",
+    "Discover and watch films created by artificial intelligence. A catalog of AI short and feature films, plus exclusive trailers.",
   openGraph: {
     title: 'Streaming — Films IA en continu | CINEGENY',
     description: "Discover and watch films created by artificial intelligence.",
@@ -122,8 +122,8 @@ export default async function StreamingPage(props: { searchParams: Promise<{ gen
         <div className="mb-12 p-7 sm:p-8 rounded-2xl bg-gradient-to-r from-[#E50914]/10 to-transparent border border-[#E50914]/20">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
-              <h2 className="text-xl font-bold text-white mb-1">Vous êtes réalisateur ?</h2>
-              <p className="text-white/50">Soumettez votre film et gagnez de l&apos;argent à chaque vue.</p>
+              <h2 className="text-xl font-bold text-white mb-1">Are you a filmmaker?</h2>
+              <p className="text-white/50">Submit your film and earn money on every view.</p>
             </div>
             <Link
               href="/streaming/submit"

@@ -44,13 +44,13 @@ export default async function SubmitFilmPage() {
           <Card className="bg-[#E50914]/5 border-[#E50914]/20 backdrop-blur-sm">
             <CardContent className="p-4 text-center">
               <p className="text-[#E50914] text-2xl font-bold">50%</p>
-              <p className="text-white/50 text-sm">Part créateur par défaut</p>
+              <p className="text-white/50 text-sm">Default creator share</p>
             </CardContent>
           </Card>
           <Card className="bg-white/[0.03] border-white/[0.08] backdrop-blur-sm">
             <CardContent className="p-4 text-center">
               <p className="text-white text-2xl font-bold">+10%</p>
-              <p className="text-white/50 text-sm">Bonus exclusivité</p>
+              <p className="text-white/50 text-sm">Exclusivity bonus</p>
             </CardContent>
           </Card>
           <Card className="bg-white/[0.03] border-white/[0.08] backdrop-blur-sm">
@@ -91,13 +91,13 @@ export default async function SubmitFilmPage() {
                       <Input name="genre" className="bg-white/5 border-white/[0.08] text-white mt-1" placeholder="Sci-Fi, Drame..." />
                     </div>
                     <div>
-                      <Label className="text-white/60">Année</Label>
+                      <Label className="text-white/60">Year</Label>
                       <Input name="year" type="number" className="bg-white/5 border-white/[0.08] text-white mt-1" placeholder="2026" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label className="text-white/60">Durée (secondes)</Label>
+                      <Label className="text-white/60">Duration (seconds)</Label>
                       <Input name="duration" type="number" className="bg-white/5 border-white/[0.08] text-white mt-1" placeholder="5400" />
                     </div>
                     <div>
@@ -116,9 +116,9 @@ export default async function SubmitFilmPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <Label className="text-white/60">URL de la vidéo *</Label>
+                    <Label className="text-white/60">Video URL *</Label>
                     <Input name="videoUrl" required className="bg-white/5 border-white/[0.08] text-white mt-1" placeholder="https://..." />
-                    <p className="text-white/20 text-xs mt-1">Lien direct vers le fichier vidéo (MP4, WebM)</p>
+                    <p className="text-white/20 text-xs mt-1">Direct link to the video file (MP4, WebM)</p>
                   </div>
                   <div>
                     <Label className="text-white/60">URL bande-annonce</Label>

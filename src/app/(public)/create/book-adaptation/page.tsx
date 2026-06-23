@@ -275,7 +275,7 @@ export default function BookAdaptationPage() {
                     id="title"
                     name="title"
                     type="text"
-                    placeholder="Ex : L'Étranger"
+                    placeholder="Ex: The Stranger"
                     required
                     className="w-full pl-11 pr-4 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:outline-none focus:border-[#E50914]/40 focus:ring-1 focus:ring-[#E50914]/20 transition-all duration-300 text-sm"
                   />
@@ -372,7 +372,7 @@ export default function BookAdaptationPage() {
                     className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:outline-none focus:border-[#E50914]/40 focus:ring-1 focus:ring-[#E50914]/20 transition-all duration-300 text-sm resize-none"
                   />
                 </div>
-                <p className="text-white/25 text-xs">Un synopsis de 50+ mots améliore la précision de l&apos;analyse.</p>
+                <p className="text-white/25 text-xs">A 50+ word synopsis improves analysis accuracy.</p>
               </div>
 
               {/* Why adapted */}

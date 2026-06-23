@@ -11,7 +11,7 @@ export default function BlogPage() {
       <div className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-3">Blog <span className="text-[#E50914]">CineGeny</span></h1>
-          <p className="text-gray-400">Cinéma participatif, IA, tendances industrie</p>
+          <p className="text-gray-400">Participatory cinema, AI, industry trends</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {BLOG_ARTICLES.map(article => (

@@ -74,7 +74,7 @@ export default function PosterMakerPage() {
             <div className="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 space-y-5">
               <div>
                 <label className="text-xs text-gray-400 mb-1.5 block">Titre du film *</label>
-                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Ex: Éclipse Fatale" className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
+                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Ex: Fatal Eclipse" className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none" />
               </div>
               <div>
                 <label className="text-xs text-gray-400 mb-1.5 block">Genre *</label>
@@ -127,10 +127,10 @@ export default function PosterMakerPage() {
             </div>
 
             <button onClick={generate} disabled={generating || !title.trim() || !genre} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-40 transition-colors">
-              {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Wand2 className="h-5 w-5" />Créer l&apos;affiche</>}
+              {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Wand2 className="h-5 w-5" />Create the poster</>}
             </button>
 
-            <p className="text-[10px] text-emerald-400 text-center">0% commission — ~1.5 crédits par affiche</p>
+            <p className="text-[10px] text-emerald-400 text-center">0% commission — ~1.5 credits per poster</p>
           </div>
 
           {/* Preview */}
@@ -142,7 +142,7 @@ export default function PosterMakerPage() {
               <div className="rounded-2xl border border-dashed border-gray-700 bg-gray-900/30 aspect-[2/3] flex items-center justify-center">
                 <div className="text-center">
                   <Image className="h-12 w-12 text-gray-700 mx-auto mb-3" />
-                  <p className="text-sm text-gray-600">Votre affiche apparaîtra ici</p>
+                  <p className="text-sm text-gray-600">Your poster will appear here</p>
                 </div>
               </div>
             ) : (

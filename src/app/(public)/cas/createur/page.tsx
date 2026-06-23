@@ -19,8 +19,8 @@ export default function CreateurCasePage() {
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/10 border border-[#E50914]/20 mb-6"><Film className="h-4 w-4 text-[#E50914]" /><span className="text-sm font-medium text-[#E50914]">Cas d&apos;usage</span></div>
-          <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-4">Vous êtes <span className="text-[#E50914]">Creator</span></h1>
-          <p className="text-lg text-gray-400 max-w-xl mx-auto">Réalisez votre rêve de cinéma sans budget Hollywood. CineGeny démocratise la création.</p>
+          <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-4">You are <span className="text-[#E50914]">Creator</span></h1>
+          <p className="text-lg text-gray-400 max-w-xl mx-auto">Achieve your cinema dream without a Hollywood budget. CineGeny democratizes creation.</p>
         </div>
 
         <div className="space-y-6 mb-16">
@@ -38,11 +38,11 @@ export default function CreateurCasePage() {
         <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center mb-12">
           <Shield className="h-8 w-8 text-emerald-400 mx-auto mb-3" />
           <h3 className="text-lg font-bold text-white mb-2">0% de commission sur l&apos;IA</h3>
-          <p className="text-sm text-gray-400">Vous ne payez que le coût réel des tokens IA. Aucun surcoût caché.</p>
+          <p className="text-sm text-gray-400">You only pay the real cost of AI tokens. No hidden markup.</p>
         </div>
 
         <div className="text-center">
-          <Link href="/create" className="inline-flex items-center gap-2 px-8 py-4 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-2xl transition-colors text-lg"><Zap className="h-6 w-6" />Commencer à créer</Link>
+          <Link href="/create" className="inline-flex items-center gap-2 px-8 py-4 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-2xl transition-colors text-lg"><Zap className="h-6 w-6" />Start creating</Link>
         </div>
       </div>
     </div>

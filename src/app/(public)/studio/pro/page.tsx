@@ -179,7 +179,7 @@ export default function ProStudioPage() {
 
                 {/* Advanced Settings */}
                 <details>
-                  <summary className="text-[10px] text-gray-500 cursor-pointer hover:text-gray-400 flex items-center gap-1"><Settings className="h-3 w-3" />Paramètres avancés</summary>
+                  <summary className="text-[10px] text-gray-500 cursor-pointer hover:text-gray-400 flex items-center gap-1"><Settings className="h-3 w-3" />Advanced settings</summary>
                   <div className="mt-2 rounded-xl border border-gray-800 bg-gray-900/50 p-4 space-y-3">
                     <div><label className="text-[10px] text-gray-400">Guidance Scale: {guidanceScale}</label><input type="range" min={1} max={20} step={0.5} value={guidanceScale} onChange={e => setGuidanceScale(parseFloat(e.target.value))} className="w-full accent-[#E50914]" /></div>
                     <div><label className="text-[10px] text-gray-400">Steps: {steps}</label><input type="range" min={10} max={50} step={5} value={steps} onChange={e => setSteps(parseInt(e.target.value))} className="w-full accent-[#E50914]" /></div>
@@ -187,7 +187,7 @@ export default function ProStudioPage() {
                     <div className="flex items-center justify-between"><span className="text-[10px] text-gray-400">HD Mode</span>
                       <button onClick={() => setHdMode(!hdMode)} className={`h-5 w-9 rounded-full ${hdMode ? 'bg-[#E50914]' : 'bg-gray-600'}`}><span className={`block h-3 w-3 rounded-full bg-white transition-transform ${hdMode ? 'translate-x-5' : 'translate-x-1'}`} /></button>
                     </div>
-                    <div><label className="text-[10px] text-gray-400">Image référence (img2img)</label><input value={referenceUrl} onChange={e => setReferenceUrl(e.target.value)} placeholder="URL image..." className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-1.5 text-xs text-white focus:outline-none" /></div>
+                    <div><label className="text-[10px] text-gray-400">Reference image (img2img)</label><input value={referenceUrl} onChange={e => setReferenceUrl(e.target.value)} placeholder="URL image..." className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-1.5 text-xs text-white focus:outline-none" /></div>
                   </div>
                 </details>
 
@@ -237,7 +237,7 @@ export default function ProStudioPage() {
 
             {tab === 'history' && (
               <div className="space-y-2">
-                <p className="text-xs text-gray-400 mb-2">Prompts récents (cliquez pour réutiliser)</p>
+                <p className="text-xs text-gray-400 mb-2">Recent prompts (click to reuse)</p>
                 {promptHistory.length === 0 ? <p className="text-xs text-gray-600">Aucun historique</p> : promptHistory.map((p, i) => (
                   <button key={i} onClick={() => { setPrompt(p); setTab('photo') }} className="w-full text-left rounded-lg border border-gray-800 bg-gray-900/50 px-3 py-2 text-xs text-gray-400 hover:border-gray-600 truncate">
                     {p}
@@ -253,7 +253,7 @@ export default function ProStudioPage() {
               <div className="rounded-2xl border border-dashed border-gray-700 bg-gray-900/20 flex items-center justify-center h-96">
                 <div className="text-center">
                   <Image className="h-16 w-16 text-gray-700 mx-auto mb-4" />
-                  <p className="text-sm text-gray-500">Vos créations apparaîtront ici</p>
+                  <p className="text-sm text-gray-500">Your creations will appear here</p>
                   <p className="text-[10px] text-gray-600 mt-1">Mode Pro : batch, variations, comparaison, historique</p>
                 </div>
               </div>

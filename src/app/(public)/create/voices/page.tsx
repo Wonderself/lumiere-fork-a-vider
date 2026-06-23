@@ -276,7 +276,7 @@ export default function VoicesPage() {
 
       {/* How it works */}
       <section className="mb-16">
-        <h2 className="text-lg font-bold text-white/80 mb-6">Comment ça marche</h2>
+        <h2 className="text-lg font-bold text-white/80 mb-6">How it works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             { icon: Mic2, title: 'Choisissez une voix', desc: '8 cinematic presets — narrator, hero, villain, child and more.' },
@@ -302,7 +302,7 @@ export default function VoicesPage() {
         {!unlocked && (
           <div className="absolute inset-0 z-30 bg-[#0A0A0A]/70 backdrop-blur-[2px] rounded-xl flex flex-col items-center justify-center gap-3 cursor-not-allowed">
             <AlertCircle className="h-8 w-8 text-white/20" />
-            <p className="text-sm text-white/30 font-medium">Complétez les étapes précédentes pour débloquer</p>
+            <p className="text-sm text-white/30 font-medium">Complete the previous steps to unlock</p>
           </div>
         )}
 
@@ -338,7 +338,7 @@ export default function VoicesPage() {
 
             {/* Emotion selector */}
             <div>
-              <label className="text-xs font-medium text-white/60 mb-2 block">Émotion</label>
+              <label className="text-xs font-medium text-white/60 mb-2 block">Emotion</label>
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                 {VOICE_EMOTIONS.map(emotion => (
                   <button
@@ -409,7 +409,7 @@ export default function VoicesPage() {
           {/* Right: voice selector */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-medium text-white/60">Voix sélectionnée</label>
+              <label className="text-xs font-medium text-white/60">Selected voice</label>
               {selectedVoice && (
                 <span className="text-[10px] text-white/30">{selectedVoice.accent}</span>
               )}
@@ -457,7 +457,7 @@ export default function VoicesPage() {
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2">
               <History className="h-4 w-4 text-white/40" />
-              <h2 className="text-lg font-bold text-white/80">Voix générées</h2>
+              <h2 className="text-lg font-bold text-white/80">Generated voices</h2>
               <span className="text-xs px-2 py-0.5 rounded-full bg-[#E50914]/10 border border-[#E50914]/20 text-[#E50914]">
                 {generated.length}
               </span>
@@ -491,8 +491,8 @@ export default function VoicesPage() {
         <section className="mb-8">
           <div className="flex flex-col items-center justify-center py-14 rounded-xl border border-dashed border-white/[0.06] text-center">
             <Mic2 className="h-10 w-10 text-white/10 mb-4" />
-            <p className="text-sm text-white/30">Vos voix générées apparaîtront ici</p>
-            <p className="text-[11px] text-white/20 mt-1">Entrez un texte et cliquez sur Générer pour commencer</p>
+            <p className="text-sm text-white/30">Your generated voices will appear here</p>
+            <p className="text-[11px] text-white/20 mt-1">Enter text and click Generate to start</p>
           </div>
         </section>
       )}

@@ -134,7 +134,7 @@ export default function MeetingPage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
             <Users className="h-4 w-4 text-purple-400" />
-            <span className="text-sm font-medium text-purple-400">Réunion Multi-Agents</span>
+            <span className="text-sm font-medium text-purple-400">Multi-Agent Meeting</span>
           </div>
           <h1 className="text-3xl font-bold text-white mb-3">
             Réunion d&apos;équipe <span className="text-[#E50914]">IA</span>
@@ -150,7 +150,7 @@ export default function MeetingPage() {
             {/* Meeting Setup */}
             <div className="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 space-y-5">
               <div>
-                <label className="text-sm text-gray-300 mb-1.5 block">Titre de la réunion</label>
+                <label className="text-sm text-gray-300 mb-1.5 block">Meeting title</label>
                 <input
                   value={title}
                   onChange={e => setTitle(e.target.value)}
@@ -187,7 +187,7 @@ export default function MeetingPage() {
 
             {/* Presets */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-300 mb-3">Configurations pré-définies</h3>
+              <h3 className="text-sm font-semibold text-gray-300 mb-3">Predefined presets</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {MEETING_PRESETS.map(preset => (
                   <button
@@ -266,7 +266,7 @@ export default function MeetingPage() {
             <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 className="h-5 w-5 text-emerald-400" />
-                <h2 className="text-lg font-bold text-white">Réunion terminée</h2>
+                <h2 className="text-lg font-bold text-white">Meeting finished</h2>
                 <span className="text-xs text-gray-500 ml-auto">{result.durationMs}ms</span>
               </div>
 
