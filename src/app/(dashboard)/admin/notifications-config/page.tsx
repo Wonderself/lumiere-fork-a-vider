@@ -37,7 +37,7 @@ export default function NotificationsConfigPage() {
     setSaving(true)
     await new Promise(r => setTimeout(r, 1000))
     setSaving(false)
-    toast.success('Configuration sauvegardée')
+    toast.success('Configuration saved')
   }
 
   const CHANNEL_CONFIG = [

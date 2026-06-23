@@ -115,7 +115,7 @@ export default async function AdminTranscodingPage() {
               <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
                 Transcoding
               </h1>
-              <p className="text-white/40 text-xs">Queue de transcodage vidéo & configuration des bitrates</p>
+              <p className="text-white/40 text-xs">Video transcoding queue & bitrate configuration</p>
             </div>
           </div>
         </div>
@@ -134,9 +134,9 @@ export default async function AdminTranscodingPage() {
           {[
             { label: 'En attente', value: stats.pending, icon: Clock, color: 'text-white/60', bg: 'bg-white/5' },
             { label: 'In progress', value: stats.processing, icon: Activity, color: 'text-[#E50914]', bg: 'bg-[#E50914]/10' },
-            { label: 'Terminés', value: stats.completed, icon: CheckCircle2, color: 'text-green-400', bg: 'bg-green-500/10' },
-            { label: 'Échoués', value: stats.failed, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10' },
-            { label: 'Annulés', value: stats.cancelled, icon: AlertCircle, color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
+            { label: 'Completed', value: stats.completed, icon: CheckCircle2, color: 'text-green-400', bg: 'bg-green-500/10' },
+            { label: 'Failed', value: stats.failed, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10' },
+            { label: 'Cancelled', value: stats.cancelled, icon: AlertCircle, color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
           ].map((kpi) => (
             <Card key={kpi.label} className={`${kpi.bg} border-white/5`}>
               <CardContent className="p-5">

@@ -19,14 +19,14 @@ interface DiscussionTemplate {
 }
 
 const TEMPLATES: DiscussionTemplate[] = [
-  { id: 'market', name: 'Analyse Marché', icon: TrendingUp, color: '#3B82F6', agent: 'cg-investment-strategist', systemPrompt: 'Tu es un analyste marché expert en cinéma participatif.', starters: ['Quelles tendances de marché surveiller?', 'Analyse la concurrence', 'Opportunités de croissance'] },
-  { id: 'finance', name: 'Stratégie Financière', icon: DollarSign, color: '#10B981', agent: 'cg-producteur', systemPrompt: 'Tu es un CFO expert en modèles économiques cinéma.', starters: ['Optimiser le modèle de revenus', 'Réduire le coût par user', 'Pricing strategy'] },
-  { id: 'marketing', name: 'Marketing & Growth', icon: Megaphone, color: '#EF4444', agent: 'cg-marketing-film', systemPrompt: 'Tu es un CMO expert en growth hacking cinéma.', starters: ['Plan d\'acquisition users', 'Stratégie de contenu', 'Campagne de lancement'] },
-  { id: 'tech', name: 'Architecture Tech', icon: Cpu, color: '#8B5CF6', agent: 'cg-production-manager', systemPrompt: 'Tu es un CTO expert en scalabilité.', starters: ['Priorités techniques Q2', 'Optimisation performance', 'Stack technique idéale'] },
-  { id: 'hr', name: 'Équipe & RH', icon: Users, color: '#F59E0B', agent: 'cg-community-manager', systemPrompt: 'Tu es un DRH expert en recrutement créatif.', starters: ['Premiers recrutements', 'Culture d\'entreprise', 'Plan de rémunération'] },
-  { id: 'legal', name: 'Juridique & Conformité', icon: Scale, color: '#6366F1', agent: 'cg-studio-head', systemPrompt: 'Tu es un directeur juridique cinéma.', starters: ['Compliance RGPD', 'Droits d\'auteur IA', 'Structure juridique'] },
-  { id: 'vision', name: 'Vision & Produit', icon: Eye, color: '#EC4899', agent: 'cg-creative-director', systemPrompt: 'Tu es un CPO visionnaire.', starters: ['Roadmap 6 mois', 'Différenciation produit', 'Vision long terme'] },
-  { id: 'comms', name: 'Communication', icon: Radio, color: '#14B8A6', agent: 'cg-distribution-manager', systemPrompt: 'Tu es un directeur de communication.', starters: ['Stratégie presse', 'Relations investisseurs', 'Messaging produit'] },
+  { id: 'market', name: 'Market analysis', icon: TrendingUp, color: '#3B82F6', agent: 'cg-investment-strategist', systemPrompt: 'You are a market analyst expert in collaborative cinema.', starters: ['Which market trends to watch?', 'Analyse la concurrence', 'Growth opportunities'] },
+  { id: 'finance', name: 'Financial strategy', icon: DollarSign, color: '#10B981', agent: 'cg-producteur', systemPrompt: 'You are a CFO expert in film business models.', starters: ['Optimize the revenue model', 'Reduce cost per user', 'Pricing strategy'] },
+  { id: 'marketing', name: 'Marketing & Growth', icon: Megaphone, color: '#EF4444', agent: 'cg-marketing-film', systemPrompt: 'You are a CMO expert in film growth hacking.', starters: ['Plan d\'acquisition users', 'Content strategy', 'Campagne de lancement'] },
+  { id: 'tech', name: 'Architecture Tech', icon: Cpu, color: '#8B5CF6', agent: 'cg-production-manager', systemPrompt: 'You are a CTO expert in scalability.', starters: ['Q2 technical priorities', 'Optimisation performance', 'Ideal tech stack'] },
+  { id: 'hr', name: 'Équipe & RH', icon: Users, color: '#F59E0B', agent: 'cg-community-manager', systemPrompt: 'You are an HR director expert in creative recruiting.', starters: ['Premiers recrutements', 'Culture d\'entreprise', 'Compensation plan'] },
+  { id: 'legal', name: 'Legal & Compliance', icon: Scale, color: '#6366F1', agent: 'cg-studio-head', systemPrompt: 'You are a film legal director.', starters: ['Compliance RGPD', 'Droits d\'auteur IA', 'Structure juridique'] },
+  { id: 'vision', name: 'Vision & Produit', icon: Eye, color: '#EC4899', agent: 'cg-creative-director', systemPrompt: 'Tu es un CPO visionnaire.', starters: ['Roadmap 6 mois', 'Product differentiation', 'Vision long terme'] },
+  { id: 'comms', name: 'Communication', icon: Radio, color: '#14B8A6', agent: 'cg-distribution-manager', systemPrompt: 'Tu es un directeur de communication.', starters: ['Press strategy', 'Relations investisseurs', 'Messaging produit'] },
 ]
 
 interface ChatMsg {

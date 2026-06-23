@@ -24,11 +24,11 @@ export default function PromoCodesPage() {
 
   function createCode() {
     if (!newCode.code.trim()) { toast.error('Code requis'); return }
-    if (codes.find(c => c.code === newCode.code.toUpperCase())) { toast.error('Code déjà existant'); return }
+    if (codes.find(c => c.code === newCode.code.toUpperCase())) { toast.error('Code already exists'); return }
     setCodes(prev => [...prev, { ...newCode, code: newCode.code.toUpperCase(), usedCount: 0, isActive: true, expiresAt: newCode.expiresAt || null, createdAt: new Date().toISOString().split('T')[0], createdBy: 'admin' }])
     setNewCode({ code: '', type: 'credits', value: 0, maxUses: 100, expiresAt: '', onePerUser: true, description: '' })
     setShowCreate(false)
-    toast.success('Code promo créé')
+    toast.success('Promo code created')
   }
 
   function toggleCode(code: string) {
@@ -83,7 +83,7 @@ export default function PromoCodesPage() {
             <input value={newCode.code} onChange={e => setNewCode(p => ({ ...p, code: e.target.value.toUpperCase() }))} placeholder="CODE (ex: CINEMA50)" className="rounded-lg border border-white/10 px-3 py-2 text-sm font-mono uppercase focus:border-[#E50914] focus:outline-none" />
             <select value={newCode.type} onChange={e => setNewCode(p => ({ ...p, type: e.target.value as PromoType }))} className="rounded-lg border border-white/10 px-3 py-2 text-sm">{Object.entries(PROMO_TYPES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}</select>
             <input type="number" value={newCode.value || ''} onChange={e => setNewCode(p => ({ ...p, value: parseInt(e.target.value) || 0 }))} placeholder={`Valeur (${PROMO_TYPES[newCode.type].unit})`} className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:outline-none" />
-            <input type="number" value={newCode.maxUses || ''} onChange={e => setNewCode(p => ({ ...p, maxUses: parseInt(e.target.value) || 0 }))} placeholder="Max utilisations (0=illimité)" className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:outline-none" />
+            <input type="number" value={newCode.maxUses || ''} onChange={e => setNewCode(p => ({ ...p, maxUses: parseInt(e.target.value) || 0 }))} placeholder="Max uses (0=unlimited)" className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:outline-none" />
             <input type="date" value={newCode.expiresAt} onChange={e => setNewCode(p => ({ ...p, expiresAt: e.target.value }))} className="rounded-lg border border-white/10 px-3 py-2 text-sm" />
             <input value={newCode.description} onChange={e => setNewCode(p => ({ ...p, description: e.target.value }))} placeholder="Description" className="rounded-lg border border-white/10 px-3 py-2 text-sm focus:outline-none" />
           </div>

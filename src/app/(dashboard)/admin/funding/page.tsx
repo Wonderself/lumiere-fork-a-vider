@@ -30,7 +30,7 @@ const statusLabels: Record<string, string> = {
   NOT_STARTED: 'Not started',
   ELIGIBLE: 'Éligible',
   IN_PROGRESS: 'In progress',
-  SUBMITTED: 'Dossier déposé',
+  SUBMITTED: 'Application submitted',
   ACCEPTED: 'Obtenu',
   REJECTED: 'Rejected',
   EXPIRED: 'Expired',
@@ -40,7 +40,7 @@ const typeLabels: Record<string, string> = {
   SUBVENTION: 'Subvention',
   AVANCE: 'Avance remboursable',
   PRET: 'Ready',
-  CREDIT_IMPOT: 'Crédit d\'impôt',
+  CREDIT_IMPOT: 'Tax credit',
   GARANTIE: 'Garantie',
   CONCOURS: 'Concours',
 }
@@ -279,7 +279,7 @@ export default async function AdminFundingPage() {
         <Card>
           <CardContent className="p-12 text-center">
             <Landmark className="h-12 w-12 text-white/20 mx-auto mb-3" />
-            <p className="text-white/40 mb-4">Aucune aide publique configurée</p>
+            <p className="text-white/40 mb-4">No public grant configured</p>
             <p className="text-xs text-white/30 max-w-md mx-auto">
               Les aides publiques seront pré-remplies lors du seed de la base de données.
               Exécutez <code className="bg-white/5 px-1.5 py-0.5 rounded">npm run db:seed</code> pour démarrer.

@@ -36,10 +36,10 @@ export default function VeillePage() {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Veille Cinéma</h1>
+          <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Cinema watch</h1>
           <p className="text-sm text-white/50 mt-1">{RSS_SOURCES.length} sources · {MAJOR_FESTIVALS.length} festivals · Tendances industrie</p>
         </div>
-        <button onClick={() => toast.success('Flux actualisé')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs bg-white/[0.05] text-white/60 hover:bg-white/[0.08] self-start sm:self-auto">
+        <button onClick={() => toast.success('Feed refreshed')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs bg-white/[0.05] text-white/60 hover:bg-white/[0.08] self-start sm:self-auto">
           <RefreshCcw className="h-3.5 w-3.5" /> Actualiser
         </button>
       </div>

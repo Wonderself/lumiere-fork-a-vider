@@ -24,8 +24,8 @@ export default async function AdminCampaignsPage() {
     { label: 'Brouillons', value: stats.draft, icon: Clock, color: 'text-white/60', bg: 'bg-white/[0.03]', border: 'border-white/10' },
     { label: 'En attente', value: stats.pending, icon: Eye, color: 'text-yellow-500', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
     { label: 'Actives', value: stats.active, icon: Play, color: 'text-green-500', bg: 'bg-green-500/10', border: 'border-green-500/20' },
-    { label: 'Terminées', value: stats.completed, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
-    { label: 'Annulées', value: stats.cancelled, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
+    { label: 'Completed', value: stats.completed, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+    { label: 'Cancelled', value: stats.cancelled, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
   ]
 
   return (

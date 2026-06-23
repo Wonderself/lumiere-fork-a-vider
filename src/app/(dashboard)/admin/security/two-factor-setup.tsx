@@ -46,13 +46,13 @@ export function TwoFactorSetup() {
     const secret = generateSecret()
     setTotpSecret(secret)
     setTotpCode(generateTOTP(secret))
-    toast.success('Secret TOTP généré')
+    toast.success('TOTP secret generated')
   }
 
   function verifyTOTP() {
     if (verifyCode === totpCode) {
       setIs2FAEnabled(true)
-      toast.success('2FA activé avec succès')
+      toast.success('2FA enabled successfully')
     } else {
       toast.error('Code invalide')
     }
@@ -73,10 +73,10 @@ export function TwoFactorSetup() {
           {is2FAEnabled ? <CheckCircle2 className="h-6 w-6 text-green-600" /> : <AlertTriangle className="h-6 w-6 text-yellow-600" />}
           <div>
             <p className="text-sm font-semibold text-white">
-              2FA {is2FAEnabled ? 'Activé' : 'Non activé'}
+              2FA {is2FAEnabled ? 'Enabled' : 'Not enabled'}
             </p>
             <p className="text-xs text-white/50">
-              {is2FAEnabled ? 'Votre compte est protégé par authentification à 2 facteurs' : 'Activez le 2FA pour sécuriser votre compte admin'}
+              {is2FAEnabled ? 'Your account is protected by two-factor authentication' : 'Enable 2FA to secure your admin account'}
             </p>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function TwoFactorSetup() {
               </div>
 
               <div>
-                <label className="text-xs text-white/50 mb-1.5 block">Entrez le code pour vérifier</label>
+                <label className="text-xs text-white/50 mb-1.5 block">Enter the code to verify</label>
                 <div className="flex gap-2">
                   <input
                     value={verifyCode}

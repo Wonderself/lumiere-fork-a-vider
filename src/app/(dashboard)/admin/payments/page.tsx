@@ -95,7 +95,7 @@ export default async function AdminPaymentsPage() {
           {/* Header */}
           <div className="grid grid-cols-12 gap-4 px-4 py-2 text-xs text-white/30 font-medium">
             <div className="col-span-3">Utilisateur</div>
-            <div className="col-span-3">Tâche / Film</div>
+            <div className="col-span-3">Task / Film</div>
             <div className="col-span-2">Montant</div>
             <div className="col-span-1">Method</div>
             <div className="col-span-1">Status</div>

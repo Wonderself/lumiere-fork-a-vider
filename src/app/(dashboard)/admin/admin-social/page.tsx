@@ -24,13 +24,13 @@ const PLATFORMS = [
 ]
 
 const POST_TEMPLATES = [
-  'Annonce nouvelle fonctionnalité',
-  'Mise à jour de la plateforme',
-  'Témoignage créateur',
+  'New feature announcement',
+  'Platform update',
+  'Creator testimonial',
   'Behind the scenes',
-  'Statistiques de la communauté',
+  'Community statistics',
   'Lancement d\'un nouveau film',
-  'Appel à contributeurs',
+  'Call for contributors',
   'Événement communautaire',
 ]
 
@@ -57,7 +57,7 @@ export default function AdminSocialPage() {
 
     setGeneratedPosts(platform === 'all' ? posts : posts.filter(p => p.platform === platform))
     setGenerating(false)
-    toast.success('Posts générés')
+    toast.success('Posts generated')
   }
 
   function addToCalendar(post: { platform: string; content: string }) {
@@ -82,7 +82,7 @@ export default function AdminSocialPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Admin Social</h1>
-        <p className="text-sm text-white/50 mt-1">Générateur de posts · Calendrier éditorial</p>
+        <p className="text-sm text-white/50 mt-1">Post generator · Editorial calendar</p>
       </div>
 
       <div className="flex gap-2">
@@ -119,7 +119,7 @@ export default function AdminSocialPage() {
                 <label className="text-xs text-white/50 mb-1.5 block">Ton</label>
                 <select value={tone} onChange={e => setTone(e.target.value)} className="rounded-lg border border-white/10 px-3 py-2 text-sm">
                   <option value="professional">Professionnel</option>
-                  <option value="casual">Décontracté</option>
+                  <option value="casual">Casual</option>
                   <option value="enthusiastic">Enthousiaste</option>
                   <option value="informative">Informatif</option>
                 </select>
@@ -177,8 +177,8 @@ export default function AdminSocialPage() {
           {calendar.length === 0 ? (
             <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center">
               <Calendar className="h-10 w-10 text-white/50 mx-auto mb-3" />
-              <p className="text-sm text-white/50">Calendrier éditorial vide</p>
-              <p className="text-xs text-white/50 mt-1">Générez des posts et ajoutez-les au calendrier</p>
+              <p className="text-sm text-white/50">Editorial calendar empty</p>
+              <p className="text-xs text-white/50 mt-1">Generate posts and add them to the calendar</p>
             </div>
           ) : calendar.map(post => {
             const pConfig = PLATFORMS.find(p => p.id === post.platform)

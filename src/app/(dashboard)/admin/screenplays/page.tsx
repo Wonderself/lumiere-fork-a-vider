@@ -10,7 +10,7 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Admin — Scénarios' }
+export const metadata: Metadata = { title: 'Admin — Screenplays' }
 
 export default async function AdminScreenplaysPage() {
   const session = await auth()
@@ -32,7 +32,7 @@ export default async function AdminScreenplaysPage() {
 
   const statusLabels: Record<string, string> = {
     SUBMITTED: 'Submitted',
-    EVALUATING: 'En évaluation',
+    EVALUATING: 'Under review',
     ACCEPTED: 'Accepted',
     REJECTED: 'Rejected',
   }
@@ -50,7 +50,7 @@ export default async function AdminScreenplaysPage() {
         <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-white/10">
           <CardContent className="p-12 text-center">
             <FileText className="h-12 w-12 text-white/50 mx-auto mb-3" />
-            <p className="text-white/50">Aucun scénario soumis</p>
+            <p className="text-white/50">No screenplay submitted</p>
           </CardContent>
         </Card>
       ) : (

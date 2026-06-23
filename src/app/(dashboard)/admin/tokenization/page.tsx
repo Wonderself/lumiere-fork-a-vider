@@ -214,7 +214,7 @@ export default async function AdminTokenizationPage() {
   const pendingRevenue = totalRevenue - distributedRevenue
 
   const stats = [
-    { icon: Coins, label: 'Total levé', value: formatPrice(totalRaised), color: 'text-[#E50914]' },
+    { icon: Coins, label: 'Total raised', value: formatPrice(totalRaised), color: 'text-[#E50914]' },
     { icon: Play, label: 'Offres actives', value: activeOfferings.toString(), color: 'text-green-600' },
     { icon: Users, label: 'Investisseurs', value: uniqueInvestors.toString(), color: 'text-blue-600' },
     { icon: ShieldCheck, label: 'KYC en attente', value: pendingKyc.toString(), color: pendingKyc > 0 ? 'text-orange-600' : 'text-green-600' },
@@ -282,7 +282,7 @@ export default async function AdminTokenizationPage() {
               <div className="hidden lg:grid grid-cols-12 gap-4 px-4 py-2 text-xs text-white/30 uppercase tracking-wider">
                 <div className="col-span-3">Film</div>
                 <div className="col-span-1">Status</div>
-                <div className="col-span-2">Levée / Cap</div>
+                <div className="col-span-2">Raise / Cap</div>
                 <div className="col-span-1">Prix token</div>
                 <div className="col-span-1">Investisseurs</div>
                 <div className="col-span-1">Risque</div>
@@ -512,7 +512,7 @@ export default async function AdminTokenizationPage() {
             {/* Recent dividends */}
             {allDividends.length > 0 && (
               <div className="mt-6 pt-4 border-t border-white/5">
-                <p className="text-xs text-white/40 mb-3">Dernières distributions</p>
+                <p className="text-xs text-white/40 mb-3">Latest distributions</p>
                 <div className="space-y-2">
                   {allDividends.slice(0, 5).map((d) => (
                     <div key={d.id} className="flex items-center justify-between text-sm p-2 rounded-lg bg-white/[0.02]">
@@ -567,9 +567,9 @@ export default async function AdminTokenizationPage() {
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white min-h-[44px]"
                   >
-                    <option value="">Sélectionner...</option>
+                    <option value="">Select...</option>
                     <option value="STREAMING">Streaming</option>
-                    <option value="THEATRICAL">Salle de cinéma</option>
+                    <option value="THEATRICAL">Cinema theater</option>
                     <option value="MERCH">Merchandising</option>
                     <option value="LICENSING">Licences</option>
                     <option value="SPONSORSHIP">Sponsoring</option>
@@ -614,7 +614,7 @@ export default async function AdminTokenizationPage() {
                 <span className="text-sm font-bold text-[#E50914]">{formatPrice(totalRevenue)}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-white/40">Distribués</span>
+                <span className="text-xs text-white/40">Distributed</span>
                 <span className="text-sm text-green-600">{formatPrice(distributedRevenue)}</span>
               </div>
               <div className="flex items-center justify-between">
@@ -644,12 +644,12 @@ export default async function AdminTokenizationPage() {
             <div className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
               <DollarSign className="h-6 w-6 text-green-600 mx-auto mb-2" />
               <p className="text-2xl font-bold text-green-600">{formatPrice(secondaryFees)}</p>
-              <p className="text-xs text-white/40 mt-1">Commissions collectées</p>
+              <p className="text-xs text-white/40 mt-1">Commissions collected</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
               <ArrowRightLeft className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <p className="text-2xl font-bold text-blue-600">{allTransfers.length}</p>
-              <p className="text-xs text-white/40 mt-1">Transactions complétées</p>
+              <p className="text-xs text-white/40 mt-1">Completed transactions</p>
             </div>
           </div>
 

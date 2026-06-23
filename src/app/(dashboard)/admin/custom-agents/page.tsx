@@ -55,7 +55,7 @@ export default function CustomAgentsPage() {
     <div className="p-4 sm:p-6 space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Custom Agents Monitor</h1>
-        <p className="text-sm text-white/50 mt-1">Suivi des agents créés par les utilisateurs</p>
+        <p className="text-sm text-white/50 mt-1">Tracking of user-created agents</p>
       </div>
 
       {/* Stats */}
@@ -74,7 +74,7 @@ export default function CustomAgentsPage() {
         </div>
         <div className="bg-white/5 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-white/10 p-4 text-center">
           <p className="text-2xl font-bold text-white/60">{agents.reduce((s, a) => s + a.executionCount, 0)}</p>
-          <p className="text-[10px] text-white/50">Total exécutions</p>
+          <p className="text-[10px] text-white/50">Total executions</p>
         </div>
       </div>
 
@@ -104,7 +104,7 @@ export default function CustomAgentsPage() {
                   <p className="text-xs font-medium text-white">{agent.executionCount} exec</p>
                   <p className="text-[10px] text-white/50">{agent.lastActive.toLocaleDateString('fr-FR')}</p>
                 </div>
-                <button onClick={() => toggleAgent(agent.id)} className="p-1.5 rounded-lg hover:bg-white/[0.05]" title={agent.status === 'active' ? 'Désactiver' : 'Activer'}>
+                <button onClick={() => toggleAgent(agent.id)} className="p-1.5 rounded-lg hover:bg-white/[0.05]" title={agent.status === 'active' ? 'Disable' : 'Activer'}>
                   {agent.status === 'active' ? <PowerOff className="h-4 w-4 text-red-400" /> : <Power className="h-4 w-4 text-green-600" />}
                 </button>
               </div>

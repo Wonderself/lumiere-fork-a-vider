@@ -49,8 +49,8 @@ export default async function AutopilotPage() {
   const kpis = [
     { label: 'Total proposals', value: stats.total, icon: FileText, color: 'text-blue-600', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
     { label: 'En attente', value: stats.pending, icon: Clock, color: 'text-yellow-600', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
-    { label: 'Approuvées', value: stats.approved + stats.completed, icon: CheckCircle2, color: 'text-green-600', bg: 'bg-green-500/10', border: 'border-green-500/20' },
-    { label: 'Refusées', value: stats.denied, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
+    { label: 'Approved', value: stats.approved + stats.completed, icon: CheckCircle2, color: 'text-green-600', bg: 'bg-green-500/10', border: 'border-green-500/20' },
+    { label: 'Rejected', value: stats.denied, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
     { label: "Aujourd'hui", value: `${stats.todayCount}/50`, icon: Activity, color: 'text-purple-600', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
     { label: 'Urgentes (1h)', value: `${stats.urgentThisHour}/5`, icon: AlertTriangle, color: 'text-orange-600', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
   ]
@@ -180,7 +180,7 @@ export default async function AutopilotPage() {
                     </p>
                   </>
                 ) : (
-                  <p className="text-xs text-white/50">Aucun audit lancé</p>
+                  <p className="text-xs text-white/50">No audit started</p>
                 )}
               </div>
             )

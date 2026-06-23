@@ -53,7 +53,7 @@ export default function LandingBuilderPage() {
     setActivePage(page)
     setPageName('')
     setFilmTitle('')
-    toast.success('Landing page créée')
+    toast.success('Landing page created')
   }
 
   function addBlock(type: LandingBlockType) {
@@ -92,7 +92,7 @@ export default function LandingBuilderPage() {
     await new Promise(r => setTimeout(r, 1000))
     setPages(prev => prev.map(p => p.id === activePage.id ? activePage : p))
     setSaving(false)
-    toast.success('Page sauvegardée')
+    toast.success('Page saved')
   }
 
   // ─── List View ────────────────────────────────────────────────────
@@ -102,7 +102,7 @@ export default function LandingBuilderPage() {
       <div className="space-y-8">
         <div>
           <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Landing Builder</h1>
-          <p className="text-sm text-white/50 mt-1">Créez des pages promo pour vos films</p>
+          <p className="text-sm text-white/50 mt-1">Create promo pages for your films</p>
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">

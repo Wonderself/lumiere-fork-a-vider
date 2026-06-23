@@ -29,17 +29,17 @@ export default async function SetupPage() {
   // Build checklist based on env vars and DB state
   const checks: CheckItem[] = [
     {
-      id: 'database', label: 'PostgreSQL', description: 'Base de données connectée',
+      id: 'database', label: 'PostgreSQL', description: 'Database connected',
       icon: Database, status: 'done', detail: 'Connected via Prisma ORM',
     },
     {
-      id: 'auth', label: 'Authentification', description: 'NextAuth configuré',
+      id: 'auth', label: 'Authentification', description: 'NextAuth configured',
       icon: Key, status: 'warning', detail: '⚠️ Auth bypass admin@admin.com actif — désactiver en production',
       href: '/admin/security',
     },
     {
       id: '2fa', label: '2FA Admin', description: 'Authentification 2 facteurs',
-      icon: Shield, status: 'pending', detail: 'Non configuré — recommandé pour la sécurité admin',
+      icon: Shield, status: 'pending', detail: 'Not configured — recommended for admin security',
       href: '/admin/security',
     },
     {
@@ -68,7 +68,7 @@ export default async function SetupPage() {
       detail: process.env.STRIPE_SECRET_KEY ? 'Configured' : 'Set STRIPE_SECRET_KEY for payment processing',
     },
     {
-      id: 'domain', label: 'Domaine', description: 'Domaine personnalisé + SSL',
+      id: 'domain', label: 'Domaine', description: 'Custom domain + SSL',
       icon: Globe, status: 'pending', detail: 'Configure custom domain in Coolify/Vercel',
     },
     {

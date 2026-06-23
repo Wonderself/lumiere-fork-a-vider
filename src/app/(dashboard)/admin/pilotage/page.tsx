@@ -81,7 +81,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
     ],
     docs: ["Bail bureau Rova HaKnisa", "Même dossier que JNEXT standard"] },
 
-  { id: "min-eco-salaires", name: "Min. Économie — Subvention Salaires Zone A", entity: "IL", cat: "Jerusalem", amount: "30% salaires Y1, 20% Y2 (max 30K NIS/mois/employé)", rate: "30% puis 20%", timing: "24 mois, candidature continue", difficulty: 1, priority: 1, deadline: "Continu", status: "todo",
+  { id: "min-eco-salaires", name: "Min. Économie — Subvention Salaires Zone A", entity: "IL", cat: "Jerusalem", amount: "30% salaires Y1, 20% Y2 (max 30K NIS/mois/employé)", rate: "30% puis 20%", timing: "24 mois, candidature continue", difficulty: 1, priority: 1, deadline: "Ongoing", status: "todo",
     url: "https://jnext.org.il/information/government-funding_non-jda_grants/",
     desc: "Financement partiel des salaires pendant 24 mois pour entreprises en Zone A. Jérusalem = seule ville du centre à être Zone A! CUMULABLE avec les grants JNEXT.",
     residency: "L'ENTREPRISE doit être en Zone A (= Jérusalem).",
@@ -92,30 +92,30 @@ const INIT_SUBSIDIES: Subsidy[] = [
     ],
     docs: ["Enregistrement sectoriel", "Fiches de paie", "Formulaire Min. Économie"] },
 
-  { id: "jda-office-grant", name: "JDA — Grant Bureaux 400 NIS/m²", entity: "IL", cat: "Jerusalem", amount: "400 NIS/m² (max 2,000 m²) = jusqu'à 800K NIS (~200K€)", rate: "250 NIS/m² Y1 + 150 NIS/m² Y2", timing: "Lors de l'installation", difficulty: 1, priority: 2, deadline: "Continu", status: "todo",
+  { id: "jda-office-grant", name: "JDA — Grant Bureaux 400 NIS/m²", entity: "IL", cat: "Jerusalem", amount: "400 NIS/m² (max 2,000 m²) = jusqu'à 800K NIS (~200K€)", rate: "250 NIS/m² Y1 + 150 NIS/m² Y2", timing: "Lors de l'installation", difficulty: 1, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://www.jda.gov.il/",
     desc: "Grant pour entreprises hi-tech qui s'installent à Jérusalem. Min 100 m² pour transfert ou 700 m² pour extension.",
     residency: "Pas de condition de résidence personnelle. L'activité doit être dans les limites municipales de Jérusalem.",
     tasks: [
-      {t:"Trouver bureau à Jérusalem (min 100 m²)",done:false},
+      {t:"Find an office in Jerusalem (min 100 m²)",done:false},
       {t:"Signer bail",done:false},
       {t:"Soumettre formulaire JDA avec bail et plan",done:false},
     ],
     docs: ["Bail", "Plan bureau", "Preuve activité hi-tech"] },
 
-  { id: "jnext-accelerateur", name: "JNEXT — Post-Accélérateur", entity: "IL", cat: "Jerusalem", amount: "15,000-25,000 NIS (~4-6K€)", rate: "Grant one-time", timing: "Post-accélérateur", difficulty: 1, priority: 3, deadline: "Continu", status: "todo",
+  { id: "jnext-accelerateur", name: "JNEXT — Post-Accélérateur", entity: "IL", cat: "Jerusalem", amount: "15,000-25,000 NIS (~4-6K€)", rate: "Grant one-time", timing: "Post-accelerator", difficulty: 1, priority: 3, deadline: "Ongoing", status: "todo",
     url: "https://jnext.org.il/grant-application/",
     desc: "Grant pour startups ayant complété un programme d'accélération à Jérusalem.",
     residency: "La startup doit avoir fait un accélérateur basé à Jérusalem.",
     tasks: [
       {t:"Identifier un accélérateur à Jérusalem (MassChallenge JLM, Siftech, etc.)",done:false},
-      {t:"Compléter le programme",done:false},
+      {t:"Complete the program",done:false},
       {t:"Soumettre preuve + bail",done:false},
     ],
     docs: ["Certificat accélérateur", "Bail Jérusalem"] },
 
   // ===== ISRAEL - CINEMA =====
-  { id: "jda-film-fund", name: "Fonds Cinéma Jérusalem", entity: "IL", cat: "Jerusalem Cinéma", amount: "100K-2M NIS/projet (budget ~16M NIS/an)", rate: "Investissement sélectif", timing: "Appels à projets multiples/an", difficulty: 3, priority: 1, deadline: "thejerusalemfilmfund.com", status: "todo",
+  { id: "jda-film-fund", name: "Jerusalem Film Fund", entity: "IL", cat: "Jerusalem Cinéma", amount: "100K-2M NIS/projet (budget ~16M NIS/an)", rate: "Selective investment", timing: "Appels à projets multiples/an", difficulty: 3, priority: 1, deadline: "thejerusalemfilmfund.com", status: "todo",
     url: "https://thejerusalemfilmfund.com/",
     desc: "Plus gros fonds cinéma municipal d'Israël. ~142M NIS investis depuis 2008. Parcours: développement scénario, production séries TV, séries web (min 4 épisodes), film petit budget (<2M NIS), productions internationales.",
     residency: "CRITIQUE: 2 des 3 postes clés (scriptwriter/director/producer) doivent résider à Jérusalem.",
@@ -126,9 +126,9 @@ const INIT_SUBSIDIES: Subsidy[] = [
       {t:"Préparer scénario + note d'intention + budget",done:false},
       {t:"Pour film petit budget: <2M NIS, 80% temps écran = JLM, 80% jours tournage = JLM",done:false},
     ],
-    docs: ["Scénario complet", "Note intention réalisateur", "Budget production", "Preuves résidence JLM", "CV producteur + réalisateur"] },
+    docs: ["Full screenplay", "Director's statement of intent", "Budget production", "Preuves résidence JLM", "CV producteur + réalisateur"] },
 
-  { id: "jda-film-intl", name: "Fonds Cinéma JLM — Productions Internationales", entity: "IL", cat: "Jerusalem Cinéma", amount: "Variable selon taille du projet", rate: "Investissement", timing: "Continu", difficulty: 3, priority: 2, deadline: "Continu", status: "todo",
+  { id: "jda-film-intl", name: "Fonds Cinéma JLM — Productions Internationales", entity: "IL", cat: "Jerusalem Cinéma", amount: "Variable selon taille du projet", rate: "Investissement", timing: "Ongoing", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://thejerusalemfilmfund.com/",
     desc: "Parcours spécial pour productions internationales filmées à Jérusalem. Conditions: financement principal étranger (80%+), producteur et société enregistrés à l'étranger → la SAS FR!, langue principale non-hébreu.",
     residency: "Pas de condition de résidence — programme pour les étrangers. La SAS FR = le producteur étranger parfait!",
@@ -149,9 +149,9 @@ const INIT_SUBSIDIES: Subsidy[] = [
       {t:"Vérifier prochain appel à projets",done:false},
       {t:"Préparer dossier avec budget montrant 25%+ dépenses JLM",done:false},
     ],
-    docs: ["Concept série", "Scénario épisode pilote", "Budget avec ventilation JLM"] },
+    docs: ["Series concept", "Pilot episode screenplay", "Budget avec ventilation JLM"] },
 
-  { id: "tax-75", name: "IS 7.5% — Entreprise Tech Préférée Zone A", entity: "IL", cat: "Jerusalem Fiscalité", amount: "IS 7.5% au lieu de 23%", rate: "Permanent", timing: "Dès la 1ère année profitable", difficulty: 2, priority: 1, deadline: "Déclaration annuelle", status: "todo",
+  { id: "tax-75", name: "IS 7.5% — Entreprise Tech Préférée Zone A", entity: "IL", cat: "Jerusalem taxation", amount: "IS 7.5% au lieu de 23%", rate: "Permanent", timing: "Dès la 1ère année profitable", difficulty: 2, priority: 1, deadline: "Déclaration annuelle", status: "todo",
     url: "https://innovationisrael.org.il/tax-benefit-guide/",
     desc: "En tant qu'entreprise tech en Zone A, IS = 7.5% au lieu de 23% (taux normal IL) ou 25% (France). Condition: IP qualifié. Demande via procédure 200-05 de l'IIA.",
     residency: "L'ENTREPRISE doit être en Zone A. Pas de condition de résidence des dirigeants.",
@@ -164,12 +164,12 @@ const INIT_SUBSIDIES: Subsidy[] = [
     docs: ["Formulaire 200-05", "Déclaration direction", "Rapport comptable", "États financiers audités"] },
 
   // ===== ISRAEL - IIA NATIONAL =====
-  { id: "tnufa", name: "IIA Tnufa (Élan)", entity: "IL", cat: "IIA National", amount: "200K NIS (~50K€)", rate: "85% du budget approuvé", timing: "Continu, réponse ~3 mois", difficulty: 2, priority: 1, deadline: "Continu", status: "todo",
+  { id: "tnufa", name: "IIA Tnufa (Élan)", entity: "IL", cat: "IIA National", amount: "200K NIS (~50K€)", rate: "85% du budget approuvé", timing: "Continu, réponse ~3 mois", difficulty: 2, priority: 1, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/en/programs/ideation-tnufa-incentive-program/",
     desc: "Premier étage de la fusée IIA. POC, prototypage, dépôt brevet, développement business. ~100 entrepreneurs/an financés.",
     residency: "Le candidat doit être résident israélien.",
     tasks: [
-      {t:"Préparer business plan tech 10 pages",done:false},
+      {t:"Prepare a 10-page tech business plan",done:false},
       {t:"Décrire l'innovation: pipeline IA micro-tâches cinéma",done:false},
       {t:"Budget détaillé 12 mois",done:false},
       {t:"Soumettre sur portail IIA (hébreu)",done:false},
@@ -177,7 +177,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
     ],
     docs: ["Business Plan Tech", "Budget 12 mois", "Description Innovation", "CV fondateurs"] },
 
-  { id: "iia-preseed", name: "IIA Startup Fund — Pre-Seed", entity: "IL", cat: "IIA National", amount: "Jusqu'à 1.65M NIS (~410K€) [+10% Zone A]", rate: "60% du tour d'investissement", timing: "Continu, process 4-6 mois", difficulty: 3, priority: 2, deadline: "Continu", status: "todo",
+  { id: "iia-preseed", name: "IIA Startup Fund — Pre-Seed", entity: "IL", cat: "IIA National", amount: "Jusqu'à 1.65M NIS (~410K€) [+10% Zone A]", rate: "60% du tour d'investissement", timing: "Continu, process 4-6 mois", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/programs/preseed/",
     desc: "L'IIA matche 60% de votre tour pre-seed. Max 1.5M NIS (+10% Zone A = 1.65M NIS). NON-DILUTIF. Condition: un investisseur privé pour les 40%.",
     residency: "Société enregistrée en Israël. Zone A = bonus +10%.",
@@ -189,14 +189,14 @@ const INIT_SUBSIDIES: Subsidy[] = [
     ],
     docs: ["Deck investisseur", "Term Sheet", "Business plan 3 ans"] },
 
-  { id: "iia-seed", name: "IIA Startup Fund — Seed", entity: "IL", cat: "IIA National", amount: "Jusqu'à 5.5M NIS (~1.37M€) [+10% Zone A]", rate: "50% du tour", timing: "Process ~6 mois", difficulty: 4, priority: 2, deadline: "Continu", status: "todo",
+  { id: "iia-seed", name: "IIA Startup Fund — Seed", entity: "IL", cat: "IIA National", amount: "Jusqu'à 5.5M NIS (~1.37M€) [+10% Zone A]", rate: "50% du tour", timing: "Process ~6 mois", difficulty: 4, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/programs/startup-fund/",
     desc: "IIA matche 50% de votre Seed. Max 5M NIS (+10% Zone A). Condition: <15M NIS levés au total.",
     residency: "Société IL. Zone A bonus.",
-    tasks: [{t:"Lead investor engagé",done:false},{t:"Track record POC/Tnufa",done:false},{t:"Product metrics",done:false}],
+    tasks: [{t:"Lead investor committed",done:false},{t:"Track record POC/Tnufa",done:false},{t:"Product metrics",done:false}],
     docs: ["Term Sheet Seed", "Product metrics", "Projections 5 ans"] },
 
-  { id: "iia-rnd", name: "IIA Fonds R&D", entity: "IL", cat: "IIA National", amount: "Jusqu'à 60% des dépenses R&D en Zone A", rate: "50% + 10% Zone A", timing: "Continu", difficulty: 3, priority: 2, deadline: "Continu", status: "todo",
+  { id: "iia-rnd", name: "IIA Fonds R&D", entity: "IL", cat: "IIA National", amount: "Jusqu'à 60% des dépenses R&D en Zone A", rate: "50% + 10% Zone A", timing: "Ongoing", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://innovationisrael.org.il/en/programs/rd-fund/",
     desc: "Le 'CIR israélien' en mieux: 50-60% des dépenses R&D remboursées. Remboursement par royalties uniquement si succès (3-5%). Si échec: pas de remboursement.",
     residency: "Société IL en Zone A = bonus.",
@@ -210,29 +210,29 @@ const INIT_SUBSIDIES: Subsidy[] = [
     tasks: [{t:"Identifier projet R&D conjoint FR-IL",done:false},{t:"Aligner dossiers IIA + BPI",done:false},{t:"Trouver timing appel 2026",done:false}],
     docs: ["Dossier technique conjoint", "Budget FR/IL", "Accord collaboration"] },
 
-  { id: "rabinovich", name: "Fondation Rabinovich", entity: "IL", cat: "Cinéma IL", amount: "400K-2M NIS/film (budget ~28M NIS/an)", rate: "Grant sélectif", timing: "Plusieurs sessions/an", difficulty: 4, priority: 2, deadline: "Sessions sur cinema-project.org.il", status: "todo",
+  { id: "rabinovich", name: "Fondation Rabinovich", entity: "IL", cat: "Israel cinema", amount: "400K-2M NIS/film (budget ~28M NIS/an)", rate: "Grant sélectif", timing: "Plusieurs sessions/an", difficulty: 4, priority: 2, deadline: "Sessions sur cinema-project.org.il", status: "todo",
     url: "https://cinema-project.org.il/",
     desc: "Plus grand fonds cinéma d'Israël. Fiction, documentaire, animation. 7-8 films/an gros budget.",
-    residency: "Résident israélien.",
+    residency: "Israeli resident.",
     tasks: [{t:"Développer projet film complet",done:false},{t:"Identifier réalisateur israélien",done:false},{t:"Soumettre au calendrier Rabinovich",done:false}],
     docs: ["Screenplay", "Note intention", "Budget prod", "CV"] },
 
-  { id: "nfct", name: "NFCT (New Fund for Cinema & TV)", entity: "IL", cat: "Cinéma IL", amount: "Variable — développement, production, post-prod", rate: "Max 80% du budget", timing: "2 appels/an", difficulty: 3, priority: 2, deadline: "Appels sur nfct.org.il", status: "todo",
+  { id: "nfct", name: "NFCT (New Fund for Cinema & TV)", entity: "IL", cat: "Israel cinema", amount: "Variable — development, production, post-production", rate: "Max 80% du budget", timing: "2 appels/an", difficulty: 3, priority: 2, deadline: "Appels sur nfct.org.il", status: "todo",
     url: "https://nfct.org.il/",
     desc: "Parcours: développement, production, finalisation. Producteur peut soumettre 5 projets max/appel.",
-    residency: "Résidents israéliens de 18+ ans.",
+    residency: "Israeli residents aged 18+.",
     tasks: [{t:"Vérifier dates sur nfct.org.il",done:false},{t:"Préparer dossier bon parcours",done:false}],
     docs: ["Screenplay", "Note intention", "Budget"] },
 
   // ===== FRANCE =====
-  { id: "jei", name: "JEI (Jeune Entreprise Innovante)", entity: "FR", cat: "Fiscalité FR", amount: "~80-160K€/an (exonérations charges sociales)", rate: "Exonération totale charges patronales R&D", timing: "Déclaration à la création + annuelle", difficulty: 2, priority: 1, deadline: "Création SAS", status: "todo",
+  { id: "jei", name: "JEI (Jeune Entreprise Innovante)", entity: "FR", cat: "France taxation", amount: "~80-160K€/an (exonérations charges sociales)", rate: "Exonération totale charges patronales R&D", timing: "Déclaration à la création + annuelle", difficulty: 2, priority: 1, deadline: "Company incorporation (SAS)", status: "todo",
     url: "https://entreprendre.service-public.fr/vosdroits/F31188",
     desc: "Exonération charges sociales sur salariés R&D + CFE/CVAE. Conditions: <8 ans, <250 salariés, CA<50M€, 20%+ charges en R&D, 50%+ capital = personnes physiques. AVEC le montage 51% physiques / 49% Ltd IL → JEI PRÉSERVÉ.",
     residency: "N/A (France)",
     tasks: [{t:"Emmanuel 25.5% + Éric 25.5% = 51% SAS en direct (CONFIRMER)",done:false},{t:"20%+ charges = R&D",done:false},{t:"Déclarer JEI à l'URSSAF",done:false},{t:"Rescrit JEI (recommandé)",done:false}],
     docs: ["Statuts SAS (51%/49%)", "Rescrit JEI", "Justificatifs R&D"] },
 
-  { id: "cir", name: "CIR (Crédit Impôt Recherche)", entity: "FR", cat: "Fiscalité FR", amount: "30% des dépenses R&D", rate: "30%", timing: "Déclaration IS annuelle", difficulty: 2, priority: 1, deadline: "Annuel", status: "todo",
+  { id: "cir", name: "CIR (Crédit Impôt Recherche)", entity: "FR", cat: "France taxation", amount: "30% des dépenses R&D", rate: "30%", timing: "Déclaration IS annuelle", difficulty: 2, priority: 1, deadline: "Annuel", status: "todo",
     url: "https://www.enseignementsup-recherche.gouv.fr/fr/le-credit-d-impot-recherche-cir-46364",
     desc: "30% des dépenses R&D remboursées. La SAS FR doit avoir ses PROPRES projets R&D (distincts de l'IP de la Ltd IL).",
     residency: "N/A",
@@ -264,17 +264,17 @@ const INIT_SUBSIDIES: Subsidy[] = [
     url: "https://www.cnc.fr/",
     desc: "Aide sélective sur dossier artistique. Jury pro.",
     residency: "N/A",
-    tasks: [{t:"Projet à fort potentiel artistique",done:false},{t:"Dossier complet + pitcher si convoqué",done:false}],
-    docs: ["Scénario final", "Note d'intention", "Budget certifié", "Plan de financement"] },
+    tasks: [{t:"Project with strong artistic potential",done:false},{t:"Dossier complet + pitcher si convoqué",done:false}],
+    docs: ["Final screenplay", "Note d'intention", "Budget certifié", "Plan de financement"] },
 
-  { id: "acm", name: "ACM — Aide Cinémas du Monde", entity: "FR", cat: "CNC", amount: "50-200K€/film", rate: "Grant sélectif", timing: "Continu", difficulty: 3, priority: 2, deadline: "Continu", status: "todo",
+  { id: "acm", name: "ACM — Aide Cinémas du Monde", entity: "FR", cat: "CNC", amount: "50-200K€/film", rate: "Grant sélectif", timing: "Ongoing", difficulty: 3, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://www.cnc.fr/",
     desc: "Coprod internationale FR + monde. Réalisateur étranger (israélien OK). SAS FR = coproducteur FR.",
     residency: "N/A",
     tasks: [{t:"Film coprod FR-IL avec réalisateur israélien",done:false},{t:"Dépôt sur CNC MesAides",done:false}],
     docs: ["Contrat coprod FR-IL", "Screenplay", "Budget bilatéral"] },
 
-  { id: "bpi-french", name: "BPI Bourse French Tech", entity: "FR", cat: "BPI", amount: "30-90K€", rate: "Subvention", timing: "Continu", difficulty: 2, priority: 2, deadline: "Continu", status: "todo",
+  { id: "bpi-french", name: "BPI Bourse French Tech", entity: "FR", cat: "BPI", amount: "30-90K€", rate: "Subvention", timing: "Ongoing", difficulty: 2, priority: 2, deadline: "Ongoing", status: "todo",
     url: "https://www.bpifrance.fr/",
     desc: "PME innovante <5 ans. Faisabilité technique et économique.",
     residency: "N/A",
@@ -288,14 +288,14 @@ const INIT_SUBSIDIES: Subsidy[] = [
     tasks: [{t:"Veille appels France 2030 IA",done:false},{t:"Dossier candidature (6-8 semaines)",done:false}],
     docs: ["Réponse appel France 2030", "Dossier technique", "Plan emplois"] },
 
-  { id: "sofica", name: "SOFICA", entity: "FR", cat: "Financement privé", amount: "Investissement privé défiscalisé", rate: "N/A", timing: "Automne chaque année", difficulty: 3, priority: 3, deadline: "Automne", status: "todo",
+  { id: "sofica", name: "SOFICA", entity: "FR", cat: "Private financing", amount: "Tax-advantaged private investment", rate: "N/A", timing: "Automne chaque année", difficulty: 3, priority: 3, deadline: "Automne", status: "todo",
     url: "https://www.cnc.fr/",
     desc: "Sociétés de financement du cinéma. Réduction IR 48% pour investisseurs.",
     residency: "N/A",
     tasks: [{t:"Identifier SOFICA actives",done:false},{t:"Présenter projets SAS FR",done:false}],
-    docs: ["Projets films packagés", "Business plan"] },
+    docs: ["Packaged film projects", "Business plan"] },
 
-  { id: "regions", name: "Aides Régionales (IDF, etc.)", entity: "FR", cat: "Régional", amount: "20-100K€/film", rate: "Grant sélectif", timing: "3-4 sessions/an", difficulty: 2, priority: 3, deadline: "Sessions", status: "todo",
+  { id: "regions", name: "Aides Régionales (IDF, etc.)", entity: "FR", cat: "Regional", amount: "20-100K€/film", rate: "Grant sélectif", timing: "3-4 sessions/an", difficulty: 2, priority: 3, deadline: "Sessions", status: "todo",
     url: "https://www.filmfrance.net/",
     desc: "Chaque région a son fonds cinéma. IDF = le plus gros.",
     residency: "N/A",
@@ -320,30 +320,30 @@ const INIT_INSTITUTIONS: Institution[] = [
   // Angels Israel
   {id:"i-yossi",name:"Yossi Vardi (Super Angel IL)",cat:"Angel Israel",type:"Angel investor",focus:"Internet, media, consumer, 80+ investissements",stage:"Pre-Seed → Seed",ticket:"$50K-500K",url:"https://www.linkedin.com/in/yossivardi/",contact:"Réseaux, conférences (DLD, MIXiii), intro via réseau",what_to_send:"Pitch personnel court + deck 10 slides",why:"LE super-angel israélien. Légende vivante. Son nom ouvre toutes les portes.",status:"todo"},
   {id:"i-dov",name:"Dov Moran (Angel)",cat:"Angel Israel",type:"Angel investor",focus:"Hardware, consumer tech, innovation",stage:"Seed",ticket:"$100K-1M",url:"https://www.linkedin.com/in/dovmoran/",contact:"Via réseau tech IL",what_to_send:"Deck + démo produit",why:"Inventeur du USB. Crédibilité tech énorme.",status:"todo"},
-  {id:"i-eden-list",name:"Liste Angels d'Eden Shochat (500+)",cat:"Angel Israel",type:"Base de données angels",focus:"500+ angels israéliens, tous secteurs",stage:"Pre-Seed → Seed",ticket:"$25K-500K individuel",url:"https://github.com/AdenShohat/Israeli-Angel-Investors",contact:"GitHub public — liste avec emails/LinkedIn",what_to_send:"Email court + deck attaché. Personnaliser chaque approche.",why:"LA référence. 500+ contacts avec préférences d'investissement détaillées.",status:"todo"},
+  {id:"i-eden-list",name:"Liste Angels d'Eden Shochat (500+)",cat:"Angel Israel",type:"Angel investor database",focus:"500+ angels israéliens, tous secteurs",stage:"Pre-Seed → Seed",ticket:"$25K-500K individuel",url:"https://github.com/AdenShohat/Israeli-Angel-Investors",contact:"GitHub public — liste avec emails/LinkedIn",what_to_send:"Email court + deck attaché. Personnaliser chaque approche.",why:"LA référence. 500+ contacts avec préférences d'investissement détaillées.",status:"todo"},
 
   // Accelerateurs Israel
   {id:"i-masschallenge",name:"MassChallenge Israel (Jérusalem)",cat:"Accelerator",type:"Acceleration program",focus:"Multi-sectoriel, media, consumer, social impact",stage:"Early Stage",ticket:"Non-dilutif! Prix cash 50K-200K$",url:"https://masschallenge.org/programs-israel/",contact:"Candidature en ligne, sessions annuelles",what_to_send:"Application form + pitch vidéo + traction",why:"Programme à JÉRUSALEM! Non-dilutif. + ouvre droit au grant post-accélérateur JNEXT.",status:"todo"},
   {id:"i-siftech",name:"Siftech — Accélérateur Jérusalem",cat:"Accelerator",type:"Programme accélération JLM",focus:"Tech startups basées à Jérusalem",stage:"Ideation → MVP",ticket:"Mentorat + accès réseau + droit à JNEXT post-accelerator",url:"https://siftech.org.il/",contact:"Via site + réseau JNEXT",what_to_send:"Application, concept, équipe",why:"Spécifiquement Jérusalem. Ouvre l'écosystème JLM et le bonus JNEXT.",status:"todo"},
   {id:"i-8200",name:"8200 EISP (Alumni Accelerator)",cat:"Accelerator",type:"Acceleration program",focus:"Cyber, AI, tech",stage:"Early Stage",ticket:"Non-dilutif, réseau 8200",url:"https://www.8200eisp.com/",contact:"Candidature annuelle",what_to_send:"Application + pitch",why:"Le réseau le plus puissant d'Israël.",status:"todo"},
-  {id:"i-junction",name:"JUNCTION JLM — Hub innovation",cat:"Hub Jérusalem",type:"Hub innovation",focus:"Coworking + communauté startups Jérusalem",stage:"Tous",ticket:"Espace de travail + networking + événements",url:"https://www.thejunction.org.il/",contact:"Via site web",what_to_send:"Demande d'adhésion",why:"Le hub tech de Jérusalem. Networking, événements, accès à l'écosystème local.",status:"todo"},
+  {id:"i-junction",name:"JUNCTION JLM — Hub innovation",cat:"Jerusalem hub",type:"Hub innovation",focus:"Coworking + communauté startups Jérusalem",stage:"Tous",ticket:"Espace de travail + networking + événements",url:"https://www.thejunction.org.il/",contact:"Via site web",what_to_send:"Demande d'adhésion",why:"Le hub tech de Jérusalem. Networking, événements, accès à l'écosystème local.",status:"todo"},
 
   // Fonds Cinéma Israel
-  {id:"i-filmfund-il",name:"Israel Film Fund",cat:"Film Fund",type:"Fonds de soutien",focus:"Films de fiction longs métrages israéliens",stage:"Développement → Production → Post-production",ticket:"Variable selon parcours",url:"https://www.filmfund.org.il/",contact:"Candidature en ligne, sessions 2x/an",what_to_send:"Scénario, Note intention réalisateur, Budget, Plan distribution",why:"Fonds principal du cinéma israélien. Prestige + ouvre Rabinovich/NFCT.",status:"todo"},
-  {id:"i-maakor",name:"Fonds Maakor",cat:"Film Fund",type:"Fonds",focus:"Films + séries TV, documentaires, animation",stage:"Dev → Prod → Post",ticket:"Variable",url:"https://www.makor-fund.co.il/",contact:"Candidature sur site",what_to_send:"Scénario + note intention + budget + équipe",why:"Complément au Film Fund. Finance aussi le développement de séries.",status:"todo"},
-  {id:"i-gesher",name:"Gesher Multicultural Film Fund",cat:"Film Fund",type:"Fonds multiculturel",focus:"Films diversité culturelle israélienne",stage:"Dev → Prod",ticket:"50K-300K NIS",url:"https://www.gesfrund.org/",contact:"Candidature, vérifier dates",what_to_send:"Scénario + dimension multiculturelle",why:"Angle multi-culturel FR-IL = bonne porte d'entrée.",status:"todo"},
-  {id:"i-avi-chai",name:"Fondation Avi Chai",cat:"Fondation",type:"Philanthropie",focus:"Culture juive, éducation, identité, cinéma",stage:"Projet par projet",ticket:"Grants variables",url:"https://avichai.org.il/",contact:"Via site web",what_to_send:"Proposition liée à la culture/identité juive",why:"Si contenu touche à l'identité juive/israélienne. Budget philanthropique important.",status:"todo"},
+  {id:"i-filmfund-il",name:"Israel Film Fund",cat:"Film Fund",type:"Fonds de soutien",focus:"Israeli feature fiction films",stage:"Development → Production → Post-production",ticket:"Variable selon parcours",url:"https://www.filmfund.org.il/",contact:"Candidature en ligne, sessions 2x/an",what_to_send:"Scénario, Note intention réalisateur, Budget, Plan distribution",why:"Fonds principal du cinéma israélien. Prestige + ouvre Rabinovich/NFCT.",status:"todo"},
+  {id:"i-maakor",name:"Fonds Maakor",cat:"Film Fund",type:"Fonds",focus:"Films + TV series, documentaries, animation",stage:"Dev → Prod → Post",ticket:"Variable",url:"https://www.makor-fund.co.il/",contact:"Candidature sur site",what_to_send:"Scénario + note intention + budget + équipe",why:"Complément au Film Fund. Finance aussi le développement de séries.",status:"todo"},
+  {id:"i-gesher",name:"Gesher Multicultural Film Fund",cat:"Film Fund",type:"Fonds multiculturel",focus:"Israeli cultural-diversity films",stage:"Dev → Prod",ticket:"50K-300K NIS",url:"https://www.gesfrund.org/",contact:"Candidature, vérifier dates",what_to_send:"Scénario + dimension multiculturelle",why:"Angle multi-culturel FR-IL = bonne porte d'entrée.",status:"todo"},
+  {id:"i-avi-chai",name:"Fondation Avi Chai",cat:"Fondation",type:"Philanthropie",focus:"Culture juive, éducation, identité, cinéma",stage:"Projet par projet",ticket:"Grants variables",url:"https://avichai.org.il/",contact:"Via site web",what_to_send:"Proposal related to Jewish culture/identity",why:"Si contenu touche à l'identité juive/israélienne. Budget philanthropique important.",status:"todo"},
 
   // Banques Israel
   {id:"i-poalim",name:"Bank HaPoalim HiTech",cat:"Banque",type:"Tech loans",focus:"Startups tech, venture lending",stage:"Post-seed (avec investisseurs)",ticket:"Prêts 500K-5M NIS",url:"https://www.poalimhitech.co.il/",contact:"poalim.hitech@bankhapoalim.co.il",what_to_send:"Business plan, preuve d'investisseurs, projections",why:"Premier à développer une division hi-tech dédiée. Venture lending complémentaire aux grants.",status:"todo"},
   {id:"i-leumi",name:"Leumi Tech",cat:"Banque",type:"Tech loans",focus:"Venture lending, startups tech",stage:"Post-seed",ticket:"Variables",url:"https://www.leumi.co.il/",contact:"Via succursale tech",what_to_send:"Business plan + investisseurs",why:"Deuxième option bancaire pour le venture lending.",status:"todo"},
 
   // France — BPI
-  {id:"i-bpi-creation",name:"BPI Création (Prêt d'Honneur)",cat:"BPI France",type:"Prêt d'honneur",focus:"Startups innovantes <3 ans",stage:"Création",ticket:"10-45K€ (sans garantie, sans intérêt)",url:"https://www.bpifrance.fr/",contact:"bpifrance.fr + réseau Initiative/Réseau Entreprendre",what_to_send:"Business plan, statuts, CV fondateurs",why:"Premier financement SAS FR. Sans garantie ni intérêt. Effet levier bancaire.",status:"todo"},
+  {id:"i-bpi-creation",name:"BPI Création (Prêt d'Honneur)",cat:"BPI France",type:"Prêt d'honneur",focus:"Startups innovantes <3 ans",stage:"Creation",ticket:"10-45K€ (sans garantie, sans intérêt)",url:"https://www.bpifrance.fr/",contact:"bpifrance.fr + réseau Initiative/Réseau Entreprendre",what_to_send:"Business plan, statuts, CV fondateurs",why:"Premier financement SAS FR. Sans garantie ni intérêt. Effet levier bancaire.",status:"todo"},
   {id:"i-bpi-deeptech",name:"BPI Bourse French Tech / DeepTech",cat:"BPI France",type:"Subvention",focus:"Deeptech, IA, innovation de rupture",stage:"Faisabilité → POC",ticket:"30-90K€ (subvention pure)",url:"https://www.bpifrance.fr/catalogue-offres/soutien-a-linnovation/bourse-french-tech",contact:"bpifrance.fr, conseiller régional",what_to_send:"Dossier innovation, caractère deeptech, budget faisabilité",why:"Subvention pure pour valider la faisabilité technique. Pipeline IA cinéma = deeptech.",status:"todo"},
-  {id:"i-bpi-aide-innov",name:"BPI Aide à l'Innovation",cat:"BPI France",type:"Avance remboursable + subvention",focus:"Innovation, développement expérimental",stage:"Développement",ticket:"200K-3M€ (mix subvention + avance)",url:"https://www.bpifrance.fr/",contact:"Conseiller BPI régional",what_to_send:"Dossier technique détaillé, business plan, budget R&D",why:"Plus gros financement BPI hors France 2030. Mix subvention + avance remboursable.",status:"todo"},
-  {id:"i-bpi-garantie",name:"BPI Garantie Création",cat:"BPI France",type:"Garantie bancaire",focus:"Garantie jusqu'à 60% du prêt bancaire",stage:"Création",ticket:"Garantie (pas d'argent direct)",url:"https://www.bpifrance.fr/",contact:"Via banque partenaire",what_to_send:"Demande via banque",why:"Facilite l'obtention de prêts bancaires pour la SAS FR.",status:"todo"},
-  {id:"i-ifcic",name:"IFCIC (Garantie Cinéma)",cat:"BPI France",type:"Garantie + prêts",focus:"Industries culturelles et créatives",stage:"Production",ticket:"Garantie 50-70% + prêts production",url:"https://www.ifcic.fr/",contact:"ifcic.fr",what_to_send:"Dossier production film, plan de financement",why:"Spécialisé cinéma. Garantie + prêts de production. Essentiel pour la SAS FR productrice.",status:"todo"},
+  {id:"i-bpi-aide-innov",name:"BPI Aide à l'Innovation",cat:"BPI France",type:"Avance remboursable + subvention",focus:"Innovation, experimental development",stage:"Development",ticket:"200K-3M€ (mix subvention + avance)",url:"https://www.bpifrance.fr/",contact:"Conseiller BPI régional",what_to_send:"Dossier technique détaillé, business plan, budget R&D",why:"Plus gros financement BPI hors France 2030. Mix subvention + avance remboursable.",status:"todo"},
+  {id:"i-bpi-garantie",name:"BPI Garantie Création",cat:"BPI France",type:"Garantie bancaire",focus:"Garantie jusqu'à 60% du prêt bancaire",stage:"Creation",ticket:"Garantie (pas d'argent direct)",url:"https://www.bpifrance.fr/",contact:"Via banque partenaire",what_to_send:"Demande via banque",why:"Facilite l'obtention de prêts bancaires pour la SAS FR.",status:"todo"},
+  {id:"i-ifcic",name:"IFCIC (Garantie Cinéma)",cat:"BPI France",type:"Guarantee + loans",focus:"Cultural and creative industries",stage:"Production",ticket:"Garantie 50-70% + prêts production",url:"https://www.ifcic.fr/",contact:"ifcic.fr",what_to_send:"Dossier production film, plan de financement",why:"Spécialisé cinéma. Garantie + prêts de production. Essentiel pour la SAS FR productrice.",status:"todo"},
 ]
 
 // ==================== HELPER FUNCTIONS ====================
@@ -560,7 +560,7 @@ export default function PilotagePage() {
           {filteredIssues.length === 0 && (
             <div className="text-center py-12 text-white/50">
               <Scale className="h-10 w-10 mx-auto mb-3 opacity-30" />
-              <p>Aucun élément trouvé</p>
+              <p>No items found</p>
             </div>
           )}
           {filteredIssues.map(issue => {
@@ -615,7 +615,7 @@ export default function PilotagePage() {
           {filteredSubsidies.length === 0 && (
             <div className="text-center py-12 text-white/50">
               <Banknote className="h-10 w-10 mx-auto mb-3 opacity-30" />
-              <p>Aucune subvention trouvée</p>
+              <p>No grant found</p>
             </div>
           )}
           {filteredSubsidies.map(sub => {
@@ -681,7 +681,7 @@ export default function PilotagePage() {
 
                     {sub.residency && (
                       <div className="bg-blue-500/[0.04] border border-blue-500/10 rounded-lg p-3">
-                        <p className="text-[10px] font-medium text-blue-600/60 uppercase mb-1">Conditions de résidence</p>
+                        <p className="text-[10px] font-medium text-blue-600/60 uppercase mb-1">Residency conditions</p>
                         <p className="text-sm text-white/50">{sub.residency}</p>
                       </div>
                     )}
@@ -734,7 +734,7 @@ export default function PilotagePage() {
           {filteredInstitutions.length === 0 && (
             <div className="text-center py-12 text-white/50">
               <Building2 className="h-10 w-10 mx-auto mb-3 opacity-30" />
-              <p>Aucune institution trouvée</p>
+              <p>No institution found</p>
             </div>
           )}
           {filteredInstitutions.map(inst => {

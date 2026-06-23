@@ -34,8 +34,8 @@ interface AutomationItem {
 const fullyAutomated: AutomationItem[] = [
   {
     id: 'script-gen',
-    title: 'Génération de scénarios',
-    description: 'Création de scripts complets à partir de prompts.',
+    title: 'Screenplay generation',
+    description: 'Creation of complete scripts from prompts.',
     detail: 'Claude génère des scénarios structurés (3 actes, dialogues, descriptions de scènes) à partir d\'un simple pitch. Inclut le formatage professionnel et les notes de réalisation.',
     icon: PenLine,
     costSaving: 2000,
@@ -43,7 +43,7 @@ const fullyAutomated: AutomationItem[] = [
   },
   {
     id: 'task-decomposition',
-    title: 'Décomposition des tâches',
+    title: 'Task breakdown',
     description: 'Film -> phases -> micro-tâches automatiquement.',
     detail: 'Analyse le scénario et le genre pour décomposer automatiquement un film en phases de production et micro-tâches assignables. Estime les budgets et délais pour chaque tâche.',
     icon: Target,
@@ -53,7 +53,7 @@ const fullyAutomated: AutomationItem[] = [
   {
     id: 'ai-review',
     title: 'Revue IA des soumissions',
-    description: 'Scoring qualité automatique des livrables.',
+    description: 'Automatic quality scoring of deliverables.',
     detail: 'Évalue chaque soumission sur des critères de qualité technique et artistique. Score de 0-100 avec feedback détaillé. Les soumissions sous le seuil sont signalées pour revue humaine.',
     icon: Eye,
     costSaving: 3000,
@@ -61,8 +61,8 @@ const fullyAutomated: AutomationItem[] = [
   },
   {
     id: 'token-creation',
-    title: 'Création d\'offres de tokens',
-    description: 'Paramétrage automatique des offres de tokenisation.',
+    title: 'Token offering creation',
+    description: 'Automatic setup of tokenization offerings.',
     detail: 'À partir des paramètres du film (budget, genre, durée), génère automatiquement la structure de l\'offre de tokens : prix, caps, budget breakdown, risk assessment.',
     icon: Sparkles,
     costSaving: 500,
@@ -79,8 +79,8 @@ const fullyAutomated: AutomationItem[] = [
   },
   {
     id: 'marketing-copy',
-    title: 'Marketing & réseaux sociaux',
-    description: 'Rédaction de posts, emails et copy marketing.',
+    title: 'Marketing & social media',
+    description: 'Writing posts, emails and marketing copy.',
     detail: 'Génère du contenu marketing adapté à chaque plateforme (X, Instagram, LinkedIn, TikTok) avec les bons formats, hashtags et appels à l\'action.',
     icon: Megaphone,
     costSaving: 1200,
@@ -97,8 +97,8 @@ const fullyAutomated: AutomationItem[] = [
   },
   {
     id: 'contract-templates',
-    title: 'Génération de contrats',
-    description: 'Templates de contrats personnalisés.',
+    title: 'Contract generation',
+    description: 'Custom contract templates.',
     detail: 'Génère des templates de contrats adaptés : CGU investisseurs, accords de co-production, licences de droits, contrats de prestation pour les contributeurs.',
     icon: FileText,
     costSaving: 1000,
@@ -106,7 +106,7 @@ const fullyAutomated: AutomationItem[] = [
   },
   {
     id: 'content-moderation',
-    title: 'Modération & scoring qualité',
+    title: 'Moderation & quality scoring',
     description: 'Analyse et scoring automatique du contenu.',
     detail: 'Modère automatiquement le contenu soumis par les utilisateurs (commentaires, portfolios, soumissions) et détecte le contenu inapproprié ou de faible qualité.',
     icon: Shield,
@@ -116,7 +116,7 @@ const fullyAutomated: AutomationItem[] = [
   {
     id: 'ab-testing',
     title: 'Variantes A/B testing',
-    description: 'Génération de variantes pour tests créatifs.',
+    description: 'Variant generation for creative testing.',
     detail: 'Crée automatiquement des variantes (titres, thumbnails, descriptions) pour les vidéos des créateurs et analyse les performances pour optimiser.',
     icon: Palette,
     costSaving: 400,
@@ -125,7 +125,7 @@ const fullyAutomated: AutomationItem[] = [
   {
     id: 'translation',
     title: 'Traduction multilingue',
-    description: 'Traduction en 10+ langues instantanée.',
+    description: 'Instant translation into 10+ languages.',
     detail: 'Traduit automatiquement le contenu de la plateforme, les sous-titres, les communications marketing et les documents juridiques en français, anglais, hébreu, arabe, espagnol, et plus.',
     icon: Languages,
     costSaving: 1500,
@@ -133,8 +133,8 @@ const fullyAutomated: AutomationItem[] = [
   },
   {
     id: 'budget-optimization',
-    title: 'Optimisation budgétaire',
-    description: 'Suggestions d\'optimisation des coûts.',
+    title: 'Budget optimization',
+    description: 'Cost-optimization suggestions.',
     detail: 'Analyse les dépenses par catégorie et suggère des optimisations : réallocation de budget, alternatives moins coûteuses, priorisation des tâches à fort ROI.',
     icon: Lightbulb,
     costSaving: 500,
@@ -163,8 +163,8 @@ const assisted: AutomationItem[] = [
   },
   {
     id: 'kyc-decisions',
-    title: 'Décisions KYC/AML',
-    description: 'Pré-analyse des dossiers KYC.',
+    title: 'KYC/AML decisions',
+    description: 'Pre-analysis of KYC files.',
     detail: 'Claude pré-analyse les dossiers KYC et signale les incohérences ou risques. La décision finale d\'approbation ou rejet reste humaine pour la conformité réglementaire.',
     icon: Shield,
     costSaving: 400,
@@ -172,8 +172,8 @@ const assisted: AutomationItem[] = [
   },
   {
     id: 'dispute-resolution',
-    title: 'Résolution de litiges',
-    description: 'Propositions de résolution assistées.',
+    title: 'Dispute resolution',
+    description: 'Assisted resolution suggestions.',
     detail: 'Analyse les litiges entre contributeurs et investisseurs, propose des résolutions basées sur les CGU et le droit applicable. L\'humain décide et communique.',
     icon: Gavel,
     costSaving: 300,
@@ -199,8 +199,8 @@ const assisted: AutomationItem[] = [
   },
   {
     id: 'creative-decisions',
-    title: 'Décisions créatives',
-    description: 'Direction artistique assistée par IA.',
+    title: 'Creative decisions',
+    description: 'AI-assisted art direction.',
     detail: 'Propose des options créatives (casting, style visuel, direction musicale) mais les décisions finales de direction artistique restent au réalisateur/fondateur.',
     icon: Video,
     costSaving: 200,
@@ -238,8 +238,8 @@ const humanOnly: AutomationItem[] = [
   },
   {
     id: 'incorporation',
-    title: 'Incorporation société',
-    description: 'Création de l\'entité légale en Israël.',
+    title: 'Company incorporation',
+    description: 'Creation of the legal entity in Israel.',
     detail: 'L\'immatriculation d\'une société (Ltd/LLC) auprès du Registraire des Sociétés israélien nécessite des documents physiques et un avocat local.',
     icon: Building2,
     costSaving: 0,
@@ -247,7 +247,7 @@ const humanOnly: AutomationItem[] = [
   },
   {
     id: 'tax-declarations',
-    title: 'Déclarations fiscales',
+    title: 'Tax filings',
     description: 'Déclarations TVA et impôt sur les sociétés.',
     detail: 'Les déclarations fiscales auprès de l\'administration israélienne (Mas Hachnasa, Ma\'am) doivent être signées par un comptable agréé (Ro\'e Heshbon).',
     icon: Calculator,
@@ -257,7 +257,7 @@ const humanOnly: AutomationItem[] = [
   {
     id: 'signatures',
     title: 'Signatures physiques',
-    description: 'Documents nécessitant une signature manuscrite.',
+    description: 'Documents requiring a handwritten signature.',
     detail: 'Certains documents légaux israéliens requièrent une signature physique authentifiée ou certifiée par un notaire (No\'tar).',
     icon: Stamp,
     costSaving: 0,
@@ -266,7 +266,7 @@ const humanOnly: AutomationItem[] = [
   {
     id: 'court',
     title: 'Litiges juridiques & tribunaux',
-    description: 'Représentation en justice et audiences.',
+    description: 'Court representation and hearings.',
     detail: 'Toute procédure devant les tribunaux israéliens nécessite un avocat inscrit au Barreau israélien (Lishkat Orchei HaDin).',
     icon: Gavel,
     costSaving: 0,
@@ -274,8 +274,8 @@ const humanOnly: AutomationItem[] = [
   },
   {
     id: 'accreditation',
-    title: 'Vérification accréditation',
-    description: 'Validation du statut d\'investisseur accrédité.',
+    title: 'Accreditation verification',
+    description: 'Accredited investor status verification.',
     detail: 'La vérification finale du statut d\'investisseur accrédité selon la loi israélienne doit être effectuée par un professionnel qualifié (avocat ou comptable).',
     icon: Users,
     costSaving: 0,
@@ -301,10 +301,10 @@ export default async function AdminAIAutomationPage() {
 
   const stats = [
     { label: 'Full automation', value: `${fullyAutomated.length}/${totalItems}`, sub: `${automationPct}% automatisé`, color: 'text-green-600', icon: CheckCircle },
-    { label: 'Assisté (Claude + Humain)', value: assisted.length.toString(), sub: 'approbation requise', color: 'text-yellow-600', icon: AlertTriangle },
+    { label: 'Assisted (Claude + Human)', value: assisted.length.toString(), sub: 'approbation requise', color: 'text-yellow-600', icon: AlertTriangle },
     { label: 'Humain uniquement', value: humanOnly.length.toString(), sub: 'non automatisable', color: 'text-red-400', icon: XCircle },
-    { label: 'Modules activés', value: `${activatedCount}/${totalActivatable}`, sub: 'en production', color: 'text-blue-600', icon: Zap },
-    { label: 'Coût Claude API', value: `${claudeApiCost} EUR/mois`, sub: 'budget API actuel', color: 'text-purple-600', icon: Brain },
+    { label: 'Modules enabled', value: `${activatedCount}/${totalActivatable}`, sub: 'en production', color: 'text-blue-600', icon: Zap },
+    { label: 'Claude API cost', value: `${claudeApiCost} EUR/mois`, sub: 'budget API actuel', color: 'text-purple-600', icon: Brain },
     { label: 'Économies actives', value: `${new Intl.NumberFormat('fr-FR').format(activeSavings)} EUR`, sub: '/mois estimé', color: 'text-[#E50914]', icon: DollarSign },
   ]
 
@@ -328,7 +328,7 @@ export default async function AdminAIAutomationPage() {
             <div className="text-center">
               <Brain className="h-8 w-8 text-[#E50914] mx-auto mb-2" />
               <p className="text-3xl font-bold text-[#E50914]">{claudeApiCost} EUR</p>
-              <p className="text-xs text-white/50 mt-1">Coût mensuel API Claude</p>
+              <p className="text-xs text-white/50 mt-1">Monthly Claude API cost</p>
             </div>
             <div className="text-center">
               <TrendingUp className="h-8 w-8 text-green-600 mx-auto mb-2" />
@@ -420,7 +420,7 @@ export default async function AdminAIAutomationPage() {
               <h2 className="font-semibold text-green-600 font-[family-name:var(--font-playfair)]">
                 Automatisation complète
               </h2>
-              <p className="text-[10px] text-white/50">Claude gère à 100%</p>
+              <p className="text-[10px] text-white/50">Claude handles 100%</p>
             </div>
             <Badge variant="success" className="ml-auto text-[10px]">{fullyAutomated.length}</Badge>
           </div>
@@ -439,7 +439,7 @@ export default async function AdminAIAutomationPage() {
               <h2 className="font-semibold text-yellow-600 font-[family-name:var(--font-playfair)]">
                 Assisté par Claude
               </h2>
-              <p className="text-[10px] text-white/50">Claude rédige, humain approuve</p>
+              <p className="text-[10px] text-white/50">Claude drafts, human approves</p>
             </div>
             <Badge variant="warning" className="ml-auto text-[10px]">{assisted.length}</Badge>
           </div>

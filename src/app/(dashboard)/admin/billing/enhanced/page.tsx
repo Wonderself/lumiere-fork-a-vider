@@ -77,7 +77,7 @@ export default function EnhancedBillingPage() {
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
           Billing & Analytics
         </h1>
-        <p className="text-sm text-white/50 mt-1">Revenus, coûts et marge avec graphiques détaillés</p>
+        <p className="text-sm text-white/50 mt-1">Revenue, costs and margin with detailed charts</p>
       </div>
 
       {/* KPIs */}
@@ -107,7 +107,7 @@ export default function EnhancedBillingPage() {
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip />
               <Area type="monotone" dataKey="revenue" stackId="1" stroke="#10B981" fill="#10B981" fillOpacity={0.2} name="Revenue" />
-              <Area type="monotone" dataKey="cost" stackId="2" stroke="#E50914" fill="#E50914" fillOpacity={0.1} name="Coût" />
+              <Area type="monotone" dataKey="cost" stackId="2" stroke="#E50914" fill="#E50914" fillOpacity={0.1} name="Cost" />
             </AreaChart>
           </ResponsiveContainer>
         </div>

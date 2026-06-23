@@ -6,7 +6,7 @@ import { TwoFactorSetup } from './two-factor-setup'
 import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Sécurité — Admin CINEGENY' }
+export const metadata: Metadata = { title: 'Security — CINEGENY Admin' }
 
 export default async function SecurityPage() {
   const session = await auth()
@@ -77,7 +77,7 @@ export default async function SecurityPage() {
             <div className="rounded-xl border border-white/10 bg-white/5 p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Shield className="h-4 w-4 text-orange-400" />
-                <span className="text-[10px] text-white/50 uppercase tracking-wider">Action fréquente</span>
+                <span className="text-[10px] text-white/50 uppercase tracking-wider">Frequent action</span>
               </div>
               <p className="text-sm font-semibold text-white truncate">{stats.topActions[0].action}</p>
               <p className="text-[10px] text-white/40 mt-0.5">{stats.topActions[0].count} fois</p>

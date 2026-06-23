@@ -11,7 +11,7 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Admin — Paramètres' }
+export const metadata: Metadata = { title: 'Admin — Settings' }
 
 export default async function AdminSettingsPage() {
   const session = await auth()
@@ -97,8 +97,8 @@ export default async function AdminSettingsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="lumenRewardPerTask">Lumens par tâche validée</Label>
-                <p className="text-xs text-white/50">Bonus attribué au contributeur.</p>
+                <Label htmlFor="lumenRewardPerTask">Lumens per validated task</Label>
+                <p className="text-xs text-white/50">Bonus awarded to the contributor.</p>
                 <Input
                   id="lumenRewardPerTask"
                   name="lumenRewardPerTask"
@@ -131,7 +131,7 @@ export default async function AdminSettingsPage() {
               />
               <div>
                 <Label htmlFor="notifEmailEnabled">Activer les emails transactionnels</Label>
-                <p className="text-xs text-white/50">Envoie des emails pour les validations, paiements, etc. Nécessite Resend API key.</p>
+                <p className="text-xs text-white/50">Sends emails for validations, payments, etc. Requires a Resend API key.</p>
               </div>
             </div>
           </CardContent>
@@ -145,7 +145,7 @@ export default async function AdminSettingsPage() {
             </h2>
 
             <div className="space-y-2">
-              <Label htmlFor="maxConcurrentTasks">Tâches simultanées max par contributeur</Label>
+              <Label htmlFor="maxConcurrentTasks">Max simultaneous tasks per contributor</Label>
               <p className="text-xs text-white/50">
                 Un contributeur ne peut pas accepter plus de X tâches en même temps.
               </p>
@@ -180,7 +180,7 @@ export default async function AdminSettingsPage() {
               />
               <div>
                 <Label htmlFor="bitcoinEnabled">Activer les paiements Bitcoin Lightning</Label>
-                <p className="text-xs text-white/50">Nécessite la configuration de BTCPay Server.</p>
+                <p className="text-xs text-white/50">Requires BTCPay Server configuration.</p>
               </div>
             </div>
           </CardContent>
@@ -210,7 +210,7 @@ export default async function AdminSettingsPage() {
           </CardContent>
         </Card>
 
-        <Button type="submit" size="lg" className="w-full">Sauvegarder les Paramètres</Button>
+        <Button type="submit" size="lg" className="w-full">Save settings</Button>
       </form>
     </div>
   )

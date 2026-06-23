@@ -43,7 +43,7 @@ export default function BriefingPage() {
 
   function updateStatus(id: string, status: 'accepted' | 'rejected') {
     setImprovements(prev => prev.map(i => i.id === id ? { ...i, status } : i))
-    toast.success(status === 'accepted' ? 'Amélioration acceptée' : 'Amélioration rejetée')
+    toast.success(status === 'accepted' ? 'Improvement accepted' : 'Improvement rejected')
   }
 
   const filteredImprovements = improvements
@@ -54,7 +54,7 @@ export default function BriefingPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Briefing & Intelligence</h1>
-        <p className="text-sm text-white/50 mt-1">Briefing matinal · Améliorations IA · Plan d&apos;attaque quotidien</p>
+        <p className="text-sm text-white/50 mt-1">Morning briefing · AI improvements · Daily action plan</p>
       </div>
 
       {/* Agents */}
@@ -103,7 +103,7 @@ export default function BriefingPage() {
                 { label: 'AI requests', value: briefingData.aiRequests, icon: Zap, color: 'text-orange-600' },
                 { label: 'Revenue', value: `${microToCredits(briefingData.revenue).toFixed(1)} cr`, icon: BarChart3, color: 'text-green-600' },
                 { label: 'Conversations', value: briefingData.conversations, icon: Activity, color: 'text-purple-600' },
-                { label: 'Tâches validées', value: briefingData.tasksCompleted, icon: CheckCircle2, color: 'text-emerald-600' },
+                { label: 'Validated tasks', value: briefingData.tasksCompleted, icon: CheckCircle2, color: 'text-emerald-600' },
                 { label: 'Erreurs', value: briefingData.errors, icon: AlertTriangle, color: briefingData.errors > 3 ? 'text-red-600' : 'text-white/50' },
                 { label: 'Propositions', value: briefingData.pendingProposals, icon: Clock, color: 'text-yellow-600' },
               ].map(stat => {

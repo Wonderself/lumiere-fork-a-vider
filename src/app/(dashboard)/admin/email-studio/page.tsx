@@ -48,7 +48,7 @@ export default function EmailStudioPage() {
       body = body.replace(/\{(\w+)\}/g, '[$1]')
       setGeneratedEmail({ subject, body })
       setGenerating(false)
-      toast.success('Email généré')
+      toast.success('Email generated')
     }, 1500)
   }
 
@@ -57,7 +57,7 @@ export default function EmailStudioPage() {
     await navigator.clipboard.writeText(`Objet: ${generatedEmail.subject}\n\n${generatedEmail.body}`)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
-    toast.success('Email copié')
+    toast.success('Email copied')
   }
 
   return (
@@ -83,9 +83,9 @@ export default function EmailStudioPage() {
       <div className="flex gap-2">
         {[
           { key: 'templates' as const, label: `Templates (${EMAIL_TEMPLATES.length})`, icon: FileText },
-          { key: 'compose' as const, label: 'Rédiger', icon: PenTool },
+          { key: 'compose' as const, label: 'Write', icon: PenTool },
           { key: 'signatures' as const, label: 'Signatures', icon: Palette },
-          { key: 'sequences' as const, label: 'Séquences', icon: GitBranch },
+          { key: 'sequences' as const, label: 'Sequences', icon: GitBranch },
         ].map(t => {
           const TIcon = t.icon
           return <button key={t.key} onClick={() => setTab(t.key)} className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium ${tab === t.key ? 'bg-[#E50914] text-white' : 'bg-white/[0.05] text-white/60 hover:bg-white/[0.08]'}`}><TIcon className="h-3.5 w-3.5" />{t.label}</button>
@@ -134,14 +134,14 @@ export default function EmailStudioPage() {
             </div>
             <button onClick={generateEmail} disabled={generating} className="mt-4 w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] text-white font-semibold rounded-xl disabled:opacity-50">
               {generating ? <Loader2 className="h-5 w-5 animate-spin" /> : <Wand2 className="h-5 w-5" />}
-              {generating ? 'Generating...' : 'Générer l\'email'}
+              {generating ? 'Generating...' : 'Generate email'}
             </button>
           </div>
 
           {generatedEmail && (
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-semibold text-white">Email prêt</h3>
+                <h3 className="text-sm font-semibold text-white">Email ready</h3>
                 <button onClick={copyEmail} className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-white/[0.05] hover:bg-white/[0.08]">
                   {copied ? <Check className="h-3.5 w-3.5 text-green-500" /> : <Copy className="h-3.5 w-3.5" />}
                   {copied ? 'Copied' : 'Copy'}
@@ -161,7 +161,7 @@ export default function EmailStudioPage() {
       {tab === 'compose' && !selectedTemplate && (
         <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center">
           <Mail className="h-10 w-10 text-white/40 mx-auto mb-3" />
-          <p className="text-sm text-white/50">Sélectionnez un template pour commencer</p>
+          <p className="text-sm text-white/50">Select a template to get started</p>
           <button onClick={() => setTab('templates')} className="mt-3 text-xs text-[#E50914] hover:underline">Voir les templates</button>
         </div>
       )}
@@ -184,7 +184,7 @@ export default function EmailStudioPage() {
       {/* SEQUENCES */}
       {tab === 'sequences' && (
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-white flex items-center gap-2"><GitBranch className="h-5 w-5 text-green-500" />Séquence Onboarding</h2>
+          <h2 className="text-lg font-semibold text-white flex items-center gap-2"><GitBranch className="h-5 w-5 text-green-500" />Onboarding sequence</h2>
           <div className="relative pl-8">
             <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-white/[0.08]" />
             {ONBOARDING_SEQUENCE.map((step, i) => {

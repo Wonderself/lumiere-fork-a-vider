@@ -39,8 +39,8 @@ export default async function AdminAnalyticsPage() {
   const typeLabels: Record<string, string> = {
     PROMPT_WRITING: 'Prompt IA', IMAGE_GEN: 'Image', VIDEO_REVIEW: 'Review Video',
     STUNT_CAPTURE: 'Capture Stunts', DANCE_CAPTURE: 'Capture Danse', DIALOGUE_EDIT: 'Dialogues',
-    COLOR_GRADE: 'Etalonnage', SOUND_DESIGN: 'Sound Design', CONTINUITY_CHECK: 'Continuité',
-    QA_REVIEW: 'QA Review', CHARACTER_DESIGN: 'Design Perso', ENV_DESIGN: 'Design Décor',
+    COLOR_GRADE: 'Etalonnage', SOUND_DESIGN: 'Sound Design', CONTINUITY_CHECK: 'Continuity',
+    QA_REVIEW: 'QA Review', CHARACTER_DESIGN: 'Design Perso', ENV_DESIGN: 'Set design',
     MOTION_REF: 'Motion Ref', COMPOSITING: 'Compositing', TRANSLATION: 'Traduction', SUBTITLE: 'Sous-titres',
   }
   const difficultyColors: Record<string, string> = {

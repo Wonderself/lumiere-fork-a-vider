@@ -21,8 +21,8 @@ export default function KnowledgeAdminPage() {
     await new Promise(r => setTimeout(r, 1000))
     setSearchResults([
       { content: 'Résultat sémantique simulé pour "' + searchQuery.substring(0, 40) + '..."', score: 0.92, type: 'film_bible' },
-      { content: 'Second résultat avec similarité moindre', score: 0.81, type: 'character' },
-      { content: 'Résultat textuel (fallback)', score: 0.50, type: 'general' },
+      { content: 'Second result with lower similarity', score: 0.81, type: 'character' },
+      { content: 'Text result (fallback)', score: 0.50, type: 'general' },
     ])
     setSearching(false)
   }
@@ -31,7 +31,7 @@ export default function KnowledgeAdminPage() {
     <div className="p-4 sm:p-6 space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Knowledge Management</h1>
-        <p className="text-sm text-white/50 mt-1">Embeddings vectoriels · Recherche sémantique · Mémoire films</p>
+        <p className="text-sm text-white/50 mt-1">Vector embeddings · Semantic search · Film memory</p>
       </div>
 
       {/* Agents */}
@@ -47,7 +47,7 @@ export default function KnowledgeAdminPage() {
       <div className="flex gap-2 overflow-x-auto pb-2">
         {[
           { key: 'overview' as const, label: 'Vue d\'ensemble', icon: BarChart3 },
-          { key: 'search' as const, label: 'Recherche sémantique', icon: Search },
+          { key: 'search' as const, label: 'Semantic search', icon: Search },
           { key: 'config' as const, label: 'Configuration', icon: Cpu },
         ].map(t => {
           const TIcon = t.icon
@@ -61,7 +61,7 @@ export default function KnowledgeAdminPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { label: 'Total Memories', value: '0', icon: Brain, color: 'text-purple-600', bg: 'bg-purple-500/10' },
-              { label: 'Films indexés', value: '0', icon: BookOpen, color: 'text-blue-600', bg: 'bg-blue-500/10' },
+              { label: 'Films indexed', value: '0', icon: BookOpen, color: 'text-blue-600', bg: 'bg-blue-500/10' },
               { label: 'Dimensions', value: EMBEDDING_CONFIG.dimensions, icon: Cpu, color: 'text-orange-600', bg: 'bg-orange-500/10' },
               { label: 'TTL défaut', value: `${EMBEDDING_CONFIG.ttlDays}j`, icon: Clock, color: 'text-green-600', bg: 'bg-green-500/10' },
             ].map(kpi => {
@@ -108,7 +108,7 @@ export default function KnowledgeAdminPage() {
       {tab === 'search' && (
         <div className="space-y-4">
           <div className="bg-white/5 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-white/10 p-4 sm:p-6">
-            <h3 className="text-sm font-semibold text-white mb-3">Recherche sémantique (cosine similarity)</h3>
+            <h3 className="text-sm font-semibold text-white mb-3">Semantic search (cosine similarity)</h3>
             <div className="flex gap-2">
               <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder="Recherchez dans la base de connaissances..." className="flex-1 rounded-xl border border-white/10 px-4 py-2.5 text-sm focus:border-[#E50914] focus:outline-none" onKeyDown={e => { if (e.key === 'Enter') performSearch() }} />
               <button onClick={performSearch} disabled={searching} className="px-4 py-2 bg-[#E50914] text-white text-sm rounded-xl disabled:opacity-50">

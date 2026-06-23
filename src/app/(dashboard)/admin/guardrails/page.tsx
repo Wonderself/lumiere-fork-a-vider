@@ -49,10 +49,10 @@ export default function GuardrailsPage() {
         body: JSON.stringify({ action, params }),
       })
       if (res.ok) {
-        toast.success('Action exécutée')
+        toast.success('Action executed')
         fetchData()
       } else {
-        toast.error('Action échouée')
+        toast.error('Action failed')
       }
     } catch { toast.error('Erreur') }
   }
@@ -119,7 +119,7 @@ export default function GuardrailsPage() {
         {[
           { label: 'Circuits', value: `${data.circuits.healthy}/${data.circuits.total}`, icon: GitBranch, color: data.circuits.open > 0 ? 'text-red-500' : 'text-green-500', bg: 'bg-green-500/10' },
           { label: 'Providers', value: `${data.providers.healthy}/${data.providers.total}`, icon: Server, color: data.providers.down > 0 ? 'text-red-500' : 'text-green-500', bg: 'bg-blue-500/10' },
-          { label: 'Chaînes actives', value: data.loops.activeChains, icon: Activity, color: 'text-purple-500', bg: 'bg-purple-500/10' },
+          { label: 'Active channels', value: data.loops.activeChains, icon: Activity, color: 'text-purple-500', bg: 'bg-purple-500/10' },
           { label: 'Alertes', value: data.alerts.unacknowledged, icon: AlertTriangle, color: data.alerts.unacknowledged > 0 ? 'text-red-500' : 'text-green-500', bg: 'bg-yellow-500/10' },
           { label: 'Critical', value: data.alerts.bySeverity.critical || 0, icon: XCircle, color: 'text-red-600', bg: 'bg-red-500/10' },
           { label: 'Suspended', value: data.circuits.suspended, icon: Shield, color: data.circuits.suspended > 0 ? 'text-orange-500' : 'text-green-500', bg: 'bg-orange-500/10' },

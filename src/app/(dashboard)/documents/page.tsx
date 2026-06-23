@@ -86,7 +86,7 @@ export default function DocumentFactoryPage() {
 
       'Garanties': `Chacune des Parties déclare et garantit à l'autre Partie :\n\n1. Qu'elle a pleine capacité juridique pour conclure le présent accord et exécuter les obligations qui en découlent ;\n\n2. Que la conclusion et l'exécution du présent accord ne violent aucun droit de tiers, aucune disposition légale ou réglementaire applicable, aucune décision de justice, ni aucun accord préalablement conclu ;\n\n3. Que l'Œuvre est originale, qu'elle n'est pas contrefaisante et qu'elle ne porte pas atteinte aux droits de tiers, notamment aux droits de propriété intellectuelle, au droit à l'image ou à la vie privée.\n\nEn cas de violation de l'une de ces garanties, la Partie défaillante s'engage à indemniser l'autre Partie de l'intégralité des préjudices subis.`,
 
-      'Confidentialité': `Les Parties s'engagent à maintenir strictement confidentielles toutes informations, données, documents et éléments de toute nature communiqués par l'une à l'autre dans le cadre du présent accord, ou dont elles auraient connaissance lors de son exécution (ci-après les « Informations Confidentielles »).\n\nCet engagement de confidentialité s'applique pendant toute la durée du présent accord et pendant une période de **3 (trois) ans** après son expiration ou sa résiliation, pour quelque cause que ce soit.\n\nNe sont pas considérées comme Informations Confidentielles les informations qui : (i) étaient déjà publiquement connues au moment de leur communication, (ii) le sont devenues sans faute de la partie réceptrice, (iii) étaient déjà connues de la partie réceptrice, ou (iv) ont été légalement obtenues d'un tiers autorisé à les divulguer.`,
+      'Privacy': `Les Parties s'engagent à maintenir strictement confidentielles toutes informations, données, documents et éléments de toute nature communiqués par l'une à l'autre dans le cadre du présent accord, ou dont elles auraient connaissance lors de son exécution (ci-après les « Informations Confidentielles »).\n\nCet engagement de confidentialité s'applique pendant toute la durée du présent accord et pendant une période de **3 (trois) ans** après son expiration ou sa résiliation, pour quelque cause que ce soit.\n\nNe sont pas considérées comme Informations Confidentielles les informations qui : (i) étaient déjà publiquement connues au moment de leur communication, (ii) le sont devenues sans faute de la partie réceptrice, (iii) étaient déjà connues de la partie réceptrice, ou (iv) ont été légalement obtenues d'un tiers autorisé à les divulguer.`,
 
       'Termination': `Le présent accord peut être résilié dans les conditions suivantes :\n\n**Résiliation de plein droit** : En cas de manquement grave de l'une des Parties à ses obligations essentielles, non remédié dans un délai de **30 (trente) jours** suivant notification par lettre recommandée avec accusé de réception détaillant le manquement constaté.\n\n**Résiliation amiable** : Les Parties peuvent convenir d'un commun accord, par écrit, de mettre fin au présent contrat à tout moment.\n\n**Conséquences** : En cas de résiliation, quelle qu'en soit la cause, les droits cédés reviennent de plein droit au Cédant. Les sommes déjà versées restent acquises, sauf faute du Cédant.`,
 
@@ -102,7 +102,7 @@ export default function DocumentFactoryPage() {
 
       'Exploitation': `Le Cessionnaire s'engage à exploiter l'Œuvre de manière active et diligente, en conformité avec les standards professionnels du marché cinématographique.\n\n**Obligations d'exploitation** :\n- Première exploitation dans un délai de **12 (douze) mois** suivant la livraison des masters\n- Maintien d'une présence en catalogue pendant toute la durée du contrat\n- Stratégie de promotion adaptée à chaque fenêtre d'exploitation\n- Information du Cédant de toute opération promotionnelle significative\n\nEn cas de non-exploitation pendant une période continue de **18 (dix-huit) mois**, les droits cédés seront automatiquement résiliés et retourneront au Cédant, sauf accord contraire.`,
 
-      'Mentions légales': `**Crédit contractuel** : Le nom du réalisateur et celui du producteur délégué devront figurer dans le générique de l'Œuvre conformément aux usages professionnels de la profession cinématographique et aux stipulations du présent accord.\n\n**Visa d'exploitation** : L'Œuvre ne pourra être exploitée en France qu'après obtention du visa d'exploitation délivré par le Centre National du Cinéma et de l'Image Animée (CNC), dont l'obtention incombe au Producteur.\n\n**Dépôt légal** : Le Producteur s'engage à effectuer le dépôt légal de l'Œuvre auprès de la Bibliothèque Nationale de France (BNF) conformément à la législation en vigueur.`,
+      'Legal notice': `**Crédit contractuel** : Le nom du réalisateur et celui du producteur délégué devront figurer dans le générique de l'Œuvre conformément aux usages professionnels de la profession cinématographique et aux stipulations du présent accord.\n\n**Visa d'exploitation** : L'Œuvre ne pourra être exploitée en France qu'après obtention du visa d'exploitation délivré par le Centre National du Cinéma et de l'Image Animée (CNC), dont l'obtention incombe au Producteur.\n\n**Dépôt légal** : Le Producteur s'engage à effectuer le dépôt légal de l'Œuvre auprès de la Bibliothèque Nationale de France (BNF) conformément à la législation en vigueur.`,
     }
 
     for (const section of selectedTemplate.sections) {
@@ -314,7 +314,7 @@ export default function DocumentFactoryPage() {
 
         <div className="flex gap-3">
           <button onClick={() => setView('templates')} className="flex-1 px-4 py-3 border border-white/10 text-white/60 rounded-xl hover:bg-white/[0.03] text-sm font-medium">Nouveau document</button>
-          <button onClick={() => setView('library')} className="flex-1 px-4 py-3 bg-[#E50914] text-white rounded-xl hover:bg-[#FF2D2D] text-sm font-semibold">Voir la bibliothèque</button>
+          <button onClick={() => setView('library')} className="flex-1 px-4 py-3 bg-[#E50914] text-white rounded-xl hover:bg-[#FF2D2D] text-sm font-semibold">View library</button>
         </div>
       </div>
     )
@@ -326,7 +326,7 @@ export default function DocumentFactoryPage() {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Bibliothèque</h1>
+          <h1 className="text-2xl font-bold text-white">Library</h1>
           <p className="text-sm text-white/50 mt-1">{savedDocs.length} documents archivés</p>
         </div>
         <button onClick={() => setView('templates')} className="px-3 py-1.5 rounded-lg text-xs bg-[#E50914] text-white">Nouveau document</button>
@@ -335,8 +335,8 @@ export default function DocumentFactoryPage() {
       {savedDocs.length === 0 ? (
         <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center">
           <FolderOpen className="h-10 w-10 text-white/50 mx-auto mb-3" />
-          <p className="text-sm text-white/50">Bibliothèque vide</p>
-          <p className="text-xs text-white/50 mt-1">Les documents générés et archivés apparaîtront ici</p>
+          <p className="text-sm text-white/50">Empty library</p>
+          <p className="text-xs text-white/50 mt-1">Generated and archived documents will appear here</p>
         </div>
       ) : (
         <div className="space-y-3">

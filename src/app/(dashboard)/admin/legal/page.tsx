@@ -79,22 +79,22 @@ const sectionConfig: Record<string, { title: string; icon: typeof Scale; descrip
   KYC: {
     title: 'B. KYC/AML compliance',
     icon: ShieldCheck,
-    description: 'Vérification d\'identité et lutte anti-blanchiment conformément à la loi israélienne.',
+    description: 'Identity verification and anti-money-laundering in accordance with Israeli law.',
   },
   TAX: {
     title: 'C. Taxation & Accounting (Israel)',
     icon: Receipt,
-    description: 'Obligations fiscales israéliennes pour la tokenisation et les revenus de la plateforme.',
+    description: 'Israeli tax obligations for tokenization and platform revenue.',
   },
   CONTRACT: {
     title: 'D. Contrats Intelligents & Technique',
     icon: Lock,
-    description: 'Infrastructure technique pour la gestion sécurisée des tokens et des données.',
+    description: 'Technical infrastructure for the secure management of tokens and data.',
   },
   CORPORATE: {
     title: 'E. Platform operations',
     icon: Globe,
-    description: 'Documents opérationnels et procédures pour le fonctionnement légal de la plateforme.',
+    description: 'Operational documents and procedures for the platform\'s legal operation.',
   },
 }
 
