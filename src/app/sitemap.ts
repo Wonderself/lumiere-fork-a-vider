@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 export const dynamic = 'force-dynamic'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://cinegeny.studio'
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.cinegeny.com'
   const now = new Date()
 
   // Static pages — all public routes
