@@ -34,7 +34,7 @@ export default function AIEnhancedTasksPage() {
           AI-Enhanced Tasks
         </h1>
         <p className="text-sm text-white/50 mt-1">
-          Créez avec l&apos;IA — choisissez votre modèle ou laissez le système garantir la cohérence
+          Create with AI — choose your model or let the system guarantee consistency
         </p>
       </div>
 
@@ -42,8 +42,8 @@ export default function AIEnhancedTasksPage() {
       <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 flex items-center gap-3">
         <Shield className="h-5 w-5 text-emerald-600 shrink-0" />
         <p className="text-xs text-emerald-700">
-          <span className="font-semibold">0% commission</span> — vous ne payez que les tokens IA consommés.
-          Prix affichés par modèle, transparence totale.
+          <span className="font-semibold">0% commission</span> — you only pay for the AI tokens consumed.
+          Prices shown per model, full transparency.
         </p>
       </div>
 
@@ -76,12 +76,12 @@ export default function AIEnhancedTasksPage() {
             <div className="flex items-center gap-3 mb-3">
               <Bot className="h-5 w-5" style={{ color: activeCategory.color }} />
               <div>
-                <p className="text-sm font-semibold text-white">Agent dédié : {agent?.name || 'IA'}</p>
+                <p className="text-sm font-semibold text-white">Dedicated agent: {agent?.name || 'AI'}</p>
                 <p className="text-[10px] text-white/50">{agent?.capabilities.join(' · ')}</p>
               </div>
             </div>
             <p className="text-xs text-white/50">
-              Cet agent vous accompagne tout au long de la tâche : suggestions créatives, review de cohérence, et chat direct.
+              This agent supports you throughout the task: creative suggestions, consistency review, and direct chat.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function AIEnhancedTasksPage() {
               rows={10}
               className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none"
             />
-            <p className="text-[10px] text-white/50 mt-1">{content.length} caractères</p>
+            <p className="text-[10px] text-white/50 mt-1">{content.length} characters</p>
           </div>
 
           {/* Model Selector */}

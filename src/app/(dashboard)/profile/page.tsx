@@ -289,10 +289,10 @@ export default async function ProfilePage() {
             <h2
               className="text-xl font-bold text-white mb-3"
             >
-              Complétez votre profil
+              Complete your profile
             </h2>
             <p className="text-white/50 text-sm leading-relaxed max-w-md mx-auto mb-6">
-              Un profil complet augmente votre visibilité dans la communauté et vous donne accès à plus de missions.
+              A complete profile increases your visibility in the community and gives you access to more missions.
             </p>
             <ProfileEditDialog
               user={{
@@ -315,7 +315,7 @@ export default async function ProfilePage() {
           <h2
             className="text-lg font-semibold text-white mb-3"
           >
-            À propos
+            About
           </h2>
           <p className="text-white/60 leading-relaxed whitespace-pre-wrap">{user.bio}</p>
         </div>

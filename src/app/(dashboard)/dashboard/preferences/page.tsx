@@ -131,7 +131,7 @@ export default function PreferencesPage() {
 
       <button onClick={savePreferences} disabled={saving} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
         {saving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
-        Sauvegarder les préférences
+        Save preferences
       </button>
     </div>
   )

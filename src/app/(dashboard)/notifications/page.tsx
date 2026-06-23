@@ -172,7 +172,7 @@ export default async function NotificationsPage({
           </div>
           <p className="text-white/60 text-lg mb-1">Aucune notification</p>
           <p className="text-white/50 text-sm">
-            Vos notifications apparaîtront ici
+            Your notifications will appear here
           </p>
         </div>
       ) : (

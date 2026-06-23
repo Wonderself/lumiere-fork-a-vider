@@ -19,21 +19,21 @@ const GENRES = [
 ]
 
 const STYLES = [
-  'Cinematic', 'Anime', 'Film Noir', 'Documentaire', 'Rétro/Vintage',
-  'Futuriste', 'Realistic', 'Expressionniste', 'Minimaliste', 'Épique',
+  'Cinematic', 'Anime', 'Film Noir', 'Documentaire', 'Retro/Vintage',
+  'Futuristic', 'Realistic', 'Expressionist', 'Minimalist', 'Epic',
 ]
 
 const MOODS = [
-  'Épique', 'Sombre', 'Drôle', 'Émotionnel', 'Mysterious',
-  'Suspense', 'Joyeux', 'Mélancolique', 'Intense', 'Poétique',
+  'Epic', 'Dark', 'Funny', 'Emotional', 'Mysterious',
+  'Suspense', 'Joyeux', 'Melancholic', 'Intense', 'Poetic',
 ]
 
 const DURATIONS = [
   { value: 'TEASER_15S', label: 'Teaser 15s', desc: 'Ultra-court, impact maximum' },
-  { value: 'TEASER_30S', label: 'Teaser 30s', desc: 'Aperçu rapide et percutant' },
+  { value: 'TEASER_30S', label: 'Teaser 30s', desc: 'Quick, punchy preview' },
   { value: 'STANDARD_60S', label: 'Standard 60s', desc: 'Format classique' },
-  { value: 'EXTENDED_90S', label: 'Étendu 90s', desc: 'Plus de détails narratifs' },
-  { value: 'FULL_120S', label: 'Complet 2min', desc: 'Bande-annonce complète' },
+  { value: 'EXTENDED_90S', label: 'Extended 90s', desc: 'More narrative detail' },
+  { value: 'FULL_120S', label: 'Complet 2min', desc: 'Full trailer' },
 ]
 
 export function NewTrailerForm() {
@@ -72,7 +72,7 @@ export function NewTrailerForm() {
           <div className="h-8 w-8 rounded-lg bg-[#E50914]/10 flex items-center justify-center">
             <Film className="h-4 w-4 text-[#E50914]" />
           </div>
-          <h2 className="text-base font-semibold text-white">Identité du projet</h2>
+          <h2 className="text-base font-semibold text-white">Project identity</h2>
         </div>
 
         <div className="space-y-2">
@@ -99,12 +99,12 @@ export function NewTrailerForm() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="synopsis" className="text-sm font-medium text-white/80">Synopsis détaillé</Label>
+          <Label htmlFor="synopsis" className="text-sm font-medium text-white/80">Detailed synopsis</Label>
           <textarea
             id="synopsis"
             name="synopsis"
             rows={4}
-            placeholder="Décrivez l'histoire, les personnages principaux, les enjeux..."
+            placeholder="Describe the story, the main characters, the stakes..."
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm focus:border-[#E50914]/40 focus:ring-[#E50914]/20 focus:outline-none resize-none"
           />
         </div>
@@ -116,7 +116,7 @@ export function NewTrailerForm() {
           <div className="h-8 w-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
             <Palette className="h-4 w-4 text-purple-400" />
           </div>
-          <h2 className="text-base font-semibold text-white">Direction créative</h2>
+          <h2 className="text-base font-semibold text-white">Creative direction</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -230,7 +230,7 @@ export function NewTrailerForm() {
             <div>
               <h2 className="text-base font-semibold text-white">Vote communautaire</h2>
               <p className="text-xs text-white/50 mt-0.5">
-                Laissez la communauté voter sur certains choix créatifs (acteurs, décors, musique...)
+                Let the community vote on some creative choices (actors, sets, music...)
               </p>
             </div>
           </div>
@@ -251,7 +251,7 @@ export function NewTrailerForm() {
       {/* Submit */}
       <div className="flex items-center justify-between pt-2">
         <p className="text-xs text-white/50">
-          L&apos;IA décomposera votre projet en ~30 micro-tâches après création
+          The AI will break your project into ~30 micro-tasks after creation
         </p>
         <Button
           type="submit"
@@ -262,7 +262,7 @@ export function NewTrailerForm() {
           {isPending ? 'Creating...' : (
             <>
               <Wand2 className="h-4 w-4 mr-2" />
-              Créer le projet
+              Create the project
               <ChevronRight className="h-4 w-4 ml-1" />
             </>
           )}

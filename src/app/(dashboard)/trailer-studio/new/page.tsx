@@ -20,7 +20,7 @@ export default async function NewTrailerPage() {
           Nouvelle Bande-Annonce
         </h1>
         <p className="text-sm text-white/50 mt-1">
-          Décrivez votre concept et l&apos;IA décomposera la création en micro-tâches intelligentes
+          Describe your concept and the AI will break creation into smart micro-tasks
         </p>
       </div>
       <NewTrailerForm />

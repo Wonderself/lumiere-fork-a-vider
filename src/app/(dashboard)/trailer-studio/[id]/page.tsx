@@ -34,9 +34,9 @@ const TASK_STATUS_CONFIG: Record<string, { label: string; color: string }> = {
   AWAITING_CHOICE: { label: 'Choix requis', color: 'bg-amber-500/15 text-amber-400' },
   IN_REVIEW: { label: 'En revue', color: 'bg-orange-500/15 text-orange-400' },
   APPROVED: { label: 'Approved', color: 'bg-emerald-500/15 text-emerald-400' },
-  REJECTED: { label: 'Rejeté', color: 'bg-red-500/15 text-red-400' },
+  REJECTED: { label: 'Rejected', color: 'bg-red-500/15 text-red-400' },
   COMPLETED: { label: 'Completed', color: 'bg-green-500/15 text-green-400' },
-  SKIPPED: { label: 'Ignoré', color: 'bg-white/[0.05] text-white/50' },
+  SKIPPED: { label: 'Skipped', color: 'bg-white/[0.05] text-white/50' },
 }
 
 export default async function TrailerProjectPage({ params }: { params: Promise<{ id: string }> }) {
@@ -86,7 +86,7 @@ export default async function TrailerProjectPage({ params }: { params: Promise<{
             {project.mood && <Badge variant="outline" className="text-xs">{project.mood}</Badge>}
             {project.duration && (
               <Badge variant="outline" className="text-xs">
-                {project.duration.replace('_', ' ').replace('TEASER', 'Teaser').replace('STANDARD', 'Standard').replace('EXTENDED', 'Étendu').replace('FULL', 'Complet')}
+                {project.duration.replace('_', ' ').replace('TEASER', 'Teaser').replace('STANDARD', 'Standard').replace('EXTENDED', 'Extended').replace('FULL', 'Full')}
               </Badge>
             )}
           </div>
@@ -94,7 +94,7 @@ export default async function TrailerProjectPage({ params }: { params: Promise<{
         <div className="flex items-center gap-3">
           <Badge variant="outline" className="text-sm px-3 py-1.5 border-[#E50914]/20 text-[#E50914]">
             <Coins className="h-3.5 w-3.5 mr-1.5" />
-            {project.creditsUsed}/{project.estimatedCredits} crédits
+            {project.creditsUsed}/{project.estimatedCredits} credits
           </Badge>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default async function TrailerProjectPage({ params }: { params: Promise<{
           />
         </div>
         <div className="flex items-center justify-between mt-2 text-xs text-white/50">
-          <span>{project.completedTasks}/{project.totalTasks} tâches terminées</span>
+          <span>{project.completedTasks}/{project.totalTasks} tasks completed</span>
           <span>Phase: {PHASE_CONFIG[project.currentPhase]?.label || project.currentPhase}</span>
         </div>
       </div>
@@ -151,13 +151,13 @@ export default async function TrailerProjectPage({ params }: { params: Promise<{
 
       {/* Tasks by Phase */}
       <div className="space-y-5">
-        <h2 className="text-lg font-semibold text-white">Micro-tâches par phase</h2>
+        <h2 className="text-lg font-semibold text-white">Micro-tasks by phase</h2>
 
         {project.tasks.length === 0 ? (
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
             <Wand2 className="h-10 w-10 text-white/50 mx-auto mb-3" />
-            <p className="text-sm text-white/50">Le projet n&apos;a pas encore été décomposé en micro-tâches</p>
-            <p className="text-xs text-white/50 mt-1">Utilisez le bouton ci-dessus pour décomposer le projet</p>
+            <p className="text-sm text-white/50">The project has not been broken down into micro-tasks yet</p>
+            <p className="text-xs text-white/50 mt-1">Use the button above to break down the project</p>
           </div>
         ) : (
           <div className="space-y-4">

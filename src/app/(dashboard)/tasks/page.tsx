@@ -15,7 +15,7 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Tâches Disponibles' }
+export const metadata: Metadata = { title: 'Available Tasks' }
 
 type SearchParams = {
   film?: string
@@ -74,9 +74,9 @@ export default async function TasksPage({
       <div className="flex items-end justify-between flex-wrap gap-4">
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3 font-playfair">
-            Marketplace de Tâches
+            Task Marketplace
           </h1>
-          <p className="text-white/50">{tasks.length} tâche{tasks.length > 1 ? 's' : ''} trouvée{tasks.length > 1 ? 's' : ''}</p>
+          <p className="text-white/50">{tasks.length} task{tasks.length > 1 ? 's' : ''} found</p>
         </div>
         <div className="hidden sm:flex items-center gap-3 text-xs text-white/50">
           <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> Available</span>
@@ -111,7 +111,7 @@ export default async function TasksPage({
               defaultValue={params.difficulty || ''}
               className="h-10 appearance-none rounded-xl border border-white/10 bg-[#FAFAF8] pl-3 pr-9 text-sm text-white/80 focus:outline-none focus:ring-2 focus:ring-[#E50914]/20 focus:border-[#E50914]/40 transition-all duration-300 cursor-pointer"
             >
-              <option value="">Toutes difficultés</option>
+              <option value="">All difficulties</option>
               <option value="EASY">Facile</option>
               <option value="MEDIUM">Moyen</option>
               <option value="HARD">Difficile</option>
@@ -162,7 +162,7 @@ export default async function TasksPage({
       {tasks.length === 0 ? (
         <div className="text-center py-24 text-white/50 bg-white/5 sm:rounded-3xl rounded-2xl border border-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
           <Star className="h-16 w-16 mx-auto mb-4 text-gray-300" />
-          <p className="text-xl text-white/50">Aucune tâche trouvée</p>
+          <p className="text-xl text-white/50">No tasks found</p>
           <p className="text-sm mt-2 text-white/50">Modifiez vos filtres ou revenez plus tard.</p>
         </div>
       ) : (

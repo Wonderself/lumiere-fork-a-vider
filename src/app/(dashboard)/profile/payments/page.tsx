@@ -72,7 +72,7 @@ export default async function PaymentsPage() {
             <div className="h-10 w-10 rounded-xl bg-[#E50914]/10 border border-[#E50914]/20 flex items-center justify-center">
               <CreditCard className="h-5 w-5 text-[#E50914]" />
             </div>
-            <span className="text-sm text-white/40">Total gagné</span>
+            <span className="text-sm text-white/40">Total earned</span>
           </div>
           <p className="text-2xl font-bold text-[#E50914]">
             {totalEarned.toFixed(2)} &euro;
@@ -111,7 +111,7 @@ export default async function PaymentsPage() {
           </div>
           <h3 className="text-lg font-semibold text-white/60 mb-2">Aucun paiement</h3>
           <p className="text-sm text-white/30 max-w-md mx-auto">
-            Vous n&apos;avez pas encore de paiements. Commencez par réaliser des tâches
+            You don't have any payments yet. Start by completing tasks
             pour gagner vos premiers Lumens et euros.
           </p>
         </div>
@@ -123,7 +123,7 @@ export default async function PaymentsPage() {
               <thead>
                 <tr className="border-b border-white/5">
                   <th className="text-left text-xs font-medium text-white/30 uppercase tracking-wider px-6 py-4">
-                    Tâche
+                    Task
                   </th>
                   <th className="text-left text-xs font-medium text-white/30 uppercase tracking-wider px-6 py-4">
                     Film
@@ -132,7 +132,7 @@ export default async function PaymentsPage() {
                     Montant
                   </th>
                   <th className="text-left text-xs font-medium text-white/30 uppercase tracking-wider px-6 py-4">
-                    Méthode
+                    Method
                   </th>
                   <th className="text-left text-xs font-medium text-white/30 uppercase tracking-wider px-6 py-4">
                     Statut
@@ -176,7 +176,7 @@ export default async function PaymentsPage() {
                       </td>
                       <td className="px-6 py-4 text-right">
                         <span className="text-sm text-white/40">
-                          {payment.createdAt.toLocaleDateString('fr-FR')}
+                          {payment.createdAt.toLocaleDateString('en-US')}
                         </span>
                       </td>
                     </tr>
@@ -217,7 +217,7 @@ export default async function PaymentsPage() {
                       </span>
                     </div>
                     <span className="text-xs text-white/30">
-                      {payment.createdAt.toLocaleDateString('fr-FR')}
+                      {payment.createdAt.toLocaleDateString('en-US')}
                     </span>
                   </div>
                 </div>

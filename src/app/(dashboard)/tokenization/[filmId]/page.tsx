@@ -160,7 +160,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
           <div className="flex-1 space-y-4">
             <div className="flex flex-wrap items-center gap-2">
               <Badge className={`${risk.bgColor} text-xs`}>{risk.label}</Badge>
-              <Badge variant="secondary">{offering.legalStructure === 'IL_EXEMPT' ? 'ISA Exemptée' : offering.legalStructure}</Badge>
+              <Badge variant="secondary">{offering.legalStructure === 'IL_EXEMPT' ? 'ISA Exempt' : offering.legalStructure}</Badge>
               <Badge variant="outline" className="text-xs">{OFFERING_STATUS_LABELS[offering.status] || offering.status}</Badge>
               {film.genre && <Badge variant="outline" className="text-xs">{film.genre}</Badge>}
             </div>
@@ -178,7 +178,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
               {[
                 { label: 'Prix / Token', value: formatEur(offering.tokenPrice), icon: Coins, color: 'text-[#E50914]' },
                 { label: 'Vendus / Total', value: `${offering.tokensSold.toLocaleString('fr-FR')} / ${offering.totalTokens.toLocaleString('fr-FR')}`, icon: BarChart3, color: 'text-blue-600' },
-                { label: 'Levée', value: `${formatEur(offering.raised)} / ${formatEur(offering.hardCap)}`, icon: CircleDollarSign, color: 'text-green-600' },
+                { label: 'Raise', value: `${formatEur(offering.raised)} / ${formatEur(offering.hardCap)}`, icon: CircleDollarSign, color: 'text-green-600' },
                 { label: 'Temps restant', value: timeLeft, icon: Clock, color: 'text-orange-600' },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-lg bg-white/[0.03] border border-white/5 p-3">
@@ -194,7 +194,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
             {/* Progress Bar */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-white/50 text-xs">Progression de la levée</span>
+                <span className="text-white/50 text-xs">Raise progress</span>
                 <span className="text-[#E50914] text-sm font-bold">{progress}%</span>
               </div>
               <Progress value={progress} className="h-3" />
@@ -212,7 +212,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
                   <BarChart3 className="h-5 w-5 text-[#E50914]" />
-                  Répartition du Budget
+                  Budget breakdown
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -346,8 +346,8 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
               {offering.revenues.length === 0 ? (
                 <div className="text-center py-6">
                   <PiggyBank className="h-8 w-8 text-white/10 mx-auto mb-2" />
-                  <p className="text-white/30 text-sm">Aucun revenu enregistré pour le moment.</p>
-                  <p className="text-white/20 text-xs mt-1">Les revenus seront distribués une fois le film financé et exploité.</p>
+                  <p className="text-white/30 text-sm">No revenue recorded yet.</p>
+                  <p className="text-white/20 text-xs mt-1">Revenue will be distributed once the film is funded and exploited.</p>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -385,7 +385,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
             <CardHeader>
               <CardTitle className="text-white flex items-center gap-2">
                 <ShoppingCart className="h-5 w-5 text-blue-600" />
-                Marché Secondaire
+                Secondary Market
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -469,7 +469,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
                     <div className="flex items-start gap-2 p-2 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
                       <Shield className="h-4 w-4 text-yellow-600 shrink-0 mt-0.5" />
                       <p className="text-white/40 text-[10px]">
-                        Vérification KYC requise. Votre profil doit être vérifié pour investir.
+                        KYC verification required. Your profile must be verified to invest.
                       </p>
                     </div>
                   )}
@@ -494,7 +494,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
             <CardContent>
               <div className="text-center py-3">
                 <p className="text-3xl font-bold text-[#E50914]">{userBalance}</p>
-                <p className="text-white/30 text-xs mt-1">token(s) détenus</p>
+                <p className="text-white/30 text-xs mt-1">token(s) held</p>
                 {offering.totalTokens > 0 && (
                   <p className="text-white/20 text-[10px] mt-0.5">
                     {Math.round((userBalance / offering.totalTokens) * 10000) / 100}% du total
@@ -542,7 +542,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
                 </div>
                 <div className="rounded-lg bg-white/[0.03] p-3 text-center">
                   <p className="text-white text-xl font-bold">{offering.distributionPct}%</p>
-                  <p className="text-white/30 text-[10px]">Part distribuée</p>
+                  <p className="text-white/30 text-[10px]">Share distributed</p>
                 </div>
               </div>
               {offering.projectedROI && (
@@ -551,7 +551,7 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
                     <TrendingUp className="h-4 w-4" />
                     ~{offering.projectedROI}%
                   </p>
-                  <p className="text-white/30 text-[10px]">ROI projeté</p>
+                  <p className="text-white/30 text-[10px]">Projected ROI</p>
                 </div>
               )}
             </CardContent>
@@ -562,16 +562,16 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
             <CardHeader>
               <CardTitle className="text-white text-sm flex items-center gap-2">
                 <FileText className="h-4 w-4 text-white/40" />
-                Informations Clés
+                Key Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {[
-                { label: 'Structure légale', value: offering.legalStructure === 'IL_EXEMPT' ? 'ISA Exemptée (<5M ILS)' : offering.legalStructure },
-                { label: 'Modèle de revenus', value: offering.revenueModel === 'REVENUE_SHARE' ? 'Partage de revenus' : offering.revenueModel },
+                { label: 'Legal structure', value: offering.legalStructure === 'IL_EXEMPT' ? 'ISA Exempt (<5M ILS)' : offering.legalStructure },
+                { label: 'Revenue model', value: offering.revenueModel === 'REVENUE_SHARE' ? 'Revenue share' : offering.revenueModel },
                 { label: 'Droits de vote', value: offering.votingRights ? 'Oui' : 'Non' },
                 { label: 'KYC requis', value: offering.kycRequired ? 'Oui' : 'Non' },
-                { label: 'Investisseurs accrédités', value: offering.accreditedOnly ? 'Uniquement' : 'Non requis' },
+                { label: 'Accredited investors', value: offering.accreditedOnly ? 'Only' : 'Not required' },
                 { label: 'Frais plateforme', value: `${PLATFORM_FEE_PCT}%` },
               ].map((item) => (
                 <div key={item.label} className="flex items-center justify-between py-1.5 border-b border-white/5 last:border-0">
@@ -590,8 +590,8 @@ export default async function FilmTokenDetailPage({ params }: { params: Promise<
                 <div>
                   <p className="text-red-400 text-xs font-medium mb-1">Avertissement Risques</p>
                   <p className="text-white/30 text-[10px] leading-relaxed">
-                    L&apos;investissement dans des tokens de co-production cinématographique comporte des risques significatifs,
-                    incluant la perte totale du capital. Les performances passées ne garantissent pas les résultats futurs.
+                    Investing in film co-production tokens carries significant risks,
+                    including the total loss of capital. Past performance does not guarantee future results.
                     Investissez uniquement des sommes que vous pouvez vous permettre de perdre.
                   </p>
                 </div>

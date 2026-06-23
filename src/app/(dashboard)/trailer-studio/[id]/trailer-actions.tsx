@@ -52,7 +52,7 @@ export function TrailerActions({
       if (res.error) {
         setError(res.error)
       } else {
-        setSuccess(`Projet décomposé en ${res.tasksCount} micro-tâches`)
+        setSuccess(`Project broken down into ${res.tasksCount} micro-tasks`)
         router.refresh()
       }
     })
@@ -65,14 +65,14 @@ export function TrailerActions({
       if (res.error) {
         setError(res.error)
       } else {
-        setSuccess('Génération lancée !')
+        setSuccess('Generation started!')
         router.refresh()
       }
     })
   }
 
   const handleDelete = () => {
-    if (!confirm('Supprimer ce projet ? Cette action est irréversible.')) return
+    if (!confirm('Delete this project? This action is irreversible.')) return
     clearMessages()
     startTransition(async () => {
       const res = await deleteTrailerProjectAction(projectId)
@@ -93,7 +93,7 @@ export function TrailerActions({
       if (res.error) {
         setError(res.error)
       } else {
-        setSuccess('Choix enregistré')
+        setSuccess('Choice saved')
         router.refresh()
       }
     })
@@ -133,7 +133,7 @@ export function TrailerActions({
               ) : (
                 <Wand2 className="h-4 w-4 mr-2" />
               )}
-              Décomposer en micro-tâches
+              Break down into micro-tasks
             </Button>
           )}
           {showStart && (
@@ -147,7 +147,7 @@ export function TrailerActions({
               ) : (
                 <Play className="h-4 w-4 mr-2" />
               )}
-              Lancer la génération
+              Start generation
             </Button>
           )}
           {showDelete && (

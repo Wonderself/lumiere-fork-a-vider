@@ -190,7 +190,7 @@ export default async function TokenizationMarketplacePage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       {offering.status === 'FUNDED' && (
                         <Badge variant="success" className="absolute top-3 right-3 text-xs">
-                          Financé
+                          Funded
                         </Badge>
                       )}
                       <div className="absolute bottom-3 left-3 right-3">

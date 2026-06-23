@@ -178,7 +178,7 @@ function PlaylistCard({ playlist, onDelete, onToggleExpand, expanded }: {
             )}
             <p className="text-white/30 text-[10px] mt-1">
               {playlist._count.items} film{playlist._count.items !== 1 ? 's' : ''} ·{' '}
-              Modifié le {new Date(playlist.updatedAt).toLocaleDateString('fr-FR')}
+              Modifié le {new Date(playlist.updatedAt).toLocaleDateString('en-US')}
             </p>
           </div>
           <div className="flex items-center gap-1 shrink-0">
@@ -380,7 +380,7 @@ function CreatePlaylistForm({ onCreated }: { onCreated: (p: PlaylistSummary) => 
             loading={pending}
             disabled={!title.trim()}
           >
-            Créer
+            Create
           </Button>
           <Button
             type="button"
@@ -440,7 +440,7 @@ export default function PlaylistsPage() {
             </h1>
           </div>
           <p className="text-white/50 text-sm">
-            Organisez vos films favoris en collections personnalisées.
+            Organize your favorite films into custom collections.
           </p>
         </div>
         <CreatePlaylistForm onCreated={handleCreated} />
@@ -464,8 +464,8 @@ export default function PlaylistsPage() {
           </div>
           <h2 className="text-white font-semibold text-lg mb-2">Aucune playlist</h2>
           <p className="text-white/50 text-sm max-w-sm mb-8">
-            Vous n'avez pas encore créé de playlist. Commencez par explorer les films
-            et ajoutez vos préférés à une collection.
+            You haven't created a playlist yet. Start by exploring films
+            and add your favorites to a collection.
           </p>
           <div className="flex items-center gap-3">
             <Link href="/films">

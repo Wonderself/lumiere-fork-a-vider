@@ -152,7 +152,7 @@ export default async function CreatorDashboardPage() {
                       <span className={`text-[10px] px-2 py-0.5 rounded-full ${exec.status === 'COMPLETED' ? 'bg-green-500/10 text-green-500' : exec.status === 'FAILED' ? 'bg-red-500/10 text-red-400' : 'bg-white/[0.03] text-white/50'}`}>
                         {exec.status}
                       </span>
-                      <p className="text-[10px] text-white/50 mt-0.5">{new Date(exec.createdAt).toLocaleDateString('fr-FR')}</p>
+                      <p className="text-[10px] text-white/50 mt-0.5">{new Date(exec.createdAt).toLocaleDateString('en-US')}</p>
                     </div>
                   </div>
                 ))}
@@ -181,7 +181,7 @@ export default async function CreatorDashboardPage() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-white">{notif.title}</p>
                   </div>
-                  <p className="text-[10px] text-white/50 shrink-0">{new Date(notif.createdAt).toLocaleDateString('fr-FR')}</p>
+                  <p className="text-[10px] text-white/50 shrink-0">{new Date(notif.createdAt).toLocaleDateString('en-US')}</p>
                 </div>
               ))}
             </div>

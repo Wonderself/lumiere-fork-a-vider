@@ -306,7 +306,7 @@ export default async function PortfolioPage() {
                         {holding.isLocked ? (
                           <Badge variant="warning" className="text-[10px]">
                             <Lock className="h-2.5 w-2.5 mr-0.5" />
-                            {holding.lockupEnd ? formatDateShort(holding.lockupEnd) : 'Verrouillé'}
+                            {holding.lockupEnd ? formatDateShort(holding.lockupEnd) : 'Locked'}
                           </Badge>
                         ) : (
                           <Badge variant="success" className="text-[10px]">
@@ -354,14 +354,14 @@ export default async function PortfolioPage() {
                   <div key={div.id} className="flex items-center justify-between rounded-lg bg-white/[0.02] border border-white/5 p-3">
                     <div>
                       <p className="text-white text-sm font-medium">{div.offering.film.title}</p>
-                      <p className="text-white/30 text-xs">Période: {div.period} | {div.tokenCount} tokens</p>
+                      <p className="text-white/30 text-xs">Period: {div.period} | {div.tokenCount} tokens</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="text-green-600 font-semibold">{formatEur(div.amount)}</span>
                       <form action={async (fd: FormData) => { 'use server'; await claimDividendAction(fd) }}>
                         <input type="hidden" name="dividendId" value={div.id} />
                         <Button size="sm" className="min-h-[36px]" type="submit">
-                          Réclamer
+                          Claim
                         </Button>
                       </form>
                     </div>

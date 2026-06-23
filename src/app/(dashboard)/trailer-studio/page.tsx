@@ -61,14 +61,14 @@ export default async function TrailerStudioPage() {
             Studio Bande-Annonce
           </h1>
           <p className="text-sm text-white/50 mt-1">
-            Créez des bandes-annonces cinématographiques avec l&apos;IA, de A à Z
+            Create cinematic trailers with AI, from A to Z
           </p>
         </div>
         <div className="flex items-center gap-3">
           <Link href="/credits">
             <Badge variant="outline" className="text-sm px-3 py-1.5 border-[#E50914]/20 text-[#E50914] cursor-pointer hover:bg-[#E50914]/5 transition-colors">
               <Coins className="h-3.5 w-3.5 mr-1.5" />
-              {creditBalance} crédits
+              {creditBalance} credits
             </Badge>
           </Link>
           <Link href="/trailer-studio/new">
@@ -117,10 +117,10 @@ export default async function TrailerStudioPage() {
               <Wand2 className="h-8 w-8 text-[#E50914]" />
             </div>
             <h2 className="text-xl font-bold text-white font-[family-name:var(--font-playfair)]">
-              Comment ça marche ?
+              How does it work?
             </h2>
             <p className="text-sm text-white/50 mt-2 max-w-lg mx-auto">
-              Notre IA décompose la création de votre bande-annonce en micro-tâches intelligentes et les exécute automatiquement.
+              Our AI breaks the creation of your trailer into smart micro-tasks and runs them automatically.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -143,7 +143,7 @@ export default async function TrailerStudioPage() {
             <Link href="/trailer-studio/new">
               <Button size="lg" className="bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold shadow-md">
                 <Sparkles className="h-4 w-4 mr-2" />
-                Créer ma première bande-annonce
+                Create my first trailer
               </Button>
             </Link>
           </div>
@@ -181,9 +181,9 @@ export default async function TrailerStudioPage() {
                       <div className="flex items-center gap-4 mt-1.5 text-xs text-white/50">
                         {project.genre && <span>{project.genre}</span>}
                         {project.style && <span>{project.style}</span>}
-                        <span>{project.completedTasks}/{project.totalTasks} tâches</span>
+                        <span>{project.completedTasks}/{project.totalTasks} tasks</span>
                         {project.creditsUsed > 0 && (
-                          <span className="text-[#E50914]">{project.creditsUsed} crédits</span>
+                          <span className="text-[#E50914]">{project.creditsUsed} credits</span>
                         )}
                       </div>
                       {/* Progress bar */}
@@ -212,7 +212,7 @@ export default async function TrailerStudioPage() {
             <Coins className="h-5 w-5 text-[#E50914]" />
             <div>
               <p className="text-sm font-medium text-white group-hover:text-[#E50914] transition-colors">Buy credits</p>
-              <p className="text-xs text-white/50">Packs à partir de 4.99€</p>
+              <p className="text-xs text-white/50">Packs from $4.99</p>
             </div>
             <ArrowRight className="h-4 w-4 text-white/50 ml-auto group-hover:text-[#E50914] transition-colors" />
           </div>

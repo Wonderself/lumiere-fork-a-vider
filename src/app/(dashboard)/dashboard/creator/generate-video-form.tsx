@@ -55,7 +55,7 @@ export function GenerateVideoForm() {
         className="flex items-center gap-2 px-5 py-2.5 bg-[#E50914] hover:bg-[#FF2D2D] text-white text-sm font-medium rounded-xl disabled:opacity-50 transition-colors"
       >
         {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Zap className="h-4 w-4" />}
-        Générer la vidéo (10 tokens)
+        Generate the video (10 tokens)
       </button>
     </form>
   )
