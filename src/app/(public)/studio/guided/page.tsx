@@ -17,43 +17,43 @@ interface CreationType {
 }
 
 const CREATION_TYPES: CreationType[] = [
-  { id: 'poster', label: 'Affiche de Film', description: 'Créez une affiche professionnelle pour votre film', icon: Image, color: '#E50914',
-    promptHints: ['Décrivez le personnage principal et son expression', 'Indiquez l\'ambiance (sombre, lumineux, mystérieux)', 'Mentionnez le titre et le genre'], suggestedStyle: 'cinematic', suggestedRatio: '9:16' },
-  { id: 'storyboard', label: 'Storyboard', description: 'Dessinez vos scènes plan par plan', icon: Film, color: '#3B82F6',
-    promptHints: ['Décrivez l\'action dans le plan', 'Précisez l\'angle de caméra (plongée, contre-plongée, profil)', 'Indiquez le mouvement'], suggestedStyle: 'artistic', suggestedRatio: '16:9' },
-  { id: 'still', label: 'Photo de Scène', description: 'Générez un still de haute qualité pour votre film', icon: Camera, color: '#10B981',
-    promptHints: ['Décrivez le décor et l\'éclairage', 'Placez les personnages dans la scène', 'Indiquez l\'émotion dominante'], suggestedStyle: 'cinematic', suggestedRatio: '16:9' },
-  { id: 'character', label: 'Portrait Personnage', description: 'Créez le portrait de vos personnages', icon: Users, color: '#8B5CF6',
-    promptHints: ['Décrivez le physique (âge, cheveux, yeux)', 'Indiquez la personnalité (expressions)', 'Précisez le costume et l\'époque'], suggestedStyle: 'realistic', suggestedRatio: '1:1' },
+  { id: 'poster', label: 'Affiche de Film', description: 'Create a professional poster for your film', icon: Image, color: '#E50914',
+    promptHints: ['Describe the main character and their expression', 'Specify the mood (dark, bright, mysterious)', 'Mentionnez le titre et le genre'], suggestedStyle: 'cinematic', suggestedRatio: '9:16' },
+  { id: 'storyboard', label: 'Storyboard', description: 'Draw your scenes shot by shot', icon: Film, color: '#3B82F6',
+    promptHints: ['Describe the action in the shot', 'Specify the camera angle (high angle, low angle, profile)', 'Indiquez le mouvement'], suggestedStyle: 'artistic', suggestedRatio: '16:9' },
+  { id: 'still', label: 'Scene still', description: 'Generate a high-quality still for your film', icon: Camera, color: '#10B981',
+    promptHints: ['Describe the set and the lighting', 'Place the characters in the scene', 'Specify the dominant emotion'], suggestedStyle: 'cinematic', suggestedRatio: '16:9' },
+  { id: 'character', label: 'Portrait Personnage', description: 'Create portraits of your characters', icon: Users, color: '#8B5CF6',
+    promptHints: ['Describe the appearance (age, hair, eyes)', 'Describe the personality (expressions)', 'Specify the costume and the era'], suggestedStyle: 'realistic', suggestedRatio: '1:1' },
   { id: 'mood', label: 'Mood Board', description: 'Explorez des ambiances pour votre projet', icon: Palette, color: '#F59E0B',
-    promptHints: ['Décrivez l\'ambiance générale', 'Mentionnez les couleurs dominantes', 'Indiquez les références visuelles'], suggestedStyle: 'artistic', suggestedRatio: '4:3' },
+    promptHints: ['Describe the overall mood', 'Mentionnez les couleurs dominantes', 'Provide visual references'], suggestedStyle: 'artistic', suggestedRatio: '4:3' },
 ]
 
 const PROMPT_EXAMPLES: Record<string, string[]> = {
   poster: [
-    'Une femme détective en imperméable noir, debout sous la pluie devant des néons rouges, regard déterminé. Titre: "OMBRES". Film noir cyberpunk.',
-    'Un astronaute flottant dans l\'espace face à une planète géante, couleurs violettes et oranges. Film de science-fiction épique.',
-    'Gros plan sur un visage à moitié dans l\'ombre, un couteau reflétant la lumière. Thriller psychologique minimaliste.',
+    'A woman detective in a black raincoat, standing in the rain in front of red neon, determined gaze. Title: "SHADOWS". Cyberpunk film noir.',
+    'An astronaut floating in space facing a giant planet, purple and orange colors. Epic science-fiction film.',
+    'Close-up of a face half in shadow, a knife reflecting the light. Minimalist psychological thriller.',
   ],
   storyboard: [
-    'Plan large: une voiture s\'approche d\'un manoir isolé sous la pluie. Vue de drone. Nuit.',
-    'Plan moyen: deux personnages face à face à une table, tension palpable. Éclairage latéral.',
-    'Gros plan: une main qui saisit une lettre sur une table. Focus sur l\'enveloppe scellée.',
+    'Wide shot: a car approaches an isolated manor in the rain. Drone view. Night.',
+    'Medium shot: two characters facing each other at a table, palpable tension. Side lighting.',
+    'Close-up: a hand grabbing a letter on a table. Focus on the sealed envelope.',
   ],
   still: [
-    'Intérieur d\'un bar jazz enfumé, éclairage tamisé rouge et bleu. Un pianiste joue seul. Années 50.',
-    'Forêt dense au lever du soleil, rayons de lumière à travers les arbres. Une silhouette au loin.',
-    'Rue de Tokyo la nuit, néons et reflets sur le sol mouillé. Une femme marche seule.',
+    'Interior of a smoky jazz bar, dim red and blue lighting. A pianist plays alone. 1950s.',
+    'Dense forest at sunrise, rays of light through the trees. A silhouette in the distance.',
+    'Tokyo street at night, neon and reflections on the wet ground. A woman walks alone.',
   ],
   character: [
-    'Femme, 30 ans, cheveux noirs courts, regard perçant, cicatrice sur la joue gauche. Veste en cuir. Détective.',
-    'Homme âgé, barbe blanche, yeux bleus bienveillants, pull tricoté. Professeur de philosophie.',
-    'Adolescent, 16 ans, cheveux teints bleu, sourire espiègle, casque audio autour du cou. Hacker.',
+    'Woman, 30, short black hair, piercing gaze, scar on the left cheek. Leather jacket. Detective.',
+    'Elderly man, white beard, kind blue eyes, knitted sweater. Philosophy professor.',
+    'Teenager, 16, blue-dyed hair, mischievous smile, headphones around the neck. Hacker.',
   ],
   mood: [
-    'Ambiance film noir : ombres profondes, rues mouillées, fumée, néons, mystère. Palette : noir, gris, rouge profond.',
-    'Ambiance Wes Anderson : symétrie, couleurs pastel, composition géométrique, vintage. Rose, jaune, menthe.',
-    'Ambiance Blade Runner : néons, pluie, gratte-ciels, hologrammes, cyan et magenta.',
+    'Film noir mood: deep shadows, wet streets, smoke, neon, mystery. Palette: black, gray, deep red.',
+    'Wes Anderson mood: symmetry, pastel colors, geometric composition, vintage. Pink, yellow, mint.',
+    'Blade Runner mood: neon, rain, skyscrapers, holograms, cyan and magenta.',
   ],
 }
 
@@ -100,7 +100,7 @@ export default function GuidedStudioPage() {
     setResult(placeholders[Math.floor(Math.random() * placeholders.length)])
     setGenerating(false)
     setStep(4)
-    toast.success('Image générée avec succès !')
+    toast.success('Image generated successfully!')
   }
 
   async function regenerate() {
@@ -109,11 +109,11 @@ export default function GuidedStudioPage() {
   }
 
   const TIPS_DURING_GENERATION = [
-    '💡 Astuce : des prompts détaillés donnent de meilleurs résultats',
-    '🎨 Les styles "cinematic" et "realistic" sont les plus populaires',
-    '📐 Le format 16:9 est standard pour les scènes de film',
-    '✨ Vous pouvez régénérer autant de fois que nécessaire',
-    '🔒 0% commission — vous ne payez que le coût réel',
+    '💡 Tip: detailed prompts give better results',
+    '🎨 The "cinematic" and "realistic" styles are the most popular',
+    '📐 16:9 is the standard format for film scenes',
+    '✨ You can regenerate as many times as needed',
+    '🔒 0% commission — you only pay the real cost',
   ]
 
   return (
@@ -127,7 +127,7 @@ export default function GuidedStudioPage() {
               <span className="text-xs text-gray-700">Guided mode</span>
             </div>
             <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
-              Studio Créatif — <span className="text-[#E50914]">Guided mode</span>
+              Creative Studio — <span className="text-[#E50914]">Guided mode</span>
             </h1>
           </div>
           <Link href="/studio/pro" className="text-xs text-gray-500 hover:text-[#E50914] flex items-center gap-1">
@@ -137,7 +137,7 @@ export default function GuidedStudioPage() {
 
         {/* Progress Steps */}
         <div className="flex items-center gap-2 mb-10">
-          {['Type', 'Description', 'Style', 'Génération', 'Résultat'].map((label, i) => (
+          {['Type', 'Description', 'Style', 'Generation', 'Result'].map((label, i) => (
             <div key={i} className="flex-1 flex items-center gap-2">
               <div className={`h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
                 i < step ? 'bg-[#E50914] text-white' :
@@ -157,8 +157,8 @@ export default function GuidedStudioPage() {
           <div className="space-y-6">
             <div className="text-center mb-8">
               <Wand2 className="h-10 w-10 text-[#E50914] mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-white mb-2">Que voulez-vous créer ?</h2>
-              <p className="text-gray-400">Choisissez le type de visuel et l&apos;IA vous guidera étape par étape.</p>
+              <h2 className="text-2xl font-bold text-white mb-2">What do you want to create?</h2>
+              <p className="text-gray-400">Choose the type of visual and the AI will guide you step by step.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {CREATION_TYPES.map(type => {
@@ -179,8 +179,8 @@ export default function GuidedStudioPage() {
         {step === 1 && creationType && (
           <div className="space-y-6">
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2">Décrivez votre vision</h2>
-              <p className="text-gray-400">Plus vous êtes précis, meilleur sera le résultat.</p>
+              <h2 className="text-2xl font-bold text-white mb-2">Describe your vision</h2>
+              <p className="text-gray-400">The more specific you are, the better the result.</p>
             </div>
 
             {/* Prompt Hints */}
@@ -200,9 +200,9 @@ export default function GuidedStudioPage() {
 
             {/* Textarea */}
             <div>
-              <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder={`Décrivez votre ${creationType.label.toLowerCase()} en détail...`} rows={5}
+              <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder={`Describe your ${creationType.label.toLowerCase()} in detail...`} rows={5}
                 className="w-full rounded-2xl border border-gray-700 bg-gray-800 px-6 py-4 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
-              <p className="text-[10px] text-gray-600 mt-1 text-right">{prompt.length} caractères</p>
+              <p className="text-[10px] text-gray-600 mt-1 text-right">{prompt.length} characters</p>
             </div>
 
             {/* Examples */}
@@ -232,7 +232,7 @@ export default function GuidedStudioPage() {
           <div className="space-y-6">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-white mb-2">Choisissez le style</h2>
-              <p className="text-gray-400">Le style pré-sélectionné est idéal pour votre type de création.</p>
+              <p className="text-gray-400">The pre-selected style is ideal for your type of creation.</p>
             </div>
 
             {/* Style */}
@@ -265,8 +265,8 @@ export default function GuidedStudioPage() {
             {/* HD Toggle */}
             <div className="flex items-center justify-between rounded-xl border border-gray-800 bg-gray-900/50 p-5">
               <div>
-                <p className="text-sm font-medium text-white">Qualité HD</p>
-                <p className="text-[10px] text-gray-500">Résolution 1.5x supérieure (coûte ~0.5 crédit de plus)</p>
+                <p className="text-sm font-medium text-white">HD quality</p>
+                <p className="text-[10px] text-gray-500">1.5x higher resolution (costs ~0.5 credit more)</p>
               </div>
               <button onClick={() => setHdMode(!hdMode)} className={`relative h-7 w-12 rounded-full transition-colors ${hdMode ? 'bg-[#E50914]' : 'bg-gray-600'}`}>
                 <span className={`inline-block h-5 w-5 rounded-full bg-white transition-transform ${hdMode ? 'translate-x-6' : 'translate-x-1'}`} />
@@ -275,20 +275,20 @@ export default function GuidedStudioPage() {
 
             {/* Summary */}
             <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-5">
-              <h3 className="text-xs text-gray-400 mb-2">Récapitulatif</h3>
+              <h3 className="text-xs text-gray-400 mb-2">Summary</h3>
               <div className="grid grid-cols-4 gap-3 text-center">
                 <div><p className="text-[10px] text-gray-500">Type</p><p className="text-xs font-medium text-white">{creationType.label}</p></div>
                 <div><p className="text-[10px] text-gray-500">Style</p><p className="text-xs font-medium text-white">{PHOTO_STYLES.find(s => s.id === style)?.label}</p></div>
                 <div><p className="text-[10px] text-gray-500">Format</p><p className="text-xs font-medium text-white">{ratio}</p></div>
                 <div><p className="text-[10px] text-gray-500">Quality</p><p className="text-xs font-medium text-white">{hdMode ? 'HD' : 'Standard'}</p></div>
               </div>
-              <p className="text-[10px] text-emerald-400 text-center mt-3">~{hdMode ? '2.0' : '1.5'} crédits · 0% commission</p>
+              <p className="text-[10px] text-emerald-400 text-center mt-3">~{hdMode ? '2.0' : '1.5'} credits · 0% commission</p>
             </div>
 
             <div className="flex justify-between pt-4">
               <button onClick={() => setStep(1)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-white"><ArrowLeft className="h-4 w-4" />Back</button>
               <button onClick={() => { setStep(3); setTimeout(generate, 500) }} className="flex items-center gap-2 px-8 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl transition-colors text-lg">
-                <Sparkles className="h-5 w-5" /> Générer
+                <Sparkles className="h-5 w-5" /> Generate
               </button>
             </div>
           </div>
@@ -321,7 +321,7 @@ export default function GuidedStudioPage() {
           <div className="space-y-6">
             <div className="text-center mb-4">
               <Sparkles className="h-8 w-8 text-[#E50914] mx-auto mb-3" />
-              <h2 className="text-2xl font-bold text-white mb-2">Votre {creationType?.label} est prêt(e) !</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">Your {creationType?.label} is ready!</h2>
             </div>
 
             {/* Image */}
@@ -332,36 +332,36 @@ export default function GuidedStudioPage() {
             {/* Actions */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <button onClick={regenerate} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
-                <RefreshCcw className="h-4 w-4" /> Régénérer
+                <RefreshCcw className="h-4 w-4" /> Regenerate
               </button>
               <button onClick={() => toast.success('Downloaded')} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
-                <Download className="h-4 w-4" /> Télécharger
+                <Download className="h-4 w-4" /> Download
               </button>
               <button onClick={async () => { await navigator.clipboard.writeText(result!); setCopied(true); setTimeout(() => setCopied(false), 2000) }} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
                 {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />} {copied ? 'Copied' : 'Copier URL'}
               </button>
-              <button onClick={() => { setSaved(true); toast.success('Sauvegardé dans votre projet') }} className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors ${saved ? 'bg-green-600 text-white' : 'border border-[#E50914] text-[#E50914] hover:bg-[#E50914] hover:text-white'}`}>
-                {saved ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />} {saved ? 'Sauvé' : 'Sauver'}
+              <button onClick={() => { setSaved(true); toast.success('Saved to your project') }} className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors ${saved ? 'bg-green-600 text-white' : 'border border-[#E50914] text-[#E50914] hover:bg-[#E50914] hover:text-white'}`}>
+                {saved ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />} {saved ? 'Saved' : 'Sauver'}
               </button>
             </div>
 
             {/* Prompt Used */}
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <p className="text-[10px] text-gray-500 mb-1">Prompt utilisé :</p>
+              <p className="text-[10px] text-gray-500 mb-1">Prompt used:</p>
               <p className="text-xs text-gray-400">&quot;{prompt}&quot;</p>
               <p className="text-[10px] text-gray-600 mt-1">Style: {style} · Format: {ratio} · {hdMode ? 'HD' : 'Standard'}</p>
             </div>
 
             {/* Next Actions */}
             <div className="flex gap-3 pt-4">
-              <button onClick={() => { setStep(0); setPrompt(''); setResult(null); setSaved(false) }} className="flex-1 py-3 border border-gray-700 text-gray-400 rounded-xl hover:bg-gray-800 text-sm">Créer autre chose</button>
+              <button onClick={() => { setStep(0); setPrompt(''); setResult(null); setSaved(false) }} className="flex-1 py-3 border border-gray-700 text-gray-400 rounded-xl hover:bg-gray-800 text-sm">Create something else</button>
               <Link href="/studio/pro" className="flex-1 py-3 bg-[#E50914] text-white rounded-xl hover:bg-[#FF2D2D] text-sm font-semibold text-center flex items-center justify-center gap-2">
                 <Zap className="h-4 w-4" /> Passer en mode Pro
               </Link>
             </div>
 
             <p className="text-[10px] text-emerald-400 text-center flex items-center justify-center gap-1">
-              <Shield className="h-3 w-3" /> 0% commission — coût réel : ~{hdMode ? '2.0' : '1.5'} crédits
+              <Shield className="h-3 w-3" /> 0% commission — real cost: ~{hdMode ? '2.0' : '1.5'} credits
             </p>
           </div>
         )}
