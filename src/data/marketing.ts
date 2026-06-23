@@ -18,18 +18,18 @@ export interface MarketingAgent {
 export const MARKETING_AGENTS: MarketingAgent[] = [
   {
     slug: 'cg-social-strategist',
-    name: 'Stratège Social',
-    role: 'Stratégie réseaux sociaux',
-    description: 'Définit la stratégie social media globale. Calendrier éditorial, KPIs, croissance audience, positionnement de marque.',
+    name: 'Social strategist',
+    role: 'Social media strategy',
+    description: 'Defines the overall social media strategy. Editorial calendar, KPIs, audience growth, brand positioning.',
     icon: 'target',
     color: '#E50914',
     platforms: ['all'],
   },
   {
     slug: 'cg-copywriter',
-    name: 'Copywriter Cinéma',
-    role: 'Rédaction posts & captions',
-    description: 'Rédige des posts percutants adaptés à chaque réseau. Ton, longueur et hashtags optimisés par plateforme.',
+    name: 'Cinema copywriter',
+    role: 'Post & caption writing',
+    description: 'Writes punchy posts tailored to each network. Tone, length and hashtags optimized per platform.',
     icon: 'pen-tool',
     color: '#3B82F6',
     platforms: ['twitter', 'linkedin', 'instagram', 'facebook'],
@@ -38,7 +38,7 @@ export const MARKETING_AGENTS: MarketingAgent[] = [
     slug: 'cg-hashtag-expert',
     name: 'Expert Hashtags',
     role: 'Hashtags & SEO social',
-    description: 'Génère les hashtags cinéma les plus performants. Analyse tendances, niches et reach potentiel.',
+    description: 'Generates the best-performing film hashtags. Analyzes trends, niches and potential reach.',
     icon: 'hash',
     color: '#8B5CF6',
     platforms: ['twitter', 'instagram'],
@@ -56,7 +56,7 @@ export const MARKETING_AGENTS: MarketingAgent[] = [
     slug: 'cg-email-marketer',
     name: 'Email Marketer',
     role: 'Email & Newsletter',
-    description: 'Rédige emails marketing, newsletters et séquences d\'onboarding. A/B testing, segmentation, taux d\'ouverture.',
+    description: 'Writes marketing emails, newsletters and onboarding sequences. A/B testing, segmentation, open rates.',
     icon: 'mail',
     color: '#F59E0B',
     platforms: ['email'],
@@ -65,7 +65,7 @@ export const MARKETING_AGENTS: MarketingAgent[] = [
     slug: 'cg-landing-designer',
     name: 'Landing Page Designer',
     role: 'Pages promotionnelles',
-    description: 'Conçoit des landing pages de promotion pour les films. Copywriting, CTA, structure de conversion.',
+    description: 'Designs promotional landing pages for films. Copywriting, CTA, conversion structure.',
     icon: 'layout',
     color: '#EC4899',
     platforms: ['web'],
@@ -73,8 +73,8 @@ export const MARKETING_AGENTS: MarketingAgent[] = [
   {
     slug: 'cg-community-growth',
     name: 'Growth Hacker',
-    role: 'Croissance communauté',
-    description: 'Stratégies d\'acquisition et d\'engagement. Viral loops, referral programs, influenceurs cinéma.',
+    role: 'Community growth',
+    description: 'Acquisition and engagement strategies. Viral loops, referral programs, film influencers.',
     icon: 'trending-up',
     color: '#06B6D4',
     platforms: ['all'],
@@ -97,8 +97,8 @@ export interface SocialPlatform {
 export const SOCIAL_PLATFORMS: SocialPlatform[] = [
   { id: 'twitter', name: 'Twitter / X', icon: 'twitter', color: '#1DA1F2', maxLength: 280, features: ['threads', 'polls', 'spaces'], toneGuide: 'Concis, punchy, conversationnel. Emojis ok. Hashtags 2-3 max inline.', hashtagStyle: 'inline' },
   { id: 'linkedin', name: 'LinkedIn', icon: 'linkedin', color: '#0A66C2', maxLength: 3000, features: ['articles', 'carousels', 'newsletters'], toneGuide: 'Professionnel, storytelling, insights industrie. Hashtags en fin de post.', hashtagStyle: 'block' },
-  { id: 'instagram', name: 'Instagram', icon: 'instagram', color: '#E4405F', maxLength: 2200, features: ['stories', 'reels', 'carousels'], toneGuide: 'Visuel d\'abord, caption émotionnelle. Bloc de 15-30 hashtags en commentaire.', hashtagStyle: 'block' },
-  { id: 'facebook', name: 'Facebook', icon: 'facebook', color: '#1877F2', maxLength: 5000, features: ['events', 'groups', 'live'], toneGuide: 'Communautaire, événementiel, partage. Hashtags 1-2 max.', hashtagStyle: 'inline' },
+  { id: 'instagram', name: 'Instagram', icon: 'instagram', color: '#E4405F', maxLength: 2200, features: ['stories', 'reels', 'carousels'], toneGuide: 'Visual first, emotional caption. Block of 15-30 hashtags in a comment.', hashtagStyle: 'block' },
+  { id: 'facebook', name: 'Facebook', icon: 'facebook', color: '#1877F2', maxLength: 5000, features: ['events', 'groups', 'live'], toneGuide: 'Community, events, sharing. 1-2 hashtags max.', hashtagStyle: 'inline' },
 ]
 
 // ─── Cinema Hashtags ────────────────────────────────────────────────
@@ -132,12 +132,12 @@ export interface PostTemplate {
 
 export const POST_TEMPLATES: PostTemplate[] = [
   { id: 'film-launch', name: 'Lancement de film', category: 'launch', platforms: ['all'], template: '🎬 {filmTitle} est maintenant disponible sur CineGeny !\n\n{description}\n\n{hashtags}', variables: ['filmTitle', 'description'] },
-  { id: 'trailer-drop', name: 'Sortie bande-annonce', category: 'trailer', platforms: ['all'], template: '🎥 La bande-annonce de "{filmTitle}" est là !\n\n{teaser}\n\n▶️ Regardez maintenant sur CineGeny\n\n{hashtags}', variables: ['filmTitle', 'teaser'] },
-  { id: 'vote-call', name: 'Appel au vote', category: 'community', platforms: ['all'], template: '🗳️ Votez pour "{filmTitle}" !\n\nLa communauté décide. Votre voix compte.\n\n{hashtags}', variables: ['filmTitle'] },
+  { id: 'trailer-drop', name: 'Sortie bande-annonce', category: 'trailer', platforms: ['all'], template: '🎥 The trailer for "{filmTitle}" is here!\n\n{teaser}\n\n▶️ Watch now on CineGeny\n\n{hashtags}', variables: ['filmTitle', 'teaser'] },
+  { id: 'vote-call', name: 'Appel au vote', category: 'community', platforms: ['all'], template: '🗳️ Vote for "{filmTitle}"!\n\nThe community decides. Your voice counts.\n\n{hashtags}', variables: ['filmTitle'] },
   { id: 'behind-scenes', name: 'Behind the scenes', category: 'engagement', platforms: ['instagram', 'twitter'], template: '🎬 Behind the scenes de "{filmTitle}"\n\n{behindContent}\n\n{hashtags}', variables: ['filmTitle', 'behindContent'] },
-  { id: 'creator-spotlight', name: 'Créateur à l\'honneur', category: 'community', platforms: ['linkedin', 'twitter'], template: '⭐ Coup de projecteur sur {creatorName} !\n\n{creatorStory}\n\nRejoignez la communauté CineGeny.\n\n{hashtags}', variables: ['creatorName', 'creatorStory'] },
-  { id: 'milestone', name: 'Milestone plateforme', category: 'growth', platforms: ['all'], template: '🎉 {milestone} !\n\nMerci à notre incroyable communauté de créateurs.\n\n{hashtags}', variables: ['milestone'] },
-  { id: 'invest-update', name: 'Mise à jour investissement', category: 'investment', platforms: ['linkedin'], template: '📊 {filmTitle} a atteint {percentage}% de son objectif de financement !\n\n{details}\n\nInvestissez dans le cinéma participatif.\n\n{hashtags}', variables: ['filmTitle', 'percentage', 'details'] },
+  { id: 'creator-spotlight', name: 'Creator spotlight', category: 'community', platforms: ['linkedin', 'twitter'], template: '⭐ Spotlight on {creatorName}!\n\n{creatorStory}\n\nJoin the CineGeny community.\n\n{hashtags}', variables: ['creatorName', 'creatorStory'] },
+  { id: 'milestone', name: 'Milestone plateforme', category: 'growth', platforms: ['all'], template: '🎉 {milestone}!\n\nThank you to our incredible community of creators.\n\n{hashtags}', variables: ['milestone'] },
+  { id: 'invest-update', name: 'Investment update', category: 'investment', platforms: ['linkedin'], template: '📊 {filmTitle} has reached {percentage}% of its funding goal!\n\n{details}\n\nInvest in collaborative cinema.\n\n{hashtags}', variables: ['filmTitle', 'percentage', 'details'] },
   { id: 'weekly-digest', name: 'Digest hebdomadaire', category: 'newsletter', platforms: ['email'], template: '📬 Cette semaine sur CineGeny :\n\n{weeklyHighlights}\n\n{hashtags}', variables: ['weeklyHighlights'] },
 ]
 
@@ -157,14 +157,14 @@ export interface CampaignTemplate {
 }
 
 export const CAMPAIGN_TEMPLATES: CampaignTemplate[] = [
-  { id: 'film-launch-campaign', name: 'Lancement Film', type: 'multi_channel', description: 'Campagne complète de lancement pour un nouveau film', defaultBudget: 50, defaultDuration: 14, channels: ['twitter', 'linkedin', 'instagram', 'facebook', 'email'] },
+  { id: 'film-launch-campaign', name: 'Lancement Film', type: 'multi_channel', description: 'Complete launch campaign for a new film', defaultBudget: 50, defaultDuration: 14, channels: ['twitter', 'linkedin', 'instagram', 'facebook', 'email'] },
   { id: 'crowdfunding-push', name: 'Push Crowdfunding', type: 'social', description: 'Campagne pour booster le financement participatif', defaultBudget: 30, defaultDuration: 7, channels: ['twitter', 'linkedin', 'facebook'] },
   { id: 'trailer-release', name: 'Sortie Bande-Annonce', type: 'social', description: 'Campagne virale pour une bande-annonce', defaultBudget: 25, defaultDuration: 3, channels: ['twitter', 'instagram', 'facebook'] },
-  { id: 'community-engagement', name: 'Engagement Communauté', type: 'social', description: 'Campagne d\'engagement et de fidélisation', defaultBudget: 15, defaultDuration: 30, channels: ['twitter', 'instagram'] },
-  { id: 'email-onboarding', name: 'Onboarding Email', type: 'email', description: 'Séquence d\'emails de bienvenue pour nouveaux inscrits', defaultBudget: 10, defaultDuration: 14, channels: ['email'] },
+  { id: 'community-engagement', name: 'Community engagement', type: 'social', description: 'Engagement and retention campaign', defaultBudget: 15, defaultDuration: 30, channels: ['twitter', 'instagram'] },
+  { id: 'email-onboarding', name: 'Onboarding Email', type: 'email', description: 'Welcome email sequence for new sign-ups', defaultBudget: 10, defaultDuration: 14, channels: ['email'] },
   { id: 'festival-submission', name: 'Soumission Festival', type: 'multi_channel', description: 'Promotion avant/pendant un festival', defaultBudget: 40, defaultDuration: 21, channels: ['twitter', 'linkedin', 'instagram', 'email'] },
   { id: 'vote-mobilization', name: 'Mobilisation Vote', type: 'social', description: 'Campagne pour maximiser les votes communautaires', defaultBudget: 20, defaultDuration: 5, channels: ['twitter', 'instagram', 'facebook'] },
-  { id: 'investor-outreach', name: 'Outreach Investisseurs', type: 'email', description: 'Séquence email pour investisseurs potentiels', defaultBudget: 15, defaultDuration: 21, channels: ['email', 'linkedin'] },
+  { id: 'investor-outreach', name: 'Outreach Investisseurs', type: 'email', description: 'Email sequence for potential investors', defaultBudget: 15, defaultDuration: 21, channels: ['email', 'linkedin'] },
 ]
 
 // ─── Share Configs ──────────────────────────────────────────────────
@@ -201,11 +201,11 @@ export interface LandingBlock {
 
 export const LANDING_BLOCKS: LandingBlock[] = [
   { type: 'hero', label: 'Hero Banner', description: 'Titre, tagline et image de couverture', icon: 'image', defaultContent: { title: 'Titre du film', tagline: 'Tagline accrocheur', bgImage: '' } },
-  { type: 'trailer', label: 'Bande-Annonce', description: 'Player vidéo intégré', icon: 'play', defaultContent: { videoUrl: '', poster: '' } },
-  { type: 'synopsis', label: 'Synopsis', description: 'Résumé du film', icon: 'file-text', defaultContent: { text: 'Synopsis du film...', genre: '', duration: '' } },
-  { type: 'cast', label: 'Casting', description: 'Liste des acteurs/créateurs', icon: 'users', defaultContent: {} },
-  { type: 'cta', label: 'Appel à l\'Action', description: 'Bouton principal (vote, invest, watch)', icon: 'zap', defaultContent: { text: 'Votez maintenant', href: '#', color: '#E50914' } },
+  { type: 'trailer', label: 'Bande-Annonce', description: 'Built-in video player', icon: 'play', defaultContent: { videoUrl: '', poster: '' } },
+  { type: 'synopsis', label: 'Synopsis', description: 'Film summary', icon: 'file-text', defaultContent: { text: 'Synopsis du film...', genre: '', duration: '' } },
+  { type: 'cast', label: 'Casting', description: 'Cast/creator list', icon: 'users', defaultContent: {} },
+  { type: 'cta', label: 'Call to action', description: 'Bouton principal (vote, invest, watch)', icon: 'zap', defaultContent: { text: 'Votez maintenant', href: '#', color: '#E50914' } },
   { type: 'reviews', label: 'Avis', description: 'Citations et notes', icon: 'star', defaultContent: {} },
   { type: 'gallery', label: 'Galerie Photos', description: 'Stills du film', icon: 'grid', defaultContent: {} },
-  { type: 'countdown', label: 'Compte à rebours', description: 'Countdown vers la sortie', icon: 'clock', defaultContent: { targetDate: '' } },
+  { type: 'countdown', label: 'Countdown', description: 'Countdown vers la sortie', icon: 'clock', defaultContent: { targetDate: '' } },
 ]

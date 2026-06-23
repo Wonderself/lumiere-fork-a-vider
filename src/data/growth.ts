@@ -11,13 +11,13 @@ export interface GrowthAgent {
 }
 
 export const GROWTH_AGENTS: GrowthAgent[] = [
-  { slug: 'cg-promo-manager', name: 'Promo Manager', role: 'Codes promo & offres', description: 'Crée et gère les codes promotionnels. Contrôle unicité, limites d\'utilisation, expiration. Analyse l\'impact sur l\'acquisition.', icon: 'ticket', color: '#E50914' },
-  { slug: 'cg-referral-engine', name: 'Moteur Parrainage', role: 'Programme referral', description: 'Gère le programme de parrainage : génération de codes CG-XXXXXX, suivi des conversions, distribution des récompenses par paliers.', icon: 'users', color: '#3B82F6' },
-  { slug: 'cg-onboarding-guide', name: 'Guide Onboarding', role: 'Parcours d\'accueil', description: 'Orchestre le parcours d\'onboarding : signup bonus, premiers pas guidés, activation des fonctionnalités clés.', icon: 'compass', color: '#10B981' },
-  { slug: 'cg-tier-manager', name: 'Gestionnaire Tiers', role: 'Niveaux d\'accès', description: 'Gère les 4 tiers (guest/demo/free/paid) avec limites quotidiennes. Auto-upgrade, downgrade, restrictions.', icon: 'layers', color: '#8B5CF6' },
-  { slug: 'cg-demo-controller', name: 'Contrôleur Demo', role: 'Comptes démo', description: 'Gère les comptes de démonstration : expiration configurable, auto-désactivation par cron, conversion vers paid.', icon: 'clock', color: '#F59E0B' },
-  { slug: 'cg-activation-tracker', name: 'Tracker Activation', role: 'Suivi activation', description: 'Suit l\'activation des nouveaux utilisateurs : première action, premier vote, premier projet. Identifie les points de friction.', icon: 'activity', color: '#EC4899' },
-  { slug: 'cg-retention-analyst', name: 'Analyste Rétention', role: 'Rétention & churn', description: 'Analyse la rétention, identifie les utilisateurs à risque de churn, propose des actions de réengagement.', icon: 'heart', color: '#06B6D4' },
+  { slug: 'cg-promo-manager', name: 'Promo Manager', role: 'Codes promo & offres', description: 'Creates and manages promo codes. Controls uniqueness, usage limits, expiration. Analyzes the impact on acquisition.', icon: 'ticket', color: '#E50914' },
+  { slug: 'cg-referral-engine', name: 'Moteur Parrainage', role: 'Programme referral', description: 'Manages the referral program: CG-XXXXXX code generation, conversion tracking, tiered reward distribution.', icon: 'users', color: '#3B82F6' },
+  { slug: 'cg-onboarding-guide', name: 'Guide Onboarding', role: 'Parcours d\'accueil', description: 'Orchestrates the onboarding journey: signup bonus, guided first steps, activation of key features.', icon: 'compass', color: '#10B981' },
+  { slug: 'cg-tier-manager', name: 'Gestionnaire Tiers', role: 'Access tiers', description: 'Manages the 4 tiers (guest/demo/free/paid) with daily limits. Auto-upgrade, downgrade, restrictions.', icon: 'layers', color: '#8B5CF6' },
+  { slug: 'cg-demo-controller', name: 'Demo controller', role: 'Demo accounts', description: 'Manages demo accounts: configurable expiration, auto-disable via cron, conversion to paid.', icon: 'clock', color: '#F59E0B' },
+  { slug: 'cg-activation-tracker', name: 'Tracker Activation', role: 'Suivi activation', description: 'Tracks new-user activation: first action, first vote, first project. Identifies friction points.', icon: 'activity', color: '#EC4899' },
+  { slug: 'cg-retention-analyst', name: 'Retention analyst', role: 'Retention & churn', description: 'Analyzes retention, identifies users at risk of churn, suggests re-engagement actions.', icon: 'heart', color: '#06B6D4' },
 ]
 
 // ─── Promo Code Config ──────────────────────────────────────────────
@@ -39,15 +39,15 @@ export interface PromoCodeConfig {
 }
 
 export const PROMO_TYPES: Record<PromoType, { label: string; icon: string; color: string; unit: string }> = {
-  credits: { label: 'Crédits gratuits', icon: 'coins', color: '#10B981', unit: 'crédits' },
-  discount: { label: 'Réduction', icon: 'percent', color: '#3B82F6', unit: '%' },
+  credits: { label: 'Free credits', icon: 'coins', color: '#10B981', unit: 'credits' },
+  discount: { label: 'Discount', icon: 'percent', color: '#3B82F6', unit: '%' },
   trial: { label: 'Essai gratuit', icon: 'clock', color: '#8B5CF6', unit: 'jours' },
   bonus_xp: { label: 'Bonus XP', icon: 'zap', color: '#F59E0B', unit: 'XP' },
 }
 
 export const SAMPLE_PROMO_CODES: PromoCodeConfig[] = [
-  { code: 'WELCOME2026', type: 'credits', value: 5_000_000, maxUses: 1000, usedCount: 47, expiresAt: '2026-12-31', isActive: true, onePerUser: true, description: 'Bienvenue — 5 crédits offerts', createdAt: '2026-03-01', createdBy: 'admin' },
-  { code: 'CINEMA50', type: 'discount', value: 50, maxUses: 100, usedCount: 12, expiresAt: '2026-06-30', isActive: true, onePerUser: true, description: '50% de réduction sur le premier pack', createdAt: '2026-03-10', createdBy: 'admin' },
+  { code: 'WELCOME2026', type: 'credits', value: 5_000_000, maxUses: 1000, usedCount: 47, expiresAt: '2026-12-31', isActive: true, onePerUser: true, description: 'Welcome — 5 free credits', createdAt: '2026-03-01', createdBy: 'admin' },
+  { code: 'CINEMA50', type: 'discount', value: 50, maxUses: 100, usedCount: 12, expiresAt: '2026-06-30', isActive: true, onePerUser: true, description: '50% off the first pack', createdAt: '2026-03-10', createdBy: 'admin' },
   { code: 'TRYCINEGENY', type: 'trial', value: 14, maxUses: 500, usedCount: 89, expiresAt: null, isActive: true, onePerUser: true, description: '14 jours d\'essai Premium', createdAt: '2026-01-15', createdBy: 'admin' },
   { code: 'XPBOOST', type: 'bonus_xp', value: 500, maxUses: 200, usedCount: 34, expiresAt: '2026-04-30', isActive: true, onePerUser: true, description: '+500 XP bonus', createdAt: '2026-03-15', createdBy: 'admin' },
 ]
@@ -70,7 +70,7 @@ export const REFERRAL_TIERS: ReferralTier[] = [
   { count: 10, referrerReward: 7_000_000, refereeReward: 2_500_000, bonusXP: 300, badge: null, label: '10 filleuls — 7 cr/filleul + 300 XP' },
   { count: 25, referrerReward: 10_000_000, refereeReward: 3_000_000, bonusXP: 500, badge: 'master-recruiter', label: '25 filleuls — 10 cr + Badge Recruteur en Chef' },
   { count: 50, referrerReward: 15_000_000, refereeReward: 5_000_000, bonusXP: 1000, badge: null, label: '50 filleuls — 15 cr + 1000 XP' },
-  { count: 100, referrerReward: 25_000_000, refereeReward: 5_000_000, bonusXP: 2000, badge: 'cinema-legend', label: '100 filleuls — 25 cr + Badge Légende + 2000 XP' },
+  { count: 100, referrerReward: 25_000_000, refereeReward: 5_000_000, bonusXP: 2000, badge: 'cinema-legend', label: '100 referrals — 25 cr + Legend badge + 2000 XP' },
 ]
 
 export function getReferralTier(count: number): ReferralTier {
@@ -129,24 +129,24 @@ export const USER_TIERS: TierConfig[] = [
     id: 'guest', label: 'Visiteur', color: '#9CA3AF', icon: 'eye',
     dailyLimits: { aiRequests: 0, votes: 0, comments: 0, projects: 0, agents: 0 },
     features: ['Voir les films', 'Voir les bandes-annonces', 'Lire les commentaires'],
-    restrictions: ['Pas de vote', 'Pas de création', 'Pas d\'IA', 'Inscription requise'],
+    restrictions: ['Pas de vote', 'No creation', 'Pas d\'IA', 'Inscription requise'],
   },
   {
     id: 'demo', label: 'Demo', color: '#F59E0B', icon: 'clock',
     dailyLimits: { aiRequests: 5, votes: 5, comments: 3, projects: 1, agents: 3 },
-    features: ['Tout visiteur +', '5 requêtes IA/jour', '5 votes/jour', '1 projet', 'Expire automatiquement'],
-    restrictions: ['Limité dans le temps', 'Pas de paiement', 'Pas de parrainage'],
+    features: ['Tout visiteur +', '5 AI requests/day', '5 votes/jour', '1 projet', 'Expire automatiquement'],
+    restrictions: ['Time-limited', 'Pas de paiement', 'Pas de parrainage'],
   },
   {
     id: 'free', label: 'Gratuit', color: '#3B82F6', icon: 'user',
     dailyLimits: { aiRequests: 10, votes: 10, comments: 10, projects: 2, agents: 5 },
-    features: ['Tout démo +', '10 requêtes IA/jour', '2 projets', 'Vote', 'Commentaires', 'Parrainage'],
-    restrictions: ['Crédits IA limités', '10 films/mois en streaming'],
+    features: ['Everything in demo +', '10 AI requests/day', '2 projets', 'Vote', 'Commentaires', 'Parrainage'],
+    restrictions: ['Limited AI credits', '10 films/mois en streaming'],
   },
   {
     id: 'paid', label: 'Premium', color: '#10B981', icon: 'crown',
     dailyLimits: { aiRequests: 100, votes: 50, comments: 50, projects: 10, agents: 22 },
-    features: ['Tout gratuit +', '100 requêtes/jour', 'Projets illimités', 'Tous les agents', 'Streaming illimité', 'Support prioritaire'],
+    features: ['Tout gratuit +', '100 requests/day', 'Unlimited projects', 'Tous les agents', 'Unlimited streaming', 'Support prioritaire'],
     restrictions: [],
   },
 ]
@@ -166,8 +166,8 @@ export const DEMO_CONFIG = {
 export const SIGNUP_BONUS = {
   credits: 2_000_000,     // 2 credits at signup
   xp: 50,                 // 50 XP bonus
-  label: '2 crédits IA + 50 XP',
-  description: 'Offerts à chaque nouvelle inscription pour découvrir les outils IA.',
+  label: '2 AI credits + 50 XP',
+  description: 'Granted with every new sign-up to explore the AI tools.',
 }
 
 // ─── Onboarding Steps ───────────────────────────────────────────────
@@ -177,10 +177,10 @@ export interface OnboardingStep {
 }
 
 export const ONBOARDING_STEPS: OnboardingStep[] = [
-  { id: 'signup', label: 'Inscription', description: 'Créez votre compte CineGeny', icon: 'user-plus', xpReward: 10, creditReward: 0 },
-  { id: 'profile', label: 'Profil complet', description: 'Remplissez votre bio et spécialités', icon: 'user', xpReward: 50, creditReward: 1_000_000 },
-  { id: 'first-vote', label: 'Premier vote', description: 'Votez sur un film de la communauté', icon: 'star', xpReward: 10, creditReward: 200_000 },
-  { id: 'first-agent', label: 'Premier agent IA', description: 'Utilisez un agent IA cinéma', icon: 'bot', xpReward: 15, creditReward: 300_000 },
+  { id: 'signup', label: 'Inscription', description: 'Create your CineGeny account', icon: 'user-plus', xpReward: 10, creditReward: 0 },
+  { id: 'profile', label: 'Profil complet', description: 'Fill in your bio and specialties', icon: 'user', xpReward: 50, creditReward: 1_000_000 },
+  { id: 'first-vote', label: 'Premier vote', description: 'Vote on a community film', icon: 'star', xpReward: 10, creditReward: 200_000 },
+  { id: 'first-agent', label: 'Premier agent IA', description: 'Use an AI cinema agent', icon: 'bot', xpReward: 15, creditReward: 300_000 },
   { id: 'first-project', label: 'Premier projet', description: 'Create your first film project', icon: 'film', xpReward: 75, creditReward: 500_000 },
   { id: 'first-share', label: 'Premier partage', description: 'Share a film on social media', icon: 'share-2', xpReward: 10, creditReward: 100_000 },
   { id: 'referral', label: 'Inviter un ami', description: 'Parrainez votre premier utilisateur', icon: 'users', xpReward: 100, creditReward: 5_000_000 },

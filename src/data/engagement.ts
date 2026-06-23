@@ -91,7 +91,7 @@ export const USER_LEVELS: UserLevel[] = [
   { level: 2, title: 'Spectateur', titleEn: 'Viewer', minXP: 100, maxXP: 500, icon: '👀', color: '#6B7280', perks: ['Commentaires', 'Playlist'], creditBonus: 500_000 },
   { level: 3, title: 'Acteur', titleEn: 'Actor', minXP: 500, maxXP: 1500, icon: '🎭', color: '#3B82F6', perks: ['Tâches créatives', 'Chat IA'], creditBonus: 1_000_000 },
   { level: 4, title: 'Screenwriter', titleEn: 'Screenwriter', minXP: 1500, maxXP: 3500, icon: '✍️', color: '#8B5CF6', perks: ['Soumission scénarios', 'Agents L1'], creditBonus: 2_000_000 },
-  { level: 5, title: 'Director', titleEn: 'Director', minXP: 3500, maxXP: 7000, icon: '🎥', color: '#F59E0B', perks: ['Projets illimités', 'Agents L2'], creditBonus: 3_000_000 },
+  { level: 5, title: 'Director', titleEn: 'Director', minXP: 3500, maxXP: 7000, icon: '🎥', color: '#F59E0B', perks: ['Unlimited projects', 'Agents L2'], creditBonus: 3_000_000 },
   { level: 6, title: 'Producteur', titleEn: 'Producer', minXP: 7000, maxXP: 15000, icon: '💼', color: '#10B981', perks: ['Crowdfunding', 'Analytics avancés'], creditBonus: 5_000_000 },
   { level: 7, title: 'Mogul', titleEn: 'Mogul', minXP: 15000, maxXP: 30000, icon: '👑', color: '#E50914', perks: ['Agents L3', 'Governance', 'Badge exclusif'], creditBonus: 10_000_000 },
   { level: 8, title: 'Legend', titleEn: 'Legend', minXP: 30000, maxXP: Infinity, icon: '⭐', color: '#FFD700', perks: ['Tout débloqué', 'Titre spécial', 'Mentor'], creditBonus: 20_000_000 },
