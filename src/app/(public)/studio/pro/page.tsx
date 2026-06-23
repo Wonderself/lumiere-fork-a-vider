@@ -71,7 +71,7 @@ export default function ProStudioPage() {
 
     setGallery(prev => [...items, ...prev])
     setGenerating(false)
-    toast.success(`${count} image${count > 1 ? 's' : ''} générée${count > 1 ? 's' : ''}`)
+    toast.success(`${count} image${count > 1 ? 's' : ''} generated`)
   }
 
   const selectedImageModel = IMAGE_MODELS.find(m => m.id === provider)
@@ -88,7 +88,7 @@ export default function ProStudioPage() {
               <h1 className="text-xl font-bold text-white flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-[#E50914]" /> Studio Pro
               </h1>
-              <p className="text-[10px] text-gray-500">Mode avancé · Toutes les fonctionnalités · {IMAGE_MODELS.length + VIDEO_MODELS.length} modèles</p>
+              <p className="text-[10px] text-gray-500">Advanced mode · All features · {IMAGE_MODELS.length + VIDEO_MODELS.length} models</p>
             </div>
           </div>
           <div className="flex gap-2">
@@ -215,7 +215,7 @@ export default function ProStudioPage() {
                   <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the video sequence..." rows={4} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
                 </div>
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-                  <label className="text-[10px] text-gray-400 mb-2 block">Provider vidéo ({VIDEO_MODELS.length})</label>
+                  <label className="text-[10px] text-gray-400 mb-2 block">Video provider ({VIDEO_MODELS.length})</label>
                   <div className="space-y-1.5 max-h-40 overflow-y-auto">
                     {VIDEO_MODELS.map(m => (
                       <button key={m.id} onClick={() => setVideoProvider(m.id)} className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-xs ${videoProvider === m.id ? 'bg-[#E50914]/10 border border-[#E50914]/30 text-white' : 'bg-gray-800/50 text-gray-400'}`}>
@@ -230,7 +230,7 @@ export default function ProStudioPage() {
                   <button key={d} onClick={() => setVideoDuration(d)} className={`flex-1 py-2 rounded-lg text-xs ${videoDuration === d ? 'bg-[#E50914] text-white' : 'bg-gray-800 text-gray-400'}`}>{d}s</button>
                 ))}</div>
                 <button onClick={() => { toast.info('Video generating (async)...'); generate() }} disabled={generating || !prompt.trim()} className="w-full py-3 bg-[#E50914] text-white font-semibold rounded-xl disabled:opacity-50">
-                  {generating ? <Loader2 className="inline h-5 w-5 animate-spin" /> : <Film className="inline h-5 w-5 mr-2" />}Générer la vidéo
+                  {generating ? <Loader2 className="inline h-5 w-5 animate-spin" /> : <Film className="inline h-5 w-5 mr-2" />}Generate the video
                 </button>
               </div>
             )}

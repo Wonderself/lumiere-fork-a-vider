@@ -137,11 +137,11 @@ export default function MeetingPage() {
             <span className="text-sm font-medium text-purple-400">Multi-Agent Meeting</span>
           </div>
           <h1 className="text-3xl font-bold text-white mb-3">
-            Réunion d&apos;équipe <span className="text-[#E50914]">IA</span>
+            Team meeting <span className="text-[#E50914]">IA</span>
           </h1>
           <p className="text-gray-400 max-w-xl mx-auto">
-            Faites discuter plusieurs agents cinéma ensemble sur un sujet.
-            Chaque agent apporte son expertise. Compte-rendu structuré à la fin.
+            Have several film agents discuss a topic together.
+            Each agent brings its expertise. A structured summary at the end.
           </p>
         </div>
 
@@ -216,7 +216,7 @@ export default function MeetingPage() {
             {/* Agent Selection */}
             <div>
               <h3 className="text-sm font-semibold text-gray-300 mb-3">
-                Participants ({selectedAgents.length} sélectionnés, min 2)
+                Participants ({selectedAgents.length} selected, min 2)
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                 {CORE_AGENTS.map(agent => {
@@ -250,12 +250,12 @@ export default function MeetingPage() {
               {running ? (
                 <>
                   <Loader2 className="h-5 w-5 animate-spin" />
-                  Réunion en cours...
+                  Meeting in progress...
                 </>
               ) : (
                 <>
                   <Play className="h-5 w-5" />
-                  Lancer la réunion ({selectedAgents.length} agents, {rounds} rounds)
+                  Start the meeting ({selectedAgents.length} agents, {rounds} rounds)
                 </>
               )}
             </button>
@@ -295,7 +295,7 @@ export default function MeetingPage() {
               className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl transition-colors"
             >
               <Plus className="h-5 w-5" />
-              Nouvelle réunion
+              New meeting
             </button>
           </div>
         )}

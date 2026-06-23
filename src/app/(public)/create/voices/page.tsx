@@ -179,7 +179,7 @@ function GeneratedVoiceItem({
           </span>
           <span className="flex items-center gap-1">
             <Coins className="h-3 w-3" />
-            {item.creditCost} crédits
+            {item.creditCost} credits
           </span>
           <span>{formatTime(item.createdAt)}</span>
         </div>
@@ -238,7 +238,7 @@ export default function VoicesPage() {
     try {
       const result = await generateDialogueVoice(text, selectedVoiceId, selectedEmotion, selectedLanguage)
       setGenerated(prev => [result, ...prev])
-      toast.success(`Voix générée — ${result.voiceName} · ${result.creditCost} crédits utilisés`)
+      toast.success(`Voice generated — ${result.voiceName} · ${result.creditCost} credits used`)
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Generation failed')
     } finally {
@@ -269,8 +269,8 @@ export default function VoicesPage() {
           Voix & <span className="text-[#E50914]">Dialogues</span>
         </h1>
         <p className="text-base text-white/50 max-w-2xl mx-auto leading-relaxed">
-          Donnez vie à vos personnages avec des voix expressives générées par IA.
-          Choisissez un preset, sélectionnez une émotion, et générez vos pistes audio en quelques secondes.
+          Bring your characters to life with expressive AI-generated voices.
+          Pick a preset, choose an emotion, and generate your audio tracks in seconds.
         </p>
       </section>
 
@@ -320,17 +320,17 @@ export default function VoicesPage() {
               <textarea
                 value={text}
                 onChange={e => setText(e.target.value.slice(0, MAX_CHARS))}
-                placeholder="Entrez le texte du dialogue à vocaliser&#10;&#10;Ex: Il était une fois, dans un monde oublié des hommes, une lumière qui refusait de s'éteindre..."
+                placeholder="Enter the dialogue text to voice&#10;&#10;Ex: Once upon a time, in a world forgotten by men, a light that refused to go out..."
                 rows={8}
                 className="w-full bg-white/[0.02] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#E50914]/40 transition-colors resize-none leading-relaxed"
               />
               {text.trim() && (
                 <div className="mt-2 flex items-center gap-4 text-[10px] text-white/30">
                   <span>{text.trim().split(/\s+/).length} mots</span>
-                  <span>~{formatDuration(Math.ceil(text.split(' ').length * 0.4))} audio estimé</span>
+                  <span>~{formatDuration(Math.ceil(text.split(' ').length * 0.4))} estimated audio</span>
                   <span className="flex items-center gap-1 text-[#E50914]/70">
                     <Coins className="h-3 w-3" />
-                    {creditCost} crédits estimés
+                    {creditCost} estimated credits
                   </span>
                 </div>
               )}
@@ -390,15 +390,15 @@ export default function VoicesPage() {
               {isGenerating ? (
                 <>
                   <RefreshCw className="h-4 w-4 animate-spin" />
-                  Génération en cours...
+                  Generating...
                 </>
               ) : (
                 <>
                   <Sparkles className="h-4 w-4" />
-                  Générer la voix
+                  Generate the voice
                   {text.trim() && (
                     <span className="ml-1 px-2 py-0.5 rounded-full bg-white/15 text-[10px]">
-                      {creditCost} crédits
+                      {creditCost} credits
                     </span>
                   )}
                 </>
@@ -465,7 +465,7 @@ export default function VoicesPage() {
             <button
               onClick={() => {
                 setGenerated([])
-                toast.success('Galerie effacée')
+                toast.success('Gallery cleared')
               }}
               className="text-xs text-white/30 hover:text-red-400 transition-colors flex items-center gap-1"
             >

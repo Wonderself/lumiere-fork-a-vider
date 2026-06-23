@@ -119,14 +119,14 @@ export default function AgentsPage() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/10 border border-[#E50914]/20 mb-6">
             <Bot className="h-4 w-4 text-[#E50914]" />
-            <span className="text-sm font-medium text-[#E50914]">{ALL_AGENTS.length} agents spécialisés</span>
+            <span className="text-sm font-medium text-[#E50914]">{ALL_AGENTS.length} specialized agents</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white font-[family-name:var(--font-playfair)] mb-4">
             Agents IA <span className="text-[#E50914]">Cinema</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Une équipe complète d&apos;experts IA spécialisés dans chaque métier du cinéma.
-            Du scénario à la distribution, chaque agent maîtrise son domaine.
+            A full team of AI experts specialized in every film craft.
+            From screenplay to distribution, each agent masters its field.
           </p>
 
           {/* Tier summary */}
@@ -184,8 +184,8 @@ export default function AgentsPage() {
           <Shield className="h-8 w-8 text-emerald-400 mx-auto mb-3" />
           <h3 className="text-lg font-bold text-white mb-2">0% de commission sur les tokens IA</h3>
           <p className="text-sm text-gray-400 max-w-xl mx-auto">
-            Chaque agent consomme des crédits basés sur le coût réel des tokens IA.
-            Aucune marge ajoutée. Consultez nos{' '}
+            Each agent consumes credits based on the real cost of AI tokens.
+            No added markup. See our{' '}
             <Link href="/pricing-ia" className="text-emerald-400 hover:underline">tarifs transparents</Link>.
           </p>
         </div>

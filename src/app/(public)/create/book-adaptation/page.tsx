@@ -111,10 +111,10 @@ export default function BookAdaptationPage() {
               <CheckCircle className="h-10 w-10 text-green-500" />
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-white font-playfair mb-3">
-              Analyse Terminée
+              Analysis Complete
             </h1>
             <p className="text-white/50 text-sm sm:text-base">
-              Votre livre a été soumis pour adaptation. Voici les résultats de l&apos;analyse IA.
+              Your book has been submitted for adaptation. Here are the AI analysis results.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export default function BookAdaptationPage() {
               href="/screenplays"
               className="flex-1 flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold text-sm transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-[#E50914]/20"
             >
-              Voir mes scénarios
+              View my screenplays
               <ChevronRight className="h-4 w-4" />
             </Link>
             <button
@@ -247,7 +247,7 @@ export default function BookAdaptationPage() {
             Adapter un Livre
           </h1>
           <p className="text-white/50 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-            Soumettez votre livre pour une analyse IA complète de son potentiel d&apos;adaptation cinématographique.
+            Submit your book for a full AI analysis of its film-adaptation potential.
           </p>
         </div>
 
@@ -304,7 +304,7 @@ export default function BookAdaptationPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="publisher" className="block text-white/70 text-sm font-medium">
-                    Éditeur
+                    Publisher
                   </label>
                   <div className="relative">
                     <Building className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
@@ -378,7 +378,7 @@ export default function BookAdaptationPage() {
               {/* Why adapted */}
               <div className="space-y-2">
                 <label htmlFor="whyAdapt" className="block text-white/70 text-sm font-medium">
-                  Pourquoi ce livre devrait être adapté ?
+                  Why should this book be adapted?
                 </label>
                 <div className="relative">
                   <MessageSquare className="absolute left-3.5 top-3.5 h-4 w-4 text-white/25" />
@@ -444,7 +444,7 @@ export default function BookAdaptationPage() {
               <div className="flex items-start gap-3 p-4 rounded-xl bg-[#E50914]/[0.04] border border-[#E50914]/10">
                 <Sparkles className="h-4 w-4 text-[#E50914] shrink-0 mt-0.5" />
                 <p className="text-white/50 text-xs leading-relaxed">
-                  L&apos;analyse IA évalue le potentiel visuel, la densité dramatique et l&apos;attrait marché pour générer un score d&apos;adaptation et un outline de scénario personnalisé.
+                  The AI analysis evaluates visual potential, dramatic density and market appeal to generate an adaptation score and a custom screenplay outline.
                 </p>
               </div>
 
@@ -472,8 +472,8 @@ export default function BookAdaptationPage() {
 
         {/* Footer note */}
         <p className="text-center text-white/25 text-xs mt-8 leading-relaxed">
-          En soumettant ce livre, vous autorisez CINEGENY à générer un outline d&apos;adaptation à titre d&apos;analyse.
-          Les droits d&apos;auteur restent la propriété de leurs détenteurs respectifs.
+          By submitting this book, you authorize CINEGENY to generate an adaptation outline for analysis purposes.
+          Copyright remains the property of its respective holders.
         </p>
       </div>
     </div>

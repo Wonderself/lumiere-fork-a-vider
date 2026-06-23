@@ -35,7 +35,7 @@ export default async function SubmitFilmPage() {
             Soumettre votre film
           </h1>
           <p className="text-white/50 mt-2">
-            Partagez votre création avec notre communauté et gagnez de l&apos;argent à chaque vue.
+            Share your creation with our community and earn money on every view.
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export default async function SubmitFilmPage() {
                     <input type="checkbox" name="acceptTerms" value="true" required className="mt-1 accent-[#E50914]" />
                     <p className="text-white/70 text-sm">
                       J&apos;ai lu et j&apos;accepte les conditions du contrat de distribution.
-                      Je certifie être le titulaire des droits sur cette œuvre.
+                      I certify that I am the rights holder for this work.
                     </p>
                   </label>
                 </CardContent>
@@ -190,7 +190,7 @@ export default async function SubmitFilmPage() {
                 Soumettre mon film
               </button>
               <p className="text-white/20 text-xs text-center">
-                Votre film sera vérifié par notre équipe avant d&apos;être publié dans le catalogue.
+                Your film will be reviewed by our team before being published in the catalog.
               </p>
             </div>
           </div>

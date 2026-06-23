@@ -56,7 +56,7 @@ export default function TrailerMakerPage() {
 
     setResults(allResults)
     setStep('result')
-    toast.success(`${allResults.length} bande(s)-annonce générée(s) !`)
+    toast.success(`${allResults.length} trailer(s) generated!`)
   }
 
   return (
@@ -69,11 +69,11 @@ export default function TrailerMakerPage() {
             <span className="text-sm font-medium text-[#E50914]">Trailer Maker</span>
           </div>
           <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-playfair)] mb-3">
-            Créez la bande-annonce de <span className="text-[#E50914]">votre film</span>
+            Create the trailer for <span className="text-[#E50914]">votre film</span>
           </h1>
           <p className="text-gray-400 max-w-lg mx-auto">
-            Inventez un film, choisissez le style, et l&apos;IA génère la bande-annonce complète.
-            Ajoutez votre visage pour devenir le héros !
+            Invent a film, choose the style, and the AI generates the full trailer.
+            Add your face to become the hero!
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function TrailerMakerPage() {
 
             <button onClick={generateTrailers} disabled={!filmTitle.trim() || !genre || !synopsis.trim() || selectedStyles.length === 0} className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-2xl disabled:opacity-40 transition-colors text-lg">
               <Wand2 className="h-6 w-6" />
-              Générer {selectedStyles.length} bande{selectedStyles.length > 1 ? 's' : ''}-annonce{selectedStyles.length > 1 ? 's' : ''}
+              Generate {selectedStyles.length} trailer{selectedStyles.length > 1 ? 's' : ''}
             </button>
           </div>
         )}
@@ -178,7 +178,7 @@ export default function TrailerMakerPage() {
                             a.download = `${result.filmTitle.replace(/\s+/g, '-').toLowerCase()}-trailer-${result.style}.jpg`
                             a.click()
                             URL.revokeObjectURL(url)
-                            toast.success('Bande-annonce exportée !')
+                            toast.success('Trailer exported!')
                           } catch {
                             toast.error('Erreur lors de l\'export')
                           }
