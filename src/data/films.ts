@@ -210,7 +210,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '2h 08min',
       year: 2026,
       rating: 'R',
-      tags: ['géopolitique', 'espionnage', 'Jérusalem', 'Moyen-Orient'],
+      tags: ['geopolitics', 'espionnage', 'Jérusalem', 'Moyen-Orient'],
     },
     {
       title: 'Intelligence',
@@ -240,7 +240,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '1h 54min',
       year: 2026,
       rating: 'PG',
-      tags: ['cinema', 'nostalgie', 'mémoire', 'patrimoine'],
+      tags: ['cinema', 'nostalgie', 'memory', 'patrimoine'],
     },
     {
       title: 'Crossing Lines',
@@ -250,7 +250,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '2h 05min',
       year: 2026,
       rating: 'R',
-      tags: ['thriller', 'frontière', 'Maroc', 'Espagne', 'coopération'],
+      tags: ['thriller', 'border', 'Maroc', 'Espagne', 'cooperation'],
     },
     {
       title: 'Digital Souls',
@@ -260,17 +260,17 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '1h 58min',
       year: 2026,
       rating: 'PG-13',
-      tags: ['sci-fi', 'êtres virtuels', 'identité numérique', 'futur'],
+      tags: ['sci-fi', 'virtual beings', 'digital identity', 'futur'],
     },
     {
       title: 'Le Producteur',
       synopsis: 'Producteur légendaire au bord de la faillite, Max Feldman mise tout sur un film impossible : un biopic sur lui-même, réalisé par quelqu\'un qui le déteste. Comédie acide sur les ego, les illusions et la magie improbable du cinéma.',
       director: 'Pierre Leconte',
-      cast: ['Max Feldman', 'Réalisatrice Emma Voss', 'Acteur vedette Rico'],
+      cast: ['Max Feldman', 'Director Emma Voss', 'Acteur vedette Rico'],
       duration: '1h 48min',
       year: 2026,
       rating: 'PG-13',
-      tags: ['comédie', 'industrie du cinéma', 'satire', 'making-of'],
+      tags: ['comedy', 'film industry', 'satire', 'making-of'],
     },
     {
       title: 'Sahara Dreams',
