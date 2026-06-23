@@ -63,7 +63,7 @@ export default function KnowledgeAdminPage() {
               { label: 'Total Memories', value: '0', icon: Brain, color: 'text-purple-600', bg: 'bg-purple-500/10' },
               { label: 'Films indexed', value: '0', icon: BookOpen, color: 'text-blue-600', bg: 'bg-blue-500/10' },
               { label: 'Dimensions', value: EMBEDDING_CONFIG.dimensions, icon: Cpu, color: 'text-orange-600', bg: 'bg-orange-500/10' },
-              { label: 'TTL défaut', value: `${EMBEDDING_CONFIG.ttlDays}j`, icon: Clock, color: 'text-green-600', bg: 'bg-green-500/10' },
+              { label: 'Default TTL', value: `${EMBEDDING_CONFIG.ttlDays}j`, icon: Clock, color: 'text-green-600', bg: 'bg-green-500/10' },
             ].map(kpi => {
               const Icon = kpi.icon
               return (
@@ -91,7 +91,7 @@ export default function KnowledgeAdminPage() {
 
           {/* Film Memory Categories */}
           <div className="bg-white/5 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-white/10 p-4 sm:p-6">
-            <h3 className="text-sm font-semibold text-white mb-4">8 Catégories de mémoire film</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">8 film memory categories</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {FILM_MEMORY_CATEGORIES.map(cat => (
                 <div key={cat.id} className="rounded-lg border border-white/10 p-3">

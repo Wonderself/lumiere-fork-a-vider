@@ -34,7 +34,7 @@ export default async function SetupPage() {
     },
     {
       id: 'auth', label: 'Authentification', description: 'NextAuth configured',
-      icon: Key, status: 'warning', detail: '⚠️ Auth bypass admin@admin.com actif — désactiver en production',
+      icon: Key, status: 'warning', detail: '⚠️ Auth bypass admin@admin.com active — disable in production',
       href: '/admin/security',
     },
     {
@@ -72,7 +72,7 @@ export default async function SetupPage() {
       icon: Globe, status: 'pending', detail: 'Configure custom domain in Coolify/Vercel',
     },
     {
-      id: 'guardrails', label: 'Guardrails', description: '10 modules de protection activés',
+      id: 'guardrails', label: 'Guardrails', description: '10 protection modules enabled',
       icon: Shield, status: 'done', detail: 'All 10 guardrail modules active',
       href: '/admin/guardrails',
     },

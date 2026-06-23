@@ -67,7 +67,7 @@ export default async function AdminSettingsPage() {
               </div>
               <div className="flex justify-between text-xs text-white/50">
                 <span>0% — Tout passe en review humaine</span>
-                <span>100% — Tout auto-validé</span>
+                <span>100% — Everything auto-validated</span>
               </div>
             </div>
           </CardContent>

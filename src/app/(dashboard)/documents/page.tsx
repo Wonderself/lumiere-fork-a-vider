@@ -164,12 +164,12 @@ export default function DocumentFactoryPage() {
         {/* 0% Commission */}
         <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4 flex items-center gap-3">
           <Shield className="h-5 w-5 text-emerald-400 shrink-0" />
-          <p className="text-xs text-emerald-400"><span className="font-semibold">0% commission</span> — vous ne payez que les tokens IA. ~3.5 crédits par document professionnel.</p>
+          <p className="text-xs text-emerald-400"><span className="font-semibold">0% commission</span> — you only pay for the AI tokens. ~3.5 credits per professional document.</p>
         </div>
 
         {/* Agents */}
         <div>
-          <h2 className="text-sm font-semibold text-white/50 mb-3">7 agents spécialisés</h2>
+          <h2 className="text-sm font-semibold text-white/50 mb-3">7 specialized agents</h2>
           <div className="flex gap-2 overflow-x-auto pb-2">
             {DOC_FACTORY_AGENTS.map(agent => {
               const AIcon = ICON_MAP[agent.icon] || Bot

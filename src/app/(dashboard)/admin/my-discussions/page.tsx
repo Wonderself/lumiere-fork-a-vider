@@ -64,7 +64,7 @@ export default function MyDiscussionsPage() {
       <div className="space-y-8">
         <div>
           <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">My Discussions</h1>
-          <p className="text-sm text-white/50 mt-1">8 templates stratégiques · Chat streaming avec agents experts</p>
+          <p className="text-sm text-white/50 mt-1">8 strategic templates · Streaming chat with expert agents</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

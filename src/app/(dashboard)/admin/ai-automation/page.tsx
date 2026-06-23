@@ -44,7 +44,7 @@ const fullyAutomated: AutomationItem[] = [
   {
     id: 'task-decomposition',
     title: 'Task breakdown',
-    description: 'Film -> phases -> micro-tâches automatiquement.',
+    description: 'Film -> phases -> micro-tasks automatically.',
     detail: 'Analyse le scénario et le genre pour décomposer automatiquement un film en phases de production et micro-tâches assignables. Estime les budgets et délais pour chaque tâche.',
     icon: Target,
     costSaving: 1500,
@@ -211,8 +211,8 @@ const assisted: AutomationItem[] = [
 const humanOnly: AutomationItem[] = [
   {
     id: 'isa-filings',
-    title: 'Dépôts réglementaires ISA',
-    description: 'Dépôts officiels auprès de l\'autorité des marchés.',
+    title: 'ISA regulatory filings',
+    description: 'Official filings with the securities authority.',
     detail: 'Les dépôts auprès de l\'Israel Securities Authority (ISA) doivent être effectués par une personne physique autorisée, souvent avec signature électronique certifiée.',
     icon: Building2,
     costSaving: 0,
@@ -230,7 +230,7 @@ const humanOnly: AutomationItem[] = [
   {
     id: 'kyc-contracts',
     title: 'Contrats fournisseurs KYC',
-    description: 'Négociation et signature avec Sumsub/Jumio.',
+    description: 'Negotiation and signing with Sumsub/Jumio.',
     detail: 'La sélection, négociation tarifaire et signature de contrats avec les fournisseurs de vérification d\'identité requièrent un interlocuteur humain.',
     icon: Shield,
     costSaving: 0,
@@ -248,7 +248,7 @@ const humanOnly: AutomationItem[] = [
   {
     id: 'tax-declarations',
     title: 'Tax filings',
-    description: 'Déclarations TVA et impôt sur les sociétés.',
+    description: 'VAT and corporate tax filings.',
     detail: 'Les déclarations fiscales auprès de l\'administration israélienne (Mas Hachnasa, Ma\'am) doivent être signées par un comptable agréé (Ro\'e Heshbon).',
     icon: Calculator,
     costSaving: 0,
@@ -305,7 +305,7 @@ export default async function AdminAIAutomationPage() {
     { label: 'Humain uniquement', value: humanOnly.length.toString(), sub: 'non automatisable', color: 'text-red-400', icon: XCircle },
     { label: 'Modules enabled', value: `${activatedCount}/${totalActivatable}`, sub: 'en production', color: 'text-blue-600', icon: Zap },
     { label: 'Claude API cost', value: `${claudeApiCost} EUR/mois`, sub: 'budget API actuel', color: 'text-purple-600', icon: Brain },
-    { label: 'Économies actives', value: `${new Intl.NumberFormat('fr-FR').format(activeSavings)} EUR`, sub: '/mois estimé', color: 'text-[#E50914]', icon: DollarSign },
+    { label: 'Économies actives', value: `${new Intl.NumberFormat('fr-FR').format(activeSavings)} EUR`, sub: '/month est.', color: 'text-[#E50914]', icon: DollarSign },
   ]
 
   return (

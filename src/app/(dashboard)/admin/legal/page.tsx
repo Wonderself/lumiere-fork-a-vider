@@ -74,7 +74,7 @@ const sectionConfig: Record<string, { title: string; icon: typeof Scale; descrip
   ISA: {
     title: 'A. Israel Securities Authority (ISA)',
     icon: Landmark,
-    description: 'Exigences réglementaires de l\'Israel Securities Authority pour les offres de tokens.',
+    description: 'Israel Securities Authority regulatory requirements for token offerings.',
   },
   KYC: {
     title: 'B. KYC/AML compliance',
@@ -106,7 +106,7 @@ const DEFAULT_LEGAL_CHECKLIST = [
   // Section A: ISA
   {
     category: 'ISA', item: 'Legal entity registration', priority: 3, responsible: 'HUMAN',
-    description: 'Créer une société israélienne (Ltd ou LLC) pour héberger la plateforme de tokenisation.',
+    description: 'Create an Israeli company (Ltd or LLC) to host the tokenization platform.',
   },
   {
     category: 'ISA', item: 'Demande sandbox ISA', priority: 3, responsible: 'HUMAN',
@@ -128,7 +128,7 @@ const DEFAULT_LEGAL_CHECKLIST = [
   // Section B: KYC/AML
   {
     category: 'KYC', item: 'KYC provider integration', priority: 3, responsible: 'HUMAN',
-    description: 'Contracter avec un fournisseur KYC (Sumsub, Jumio ou Onfido) et intégrer leur API.',
+    description: 'Contract a KYC provider (Sumsub, Jumio or Onfido) and integrate their API.',
   },
   {
     category: 'KYC', item: 'Document politique AML', priority: 2, responsible: 'CLAUDE',

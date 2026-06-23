@@ -31,7 +31,7 @@ const POST_TEMPLATES = [
   'Community statistics',
   'Lancement d\'un nouveau film',
   'Call for contributors',
-  'Événement communautaire',
+  'Community event',
 ]
 
 export default function AdminSocialPage() {
@@ -99,7 +99,7 @@ export default function AdminSocialPage() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
             <div>
               <label className="text-xs text-white/50 mb-1.5 block">Sujet du post</label>
-              <input value={topic} onChange={e => setTopic(e.target.value)} placeholder="Ex: Lancement de la fonctionnalité Chat IA..." className="w-full rounded-xl border border-white/10 px-4 py-2.5 text-sm focus:border-[#E50914] focus:outline-none" />
+              <input value={topic} onChange={e => setTopic(e.target.value)} placeholder="e.g. Launch of the AI Chat feature..." className="w-full rounded-xl border border-white/10 px-4 py-2.5 text-sm focus:border-[#E50914] focus:outline-none" />
             </div>
             <div className="flex gap-4">
               <div className="flex-1">

@@ -22,7 +22,7 @@ export default function OnboardingConfigPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Onboarding & Tiers</h1>
-        <p className="text-sm text-white/50 mt-1">4 tiers · Comptes démo · Signup bonus · Étapes onboarding</p>
+        <p className="text-sm text-white/50 mt-1">4 tiers · Demo accounts · Signup bonus · Onboarding steps</p>
       </div>
 
       {/* Agents */}
@@ -113,7 +113,7 @@ export default function OnboardingConfigPage() {
       {/* STEPS */}
       {tab === 'steps' && (
         <div className="space-y-3 max-w-lg">
-          <h2 className="text-sm font-semibold text-white mb-3">7 étapes d&apos;onboarding</h2>
+          <h2 className="text-sm font-semibold text-white mb-3">7 onboarding steps</h2>
           {ONBOARDING_STEPS.map((step, i) => {
             const SIcon = STEP_ICONS[step.icon] || Zap
             return (

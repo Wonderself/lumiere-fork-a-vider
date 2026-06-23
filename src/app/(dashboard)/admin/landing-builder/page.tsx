@@ -44,7 +44,7 @@ export default function LandingBuilderPage() {
       id: `lp-${Date.now()}`, name: pageName, filmTitle,
       blocks: [
         { id: `b-${Date.now()}`, type: 'hero', content: { title: filmTitle, tagline: 'Un film qui va vous surprendre', bgImage: '' } },
-        { id: `b-${Date.now() + 1}`, type: 'synopsis', content: { text: 'Synopsis à rédiger...', genre: '', duration: '' } },
+        { id: `b-${Date.now() + 1}`, type: 'synopsis', content: { text: 'Synopsis to write...', genre: '', duration: '' } },
         { id: `b-${Date.now() + 2}`, type: 'cta', content: { text: 'Votez maintenant', href: '#', color: '#E50914' } },
       ],
       status: 'draft', createdAt: new Date(),

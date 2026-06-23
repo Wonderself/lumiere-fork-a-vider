@@ -201,7 +201,7 @@ export default function MyStrategyPage() {
             <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center">
               <Brain className="h-12 w-12 text-white/50 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">AI strategic plan</h3>
-              <p className="text-sm text-white/50 mb-6 max-w-md mx-auto">L&apos;agent Studio Head analyse votre situation et génère un plan stratégique complet.</p>
+              <p className="text-sm text-white/50 mb-6 max-w-md mx-auto">The Studio Head agent analyzes your situation and generates a complete strategic plan.</p>
               <button onClick={generateAIPlan} disabled={generatingPlan} className="px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
                 {generatingPlan ? <><Loader2 className="inline h-5 w-5 animate-spin mr-2" />Generating...</> : <><Brain className="inline h-5 w-5 mr-2" />Generate the plan</>}
               </button>

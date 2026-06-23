@@ -18,7 +18,7 @@ const MOCK_FEED: FeedItem[] = [
   { id: '2', source: 'Deadline', title: 'Cannes 2026: First Wave of Official Selection Announced', summary: 'The festival reveals its initial lineup including several AI-assisted productions.', url: '#', date: new Date(Date.now() - 7200000), category: 'festivals' },
   { id: '3', source: 'TechCrunch AI', title: 'New Video Generation Models Achieve Cinema-Quality Output', summary: 'Latest models from Kling and Runway approach professional production standards.', url: '#', date: new Date(Date.now() - 14400000), category: 'tech' },
   { id: '4', source: 'Hollywood Reporter', title: 'Box Office: Indie Films Outperform Franchise Sequels in Q1', summary: 'A24 and independent distributors see record numbers as franchise fatigue sets in.', url: '#', date: new Date(Date.now() - 28800000), category: 'box-office' },
-  { id: '5', source: 'Cahiers du Cinéma', title: 'Le cinéma participatif : nouvelle frontière de la création', summary: 'Analyse approfondie du modèle collaboratif porté par les plateformes comme CineGeny.', url: '#', date: new Date(Date.now() - 43200000), category: 'critique' },
+  { id: '5', source: 'Cahiers du Cinéma', title: 'Collaborative cinema: the new frontier of creation', summary: 'In-depth analysis of the collaborative model driven by platforms like CineGeny.', url: '#', date: new Date(Date.now() - 43200000), category: 'critique' },
   { id: '6', source: 'Screen Daily', title: 'European Co-Productions Hit All-Time High in 2025', summary: 'Cross-border collaborations increase as funding becomes more accessible.', url: '#', date: new Date(Date.now() - 86400000), category: 'industry' },
 ]
 
