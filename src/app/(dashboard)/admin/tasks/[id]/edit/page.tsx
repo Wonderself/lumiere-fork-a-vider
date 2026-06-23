@@ -27,13 +27,13 @@ const STATUSES = ['LOCKED', 'AVAILABLE', 'CLAIMED', 'SUBMITTED', 'AI_REVIEW', 'H
 const typeLabels: Record<string, string> = {
   PROMPT_WRITING: 'Rédaction de Prompts',
   IMAGE_GEN: 'Génération d\'Images',
-  VIDEO_REVIEW: 'Revue Vidéo',
+  VIDEO_REVIEW: 'Video review',
   STUNT_CAPTURE: 'Capture Stunt',
   DANCE_CAPTURE: 'Capture Danse',
   DIALOGUE_EDIT: 'Édition Dialogues',
   COLOR_GRADE: 'Étalonnage',
   SOUND_DESIGN: 'Sound Design',
-  CONTINUITY_CHECK: 'Vérification Continuité',
+  CONTINUITY_CHECK: 'Continuity check',
   QA_REVIEW: 'QA Review',
   CHARACTER_DESIGN: 'Design Personnage',
   ENV_DESIGN: 'Design Environnement',
@@ -139,7 +139,7 @@ export default async function AdminTaskEditPage({ params }: { params: Promise<{ 
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="difficulty">Difficulté</Label>
+                <Label htmlFor="difficulty">Difficulty</Label>
                 <select
                   id="difficulty"
                   name="difficulty"

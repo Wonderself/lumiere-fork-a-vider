@@ -36,7 +36,7 @@ export interface AgentDef {
 
 export const TIER_CONFIG: Record<AgentTier, { label: string; labelEn: string; model: string; color: string; description: string }> = {
   L1_EXECUTION: {
-    label: 'Exécution',
+    label: 'Execution',
     labelEn: 'Execution',
     model: 'claude-sonnet-4-6',
     color: '#3B82F6',
@@ -60,7 +60,7 @@ export const TIER_CONFIG: Record<AgentTier, { label: string; labelEn: string; mo
 
 export const CATEGORY_CONFIG: Record<AgentCategory, { label: string; icon: string; color: string }> = {
   WRITING: { label: 'Écriture', icon: 'pen-tool', color: '#3B82F6' },
-  DIRECTING: { label: 'Réalisation', icon: 'clapperboard', color: '#E50914' },
+  DIRECTING: { label: 'Directing', icon: 'clapperboard', color: '#E50914' },
   PRODUCTION: { label: 'Production', icon: 'briefcase', color: '#10B981' },
   CASTING: { label: 'Casting', icon: 'users', color: '#F59E0B' },
   CINEMATOGRAPHY: { label: 'Photographie', icon: 'camera', color: '#8B5CF6' },
@@ -79,7 +79,7 @@ export const CATEGORY_CONFIG: Record<AgentCategory, { label: string; icon: strin
 export const L1_AGENTS: AgentDef[] = [
   {
     slug: 'cg-scenariste',
-    name: 'Scénariste',
+    name: 'Screenwriter',
     nameEn: 'Screenwriter',
     description: 'Expert en écriture de scénarios, dialogues, synopsis et arcs narratifs. Maîtrise la structure en 3 actes, le voyage du héros et les formats courts/longs.',
     descriptionEn: 'Expert in screenwriting, dialogue, synopsis and narrative arcs. Masters 3-act structure, hero\'s journey and short/feature formats.',
@@ -104,7 +104,7 @@ Tu écris en français par défaut sauf si demandé autrement. Tu es créatif ma
   },
   {
     slug: 'cg-realisateur',
-    name: 'Réalisateur',
+    name: 'Director',
     nameEn: 'Director',
     description: 'Direction artistique, découpage technique, notes de réalisation et vision créative. Traduit le scénario en images.',
     descriptionEn: 'Artistic direction, shot breakdowns, directing notes and creative vision. Translates screenplay into visuals.',
@@ -200,7 +200,7 @@ Tu comprends la chimie entre personnages et la dynamique d'ensemble.`,
 - Les choix de caméra et d'optiques
 - Les LUTs et le traitement d'image
 Tu penses en termes de lumière, contraste et émotion visuelle.`,
-    tags: ['photographie', 'lumière', 'couleur', 'esthétique'],
+    tags: ['photographie', 'lumière', 'couleur', 'aesthetic'],
   },
   {
     slug: 'cg-monteur',
@@ -380,7 +380,7 @@ Tu as une vision d'ensemble. Tu es analytique, structuré et orienté résultats
 - Le respect des deadlines de livraison
 - La synthèse des feedbacks de l'équipe et de la communauté
 Tu es méthodique et exigeant sur la qualité. Tu identifies les problèmes avant qu'ils ne deviennent critiques.`,
-    tags: ['post-production', 'qualité', 'workflow', 'livraison'],
+    tags: ['post-production', 'quality', 'workflow', 'livraison'],
   },
   {
     slug: 'cg-distribution-manager',

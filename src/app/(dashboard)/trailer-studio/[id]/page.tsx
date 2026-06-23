@@ -29,7 +29,7 @@ const PHASE_CONFIG: Record<string, { label: string; icon: typeof Film; color: st
 const TASK_STATUS_CONFIG: Record<string, { label: string; color: string }> = {
   PENDING: { label: 'En attente', color: 'bg-white/[0.05] text-white/50' },
   BLOCKED: { label: 'Locked', color: 'bg-white/[0.05] text-white/50' },
-  READY: { label: 'Prêt', color: 'bg-blue-500/15 text-blue-400' },
+  READY: { label: 'Ready', color: 'bg-blue-500/15 text-blue-400' },
   GENERATING: { label: 'Generating...', color: 'bg-purple-500/15 text-purple-400' },
   AWAITING_CHOICE: { label: 'Choix requis', color: 'bg-amber-500/15 text-amber-400' },
   IN_REVIEW: { label: 'En revue', color: 'bg-orange-500/15 text-orange-400' },

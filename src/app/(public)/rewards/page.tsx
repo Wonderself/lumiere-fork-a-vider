@@ -30,7 +30,7 @@ export default function RewardsPage() {
     await navigator.clipboard.writeText(`https://cinegeny.com/register?ref=${referralCode}`)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
-    toast.success('Lien de parrainage copié !')
+    toast.success('Referral link copied!')
   }
 
   return (
@@ -83,7 +83,7 @@ export default function RewardsPage() {
           {[
             { key: 'overview' as const, label: 'Vue d\'ensemble', icon: TrendingUp },
             { key: 'badges' as const, label: `Badges (${unlockedBadges.length}/${CINEMA_BADGES.length})`, icon: Award },
-            { key: 'challenges' as const, label: 'Défis du jour', icon: Target },
+            { key: 'challenges' as const, label: 'Daily challenges', icon: Target },
             { key: 'referral' as const, label: 'Parrainage', icon: Users },
           ].map(t => {
             const TIcon = t.icon
@@ -187,7 +187,7 @@ export default function RewardsPage() {
             <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-5 flex items-center gap-3">
               <Target className="h-6 w-6 text-yellow-400" />
               <div>
-                <p className="text-sm font-semibold text-white">Défis du jour</p>
+                <p className="text-sm font-semibold text-white">Daily challenges</p>
                 <p className="text-xs text-gray-400">Complétez les défis pour des récompenses bonus. Se renouvelle à minuit.</p>
               </div>
               <Clock className="h-4 w-4 text-gray-500 ml-auto" />

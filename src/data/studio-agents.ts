@@ -90,7 +90,7 @@ export const STUDIO_AGENTS: StudioAgent[] = [
 // ─── Photo Styles ───────────────────────────────────────────────────
 
 export const PHOTO_STYLES = [
-  { id: 'realistic', label: 'Réaliste', description: 'Photoréalisme haute fidélité', prompt_suffix: 'photorealistic, ultra detailed, 8K, professional photography' },
+  { id: 'realistic', label: 'Realistic', description: 'Photoréalisme haute fidélité', prompt_suffix: 'photorealistic, ultra detailed, 8K, professional photography' },
   { id: 'artistic', label: 'Artistique', description: 'Peinture numérique, illustratif', prompt_suffix: 'digital painting, artistic, concept art, illustration' },
   { id: 'anime', label: 'Anime', description: 'Style japonais animé', prompt_suffix: 'anime style, japanese animation, vibrant colors, cel shading' },
   { id: 'cinematic', label: 'Cinématique', description: 'Éclairage cinéma, depth of field', prompt_suffix: 'cinematic lighting, film grain, anamorphic lens, depth of field, movie still' },
@@ -121,7 +121,7 @@ export const TRAILER_STYLES = [
   { id: 'blockbuster', label: 'Blockbuster', description: 'Action épique, explosions, musique héroïque' },
   { id: 'indie', label: 'Indie / Art', description: 'Atmosphérique, contemplatif, piano/guitare' },
   { id: 'horror', label: 'Horreur', description: 'Tension, jump scares, sons distordus' },
-  { id: 'comedy', label: 'Comédie', description: 'Rythme rapide, gags visuels, musique entraînante' },
+  { id: 'comedy', label: 'Comedy', description: 'Rythme rapide, gags visuels, musique entraînante' },
   { id: 'scifi', label: 'Sci-Fi', description: 'Futuriste, effets visuels, musique synthétique' },
   { id: 'romance', label: 'Romance', description: 'Doux, émotionnel, musique de cordes' },
 ]
@@ -129,7 +129,7 @@ export const TRAILER_STYLES = [
 // ─── Film Genres for Trailer/Poster Generator ───────────────────────
 
 export const FILM_GENRES = [
-  'Action', 'Aventure', 'Comédie', 'Drame', 'Fantasy', 'Horreur',
+  'Action', 'Aventure', 'Comedy', 'Drame', 'Fantasy', 'Horreur',
   'Romance', 'Sci-Fi', 'Thriller', 'Animation', 'Documentaire', 'Policier',
   'Western', 'Musical', 'Guerre', 'Historique',
 ]

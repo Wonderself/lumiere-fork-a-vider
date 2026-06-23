@@ -128,7 +128,7 @@ export async function cancelSubscriptionAction() {
   const config = PLAN_CONFIGS[sub.plan] || PLAN_CONFIGS.FREE
 
   // Notify user
-  await createNotification(session.user.id, 'SYSTEM' as never, 'Abonnement annulé', {
+  await createNotification(session.user.id, 'SYSTEM' as never, 'Subscription cancelled', {
     body: `Votre abonnement ${config.name} a été annulé. Vous conservez l'accès jusqu'à la fin de la période en cours.`,
     href: '/dashboard/subscription',
   })

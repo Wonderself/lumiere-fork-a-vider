@@ -20,7 +20,7 @@ interface DiscussionTemplate {
 
 const TEMPLATES: DiscussionTemplate[] = [
   { id: 'market', name: 'Analyse Marché', icon: TrendingUp, color: '#3B82F6', agent: 'cg-investment-strategist', systemPrompt: 'Tu es un analyste marché expert en cinéma participatif.', starters: ['Quelles tendances de marché surveiller?', 'Analyse la concurrence', 'Opportunités de croissance'] },
-  { id: 'finance', name: 'Stratégie Financière', icon: DollarSign, color: '#10B981', agent: 'cg-producteur', systemPrompt: 'Tu es un CFO expert en modèles économiques cinéma.', starters: ['Optimiser le modèle de revenus', 'Réduire le coût par user', 'Stratégie de pricing'] },
+  { id: 'finance', name: 'Stratégie Financière', icon: DollarSign, color: '#10B981', agent: 'cg-producteur', systemPrompt: 'Tu es un CFO expert en modèles économiques cinéma.', starters: ['Optimiser le modèle de revenus', 'Réduire le coût par user', 'Pricing strategy'] },
   { id: 'marketing', name: 'Marketing & Growth', icon: Megaphone, color: '#EF4444', agent: 'cg-marketing-film', systemPrompt: 'Tu es un CMO expert en growth hacking cinéma.', starters: ['Plan d\'acquisition users', 'Stratégie de contenu', 'Campagne de lancement'] },
   { id: 'tech', name: 'Architecture Tech', icon: Cpu, color: '#8B5CF6', agent: 'cg-production-manager', systemPrompt: 'Tu es un CTO expert en scalabilité.', starters: ['Priorités techniques Q2', 'Optimisation performance', 'Stack technique idéale'] },
   { id: 'hr', name: 'Équipe & RH', icon: Users, color: '#F59E0B', agent: 'cg-community-manager', systemPrompt: 'Tu es un DRH expert en recrutement créatif.', starters: ['Premiers recrutements', 'Culture d\'entreprise', 'Plan de rémunération'] },

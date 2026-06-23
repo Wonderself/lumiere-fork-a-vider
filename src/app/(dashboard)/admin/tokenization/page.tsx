@@ -163,7 +163,7 @@ const statusLabels: Record<string, string> = {
   PENDING_LEGAL: 'En attente juridique',
   OPEN: 'Ouvert',
   FUNDED: 'Funded',
-  CLOSED: 'Clôturé',
+  CLOSED: 'Closed',
   CANCELLED: 'Cancelled',
   SUSPENDED: 'Suspendu',
 }
@@ -469,7 +469,7 @@ export default async function AdminTokenizationPage() {
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white min-h-[44px]"
                   >
-                    <option value="">Sélectionner une offre...</option>
+                    <option value="">Select an offering...</option>
                     {offerings.map((o) => (
                       <option key={o.id} value={o.id}>
                         {o.film.title} — {formatPrice(o.raised)} levés
@@ -551,7 +551,7 @@ export default async function AdminTokenizationPage() {
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white min-h-[44px]"
                   >
-                    <option value="">Sélectionner une offre...</option>
+                    <option value="">Select an offering...</option>
                     {offerings.map((o) => (
                       <option key={o.id} value={o.id}>
                         {o.film.title}

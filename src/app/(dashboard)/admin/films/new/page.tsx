@@ -36,7 +36,7 @@ export default async function NewFilmPage() {
               name="genre"
               className="h-10 w-full rounded-xl border border-white/10 bg-white/5 px-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 transition-colors duration-300"
             >
-              <option value="">Sélectionner un genre</option>
+              <option value="">Select a genre</option>
               {GENRES.map((g) => <option key={g} value={g}>{g}</option>)}
             </select>
           </div>
@@ -83,7 +83,7 @@ export default async function NewFilmPage() {
             <Input id="coverImageUrl" name="coverImageUrl" type="url" placeholder="https://..." />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="estimatedBudget">Budget Estimé (€)</Label>
+            <Label htmlFor="estimatedBudget">Estimated budget ($)</Label>
             <Input id="estimatedBudget" name="estimatedBudget" type="number" placeholder="10000" />
           </div>
         </div>

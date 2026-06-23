@@ -69,7 +69,7 @@ export default function AdminSocialPage() {
       status: 'draft',
     }
     setCalendar(prev => [...prev, item])
-    toast.success('Ajouté au calendrier')
+    toast.success('Added to calendar')
   }
 
   async function copyPost(content: string, id: string) {
@@ -137,7 +137,7 @@ export default function AdminSocialPage() {
             </div>
 
             <button onClick={generatePosts} disabled={generating || !topic.trim()} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-              {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Generating...</> : <><Zap className="h-5 w-5" /> Générer les posts</>}
+              {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Generating...</> : <><Zap className="h-5 w-5" /> Generate posts</>}
             </button>
           </div>
 

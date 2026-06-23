@@ -191,7 +191,7 @@ export async function startTranscodingAction(
 
   // Validate profiles
   const validProfiles = requestedProfiles.filter(p => p in QUALITY_PROFILES)
-  if (validProfiles.length === 0) return { error: 'Aucun profil de qualité valide' }
+  if (validProfiles.length === 0) return { error: 'No valid quality profile' }
 
   // In production: spawn FFmpeg process or send to job queue
   // For now: generate the transcoding command and return it

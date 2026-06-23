@@ -138,7 +138,7 @@ export default async function StreamingPage(props: { searchParams: Promise<{ gen
         {films.length === 0 ? (
           <div className="text-center py-20">
             <Film className="h-16 w-16 text-white/10 mx-auto mb-4" />
-            <p className="text-white/30 text-lg">Aucun film trouvé</p>
+            <p className="text-white/30 text-lg">No films found</p>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 sm:gap-6">

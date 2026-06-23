@@ -170,7 +170,7 @@ export default function ProStudioPage() {
                     ))}</div>
                   </div>
                   <div>
-                    <label className="text-[10px] text-gray-400 mb-1.5 block">Catégorie</label>
+                    <label className="text-[10px] text-gray-400 mb-1.5 block">Category</label>
                     <div className="flex flex-wrap gap-1">{CINEMA_CATEGORIES.map(c => (
                       <button key={c.id} onClick={() => setCategory(c.id)} className={`px-2 py-1 rounded text-[10px] ${category === c.id ? 'bg-[#E50914] text-white' : 'bg-gray-800 text-gray-400'}`}>{c.label}</button>
                     ))}</div>
@@ -264,7 +264,7 @@ export default function ProStudioPage() {
                     <div className="aspect-square relative bg-gray-800">
                       <img src={item.url} alt={item.prompt} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5">
-                        <button onClick={() => toast.success('Téléchargé')} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><Download className="h-4 w-4 text-white" /></button>
+                        <button onClick={() => toast.success('Downloaded')} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><Download className="h-4 w-4 text-white" /></button>
                         <button onClick={() => { setPrompt(item.prompt); setStyle(item.style.split('+')[0]); toast.success('Prompt chargé') }} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><RefreshCcw className="h-4 w-4 text-white" /></button>
                         <button onClick={() => setGallery(prev => prev.filter(g => g.id !== item.id))} className="p-2 rounded-lg bg-white/10 hover:bg-white/20"><Trash2 className="h-4 w-4 text-white" /></button>
                         {compareMode && (

@@ -27,19 +27,19 @@ const statusColors: Record<string, string> = {
 }
 
 const statusLabels: Record<string, string> = {
-  NOT_STARTED: 'Non démarré',
+  NOT_STARTED: 'Not started',
   ELIGIBLE: 'Éligible',
   IN_PROGRESS: 'In progress',
   SUBMITTED: 'Dossier déposé',
   ACCEPTED: 'Obtenu',
   REJECTED: 'Rejected',
-  EXPIRED: 'Expiré',
+  EXPIRED: 'Expired',
 }
 
 const typeLabels: Record<string, string> = {
   SUBVENTION: 'Subvention',
   AVANCE: 'Avance remboursable',
-  PRET: 'Prêt',
+  PRET: 'Ready',
   CREDIT_IMPOT: 'Crédit d\'impôt',
   GARANTIE: 'Garantie',
   CONCOURS: 'Concours',
@@ -133,7 +133,7 @@ export default async function AdminFundingPage() {
 
           {/* Eligibility */}
           <div className="bg-white/[0.02] rounded-lg p-3 mb-4">
-            <p className="text-xs font-medium text-white/40 mb-1">Éligibilité</p>
+            <p className="text-xs font-medium text-white/40 mb-1">Eligibility</p>
             <p className="text-sm text-white/60">{f.eligibility}</p>
           </div>
 

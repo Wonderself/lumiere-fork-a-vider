@@ -220,7 +220,7 @@ export default function CRMPage() {
             </div>
             <div>
               <label className="text-xs text-white/50 mb-1 block">Entreprise</label>
-              <input value={newContact.company} onChange={e => setNewContact(p => ({ ...p, company: e.target.value }))} placeholder="Société" className="w-full rounded-xl border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
+              <input value={newContact.company} onChange={e => setNewContact(p => ({ ...p, company: e.target.value }))} placeholder="Company" className="w-full rounded-xl border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
             </div>
             <div>
               <label className="text-xs text-white/50 mb-1 block">Email</label>

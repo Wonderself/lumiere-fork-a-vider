@@ -45,7 +45,7 @@ export type GeneratedVoice = {
 /* ── Constants ── */
 
 export const VOICE_LANGUAGES: VoiceLanguage[] = [
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  { code: 'fr', label: 'French', flag: '🇫🇷' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
@@ -65,7 +65,7 @@ export const VOICE_EMOTIONS: { id: VoiceEmotion; label: string; icon: string; de
   { id: 'triste', label: 'Triste', icon: '😢', description: 'Voix mélancolique, lente, douce' },
   { id: 'en-colere', label: 'En colère', icon: '😠', description: 'Ton tendu, fort, marqué' },
   { id: 'effrayé', label: 'Effrayé', icon: '😨', description: 'Voix tremblante, hésitante, à voix basse' },
-  { id: 'mystérieux', label: 'Mystérieux', icon: '🎭', description: 'Murmure intrigant, rythme lent et posé' },
+  { id: 'mystérieux', label: 'Mysterious', icon: '🎭', description: 'Murmure intrigant, rythme lent et posé' },
 ]
 
 const VOICE_PRESETS: VoicePreset[] = [

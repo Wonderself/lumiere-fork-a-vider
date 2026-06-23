@@ -122,7 +122,7 @@ export async function sendTaskValidatedEmail(
   filmTitle: string,
   amountEur: number
 ): Promise<boolean> {
-  const html = layout('Tâche validée', `
+  const html = layout('Task validated', `
     <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Bravo, ${displayName} ! 🎬</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
       Votre contribution a été validée avec succès.
@@ -132,7 +132,7 @@ export async function sendTaskValidatedEmail(
       <p style="margin:0 0 12px;color:#fff;font-weight:600;">${taskTitle}</p>
       <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Film</p>
       <p style="margin:0 0 12px;color:#fff;font-weight:600;">${filmTitle}</p>
-      <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Rémunération</p>
+      <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Compensation</p>
       <p style="margin:0;color:#E50914;font-weight:700;font-size:20px;">${amountEur.toFixed(2)} €</p>
     </div>
     <div style="text-align:center;">

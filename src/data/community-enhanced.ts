@@ -38,7 +38,7 @@ export const REPUTATION_LEVELS = [
   { min: 40, label: 'Créateur Confirmé', color: '#8B5CF6', badge: '🎬' },
   { min: 60, label: 'Expert', color: '#F59E0B', badge: '🏆' },
   { min: 80, label: 'Maître', color: '#E50914', badge: '👑' },
-  { min: 95, label: 'Légende', color: '#FFD700', badge: '💎' },
+  { min: 95, label: 'Legend', color: '#FFD700', badge: '💎' },
 ]
 
 // ─── Mentor System ──────────────────────────────────────────────────
@@ -52,7 +52,7 @@ export const MENTOR_CONFIG = {
 }
 
 export const MENTOR_SPECIALTIES = [
-  'Scénario', 'Réalisation', 'Production', 'VFX', 'Sound Design',
+  'Screenplay', 'Directing', 'Production', 'VFX', 'Sound Design',
   'Composition', 'Montage', 'Photographie', 'Marketing', 'Investissement',
 ]
 
@@ -79,9 +79,9 @@ export interface TeamRole {
 
 export const TEAM_ROLES: TeamRole[] = [
   { id: 'owner', label: 'Propriétaire', permissions: ['all'], icon: 'crown', color: '#FFD700' },
-  { id: 'director', label: 'Réalisateur', permissions: ['edit_all', 'approve', 'invite', 'manage_agents'], icon: 'clapperboard', color: '#E50914' },
+  { id: 'director', label: 'Director', permissions: ['edit_all', 'approve', 'invite', 'manage_agents'], icon: 'clapperboard', color: '#E50914' },
   { id: 'producer', label: 'Producteur', permissions: ['edit_budget', 'approve', 'invite', 'manage_team'], icon: 'briefcase', color: '#10B981' },
-  { id: 'writer', label: 'Scénariste', permissions: ['edit_script', 'comment'], icon: 'pen-tool', color: '#3B82F6' },
+  { id: 'writer', label: 'Screenwriter', permissions: ['edit_script', 'comment'], icon: 'pen-tool', color: '#3B82F6' },
   { id: 'artist', label: 'Artiste', permissions: ['edit_visual', 'upload', 'comment'], icon: 'palette', color: '#8B5CF6' },
   { id: 'contributor', label: 'Contributeur', permissions: ['edit_assigned', 'comment'], icon: 'user', color: '#6B7280' },
   { id: 'viewer', label: 'Observateur', permissions: ['view_only'], icon: 'eye', color: '#9CA3AF' },
@@ -108,10 +108,10 @@ export const AGENT_BUILDER_FIELDS: CustomAgentField[] = [
   { key: 'role', label: 'Rôle / Spécialité', type: 'text', required: true, placeholder: 'Ex: Analyste de scénarios de thriller' },
   { key: 'description', label: 'Description', type: 'textarea', required: true, placeholder: 'Décrivez ce que fait votre agent...' },
   { key: 'systemPrompt', label: 'Instructions (System Prompt)', type: 'textarea', required: true, placeholder: 'Tu es un agent spécialisé en...' },
-  { key: 'model', label: 'Modèle IA', type: 'select', required: true, options: ['claude-haiku-4-5', 'claude-sonnet-4-6', 'claude-opus-4-6'] },
+  { key: 'model', label: 'AI model', type: 'select', required: true, options: ['claude-haiku-4-5', 'claude-sonnet-4-6', 'claude-opus-4-6'] },
   { key: 'temperature', label: 'Créativité (température)', type: 'slider', required: false, min: 0, max: 100 },
   { key: 'maxTokens', label: 'Longueur max réponse', type: 'select', required: false, options: ['2048', '4096', '8192', '16384'] },
-  { key: 'category', label: 'Catégorie', type: 'select', required: true, options: ['Écriture', 'Analyse', 'Production', 'Marketing', 'Technique', 'Autre'] },
+  { key: 'category', label: 'Category', type: 'select', required: true, options: ['Écriture', 'Analyse', 'Production', 'Marketing', 'Technique', 'Autre'] },
   { key: 'icon', label: 'Icône', type: 'select', required: false, options: ['bot', 'brain', 'pen-tool', 'film', 'star', 'zap', 'shield', 'target'] },
 ]
 

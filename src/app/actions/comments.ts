@@ -31,7 +31,7 @@ export async function addTaskCommentAction(prevState: { error?: string; success?
     select: { claimedById: true, title: true },
   })
 
-  if (!task) return { error: 'Tâche introuvable' }
+  if (!task) return { error: 'Task not found' }
 
   await prisma.taskComment.create({
     data: {
@@ -93,7 +93,7 @@ export async function addCommentAction(
 
   const trimmed = content?.trim() ?? ''
   if (trimmed.length < 1 || trimmed.length > 2000) {
-    return { error: 'Le commentaire doit contenir entre 1 et 2000 caractères.' }
+    return { error: 'The comment must be between 1 and 2000 characters.' }
   }
 
   if (parentId) {
@@ -270,7 +270,7 @@ export async function editCommentAction(
 
   const trimmed = content?.trim() ?? ''
   if (trimmed.length < 1 || trimmed.length > 2000) {
-    return { error: 'Le commentaire doit contenir entre 1 et 2000 caractères.' }
+    return { error: 'The comment must be between 1 and 2000 characters.' }
   }
 
   try {

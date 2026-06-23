@@ -13,7 +13,7 @@ export const BRIEFING_AGENTS: BriefingAgent[] = [
   { slug: 'cg-attack-planner', name: 'Planificateur d\'Attaque', role: 'Plan d\'action quotidien', description: 'Génère un plan d\'attaque IA quotidien priorisé pour l\'admin : tâches critiques, opportunités, améliorations à implémenter.', icon: 'target', color: '#E50914' },
   { slug: 'cg-alert-dispatcher', name: 'Dispatche Alertes', role: 'Notifications intelligentes', description: 'Route les notifications vers les bons canaux (Telegram, email, in-app) selon la priorité et les préférences de l\'admin.', icon: 'bell', color: '#8B5CF6' },
   { slug: 'cg-trend-watcher', name: 'Veilleur Tendances', role: 'Tendances tech & IA', description: 'Surveille les évolutions des APIs IA (nouveaux modèles, prix, capacités) et les tendances pertinentes pour CineGeny.', icon: 'trending-up', color: '#10B981' },
-  { slug: 'cg-usage-analyst', name: 'Analyste Usage', role: 'Fonctions sous-utilisées', description: 'Identifie les fonctionnalités existantes peu utilisées et propose des actions pour augmenter leur adoption.', icon: 'bar-chart', color: '#EC4899' },
+  { slug: 'cg-usage-analyst', name: 'Analyste Usage', role: 'Underused features', description: 'Identifie les fonctionnalités existantes peu utilisées et propose des actions pour augmenter leur adoption.', icon: 'bar-chart', color: '#EC4899' },
   { slug: 'cg-integration-scout', name: 'Éclaireur Intégrations', role: 'Nouvelles intégrations', description: 'Recherche de nouvelles intégrations possibles : APIs, services, outils qui pourraient enrichir la plateforme.', icon: 'plug', color: '#06B6D4' },
 ]
 
@@ -25,7 +25,7 @@ export interface ImprovementCategory {
 
 export const IMPROVEMENT_CATEGORIES: ImprovementCategory[] = [
   { id: 'new-apis', label: 'Nouvelles APIs', icon: 'plug', color: '#3B82F6', description: 'Nouveaux modèles IA et services disponibles' },
-  { id: 'underused', label: 'Fonctions sous-utilisées', icon: 'bar-chart', color: '#F59E0B', description: 'Features existantes peu exploitées' },
+  { id: 'underused', label: 'Underused features', icon: 'bar-chart', color: '#F59E0B', description: 'Features existantes peu exploitées' },
   { id: 'integrations', label: 'Intégrations possibles', icon: 'link', color: '#8B5CF6', description: 'Services externes à connecter' },
   { id: 'tech-trends', label: 'Tendances tech', icon: 'trending-up', color: '#10B981', description: 'Évolutions pertinentes pour la plateforme' },
   { id: 'performance', label: 'Performance', icon: 'zap', color: '#EF4444', description: 'Optimisations de vitesse et coût' },
@@ -78,7 +78,7 @@ export const NOTIFICATION_EVENTS: NotificationEventType[] = [
   { id: 'error_spike', label: 'Pic d\'erreurs', description: 'Taux d\'erreur IA anormalement élevé', icon: 'alert-triangle', color: '#EF4444', channels: ['telegram', 'email'], defaultEnabled: true, priority: 'critical' },
   { id: 'low_balance_platform', label: 'Solde plateforme bas', description: 'Le solde global de crédits est bas', icon: 'alert-circle', color: '#EF4444', channels: ['telegram', 'email'], defaultEnabled: true, priority: 'critical' },
   { id: 'daily_briefing', label: 'Briefing matinal', description: 'Rapport quotidien automatique', icon: 'sun', color: '#F59E0B', channels: ['telegram'], defaultEnabled: true, priority: 'medium' },
-  { id: 'improvement_review', label: 'Review améliorations', description: 'Propositions d\'améliorations quotidiennes', icon: 'lightbulb', color: '#8B5CF6', channels: ['telegram'], defaultEnabled: true, priority: 'medium' },
+  { id: 'improvement_review', label: 'Review improvements', description: 'Propositions d\'améliorations quotidiennes', icon: 'lightbulb', color: '#8B5CF6', channels: ['telegram'], defaultEnabled: true, priority: 'medium' },
   { id: 'attack_plan', label: 'Plan d\'attaque', description: 'Plan d\'action IA quotidien', icon: 'target', color: '#E50914', channels: ['telegram'], defaultEnabled: true, priority: 'medium' },
   { id: 'referral_milestone', label: 'Palier parrainage', description: 'Un parrain atteint un nouveau palier', icon: 'users', color: '#06B6D4', channels: ['telegram', 'inapp'], defaultEnabled: false, priority: 'low' },
   { id: 'promo_expiring', label: 'Promo expire bientôt', description: 'Un code promo expire dans 48h', icon: 'clock', color: '#F59E0B', channels: ['telegram'], defaultEnabled: true, priority: 'low' },

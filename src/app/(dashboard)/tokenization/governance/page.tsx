@@ -63,7 +63,7 @@ function ProposalStatusBadge({ status }: { status: string }) {
     case 'PASSED':
       return <Badge variant="success" className="text-xs"><CheckCircle2 className="h-3 w-3 mr-1" />Adoptée</Badge>
     case 'REJECTED':
-      return <Badge variant="destructive" className="text-xs"><XCircle className="h-3 w-3 mr-1" />Rejetée</Badge>
+      return <Badge variant="destructive" className="text-xs"><XCircle className="h-3 w-3 mr-1" />Rejected</Badge>
     case 'EXECUTED':
       return <Badge className="text-xs border-purple-500/30 bg-purple-500/10 text-purple-600"><Gavel className="h-3 w-3 mr-1" />Exécutée</Badge>
     case 'EXPIRED':

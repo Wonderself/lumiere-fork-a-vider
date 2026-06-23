@@ -20,11 +20,11 @@ const GENRES = [
 
 const STYLES = [
   'Cinematic', 'Anime', 'Film Noir', 'Documentaire', 'Rétro/Vintage',
-  'Futuriste', 'Réaliste', 'Expressionniste', 'Minimaliste', 'Épique',
+  'Futuriste', 'Realistic', 'Expressionniste', 'Minimaliste', 'Épique',
 ]
 
 const MOODS = [
-  'Épique', 'Sombre', 'Drôle', 'Émotionnel', 'Mystérieux',
+  'Épique', 'Sombre', 'Drôle', 'Émotionnel', 'Mysterious',
   'Suspense', 'Joyeux', 'Mélancolique', 'Intense', 'Poétique',
 ]
 

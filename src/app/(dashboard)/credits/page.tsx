@@ -171,7 +171,7 @@ export default async function WalletCreditsPage() {
               <TrendingDown className="h-5 w-5 text-orange-400" />
             </div>
             <div>
-              <p className="text-xs text-white/60 font-medium">Total utilisé</p>
+              <p className="text-xs text-white/60 font-medium">Total used</p>
               <p className="text-2xl font-bold text-white">{microToCredits(totalUsed).toFixed(2)}</p>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default async function WalletCreditsPage() {
 
       {/* Credit Packs */}
       <div>
-        <h2 className="text-lg font-semibold text-white mb-4">Acheter des crédits</h2>
+        <h2 className="text-lg font-semibold text-white mb-4">Buy credits</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {CREDIT_PACKS.map((pack) => (
             <div

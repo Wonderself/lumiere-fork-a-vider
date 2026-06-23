@@ -410,7 +410,7 @@ export async function completeTrailerTaskAction(
       },
     })
 
-    if (!task) return { error: 'Tâche introuvable' }
+    if (!task) return { error: 'Task not found' }
 
     // Verify ownership or admin
     if (task.project.userId !== session.user.id && session.user.role !== 'ADMIN') {

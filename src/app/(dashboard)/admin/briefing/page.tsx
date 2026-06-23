@@ -139,7 +139,7 @@ export default function BriefingPage() {
                 <option value="low">Low</option>
               </select>
             </div>
-            <button onClick={() => sendToTelegram('Review améliorations')} disabled={loading} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs bg-purple-500/15 text-purple-400 hover:bg-purple-500/25 disabled:opacity-50">
+            <button onClick={() => sendToTelegram('Review improvements')} disabled={loading} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs bg-purple-500/15 text-purple-400 hover:bg-purple-500/25 disabled:opacity-50">
               <Send className="h-3.5 w-3.5" />Envoyer Telegram
             </button>
           </div>

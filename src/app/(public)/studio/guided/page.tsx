@@ -298,7 +298,7 @@ export default function GuidedStudioPage() {
         {step === 3 && (
           <div className="text-center py-16">
             <Loader2 className="h-16 w-16 text-[#E50914] mx-auto mb-6 animate-spin" />
-            <h2 className="text-2xl font-bold text-white mb-3">Création en cours...</h2>
+            <h2 className="text-2xl font-bold text-white mb-3">Creating...</h2>
             <p className="text-gray-400 mb-6">L&apos;IA compose votre {creationType?.label.toLowerCase()}</p>
 
             {/* Progress */}
@@ -334,7 +334,7 @@ export default function GuidedStudioPage() {
               <button onClick={regenerate} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
                 <RefreshCcw className="h-4 w-4" /> Régénérer
               </button>
-              <button onClick={() => toast.success('Téléchargé')} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
+              <button onClick={() => toast.success('Downloaded')} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
                 <Download className="h-4 w-4" /> Télécharger
               </button>
               <button onClick={async () => { await navigator.clipboard.writeText(result!); setCopied(true); setTimeout(() => setCopied(false), 2000) }} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">

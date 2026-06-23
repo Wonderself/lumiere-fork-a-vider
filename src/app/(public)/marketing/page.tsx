@@ -66,7 +66,7 @@ export default function MarketingPage() {
   function addToCalendar(post: GeneratedPost) {
     const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0]
     setCalendarItems(prev => [...prev, { id: `cal-${Date.now()}`, date: tomorrow, platform: post.platform, content: post.content, status: 'draft' }])
-    toast.success('Ajouté au calendrier')
+    toast.success('Added to calendar')
   }
 
   async function copyPost(content: string, id: string) {
@@ -158,7 +158,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <button onClick={generatePosts} disabled={generating || !postTopic.trim()} className="w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-                {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Zap className="h-5 w-5" />Générer les posts</>}
+                {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Zap className="h-5 w-5" />Generate posts</>}
               </button>
             </div>
 

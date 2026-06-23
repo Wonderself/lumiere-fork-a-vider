@@ -23,7 +23,7 @@ export interface FAQItem { q: string; a: string }
 export interface FAQCategory { id: string; label: string; icon: string; color: string; items: FAQItem[] }
 
 export const FAQ_CATEGORIES: FAQCategory[] = [
-  { id: 'general', label: 'Général', icon: 'help-circle', color: '#3B82F6', items: [
+  { id: 'general', label: 'General', icon: 'help-circle', color: '#3B82F6', items: [
     { q: 'Qu\'est-ce que CineGeny ?', a: 'CineGeny est la première plateforme de cinéma participatif propulsée par l\'IA. Elle permet à chacun de créer, financer et distribuer des films grâce à 113 agents IA spécialisés.' },
     { q: 'Faut-il de l\'expérience en cinéma ?', a: 'Aucune expérience requise. Nos agents IA vous guident à chaque étape, du scénario à la distribution.' },
     { q: 'CineGeny est-il gratuit ?', a: 'L\'inscription est gratuite avec 2 crédits IA offerts. Les fonctionnalités avancées nécessitent des crédits supplémentaires (0% commission — vous ne payez que le coût réel des tokens IA).' },
@@ -45,7 +45,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
     { q: 'Y a-t-il une commission ?', a: '0% de commission. Vous ne payez que le coût réel des tokens IA du fournisseur (Anthropic, Runway, etc.).' },
     { q: 'Puis-je choisir le modèle IA ?', a: 'Oui pour les tâches créatives libres. Pour les tâches qui impactent la cohérence du film, le modèle est imposé par le système.' },
   ]},
-  { id: 'security', label: 'Sécurité', icon: 'shield', color: '#8B5CF6', items: [
+  { id: 'security', label: 'Security', icon: 'shield', color: '#8B5CF6', items: [
     { q: 'Mes données sont-elles protégées ?', a: 'Oui. PII masking (7 patterns), injection prevention, circuit breakers, et 10 modules de guardrails protègent la plateforme.' },
     { q: 'CineGeny est-il conforme RGPD ?', a: 'Oui. Nettoyage RGPD mensuel automatique, droit à l\'oubli, export de données personnelles sur demande.' },
     { q: 'Qui a accès à mes films ?', a: 'Seuls les collaborateurs invités et les agents IA de votre projet. La mémoire film est isolée et chiffrée par projet.' },
@@ -117,5 +117,5 @@ export const API_PLANS: APIPlan[] = [
   { name: 'Free', price: '0€/mois', requests: '100 requêtes/mois', features: ['Accès agents L1', 'Chat API', 'Film knowledge read-only', 'Rate limit: 10/min'], popular: false },
   { name: 'Developer', price: '29€/mois', requests: '5 000 requêtes/mois', features: ['Tous les agents', 'SSE streaming', 'Film knowledge R/W', 'Webhooks', 'Rate limit: 60/min'], popular: true },
   { name: 'Studio', price: '99€/mois', requests: '50 000 requêtes/mois', features: ['Tout Developer +', 'Agents L3 Strategy', 'Multi-agent meetings API', 'Priority support', 'Rate limit: 300/min'], popular: false },
-  { name: 'Enterprise', price: 'Sur mesure', requests: 'Illimité', features: ['Tout Studio +', 'SLA garanti', 'Dedicated support', 'Custom agents', 'On-premise option'], popular: false },
+  { name: 'Enterprise', price: 'Sur mesure', requests: 'Unlimited', features: ['Tout Studio +', 'SLA garanti', 'Dedicated support', 'Custom agents', 'On-premise option'], popular: false },
 ]

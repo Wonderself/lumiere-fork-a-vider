@@ -10,7 +10,7 @@ import { revalidatePath } from 'next/cache'
  */
 
 const SUPPORTED_LANGUAGES = [
-  { code: 'fr', label: 'Français' },
+  { code: 'fr', label: 'French' },
   { code: 'en', label: 'English' },
   { code: 'es', label: 'Español' },
   { code: 'de', label: 'Deutsch' },

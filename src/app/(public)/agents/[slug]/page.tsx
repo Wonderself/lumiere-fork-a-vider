@@ -94,7 +94,7 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ sl
         {/* Agent Info Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Modèle IA</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">AI model</p>
             <p className="text-sm font-semibold text-white">{agent.defaultModel.split('-').slice(0, 2).join(' ')}</p>
           </div>
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">

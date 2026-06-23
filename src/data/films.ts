@@ -220,7 +220,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '2h 02min',
       year: 2026,
       rating: 'PG-13',
-      tags: ['IA', 'conscience artificielle', 'sci-fi', 'éthique'],
+      tags: ['IA', 'conscience artificielle', 'sci-fi', 'ethical'],
     },
     {
       title: 'Ruppin Street',
@@ -230,7 +230,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '2h 18min',
       year: 2026,
       rating: 'PG-13',
-      tags: ['Israël', 'Histoire', 'Tel-Aviv', '1948', 'drame familial'],
+      tags: ['Israel', 'Histoire', 'Tel-Aviv', '1948', 'drame familial'],
     },
     {
       title: 'La Dernière Bobine',
@@ -240,7 +240,7 @@ const FILM_ENTRIES: Record<string, Omit<FilmData, 'id' | 'slug' | 'genre' | 'cov
       duration: '1h 54min',
       year: 2026,
       rating: 'PG',
-      tags: ['cinéma', 'nostalgie', 'mémoire', 'patrimoine'],
+      tags: ['cinema', 'nostalgie', 'mémoire', 'patrimoine'],
     },
     {
       title: 'Crossing Lines',

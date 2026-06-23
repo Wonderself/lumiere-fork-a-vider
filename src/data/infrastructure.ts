@@ -45,7 +45,7 @@ export const AUTONOMY_FACTORS: AutonomyFactor[] = [
       { name: 'Agents L3 (Strategy)', points: 5, status: true, detail: '3 agents Opus+Thinking configurés' },
       { name: 'Chat SSE streaming', points: 3, status: true, detail: 'Endpoint fonctionnel' },
       { name: 'Multi-agent meetings', points: 3, status: true, detail: 'Réunions multi-agents prêtes' },
-      { name: 'API IA connectée', points: 4, status: false, detail: 'ANTHROPIC_API_KEY non configuré' },
+      { name: 'API IA connectée', points: 4, status: false, detail: 'ANTHROPIC_API_KEY not configured' },
     ],
   },
   {
@@ -65,7 +65,7 @@ export const AUTONOMY_FACTORS: AutonomyFactor[] = [
     checks: [
       { name: 'Stripe paiements', points: 5, status: false, detail: 'STRIPE_SECRET_KEY non configuré' },
       { name: 'Resend emails', points: 4, status: false, detail: 'RESEND_API_KEY non configuré' },
-      { name: 'Anthropic API', points: 5, status: false, detail: 'ANTHROPIC_API_KEY non configuré' },
+      { name: 'Anthropic API', points: 5, status: false, detail: 'ANTHROPIC_API_KEY not configured' },
       { name: 'Telegram Bot', points: 3, status: false, detail: 'TELEGRAM_BOT_TOKEN non configuré' },
       { name: 'Fal.ai images', points: 3, status: false, detail: 'FAL_API_KEY non configuré' },
       { name: 'Sentry monitoring', points: 2, status: true, detail: 'SDK installé' },

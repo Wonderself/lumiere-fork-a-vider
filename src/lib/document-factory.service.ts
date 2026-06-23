@@ -102,7 +102,7 @@ function buildDocumentContent(
     lines.push(`**Partie A** : ${fields.partyAName}`)
     if (fields.partyAAddress) lines.push(`Adresse : ${fields.partyAAddress}`)
     lines.push('')
-    lines.push(`**Partie B** : ${fields.partyBName || '[À compléter]'}`)
+    lines.push(`**Partie B** : ${fields.partyBName || '[To be completed]'}`)
     if (fields.partyBAddress) lines.push(`Adresse : ${fields.partyBAddress}`)
     lines.push('')
     lines.push('Ci-après dénommées collectivement « les Parties ».')
@@ -132,7 +132,7 @@ function buildDocumentContent(
       case 'objet de la cession':
         lines.push(`Les droits cédés comprennent : ${fields.rightsScope || 'tous droits d\'exploitation'}`)
         lines.push(`Territoire : ${fields.territory || 'Monde entier'}`)
-        lines.push(`Durée : ${fields.duration || 'Durée légale de protection'}`)
+        lines.push(`Durée : ${fields.duration || 'Legal protection period'}`)
         break
       case 'rémunération':
         lines.push(`Le cessionnaire s'engage à verser au cédant la somme de **${fields.compensation || '[montant]'} €** (${fields.compensation ? 'euros' : '[en lettres]'}).`)

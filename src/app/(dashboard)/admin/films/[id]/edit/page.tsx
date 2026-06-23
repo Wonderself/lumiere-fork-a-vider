@@ -21,7 +21,7 @@ const FILM_STATUSES = [
   { value: 'IN_PRODUCTION', label: 'En Production' },
   { value: 'POST_PRODUCTION', label: 'Post-Production' },
   { value: 'RELEASED', label: 'Sorti' },
-  { value: 'ARCHIVED', label: 'Archivé' },
+  { value: 'ARCHIVED', label: 'Archived' },
 ]
 
 export default async function EditFilmPage({ params }: Props) {
@@ -84,7 +84,7 @@ export default async function EditFilmPage({ params }: Props) {
               defaultValue={film.genre || ''}
               className="h-10 w-full rounded-lg border border-white/10 bg-white/5 px-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#E50914]/50"
             >
-              <option value="">Sélectionner un genre</option>
+              <option value="">Select a genre</option>
               {GENRES.map((g) => <option key={g} value={g}>{g}</option>)}
             </select>
           </div>
@@ -104,7 +104,7 @@ export default async function EditFilmPage({ params }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="estimatedBudget">Budget Estimé (€)</Label>
+            <Label htmlFor="estimatedBudget">Estimated budget ($)</Label>
             <Input
               id="estimatedBudget"
               name="estimatedBudget"

@@ -17,7 +17,7 @@ export async function createPlaylistAction(
 
   const trimmedTitle = title?.trim()
   if (!trimmedTitle || trimmedTitle.length < 1 || trimmedTitle.length > 100) {
-    return { error: 'Le titre doit contenir entre 1 et 100 caractères.' }
+    return { error: 'The title must be between 1 and 100 characters.' }
   }
 
   try {
@@ -63,7 +63,7 @@ export async function addToPlaylistAction(
   const session = await auth()
   if (!session?.user?.id) return { error: 'You must be signed in to edit a playlist.' }
 
-  if (!playlistId || !filmId) return { error: 'Données manquantes.' }
+  if (!playlistId || !filmId) return { error: 'Missing data.' }
 
   try {
     const playlist = await prisma.playlist.findUnique({ where: { id: playlistId } })
@@ -110,7 +110,7 @@ export async function removeFromPlaylistAction(
   const session = await auth()
   if (!session?.user?.id) return { error: 'You must be signed in to edit a playlist.' }
 
-  if (!playlistId || !filmId) return { error: 'Données manquantes.' }
+  if (!playlistId || !filmId) return { error: 'Missing data.' }
 
   try {
     const playlist = await prisma.playlist.findUnique({ where: { id: playlistId } })
@@ -319,7 +319,7 @@ export async function updatePlaylistAction(
 
   const trimmedTitle = data.title?.trim()
   if (trimmedTitle !== undefined && (trimmedTitle.length < 1 || trimmedTitle.length > 100)) {
-    return { error: 'Le titre doit contenir entre 1 et 100 caractères.' }
+    return { error: 'The title must be between 1 and 100 characters.' }
   }
 
   try {

@@ -53,7 +53,7 @@ export default async function SecurityPage() {
               <span className="text-[10px] text-white/50 uppercase tracking-wider">Aujourd&apos;hui</span>
             </div>
             <p className="text-2xl font-bold text-white">{stats.totalToday}</p>
-            <p className="text-[10px] text-white/40 mt-0.5">événements</p>
+            <p className="text-[10px] text-white/40 mt-0.5">events</p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-4">
             <div className="flex items-center gap-2 mb-1">
@@ -61,7 +61,7 @@ export default async function SecurityPage() {
               <span className="text-[10px] text-white/50 uppercase tracking-wider">7 derniers jours</span>
             </div>
             <p className="text-2xl font-bold text-white">{stats.totalThisWeek}</p>
-            <p className="text-[10px] text-white/40 mt-0.5">événements</p>
+            <p className="text-[10px] text-white/40 mt-0.5">events</p>
           </div>
           {stats.topActors.length > 0 && (
             <div className="rounded-xl border border-white/10 bg-white/5 p-4">

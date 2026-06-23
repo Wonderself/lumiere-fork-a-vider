@@ -69,7 +69,7 @@ export async function generateVideoAction(
   const profile = await prisma.creatorProfile.findUnique({
     where: { userId: session.user.id },
   })
-  if (!profile) return { error: 'Profil créateur requis. Complétez le wizard.' }
+  if (!profile) return { error: 'Creator profile required. Complete the wizard.' }
 
   const title = formData.get('title') as string
   const script = formData.get('script') as string
@@ -147,7 +147,7 @@ export async function generateTrendingVideoAction(
   const profile = await prisma.creatorProfile.findUnique({
     where: { userId: session.user.id },
   })
-  if (!profile) return { error: 'Profil créateur requis. Complétez le wizard.' }
+  if (!profile) return { error: 'Creator profile required. Complete the wizard.' }
 
   const trendId = formData.get('trendId') as string
   const identityType = formData.get('identityType') as string

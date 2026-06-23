@@ -64,7 +64,7 @@ describe('decomposeFilmToTasks', () => {
   })
 
   it('includes base tasks for any genre', () => {
-    const tasks = decomposeFilmToTasks('Comédie')
+    const tasks = decomposeFilmToTasks('Comedy')
     const types = tasks.map((t) => t.type)
     expect(types).toContain('PROMPT_WRITING')
   })

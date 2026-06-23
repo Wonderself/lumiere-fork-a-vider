@@ -58,9 +58,9 @@ export const XP_ACTIONS: XPAction[] = [
   { id: 'back_crowdfunding', label: 'Soutenir un crowdfunding', xp: 75, category: 'invest', icon: 'heart', description: 'Participez au financement participatif' },
 
   // Social
-  { id: 'share_film', label: 'Partager un film', xp: 10, category: 'social', icon: 'share-2', description: 'Partagez un film sur les réseaux', dailyLimit: 5 },
+  { id: 'share_film', label: 'Partager un film', xp: 10, category: 'social', icon: 'share-2', description: 'Share a film on social media', dailyLimit: 5 },
   { id: 'invite_friend', label: 'Inviter un ami', xp: 100, category: 'social', icon: 'user-plus', description: 'Parrainez un nouvel utilisateur', creditReward: 5_000_000 },
-  { id: 'join_discussion', label: 'Rejoindre une discussion', xp: 15, category: 'social', icon: 'message-circle', description: 'Participez à une Deep Discussion', dailyLimit: 3 },
+  { id: 'join_discussion', label: 'Rejoindre une discussion', xp: 15, category: 'social', icon: 'message-circle', description: 'Join a Deep Discussion', dailyLimit: 3 },
 
   // Profile
   { id: 'complete_profile', label: 'Compléter le profil', xp: 50, category: 'profile', icon: 'user', description: 'Remplissez toutes les sections de votre profil', creditReward: 1_000_000 },
@@ -90,11 +90,11 @@ export const USER_LEVELS: UserLevel[] = [
   { level: 1, title: 'Figurant', titleEn: 'Extra', minXP: 0, maxXP: 100, icon: '🎬', color: '#9CA3AF', perks: ['Accès au vote', 'Profil basique'], creditBonus: 0 },
   { level: 2, title: 'Spectateur', titleEn: 'Viewer', minXP: 100, maxXP: 500, icon: '👀', color: '#6B7280', perks: ['Commentaires', 'Playlist'], creditBonus: 500_000 },
   { level: 3, title: 'Acteur', titleEn: 'Actor', minXP: 500, maxXP: 1500, icon: '🎭', color: '#3B82F6', perks: ['Tâches créatives', 'Chat IA'], creditBonus: 1_000_000 },
-  { level: 4, title: 'Scénariste', titleEn: 'Screenwriter', minXP: 1500, maxXP: 3500, icon: '✍️', color: '#8B5CF6', perks: ['Soumission scénarios', 'Agents L1'], creditBonus: 2_000_000 },
-  { level: 5, title: 'Réalisateur', titleEn: 'Director', minXP: 3500, maxXP: 7000, icon: '🎥', color: '#F59E0B', perks: ['Projets illimités', 'Agents L2'], creditBonus: 3_000_000 },
+  { level: 4, title: 'Screenwriter', titleEn: 'Screenwriter', minXP: 1500, maxXP: 3500, icon: '✍️', color: '#8B5CF6', perks: ['Soumission scénarios', 'Agents L1'], creditBonus: 2_000_000 },
+  { level: 5, title: 'Director', titleEn: 'Director', minXP: 3500, maxXP: 7000, icon: '🎥', color: '#F59E0B', perks: ['Projets illimités', 'Agents L2'], creditBonus: 3_000_000 },
   { level: 6, title: 'Producteur', titleEn: 'Producer', minXP: 7000, maxXP: 15000, icon: '💼', color: '#10B981', perks: ['Crowdfunding', 'Analytics avancés'], creditBonus: 5_000_000 },
   { level: 7, title: 'Mogul', titleEn: 'Mogul', minXP: 15000, maxXP: 30000, icon: '👑', color: '#E50914', perks: ['Agents L3', 'Governance', 'Badge exclusif'], creditBonus: 10_000_000 },
-  { level: 8, title: 'Légende', titleEn: 'Legend', minXP: 30000, maxXP: Infinity, icon: '⭐', color: '#FFD700', perks: ['Tout débloqué', 'Titre spécial', 'Mentor'], creditBonus: 20_000_000 },
+  { level: 8, title: 'Legend', titleEn: 'Legend', minXP: 30000, maxXP: Infinity, icon: '⭐', color: '#FFD700', perks: ['Tout débloqué', 'Titre spécial', 'Mentor'], creditBonus: 20_000_000 },
 ]
 
 // ─── 25 Badges ──────────────────────────────────────────────────────
@@ -113,7 +113,7 @@ export interface CinemaBadge {
 
 export const CINEMA_BADGES: CinemaBadge[] = [
   // Common (easy to get)
-  { id: 'first-clap', name: 'Premier Clap', description: 'Créez votre premier projet de film', icon: '🎬', rarity: 'common', color: '#6B7280', criteria: 'create_film_project >= 1', xpReward: 25, creditReward: 500_000 },
+  { id: 'first-clap', name: 'Premier Clap', description: 'Create your first film project', icon: '🎬', rarity: 'common', color: '#6B7280', criteria: 'create_film_project >= 1', xpReward: 25, creditReward: 500_000 },
   { id: 'first-vote', name: 'Voix qui Compte', description: 'Votez pour la première fois', icon: '🗳️', rarity: 'common', color: '#6B7280', criteria: 'vote_film >= 1', xpReward: 10, creditReward: 200_000 },
   { id: 'profile-star', name: 'Profil Étoilé', description: 'Complétez votre profil à 100%', icon: '⭐', rarity: 'common', color: '#6B7280', criteria: 'complete_profile', xpReward: 30, creditReward: 500_000 },
   { id: 'first-comment', name: 'Première Critique', description: 'Laissez votre premier commentaire', icon: '💬', rarity: 'common', color: '#6B7280', criteria: 'comment_film >= 1', xpReward: 10, creditReward: 200_000 },
@@ -190,7 +190,7 @@ export const DAILY_CHALLENGES: DailyChallenge[] = [
   { id: 'dc-comment-1', title: 'Voix entendue', description: 'Commentez un scénario', icon: '💬', actionRequired: 'comment_film', target: 1, xpReward: 15, creditReward: 200_000, difficulty: 'easy' },
   { id: 'dc-share-2', title: 'Ambassadeur du jour', description: 'Partagez 2 films', icon: '📢', actionRequired: 'share_film', target: 2, xpReward: 20, creditReward: 300_000, difficulty: 'easy' },
   { id: 'dc-task-1', title: 'Contributeur actif', description: 'Complétez 1 tâche créative', icon: '⚡', actionRequired: 'complete_task', target: 1, xpReward: 60, creditReward: 1_000_000, difficulty: 'medium' },
-  { id: 'dc-discussion-1', title: 'Penseur du jour', description: 'Participez à une Deep Discussion', icon: '🧠', actionRequired: 'join_discussion', target: 1, xpReward: 25, creditReward: 400_000, difficulty: 'medium' },
+  { id: 'dc-discussion-1', title: 'Penseur du jour', description: 'Join a Deep Discussion', icon: '🧠', actionRequired: 'join_discussion', target: 1, xpReward: 25, creditReward: 400_000, difficulty: 'medium' },
   { id: 'dc-agent-3', title: 'Maître IA', description: 'Utilisez 3 agents IA différents', icon: '🤖', actionRequired: 'generate_content', target: 3, xpReward: 25, creditReward: 500_000, difficulty: 'medium' },
   { id: 'dc-review-1', title: 'Critique expert', description: 'Rédigez une critique complète', icon: '📝', actionRequired: 'review_film', target: 1, xpReward: 40, creditReward: 800_000, difficulty: 'medium' },
   { id: 'dc-invest-1', title: 'Investisseur audacieux', description: 'Investissez dans un projet', icon: '💰', actionRequired: 'invest_film', target: 1, xpReward: 75, creditReward: 1_500_000, difficulty: 'hard' },

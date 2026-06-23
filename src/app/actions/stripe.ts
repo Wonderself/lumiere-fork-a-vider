@@ -56,14 +56,14 @@ export const STRIPE_PLANS = {
     name: 'Basic',
     priceMonthly: 499, // in cents
     stripePriceId: process.env.STRIPE_PRICE_BASIC || null,
-    features: ['1080p streaming', '2 écrans', 'Sans publicité', '5 films hors-ligne'],
+    features: ['1080p streaming', '2 écrans', 'Ad-free', '5 films hors-ligne'],
   },
   premium: {
     id: 'premium',
     name: 'Premium',
     priceMonthly: 999, // in cents
     stripePriceId: process.env.STRIPE_PRICE_PREMIUM || null,
-    features: ['4K HDR streaming', '4 écrans', 'Sans publicité', 'Téléchargements illimités', 'Badge Premium'],
+    features: ['4K HDR streaming', '4 écrans', 'Ad-free', 'Téléchargements illimités', 'Badge Premium'],
   },
 } as const
 

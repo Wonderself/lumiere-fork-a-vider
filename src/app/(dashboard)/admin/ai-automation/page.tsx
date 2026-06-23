@@ -181,7 +181,7 @@ const assisted: AutomationItem[] = [
   },
   {
     id: 'pricing-strategy',
-    title: 'Stratégie de pricing',
+    title: 'Pricing strategy',
     description: 'Recommandations de prix et positionnement.',
     detail: 'Analyse le marché, la concurrence et les données internes pour recommander des prix de tokens, des montants de tâches et des tarifs d\'abonnement optimaux.',
     icon: DollarSign,
@@ -300,7 +300,7 @@ export default async function AdminAIAutomationPage() {
   const claudeApiCost = 100
 
   const stats = [
-    { label: 'Automatisation complète', value: `${fullyAutomated.length}/${totalItems}`, sub: `${automationPct}% automatisé`, color: 'text-green-600', icon: CheckCircle },
+    { label: 'Full automation', value: `${fullyAutomated.length}/${totalItems}`, sub: `${automationPct}% automatisé`, color: 'text-green-600', icon: CheckCircle },
     { label: 'Assisté (Claude + Humain)', value: assisted.length.toString(), sub: 'approbation requise', color: 'text-yellow-600', icon: AlertTriangle },
     { label: 'Humain uniquement', value: humanOnly.length.toString(), sub: 'non automatisable', color: 'text-red-400', icon: XCircle },
     { label: 'Modules activés', value: `${activatedCount}/${totalActivatable}`, sub: 'en production', color: 'text-blue-600', icon: Zap },
@@ -481,7 +481,7 @@ export default async function AdminAIAutomationPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-white/10 text-xs text-white/50 uppercase">
-                  <th className="text-left py-3 px-2">Catégorie</th>
+                  <th className="text-left py-3 px-2">Category</th>
                   <th className="text-right py-3 px-2">Avec Humains</th>
                   <th className="text-right py-3 px-2">Avec Claude</th>
                   <th className="text-right py-3 px-2">Économie</th>

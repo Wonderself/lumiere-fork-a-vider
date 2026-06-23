@@ -187,7 +187,7 @@ export default async function StreamingFilmPage(props: { params: Promise<{ slug:
           <div className="space-y-6">
             <Card className="bg-white/[0.03] border-white/10">
               <CardContent className="p-5">
-                <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-4">Réalisateur</h3>
+                <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-4">Director</h3>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-12 w-12 rounded-full bg-[#E50914]/20 flex items-center justify-center">
                     <User className="h-6 w-6 text-[#E50914]" />

@@ -140,7 +140,7 @@ export default function TrailerMakerPage() {
         {step === 'generating' && (
           <div className="text-center py-20">
             <Loader2 className="h-16 w-16 text-[#E50914] mx-auto mb-6 animate-spin" />
-            <h2 className="text-2xl font-bold text-white mb-2">Création en cours...</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">Creating...</h2>
             <p className="text-gray-400 mb-6">L&apos;IA génère les scènes, les images et assemble votre bande-annonce</p>
             <div className="w-full max-w-md mx-auto h-3 bg-gray-800 rounded-full overflow-hidden">
               <div className="h-full bg-[#E50914] rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />

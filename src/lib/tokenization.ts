@@ -92,7 +92,7 @@ export const REVENUE_SOURCE_LABELS: Record<string, string> = {
 export const RISK_LABELS: Record<string, { label: string; color: string; bgColor: string }> = {
   LOW: { label: 'Faible', color: 'text-green-400', bgColor: 'bg-green-500/10 border-green-500/30' },
   MEDIUM: { label: 'Moyen', color: 'text-yellow-400', bgColor: 'bg-yellow-500/10 border-yellow-500/30' },
-  HIGH: { label: 'Élevé', color: 'text-orange-400', bgColor: 'bg-orange-500/10 border-orange-500/30' },
+  HIGH: { label: 'High', color: 'text-orange-400', bgColor: 'bg-orange-500/10 border-orange-500/30' },
   VERY_HIGH: { label: 'Très élevé', color: 'text-red-400', bgColor: 'bg-red-500/10 border-red-500/30' },
 }
 
@@ -102,7 +102,7 @@ export const OFFERING_STATUS_LABELS: Record<string, string> = {
   PENDING_LEGAL: 'Revue juridique',
   OPEN: 'Ouvert',
   FUNDED: 'Funded',
-  CLOSED: 'Clôturé',
+  CLOSED: 'Closed',
   CANCELLED: 'Cancelled',
   SUSPENDED: 'Suspendu',
 }
@@ -115,7 +115,7 @@ export const PROPOSAL_TYPE_LABELS: Record<string, string> = {
   DISTRIBUTION: 'Distribution',
   MARKETING: 'Marketing',
   CREATIVE: 'Creative',
-  GENERAL: 'Général',
+  GENERAL: 'General',
 }
 
 /** Dividend status labels */

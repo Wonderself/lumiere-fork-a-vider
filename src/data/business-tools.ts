@@ -127,7 +127,7 @@ export const TRANSLATION_LANGUAGES: TranslationLanguage[] = [
 // ─── Unsplash Config ────────────────────────────────────────────────
 
 export const UNSPLASH_CATEGORIES = [
-  { id: 'cinema', label: 'Cinéma', query: 'cinema film movie', icon: '🎬' },
+  { id: 'cinema', label: 'Cinema', query: 'cinema film movie', icon: '🎬' },
   { id: 'landscape', label: 'Paysages', query: 'landscape nature cinematic', icon: '🏔️' },
   { id: 'urban', label: 'Urbain', query: 'city urban night neon', icon: '🌃' },
   { id: 'portrait', label: 'Portraits', query: 'portrait face dramatic lighting', icon: '👤' },

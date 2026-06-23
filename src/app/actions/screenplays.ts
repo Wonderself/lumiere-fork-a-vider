@@ -138,7 +138,7 @@ export async function generateScreenplayDealAction(formData: FormData) {
     include: { user: { select: { displayName: true, email: true } } },
   })
 
-  if (!screenplay) return { error: 'Scénario introuvable' }
+  if (!screenplay) return { error: 'Screenplay not found' }
   if (screenplay.status !== 'ACCEPTED') return { error: 'Le scénario doit être accepté pour générer un deal' }
 
   const revenueSharePct = screenplay.revenueShareBps > 0

@@ -174,7 +174,7 @@ export default function MyDocumentsPage() {
             <div className="flex gap-3">
               <input value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder="Décrivez le document à générer..." className="flex-1 rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none" />
               <button
-                onClick={() => { if (customPrompt) generateDoc({ id: 'custom', name: 'Document personnalisé', category: 'Custom', icon: FileText, prompt: customPrompt }) }}
+                onClick={() => { if (customPrompt) generateDoc({ id: 'custom', name: 'Custom document', category: 'Custom', icon: FileText, prompt: customPrompt }) }}
                 disabled={!customPrompt || !!generating}
                 className="px-4 py-2 bg-[#E50914] hover:bg-[#FF2D2D] text-white text-sm font-medium rounded-lg disabled:opacity-50 transition-colors"
               >

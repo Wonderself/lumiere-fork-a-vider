@@ -359,7 +359,7 @@ export async function createProposalAction(
   }
 
   if (title.length < 5 || title.length > 200) {
-    return { success: false, error: 'Le titre doit contenir entre 5 et 200 caractères.' }
+    return { success: false, error: 'The title must be between 5 and 200 characters.' }
   }
 
   if (description.length < 20) {

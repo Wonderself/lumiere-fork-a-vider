@@ -181,7 +181,7 @@ export default function MyStudioPage() {
           </div>
 
           <button onClick={generateVideo} disabled={generating || !prompt.trim()} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-            {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Génération async...</> : <><Film className="h-5 w-5" /> Générer la vidéo</>}
+            {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Async generation...</> : <><Film className="h-5 w-5" /> Generate video</>}
           </button>
         </div>
       )}

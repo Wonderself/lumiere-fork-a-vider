@@ -514,7 +514,7 @@ export async function approveSubmissionAction(formData: FormData) {
     }),
   ])
 
-  await createNotification(submission.userId, 'TASK_VALIDATED', 'Tâche validée', {
+  await createNotification(submission.userId, 'TASK_VALIDATED', 'Task validated', {
     body: `Votre soumission pour "${submission.task.title}" a été approuvée. +${points} points, +${lumenReward} Lumens.`,
     href: `/tasks/${submission.taskId}`,
   })

@@ -95,7 +95,7 @@ const PIPELINE_PROJECTS = [
     num: 1,
     title: 'MERCI',
     subtitle: 'The Miracle Protocol',
-    genre: 'Docu-série',
+    genre: 'Docu-series',
     format: '4x52\'',
     status: 'Development',
     financing: 'CNC, CIR, Fondation Shoah, Coprod Jessica Philippe',
@@ -160,7 +160,7 @@ const PIPELINE_PROJECTS = [
   {
     num: 7,
     title: 'NA NAH NAHMA',
-    subtitle: 'Docu-série',
+    subtitle: 'Docu-series',
     genre: 'Documentaire',
     format: 'Série 4x52\'',
     status: 'Recherche',
@@ -197,11 +197,11 @@ const GRANTS_DATA = {
     { name: 'CNC Grande Fabrique de l\'Image / AMT', organism: 'CNC', maxAmount: '40-50%', eligibility: 'Innovation audiovisuelle', status: 'NOT_STARTED' },
     { name: 'CNC Aide au développement', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Société agréée', status: 'NOT_STARTED' },
     { name: 'CNC Aide au court-métrage', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Short film', status: 'NOT_STARTED' },
-    { name: 'CIR (Crédit Impôt Recherche)', organism: 'État Français', maxAmount: '30% dépenses R&D', eligibility: 'Toute entreprise R&D', status: 'IN_PROGRESS' },
+    { name: 'CIR (Crédit Impôt Recherche)', organism: 'French State', maxAmount: '30% dépenses R&D', eligibility: 'Toute entreprise R&D', status: 'IN_PROGRESS' },
     { name: 'C2I (Crédit Impôt International)', organism: 'CNC / État', maxAmount: '30-40% production France', eligibility: 'Coproduction internationale', status: 'NOT_STARTED' },
-    { name: 'CII (Crédit Impôt Innovation)', organism: 'État Français', maxAmount: '20-30%', eligibility: 'PME innovante', status: 'NOT_STARTED' },
-    { name: 'JEI (Jeune Entreprise Innovante)', organism: 'État Français', maxAmount: 'Exonérations charges', eligibility: '<8 ans, >15% R&D', status: 'NOT_STARTED' },
-    { name: 'France 2030 Pionniers IA', organism: 'État Français', maxAmount: 'Multi-millions', eligibility: 'IA souveraine', status: 'NOT_STARTED' },
+    { name: 'CII (Crédit Impôt Innovation)', organism: 'French State', maxAmount: '20-30%', eligibility: 'PME innovante', status: 'NOT_STARTED' },
+    { name: 'JEI (Jeune Entreprise Innovante)', organism: 'French State', maxAmount: 'Exonérations charges', eligibility: '<8 ans, >15% R&D', status: 'NOT_STARTED' },
+    { name: 'France 2030 Pionniers IA', organism: 'French State', maxAmount: 'Multi-millions', eligibility: 'IA souveraine', status: 'NOT_STARTED' },
     { name: 'Régions (Île-de-France, etc.)', organism: 'Conseils Régionaux', maxAmount: '4K-8K (écriture) + prod', eligibility: 'Par région', status: 'NOT_STARTED' },
   ],
   international: [
@@ -214,11 +214,11 @@ const GRANTS_DATA = {
   projectSpecific: [
     { name: 'Fondation pour la Mémoire de la Shoah', organism: 'FMS', maxAmount: 'Variable', eligibility: 'Projets Mémoire', status: 'NOT_STARTED' },
     { name: 'Jewish Story Partners (Spielberg)', organism: 'USC / Spielberg Foundation', maxAmount: 'Variable', eligibility: 'Histoires juives', status: 'NOT_STARTED' },
-    { name: 'USC Shoah Foundation', organism: 'USC', maxAmount: 'Variable', eligibility: 'Mémoire Shoah', status: 'NOT_STARTED' },
+    { name: 'USC Shoah Foundation', organism: 'USC', maxAmount: 'Variable', eligibility: 'Holocaust remembrance', status: 'NOT_STARTED' },
     { name: 'Fondation du Judaïsme Français', organism: 'FJF', maxAmount: 'Variable', eligibility: 'Culture juive', status: 'NOT_STARTED' },
     { name: 'Fondation Rothschild', organism: 'Rothschild', maxAmount: 'Variable', eligibility: 'Culture & Éducation', status: 'NOT_STARTED' },
-    { name: 'Claims Conference', organism: 'Claims Conference', maxAmount: 'Variable', eligibility: 'Mémoire Shoah', status: 'NOT_STARTED' },
-    { name: 'Fondation Autisme / AGEFIPH', organism: 'État Français', maxAmount: 'Variable', eligibility: 'Handicap & Inclusion', status: 'NOT_STARTED' },
+    { name: 'Claims Conference', organism: 'Claims Conference', maxAmount: 'Variable', eligibility: 'Holocaust remembrance', status: 'NOT_STARTED' },
+    { name: 'Fondation Autisme / AGEFIPH', organism: 'French State', maxAmount: 'Variable', eligibility: 'Handicap & Inclusion', status: 'NOT_STARTED' },
     { name: 'AFD (Agence Française de Développement)', organism: 'AFD', maxAmount: 'Variable', eligibility: 'Développement & Culture', status: 'NOT_STARTED' },
   ],
 }
@@ -443,7 +443,7 @@ function PieChart({ slices }: { slices: typeof TOKENOMICS_SLICES }) {
 
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, { label: string; variant: 'success' | 'warning' | 'secondary' | 'default' | 'destructive' }> = {
-    NOT_STARTED: { label: 'Non démarré', variant: 'secondary' },
+    NOT_STARTED: { label: 'Not started', variant: 'secondary' },
     IN_PROGRESS: { label: 'In progress', variant: 'warning' },
     SUBMITTED: { label: 'Submitted', variant: 'default' },
     APPROVED: { label: 'Approved', variant: 'success' },
@@ -477,7 +477,7 @@ export default function InvestorsPage() {
       foundingDate: '2025',
       location: [
         { '@type': 'Place', name: 'Paris, France' },
-        { '@type': 'Place', name: 'Jérusalem, Israël' },
+        { '@type': 'Place', name: 'Jerusalem, Israel' },
       ],
       sameAs: [],
     })
@@ -921,13 +921,13 @@ export default function InvestorsPage() {
                   <tr className="bg-white/[0.04]">
                     <th className="text-left p-4 text-white/50 font-medium border-b border-white/[0.06]" />
                     <th className="text-right p-4 text-white font-semibold border-b border-white/[0.06]">
-                      <span className="text-[#D4AF37]">Année 1</span>
+                      <span className="text-[#D4AF37]">Year 1</span>
                     </th>
                     <th className="text-right p-4 text-white font-semibold border-b border-white/[0.06]">
-                      <span className="text-[#D4AF37]">Année 2</span>
+                      <span className="text-[#D4AF37]">Year 2</span>
                     </th>
                     <th className="text-right p-4 text-white font-semibold border-b border-white/[0.06]">
-                      <span className="text-[#D4AF37]">Année 3</span>
+                      <span className="text-[#D4AF37]">Year 3</span>
                     </th>
                   </tr>
                 </thead>
@@ -972,9 +972,9 @@ export default function InvestorsPage() {
         {/* Revenue split visual */}
         <div className="grid md:grid-cols-3 gap-6 mt-8">
           {[
-            { year: 'Année 1', films: 89, tech: 11, total: '900K€' },
-            { year: 'Année 2', films: 80, tech: 20, total: '3 000K€' },
-            { year: 'Année 3', films: 62, tech: 38, total: '6 400K€' },
+            { year: 'Year 1', films: 89, tech: 11, total: '900K€' },
+            { year: 'Year 2', films: 80, tech: 20, total: '3 000K€' },
+            { year: 'Year 3', films: 62, tech: 38, total: '6 400K€' },
           ].map((y, i) => (
             <MotionCard key={i} delay={0.1 * i}>
               <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-6">
@@ -1202,7 +1202,7 @@ export default function InvestorsPage() {
 
         {/* Grant tables */}
         {[
-          { title: 'Israël', flag: '🇮🇱', data: GRANTS_DATA.israel },
+          { title: 'Israel', flag: '🇮🇱', data: GRANTS_DATA.israel },
           { title: 'France', flag: '🇫🇷', data: GRANTS_DATA.france },
           { title: 'International', flag: '🌍', data: GRANTS_DATA.international },
           { title: 'Spécifiques aux projets', flag: '🎯', data: GRANTS_DATA.projectSpecific },
@@ -1220,7 +1220,7 @@ export default function InvestorsPage() {
                         <th className="text-left p-3 text-white/50 font-medium border-b border-white/[0.06]">Programme</th>
                         <th className="text-left p-3 text-white/50 font-medium border-b border-white/[0.06] hidden md:table-cell">Organisme</th>
                         <th className="text-right p-3 text-white/50 font-medium border-b border-white/[0.06]">Montant max</th>
-                        <th className="text-right p-3 text-white/50 font-medium border-b border-white/[0.06] hidden sm:table-cell">Éligibilité</th>
+                        <th className="text-right p-3 text-white/50 font-medium border-b border-white/[0.06] hidden sm:table-cell">Eligibility</th>
                         <th className="text-center p-3 text-white/50 font-medium border-b border-white/[0.06]">Status</th>
                       </tr>
                     </thead>

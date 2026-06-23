@@ -61,7 +61,7 @@ export default async function AdminFilmsPage() {
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="font-semibold truncate">{film.title}</h3>
                   {film.isPublic && <Badge variant="success">Public</Badge>}
-                  {!film.isPublic && <Badge variant="secondary">Privé</Badge>}
+                  {!film.isPublic && <Badge variant="secondary">Private</Badge>}
                 </div>
                 <div className="flex items-center gap-4 text-xs text-white/50">
                   <span>{FILM_STATUS_LABELS[film.status]}</span>

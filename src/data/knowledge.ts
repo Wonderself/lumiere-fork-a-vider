@@ -103,7 +103,7 @@ export const KNOWLEDGE_TYPES: Record<KnowledgeType, { label: string; icon: strin
   visual_ref: { label: 'Réf. Visuelle', icon: 'image', color: '#F59E0B' },
   sound_ref: { label: 'Réf. Sonore', icon: 'volume-2', color: '#10B981' },
   constraint: { label: 'Contrainte', icon: 'alert-triangle', color: '#EF4444' },
-  general: { label: 'Général', icon: 'file-text', color: '#6B7280' },
+  general: { label: 'General', icon: 'file-text', color: '#6B7280' },
 }
 
 // ─── Film Memory Explainer (for creators) ───────────────────────────

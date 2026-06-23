@@ -7,7 +7,7 @@ import { addSubtitleAction } from '@/app/actions/subtitles'
 import { cn } from '@/lib/utils'
 
 const SUPPORTED_LANGUAGES = [
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  { code: 'fr', label: 'French', flag: '🇫🇷' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
@@ -292,7 +292,7 @@ export default function AdminSubtitlesPage() {
           thumbnailUrl: null,
           status: 'LIVE',
           subtitles: [
-            { lang: 'fr', label: 'Français' },
+            { lang: 'fr', label: 'French' },
             { lang: 'en', label: 'English' },
           ],
         },
@@ -302,7 +302,7 @@ export default function AdminSubtitlesPage() {
           slug: 'nuit-eternelle',
           thumbnailUrl: null,
           status: 'LIVE',
-          subtitles: [{ lang: 'fr', label: 'Français' }],
+          subtitles: [{ lang: 'fr', label: 'French' }],
         },
         {
           id: '3',
@@ -319,7 +319,7 @@ export default function AdminSubtitlesPage() {
           thumbnailUrl: null,
           status: 'LIVE',
           subtitles: [
-            { lang: 'fr', label: 'Français' },
+            { lang: 'fr', label: 'French' },
             { lang: 'en', label: 'English' },
             { lang: 'es', label: 'Español' },
             { lang: 'de', label: 'Deutsch' },
@@ -419,7 +419,7 @@ export default function AdminSubtitlesPage() {
           ) : filtered.length === 0 ? (
             <div className="text-center py-20 text-white/40">
               <Film className="h-14 w-14 mx-auto mb-4 opacity-30" />
-              <p className="text-lg">Aucun film trouvé</p>
+              <p className="text-lg">No films found</p>
             </div>
           ) : (
             <div className="overflow-x-auto">

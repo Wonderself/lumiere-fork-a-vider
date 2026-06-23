@@ -30,13 +30,13 @@ export async function generateMetadata(
     where: { id },
     select: { title: true, logline: true },
   })
-  if (!scenario) return { title: 'Scénario introuvable' }
+  if (!scenario) return { title: 'Screenplay not found' }
   return {
     title: `${scenario.title} — Scénarios CINEGENY`,
-    description: scenario.logline || 'Proposition de scénario sur la plateforme CINEGENY.',
+    description: scenario.logline || 'Screenplay proposal on the CINEGENY platform.',
     openGraph: {
       title: `${scenario.title} — Scénarios CINEGENY`,
-      description: scenario.logline || 'Proposition de scénario sur la plateforme CINEGENY.',
+      description: scenario.logline || 'Screenplay proposal on the CINEGENY platform.',
     },
   }
 }

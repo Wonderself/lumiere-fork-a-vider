@@ -29,7 +29,7 @@ const MOCK_AGENTS: CustomAgent[] = [
 const AUTONOMY_CONFIG = {
   low: { label: 'Bas', color: 'text-green-600', bg: 'bg-green-500/10' },
   medium: { label: 'Moyen', color: 'text-yellow-600', bg: 'bg-yellow-500/10' },
-  high: { label: 'Élevé', color: 'text-red-600', bg: 'bg-red-500/10' },
+  high: { label: 'High', color: 'text-red-600', bg: 'bg-red-500/10' },
 }
 
 const STATUS_CONFIG = {

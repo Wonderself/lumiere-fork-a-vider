@@ -116,16 +116,16 @@ export interface FestivalEntry {
 }
 
 export const MAJOR_FESTIVALS: FestivalEntry[] = [
-  { name: 'Festival de Cannes', location: 'Cannes, France', dates: 'Mai', deadline: 'Février', category: 'Général', prestige: 'A-list', website: 'festival-cannes.com' },
-  { name: 'Berlinale', location: 'Berlin, Allemagne', dates: 'Février', deadline: 'Novembre', category: 'Général', prestige: 'A-list', website: 'berlinale.de' },
-  { name: 'Mostra de Venise', location: 'Venise, Italie', dates: 'Septembre', deadline: 'Juin', category: 'Général', prestige: 'A-list', website: 'labiennale.org' },
+  { name: 'Festival de Cannes', location: 'Cannes, France', dates: 'Mai', deadline: 'February', category: 'General', prestige: 'A-list', website: 'festival-cannes.com' },
+  { name: 'Berlinale', location: 'Berlin, Allemagne', dates: 'February', deadline: 'Novembre', category: 'General', prestige: 'A-list', website: 'berlinale.de' },
+  { name: 'Mostra de Venise', location: 'Venise, Italie', dates: 'Septembre', deadline: 'Juin', category: 'General', prestige: 'A-list', website: 'labiennale.org' },
   { name: 'Sundance', location: 'Park City, USA', dates: 'Janvier', deadline: 'Septembre', category: 'Indépendant', prestige: 'A-list', website: 'sundance.org' },
-  { name: 'TIFF', location: 'Toronto, Canada', dates: 'Septembre', deadline: 'Juin', category: 'Général', prestige: 'A-list', website: 'tiff.net' },
+  { name: 'TIFF', location: 'Toronto, Canada', dates: 'Septembre', deadline: 'Juin', category: 'General', prestige: 'A-list', website: 'tiff.net' },
   { name: 'Locarno', location: 'Locarno, Suisse', dates: 'Août', deadline: 'Avril', category: 'Art & Essai', prestige: 'A-list', website: 'locarnofestival.ch' },
-  { name: 'San Sebastián', location: 'San Sebastián, Espagne', dates: 'Septembre', deadline: 'Juin', category: 'Général', prestige: 'A-list', website: 'sansebastianfestival.com' },
+  { name: 'San Sebastián', location: 'San Sebastián, Espagne', dates: 'Septembre', deadline: 'Juin', category: 'General', prestige: 'A-list', website: 'sansebastianfestival.com' },
   { name: 'Tribeca', location: 'New York, USA', dates: 'Juin', deadline: 'Janvier', category: 'Indépendant', prestige: 'B-list', website: 'tribecafilm.com' },
   { name: 'Rotterdam', location: 'Rotterdam, Pays-Bas', dates: 'Janvier', deadline: 'Octobre', category: 'Expérimental', prestige: 'B-list', website: 'iffr.com' },
-  { name: 'Annecy', location: 'Annecy, France', dates: 'Juin', deadline: 'Février', category: 'Animation', prestige: 'A-list', website: 'annecy.org' },
+  { name: 'Annecy', location: 'Annecy, France', dates: 'Juin', deadline: 'February', category: 'Animation', prestige: 'A-list', website: 'annecy.org' },
   { name: 'SXSW', location: 'Austin, USA', dates: 'Mars', deadline: 'Octobre', category: 'Tech/Indie', prestige: 'B-list', website: 'sxsw.com' },
-  { name: 'Clermont-Ferrand', location: 'Clermont-Ferrand, France', dates: 'Février', deadline: 'Octobre', category: 'Court-métrage', prestige: 'A-list', website: 'clermont-filmfest.org' },
+  { name: 'Clermont-Ferrand', location: 'Clermont-Ferrand, France', dates: 'February', deadline: 'Octobre', category: 'Court-métrage', prestige: 'A-list', website: 'clermont-filmfest.org' },
 ]

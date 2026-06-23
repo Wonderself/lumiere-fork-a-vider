@@ -86,7 +86,7 @@ export default async function NewTaskPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="difficulty">Difficulté</Label>
+            <Label htmlFor="difficulty">Difficulty</Label>
             <select
               id="difficulty"
               name="difficulty"
@@ -119,7 +119,7 @@ export default async function NewTaskPage() {
               className="h-10 w-full rounded-xl border border-white/10 bg-white/5 px-3 text-sm text-white focus:outline-none"
             >
               <option value="AVAILABLE">Available</option>
-              <option value="LOCKED">Verrouillée</option>
+              <option value="LOCKED">Locked</option>
             </select>
           </div>
 

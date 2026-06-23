@@ -210,7 +210,7 @@ export default function MyStrategyPage() {
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <div className="flex justify-between mb-4">
                 <h3 className="text-sm font-semibold text-white">Plan généré par Studio Head</h3>
-                <button onClick={() => setAiPlan(null)} className="text-xs text-white/50 hover:text-[#E50914]">Régénérer</button>
+                <button onClick={() => setAiPlan(null)} className="text-xs text-white/50 hover:text-[#E50914]">Regenerate</button>
               </div>
               <div className="prose prose-sm max-w-none">
                 <pre className="whitespace-pre-wrap text-sm text-white/80 leading-relaxed">{aiPlan}</pre>

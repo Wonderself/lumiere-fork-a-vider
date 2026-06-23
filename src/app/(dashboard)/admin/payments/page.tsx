@@ -65,7 +65,7 @@ export default async function AdminPaymentsPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { icon: CheckCircle, label: 'Complétés', value: formatPrice(totalCompleted), sub: `${countCompleted} paiements`, color: 'text-green-600' },
+          { icon: CheckCircle, label: 'Completed', value: formatPrice(totalCompleted), sub: `${countCompleted} paiements`, color: 'text-green-600' },
           { icon: Clock, label: 'En attente', value: formatPrice(totalPending), sub: `${countPending} paiements`, color: 'text-yellow-600' },
           { icon: CreditCard, label: 'Total distribué', value: formatPrice(totalCompleted + totalPending), sub: 'toutes méthodes', color: 'text-[#E50914]' },
           { icon: AlertCircle, label: 'Moy. par paiement', value: formatPrice(countCompleted > 0 ? totalCompleted / countCompleted : 0), sub: 'paiements complétés', color: 'text-blue-600' },
@@ -97,7 +97,7 @@ export default async function AdminPaymentsPage() {
             <div className="col-span-3">Utilisateur</div>
             <div className="col-span-3">Tâche / Film</div>
             <div className="col-span-2">Montant</div>
-            <div className="col-span-1">Méthode</div>
+            <div className="col-span-1">Method</div>
             <div className="col-span-1">Status</div>
             <div className="col-span-1">Date</div>
             <div className="col-span-1">Action</div>

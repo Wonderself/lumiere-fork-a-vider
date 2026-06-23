@@ -211,7 +211,7 @@ export default async function TrailerStudioPage() {
           <div className="flex items-center gap-3">
             <Coins className="h-5 w-5 text-[#E50914]" />
             <div>
-              <p className="text-sm font-medium text-white group-hover:text-[#E50914] transition-colors">Acheter des crédits</p>
+              <p className="text-sm font-medium text-white group-hover:text-[#E50914] transition-colors">Buy credits</p>
               <p className="text-xs text-white/50">Packs à partir de 4.99€</p>
             </div>
             <ArrowRight className="h-4 w-4 text-white/50 ml-auto group-hover:text-[#E50914] transition-colors" />

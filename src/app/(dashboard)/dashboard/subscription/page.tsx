@@ -48,7 +48,7 @@ export default async function SubscriptionPage() {
   const statusConfig = {
     active: { label: 'Active', color: 'bg-green-500/10 text-green-500 border-green-500/20' },
     cancelled: { label: 'Cancelled', color: 'bg-red-500/10 text-red-400 border-red-500/20' },
-    expired: { label: 'Expiré', color: 'bg-white/[0.05] text-white/50 border-white/10' },
+    expired: { label: 'Expired', color: 'bg-white/[0.05] text-white/50 border-white/10' },
   }
 
   const currentStatus = subscription.status || (subscription.active ? 'active' : 'expired')
@@ -152,14 +152,14 @@ export default async function SubscriptionPage() {
             <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/10">
               <Tv className="h-5 w-5 text-white/50 mx-auto mb-1.5" />
               <p className="text-sm font-semibold text-white">
-                {subscription.maxStreams === -1 ? 'Illimité' : subscription.maxStreams}
+                {subscription.maxStreams === -1 ? 'Unlimited' : subscription.maxStreams}
               </p>
               <p className="text-xs text-white/50">Films/mois</p>
             </div>
             <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/10">
               <Download className="h-5 w-5 text-white/50 mx-auto mb-1.5" />
               <p className="text-sm font-semibold text-white">
-                {subscription.offlineDownloads === -1 ? 'Illimité' : subscription.offlineDownloads}
+                {subscription.offlineDownloads === -1 ? 'Unlimited' : subscription.offlineDownloads}
               </p>
               <p className="text-xs text-white/50">Downloads</p>
             </div>
@@ -187,7 +187,7 @@ export default async function SubscriptionPage() {
         <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-5 flex items-start gap-4">
           <AlertTriangle className="h-5 w-5 text-amber-500 mt-0.5 shrink-0" />
           <div>
-            <h3 className="text-sm font-semibold text-white/90">Abonnement annulé</h3>
+            <h3 className="text-sm font-semibold text-white/90">Subscription cancelled</h3>
             <p className="text-sm text-white/60 mt-1">
               Votre abonnement a été annulé. Vous conservez l&apos;accès à toutes les fonctionnalités premium
               jusqu&apos;à la fin de votre période de facturation en cours.

@@ -115,7 +115,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
             <div><p className="text-[10px] text-white/50">Balance</p><p className="text-lg font-bold text-[#E50914]">{microToCredits(user.creditAccount.balance).toFixed(2)}</p></div>
             <div><p className="text-[10px] text-white/50">Total acheté</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalPurchased).toFixed(2)}</p></div>
             <div><p className="text-[10px] text-white/50">Total accordé</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalGranted).toFixed(2)}</p></div>
-            <div><p className="text-[10px] text-white/50">Total utilisé</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalUsed).toFixed(2)}</p></div>
+            <div><p className="text-[10px] text-white/50">Total used</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalUsed).toFixed(2)}</p></div>
             <div><p className="text-[10px] text-white/50">Remboursé</p><p className="text-lg font-bold text-white">{microToCredits(user.creditAccount.totalRefunded).toFixed(2)}</p></div>
           </div>
         ) : (

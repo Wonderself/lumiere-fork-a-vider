@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Politique de Confidentialité',
+  title: 'Privacy Policy',
   description: 'Politique de confidentialité et protection des données personnelles de la plateforme CINEGENY — conforme au RGPD.',
 }
 
@@ -139,18 +139,18 @@ export default function PrivacyPage() {
               <table className="w-full text-sm text-white/70">
                 <thead>
                   <tr className="border-b border-white/10">
-                    <th className="text-left py-3 pr-4 text-white/90 font-semibold">Finalité</th>
+                    <th className="text-left py-3 pr-4 text-white/90 font-semibold">Purpose</th>
                     <th className="text-left py-3 text-white/90 font-semibold">Base légale</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
                   <tr>
                     <td className="py-3 pr-4">Création et gestion du compte</td>
-                    <td className="py-3">Exécution du contrat (Art. 6.1.b)</td>
+                    <td className="py-3">Contract performance (Art. 6.1.b)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Attribution et validation des tâches</td>
-                    <td className="py-3">Exécution du contrat (Art. 6.1.b)</td>
+                    <td className="py-3">Contract performance (Art. 6.1.b)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Paiements et facturation</td>
@@ -158,7 +158,7 @@ export default function PrivacyPage() {
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Amélioration de la Plateforme et analytique</td>
-                    <td className="py-3">Intérêt légitime (Art. 6.1.f)</td>
+                    <td className="py-3">Legitimate interest (Art. 6.1.f)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Envoi de communications marketing</td>
@@ -170,11 +170,11 @@ export default function PrivacyPage() {
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Preuve d&apos;antériorité (SHA-256)</td>
-                    <td className="py-3">Intérêt légitime (Art. 6.1.f)</td>
+                    <td className="py-3">Legitimate interest (Art. 6.1.f)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Prévention de la fraude</td>
-                    <td className="py-3">Intérêt légitime (Art. 6.1.f)</td>
+                    <td className="py-3">Legitimate interest (Art. 6.1.f)</td>
                   </tr>
                 </tbody>
               </table>

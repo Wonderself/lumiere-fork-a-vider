@@ -169,7 +169,7 @@ function PlaylistCard({ playlist, onDelete, onToggleExpand, expanded }: {
                 {isPublic ? (
                   <><Globe className="h-2.5 w-2.5 mr-1" />Public</>
                 ) : (
-                  <><Lock className="h-2.5 w-2.5 mr-1" />Privé</>
+                  <><Lock className="h-2.5 w-2.5 mr-1" />Private</>
                 )}
               </Badge>
             </div>

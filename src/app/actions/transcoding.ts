@@ -58,7 +58,7 @@ export async function startTranscodeAction(
     : ['360p', '720p', '1080p']
 
   if (requestedProfiles.length === 0) {
-    return { error: 'Aucun profil de qualité valide' }
+    return { error: 'No valid quality profile' }
   }
 
   try {

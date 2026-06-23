@@ -19,7 +19,7 @@ export default function ReferralPage() {
     await navigator.clipboard.writeText(`https://cinegeny.com/register?ref=${referralCode}`)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
-    toast.success('Lien de parrainage copié !')
+    toast.success('Referral link copied!')
   }
 
   return (

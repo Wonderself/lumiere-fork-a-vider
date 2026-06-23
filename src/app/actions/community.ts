@@ -33,7 +33,7 @@ export async function submitScenarioAction(prevState: { error?: string; success?
 
   // Validation
   if (!title || title.length < 5 || title.length > 200) {
-    return { error: 'Le titre doit contenir entre 5 et 200 caractères.' }
+    return { error: 'The title must be between 5 and 200 characters.' }
   }
   if (!logline || logline.length < 10 || logline.length > 500) {
     return { error: 'Le logline doit contenir entre 10 et 500 caractères.' }
@@ -76,7 +76,7 @@ export async function submitScenarioAction(prevState: { error?: string; success?
     return { success: true }
   } catch (e) {
     console.error('submitScenarioAction error:', e)
-    return { error: 'Erreur lors de la soumission. Réessayez.' }
+    return { error: 'Submission failed. Please try again.' }
   }
 }
 
@@ -146,7 +146,7 @@ export async function voteScenarioAction(formData: FormData) {
       return { error: 'Vous avez déjà voté pour cette proposition.' }
     }
     console.error('voteScenarioAction error:', e)
-    return { error: 'Erreur lors du vote. Réessayez.' }
+    return { error: 'Voting failed. Please try again.' }
   }
 }
 
@@ -441,7 +441,7 @@ export async function submitTrailerEntryAction(prevState: { error?: string; succ
     return { success: true }
   } catch (e) {
     console.error('submitTrailerEntryAction error:', e)
-    return { error: 'Erreur lors de la soumission. Réessayez.' }
+    return { error: 'Submission failed. Please try again.' }
   }
 }
 
@@ -496,7 +496,7 @@ export async function voteTrailerAction(formData: FormData) {
       return { error: 'Vous avez déjà voté pour cette entrée.' }
     }
     console.error('voteTrailerAction error:', e)
-    return { error: 'Erreur lors du vote. Réessayez.' }
+    return { error: 'Voting failed. Please try again.' }
   }
 }
 

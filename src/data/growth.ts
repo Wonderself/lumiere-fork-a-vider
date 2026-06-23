@@ -132,7 +132,7 @@ export const USER_TIERS: TierConfig[] = [
     restrictions: ['Pas de vote', 'Pas de création', 'Pas d\'IA', 'Inscription requise'],
   },
   {
-    id: 'demo', label: 'Démo', color: '#F59E0B', icon: 'clock',
+    id: 'demo', label: 'Demo', color: '#F59E0B', icon: 'clock',
     dailyLimits: { aiRequests: 5, votes: 5, comments: 3, projects: 1, agents: 3 },
     features: ['Tout visiteur +', '5 requêtes IA/jour', '5 votes/jour', '1 projet', 'Expire automatiquement'],
     restrictions: ['Limité dans le temps', 'Pas de paiement', 'Pas de parrainage'],
@@ -181,7 +181,7 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
   { id: 'profile', label: 'Profil complet', description: 'Remplissez votre bio et spécialités', icon: 'user', xpReward: 50, creditReward: 1_000_000 },
   { id: 'first-vote', label: 'Premier vote', description: 'Votez sur un film de la communauté', icon: 'star', xpReward: 10, creditReward: 200_000 },
   { id: 'first-agent', label: 'Premier agent IA', description: 'Utilisez un agent IA cinéma', icon: 'bot', xpReward: 15, creditReward: 300_000 },
-  { id: 'first-project', label: 'Premier projet', description: 'Créez votre premier projet de film', icon: 'film', xpReward: 75, creditReward: 500_000 },
-  { id: 'first-share', label: 'Premier partage', description: 'Partagez un film sur les réseaux', icon: 'share-2', xpReward: 10, creditReward: 100_000 },
+  { id: 'first-project', label: 'Premier projet', description: 'Create your first film project', icon: 'film', xpReward: 75, creditReward: 500_000 },
+  { id: 'first-share', label: 'Premier partage', description: 'Share a film on social media', icon: 'share-2', xpReward: 10, creditReward: 100_000 },
   { id: 'referral', label: 'Inviter un ami', description: 'Parrainez votre premier utilisateur', icon: 'users', xpReward: 100, creditReward: 5_000_000 },
 ]

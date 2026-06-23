@@ -21,7 +21,7 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; icon: typeof
   PENDING_REVIEW: { label: 'En attente', color: 'text-yellow-600', icon: Clock },
   APPROVED: { label: 'Approved', color: 'text-blue-600', icon: CheckCircle2 },
   DENIED: { label: 'Rejected', color: 'text-red-400', icon: XCircle },
-  EXECUTING: { label: 'Exécution', color: 'text-purple-600', icon: Zap },
+  EXECUTING: { label: 'Execution', color: 'text-purple-600', icon: Zap },
   COMPLETED: { label: 'Completed', color: 'text-green-600', icon: CheckCircle2 },
   FAILED: { label: 'Failed', color: 'text-red-500', icon: AlertTriangle },
   ROLLED_BACK: { label: 'Cancelled', color: 'text-orange-600', icon: RotateCcw },

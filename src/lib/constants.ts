@@ -38,14 +38,14 @@ export const DIFFICULTY_STARS = {
 } as const
 
 export const TASK_STATUS_LABELS = {
-  LOCKED: 'Verrouillée',
+  LOCKED: 'Locked',
   AVAILABLE: 'Available',
   CLAIMED: 'In progress',
   SUBMITTED: 'Soumise',
   AI_REVIEW: 'Revue IA',
   HUMAN_REVIEW: 'Revue Humaine',
   VALIDATED: 'Validated',
-  REJECTED: 'Rejetée',
+  REJECTED: 'Rejected',
 } as const
 
 export const FILM_STATUS_LABELS = {
@@ -72,13 +72,13 @@ export const PHASE_LABELS = {
 export const TASK_TYPE_LABELS = {
   PROMPT_WRITING: 'Écriture de Prompt',
   IMAGE_GEN: 'Génération Image',
-  VIDEO_REVIEW: 'Revue Vidéo',
+  VIDEO_REVIEW: 'Video review',
   STUNT_CAPTURE: 'Capture Cascade',
   DANCE_CAPTURE: 'Capture Danse',
   DIALOGUE_EDIT: 'Édition Dialogue',
   COLOR_GRADE: 'Étalonnage',
   SOUND_DESIGN: 'Sound Design',
-  CONTINUITY_CHECK: 'Vérification Continuité',
+  CONTINUITY_CHECK: 'Continuity check',
   QA_REVIEW: 'QA Review',
   CHARACTER_DESIGN: 'Design Personnage',
   ENV_DESIGN: "Design d'Environnement",
@@ -116,7 +116,7 @@ export const SKILLS = [
 ] as const
 
 export const LANGUAGES = [
-  'Français',
+  'French',
   'English',
   'עברית',
   'Español',
@@ -180,7 +180,7 @@ export const SCENARIO_STATUS_LABELS = {
   SHORTLISTED: 'Présélectionné',
   VOTING: 'En vote',
   WINNER: 'Gagnant',
-  ARCHIVED: 'Archivé',
+  ARCHIVED: 'Archived',
 } as const
 
 export const CONTEST_STATUS_LABELS = {
