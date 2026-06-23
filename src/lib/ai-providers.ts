@@ -40,56 +40,56 @@ export const LLM_MODELS: AIModel[] = [
     pricingType: 'per_token', inputCostPer1M: 80_000, outputCostPer1M: 400_000,
     maxTokens: 4096, capabilities: ['text', 'analysis', 'code', 'fast'],
     status: 'available', requiresApiKey: 'ANTHROPIC_API_KEY',
-    icon: '⚡', color: '#D97706', description: 'Rapide et économique', bestFor: 'Tâches simples, corrections rapides',
+    icon: '⚡', color: '#D97706', description: 'Fast and economical', bestFor: 'Simple tasks, quick fixes',
   },
   {
     id: 'claude-sonnet-4-6', name: 'Claude Sonnet 4.6', provider: 'Anthropic', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 300_000, outputCostPer1M: 1_500_000,
     maxTokens: 8192, capabilities: ['text', 'analysis', 'code', 'creative', 'vision'],
     status: 'available', requiresApiKey: 'ANTHROPIC_API_KEY',
-    icon: '🎯', color: '#2563EB', description: 'Précis et polyvalent', bestFor: 'Scénarios, dialogues, analyses approfondies',
+    icon: '🎯', color: '#2563EB', description: 'Precise and versatile', bestFor: 'Screenplays, dialogue, in-depth analysis',
   },
   {
     id: 'claude-opus-4-6', name: 'Claude Opus 4.6', provider: 'Anthropic', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 1_500_000, outputCostPer1M: 7_500_000,
     maxTokens: 16384, capabilities: ['text', 'analysis', 'code', 'creative', 'vision', 'reasoning', 'extended_thinking'],
     status: 'available', requiresApiKey: 'ANTHROPIC_API_KEY',
-    icon: '🧠', color: '#7C3AED', description: 'Raisonnement profond', bestFor: 'Stratégie, arbitrage créatif, analyses complexes',
+    icon: '🧠', color: '#7C3AED', description: 'Deep reasoning', bestFor: 'Strategy, creative arbitration, complex analysis',
   },
   {
     id: 'gpt-4o', name: 'GPT-4o', provider: 'OpenAI', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 250_000, outputCostPer1M: 1_000_000,
     maxTokens: 4096, capabilities: ['text', 'analysis', 'code', 'vision'],
     status: 'coming_soon', requiresApiKey: 'OPENAI_API_KEY',
-    icon: '🤖', color: '#10B981', description: 'Modèle multimodal OpenAI', bestFor: 'Alternative polyvalente',
+    icon: '🤖', color: '#10B981', description: 'OpenAI multimodal model', bestFor: 'Versatile alternative',
   },
   {
     id: 'gpt-4o-mini', name: 'GPT-4o Mini', provider: 'OpenAI', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 15_000, outputCostPer1M: 60_000,
     maxTokens: 4096, capabilities: ['text', 'analysis', 'fast'],
     status: 'coming_soon', requiresApiKey: 'OPENAI_API_KEY',
-    icon: '💨', color: '#10B981', description: 'Ultra rapide et économique', bestFor: 'Tâches basiques à haut volume',
+    icon: '💨', color: '#10B981', description: 'Ultra fast and economical', bestFor: 'Basic high-volume tasks',
   },
   {
     id: 'gemini-2-flash', name: 'Gemini 2.0 Flash', provider: 'Google', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 7_500, outputCostPer1M: 30_000,
     maxTokens: 8192, capabilities: ['text', 'analysis', 'fast', 'vision'],
     status: 'coming_soon', requiresApiKey: 'GOOGLE_AI_KEY',
-    icon: '💎', color: '#4285F4', description: 'Flash Google ultra rapide', bestFor: 'Analyses rapides, brainstorming',
+    icon: '💎', color: '#4285F4', description: 'Ultra-fast Google Flash', bestFor: 'Fast analysis, brainstorming',
   },
   {
     id: 'llama-3-70b', name: 'Llama 3.3 70B', provider: 'Meta (via Together)', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 90_000, outputCostPer1M: 90_000,
     maxTokens: 4096, capabilities: ['text', 'analysis', 'open_source'],
     status: 'coming_soon', requiresApiKey: 'TOGETHER_API_KEY',
-    icon: '🦙', color: '#1877F2', description: 'Open source puissant', bestFor: 'Alternative open source',
+    icon: '🦙', color: '#1877F2', description: 'Powerful open source', bestFor: 'Open-source alternative',
   },
   {
     id: 'mistral-large', name: 'Mistral Large', provider: 'Mistral AI', category: 'llm',
     pricingType: 'per_token', inputCostPer1M: 200_000, outputCostPer1M: 600_000,
     maxTokens: 8192, capabilities: ['text', 'analysis', 'code', 'multilingual'],
     status: 'coming_soon', requiresApiKey: 'MISTRAL_API_KEY',
-    icon: '🌬️', color: '#FF7000', description: 'Français natif, multilingue', bestFor: 'Dialogues en français, multilingual',
+    icon: '🌬️', color: '#FF7000', description: 'Native French, multilingual', bestFor: 'Dialogue in French, multilingual',
   },
 ]
 
@@ -102,7 +102,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '10s', maxResolution: '1080p',
     capabilities: ['text_to_video', 'image_to_video', 'high_quality', 'motion_control'],
     status: 'coming_soon', requiresApiKey: 'KLING_API_KEY',
-    icon: '🎬', color: '#FF4500', description: 'Vidéo réaliste haute qualité', bestFor: 'Scènes de film, plans cinématiques',
+    icon: '🎬', color: '#FF4500', description: 'Realistic high-quality video', bestFor: 'Film scenes, cinematic shots',
   },
   {
     id: 'kling-v2', name: 'Kling 2.0', provider: 'Kuaishou', category: 'video',
@@ -110,7 +110,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '10s', maxResolution: '4K',
     capabilities: ['text_to_video', 'image_to_video', 'ultra_quality', 'camera_control', 'lip_sync'],
     status: 'coming_soon', requiresApiKey: 'KLING_API_KEY',
-    icon: '🎬', color: '#FF4500', description: 'Dernière génération Kling', bestFor: 'Qualité cinéma, lip-sync, contrôle caméra',
+    icon: '🎬', color: '#FF4500', description: 'Latest Kling generation', bestFor: 'Cinema quality, lip-sync, camera control',
   },
   {
     id: 'runway-gen3', name: 'Runway Gen-3 Alpha', provider: 'Runway', category: 'video',
@@ -118,7 +118,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '10s', maxResolution: '1080p',
     capabilities: ['text_to_video', 'image_to_video', 'motion_brush'],
     status: 'coming_soon', requiresApiKey: 'RUNWAY_API_KEY',
-    icon: '🛤️', color: '#6366F1', description: 'Standard industrie créative', bestFor: 'Motion design, effets visuels',
+    icon: '🛤️', color: '#6366F1', description: 'Creative-industry standard', bestFor: 'Motion design, visual effects',
   },
   {
     id: 'pika-v2', name: 'Pika 2.0', provider: 'Pika', category: 'video',
@@ -126,7 +126,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '4s', maxResolution: '1080p',
     capabilities: ['text_to_video', 'image_to_video', 'style_transfer'],
     status: 'coming_soon', requiresApiKey: 'PIKA_API_KEY',
-    icon: '⚡', color: '#F59E0B', description: 'Rapide et créatif', bestFor: 'Clips courts, previsualization',
+    icon: '⚡', color: '#F59E0B', description: 'Fast and creative', bestFor: 'Short clips, previsualization',
   },
   {
     id: 'luma-dream-machine', name: 'Luma Dream Machine', provider: 'Luma AI', category: 'video',
@@ -134,7 +134,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '5s', maxResolution: '1080p',
     capabilities: ['text_to_video', 'image_to_video', '3d_aware'],
     status: 'coming_soon', requiresApiKey: 'LUMA_API_KEY',
-    icon: '🌙', color: '#8B5CF6', description: 'Vidéo avec conscience 3D', bestFor: 'Mouvements caméra, perspective 3D',
+    icon: '🌙', color: '#8B5CF6', description: 'Video with 3D awareness', bestFor: 'Camera moves, 3D perspective',
   },
   {
     id: 'minimax-video', name: 'MiniMax Video-01', provider: 'MiniMax', category: 'video',
@@ -142,7 +142,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '6s', maxResolution: '1080p',
     capabilities: ['text_to_video', 'image_to_video', 'high_motion'],
     status: 'coming_soon', requiresApiKey: 'MINIMAX_API_KEY',
-    icon: '🎥', color: '#EC4899', description: 'Motion dynamique', bestFor: 'Scènes d\'action, mouvements rapides',
+    icon: '🎥', color: '#EC4899', description: 'Dynamic motion', bestFor: 'Action scenes, fast motion',
   },
   {
     id: 'hailuo-video', name: 'Hailuo AI Video', provider: 'MiniMax', category: 'video',
@@ -150,7 +150,7 @@ export const VIDEO_MODELS: AIModel[] = [
     maxDuration: '6s', maxResolution: '1080p',
     capabilities: ['text_to_video', 'realistic', 'character_consistency'],
     status: 'coming_soon', requiresApiKey: 'HAILUO_API_KEY',
-    icon: '🌊', color: '#06B6D4', description: 'Personnages cohérents', bestFor: 'Cohérence personnages, dialogues',
+    icon: '🌊', color: '#06B6D4', description: 'Consistent characters', bestFor: 'Character consistency, dialogue',
   },
 ]
 
@@ -162,28 +162,28 @@ export const IMAGE_MODELS: AIModel[] = [
     pricingType: 'per_request', costPerRequest: 1_500_000,
     maxResolution: '2048x2048', capabilities: ['text_to_image', 'high_quality', 'photorealistic'],
     status: 'coming_soon', requiresApiKey: 'FAL_API_KEY',
-    icon: '🎨', color: '#EC4899', description: 'Photoréalisme ultime', bestFor: 'Stills de film, concept art',
+    icon: '🎨', color: '#EC4899', description: 'Ultimate photorealism', bestFor: 'Film stills, concept art',
   },
   {
     id: 'sdxl-turbo', name: 'SDXL Turbo', provider: 'Stability AI (Replicate)', category: 'image',
     pricingType: 'per_request', costPerRequest: 500_000,
     maxResolution: '1024x1024', capabilities: ['text_to_image', 'fast', 'style_control'],
     status: 'coming_soon', requiresApiKey: 'REPLICATE_API_KEY',
-    icon: '🖼️', color: '#10B981', description: 'Rapide et flexible', bestFor: 'Storyboards, itérations rapides',
+    icon: '🖼️', color: '#10B981', description: 'Rapide et flexible', bestFor: 'Storyboards, fast iterations',
   },
   {
     id: 'dall-e-3', name: 'DALL-E 3', provider: 'OpenAI', category: 'image',
     pricingType: 'per_request', costPerRequest: 2_000_000,
     maxResolution: '1024x1792', capabilities: ['text_to_image', 'creative', 'text_rendering'],
     status: 'coming_soon', requiresApiKey: 'OPENAI_API_KEY',
-    icon: '🎨', color: '#10B981', description: 'Créatif avec texte intégré', bestFor: 'Affiches, titre cards',
+    icon: '🎨', color: '#10B981', description: 'Creative with built-in text', bestFor: 'Posters, title cards',
   },
   {
     id: 'midjourney-v6', name: 'Midjourney v6', provider: 'Midjourney (via API)', category: 'image',
     pricingType: 'per_request', costPerRequest: 2_500_000,
     maxResolution: '2048x2048', capabilities: ['text_to_image', 'artistic', 'cinematic'],
     status: 'coming_soon', requiresApiKey: 'MIDJOURNEY_API_KEY',
-    icon: '✨', color: '#7C3AED', description: 'Style artistique unique', bestFor: 'Concept art, mood boards',
+    icon: '✨', color: '#7C3AED', description: 'Unique artistic style', bestFor: 'Concept art, mood boards',
   },
 ]
 
@@ -195,21 +195,21 @@ export const AUDIO_MODELS: AIModel[] = [
     pricingType: 'per_request', costPerRequest: 3_000_000,
     capabilities: ['tts', 'voice_clone', 'multilingual', 'emotion'],
     status: 'coming_soon', requiresApiKey: 'ELEVENLABS_API_KEY',
-    icon: '🔊', color: '#6366F1', description: 'Voix réalistes avec émotion', bestFor: 'Dialogues, narration, doublage',
+    icon: '🔊', color: '#6366F1', description: 'Realistic voices with emotion', bestFor: 'Dialogues, narration, doublage',
   },
   {
     id: 'openai-tts-hd', name: 'OpenAI TTS HD', provider: 'OpenAI', category: 'audio',
     pricingType: 'per_request', costPerRequest: 1_500_000,
     capabilities: ['tts', 'multilingual', 'natural'],
     status: 'coming_soon', requiresApiKey: 'OPENAI_API_KEY',
-    icon: '🗣️', color: '#10B981', description: 'TTS naturel', bestFor: 'Narration, voix off',
+    icon: '🗣️', color: '#10B981', description: 'TTS naturel', bestFor: 'Narration, voice-over',
   },
   {
     id: 'deepgram-nova', name: 'Deepgram Nova-3', provider: 'Deepgram', category: 'audio',
     pricingType: 'per_minute', costPerSecond: 50_000,
     capabilities: ['stt', 'transcription', 'real_time', 'multilingual'],
     status: 'coming_soon', requiresApiKey: 'DEEPGRAM_API_KEY',
-    icon: '🎙️', color: '#14B8A6', description: 'Transcription ultra-rapide', bestFor: 'Sous-titres, transcription rushes',
+    icon: '🎙️', color: '#14B8A6', description: 'Ultra-fast transcription', bestFor: 'Sous-titres, transcription rushes',
   },
 ]
 
@@ -221,7 +221,7 @@ export const MUSIC_MODELS: AIModel[] = [
     pricingType: 'per_request', costPerRequest: 5_000_000,
     maxDuration: '4min', capabilities: ['text_to_music', 'vocals', 'genres', 'full_songs'],
     status: 'coming_soon', requiresApiKey: 'SUNO_API_KEY',
-    icon: '🎵', color: '#EF4444', description: 'Musique complète avec voix', bestFor: 'Bande originale, chansons',
+    icon: '🎵', color: '#EF4444', description: 'Full music with vocals', bestFor: 'Bande originale, chansons',
   },
   {
     id: 'udio-v1', name: 'Udio', provider: 'Udio', category: 'music',
@@ -279,18 +279,18 @@ export interface TaskModelMapping {
 
 export const TASK_MODEL_MAPPINGS: TaskModelMapping[] = [
   // User can choose
-  { taskType: 'STORYBOARD', userChoice: true, defaultModel: 'sdxl-turbo', allowedModels: ['sdxl-turbo', 'flux-pro', 'dall-e-3', 'midjourney-v6'], reason: 'Storyboards = créatif, choix libre' },
-  { taskType: 'CONCEPT_ART', userChoice: true, defaultModel: 'flux-pro', allowedModels: ['flux-pro', 'sdxl-turbo', 'dall-e-3', 'midjourney-v6'], reason: 'Concept art = créatif, choix libre' },
-  { taskType: 'MUSIC_COMPOSE', userChoice: true, defaultModel: 'suno-v4', allowedModels: ['suno-v4', 'udio-v1'], reason: 'Musique indépendante = choix libre' },
-  { taskType: 'VOICE_ACTING', userChoice: true, defaultModel: 'elevenlabs-v2', allowedModels: ['elevenlabs-v2', 'openai-tts-hd'], reason: 'Voix = préférence personnelle' },
-  { taskType: 'BRAINSTORM', userChoice: true, defaultModel: 'claude-sonnet-4-6', allowedModels: ['claude-haiku-4-5', 'claude-sonnet-4-6', 'gpt-4o', 'gemini-2-flash', 'mistral-large'], reason: 'Brainstorming = créatif, choix libre' },
+  { taskType: 'STORYBOARD', userChoice: true, defaultModel: 'sdxl-turbo', allowedModels: ['sdxl-turbo', 'flux-pro', 'dall-e-3', 'midjourney-v6'], reason: 'Storyboards = creative, free choice' },
+  { taskType: 'CONCEPT_ART', userChoice: true, defaultModel: 'flux-pro', allowedModels: ['flux-pro', 'sdxl-turbo', 'dall-e-3', 'midjourney-v6'], reason: 'Concept art = creative, free choice' },
+  { taskType: 'MUSIC_COMPOSE', userChoice: true, defaultModel: 'suno-v4', allowedModels: ['suno-v4', 'udio-v1'], reason: 'Standalone music = free choice' },
+  { taskType: 'VOICE_ACTING', userChoice: true, defaultModel: 'elevenlabs-v2', allowedModels: ['elevenlabs-v2', 'openai-tts-hd'], reason: 'Voice = personal preference' },
+  { taskType: 'BRAINSTORM', userChoice: true, defaultModel: 'claude-sonnet-4-6', allowedModels: ['claude-haiku-4-5', 'claude-sonnet-4-6', 'gpt-4o', 'gemini-2-flash', 'mistral-large'], reason: 'Brainstorming = creative, free choice' },
 
   // System imposed for coherence
-  { taskType: 'SCREENPLAY_CONTINUE', userChoice: false, defaultModel: 'claude-sonnet-4-6', allowedModels: ['claude-sonnet-4-6'], reason: 'Continuation scénario = cohérence narrative obligatoire' },
-  { taskType: 'VFX_MATCH', userChoice: false, defaultModel: 'flux-pro', allowedModels: ['flux-pro'], reason: 'VFX matching = cohérence visuelle obligatoire' },
-  { taskType: 'VIDEO_SCENE', userChoice: false, defaultModel: 'kling-v2', allowedModels: ['kling-v2'], reason: 'Scènes film = qualité cinéma imposée' },
-  { taskType: 'DIALOGUE_VOICE', userChoice: false, defaultModel: 'elevenlabs-v2', allowedModels: ['elevenlabs-v2'], reason: 'Voix personnages = cohérence voix imposée' },
-  { taskType: 'COHERENCE_REVIEW', userChoice: false, defaultModel: 'claude-opus-4-6', allowedModels: ['claude-opus-4-6'], reason: 'Review cohérence = analyse profonde obligatoire' },
+  { taskType: 'SCREENPLAY_CONTINUE', userChoice: false, defaultModel: 'claude-sonnet-4-6', allowedModels: ['claude-sonnet-4-6'], reason: 'Screenplay continuation = narrative consistency required' },
+  { taskType: 'VFX_MATCH', userChoice: false, defaultModel: 'flux-pro', allowedModels: ['flux-pro'], reason: 'VFX matching = visual consistency required' },
+  { taskType: 'VIDEO_SCENE', userChoice: false, defaultModel: 'kling-v2', allowedModels: ['kling-v2'], reason: 'Film scenes = enforced cinema quality' },
+  { taskType: 'DIALOGUE_VOICE', userChoice: false, defaultModel: 'elevenlabs-v2', allowedModels: ['elevenlabs-v2'], reason: 'Character voices = enforced voice consistency' },
+  { taskType: 'COHERENCE_REVIEW', userChoice: false, defaultModel: 'claude-opus-4-6', allowedModels: ['claude-opus-4-6'], reason: 'Consistency review = deep analysis required' },
 ]
 
 export function getTaskModelMapping(taskType: string): TaskModelMapping | undefined {
