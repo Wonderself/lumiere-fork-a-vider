@@ -182,7 +182,7 @@ export default function DeepDiscussionsPage() {
     navigator.clipboard.writeText(md)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
-    toast.success('Discussion exportée en Markdown')
+    toast.success('Discussion exported as Markdown')
   }
 
   function shareUrl(platform: string) {
@@ -402,7 +402,7 @@ export default function DeepDiscussionsPage() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage() } }}
-              placeholder="Votre réflexion..."
+              placeholder="Your thoughts..."
               rows={1}
               className="flex-1 rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none min-h-[44px] max-h-[120px]"
               onInput={e => { const t = e.target as HTMLTextAreaElement; t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 120) + 'px' }}
