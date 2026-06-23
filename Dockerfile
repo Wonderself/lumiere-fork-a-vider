@@ -1,5 +1,5 @@
 # ================================================
-# Lumière — Production Dockerfile (Coolify/Hetzner)
+# CINEGENY — Production Dockerfile (Coolify/Hetzner)
 # Multi-stage build for Next.js 16 + Prisma 7
 # ================================================
 
