@@ -15,12 +15,19 @@ export type PlanConfig = {
   adFree: boolean
 }
 
+// Note: priceEur holds the price in USD ($). The field name is kept for
+// backward compatibility with existing references.
 export const PLAN_CONFIGS: Record<string, PlanConfig> = {
   FREE: {
     id: 'FREE',
-    name: 'Gratuit',
+    name: 'Free',
     priceEur: 0,
-    features: ['5 films/mois', '720p', 'Publicités'],
+    features: [
+      '5 films / month',
+      '720p streaming',
+      'Watch & vote on every project',
+      'Full Academy access',
+    ],
     maxStreams: 5,
     maxQuality: '720p',
     offlineDownloads: 0,
@@ -30,7 +37,13 @@ export const PLAN_CONFIGS: Record<string, PlanConfig> = {
     id: 'BASIC',
     name: 'Basic',
     priceEur: 4.99,
-    features: ['Illimité', '1080p', 'Sans pubs', 'Sous-titres', '5 downloads'],
+    features: [
+      'Unlimited streaming',
+      '1080p, ad-free',
+      'Subtitles + 5 downloads',
+      '50 bonus Lumens / month',
+      'Reduced marketplace fees',
+    ],
     maxStreams: -1,
     maxQuality: '1080p',
     offlineDownloads: 5,
@@ -39,8 +52,20 @@ export const PLAN_CONFIGS: Record<string, PlanConfig> = {
   PREMIUM: {
     id: 'PREMIUM',
     name: 'Premium',
-    priceEur: 9.99,
-    features: ['Illimité', '4K', 'Sans pubs', 'Dolby Atmos', 'Downloads illimités'],
+    priceEur: 14.99,
+    features: [
+      'Everything in Basic',
+      'Unlimited 4K + Dolby Atmos, ad-free',
+      'Unlimited downloads',
+      '200 bonus Lumens / month',
+      '2× voting power on every vote',
+      'Lowest deposit, withdrawal & marketplace fees',
+      'Priority access to paid missions',
+      'Extended AI video generation credits',
+      'Advanced portfolio & earnings analytics',
+      'Early access to new films & token offerings',
+      'Premium badge + priority support',
+    ],
     maxStreams: -1,
     maxQuality: '4K',
     offlineDownloads: -1,

@@ -14,25 +14,25 @@ const PACKS = [
     discount: null,
     badge: null,
     icon: Sparkles,
-    features: ['10 Lumens credites', 'Utilisation immediate', 'Sans engagement'],
+    features: ['10 Lumens credited', 'Use instantly', 'No commitment'],
   },
   {
     amount: 25,
-    price: 22.5,
+    price: 25,
     bonus: 2,
-    discount: '-10%',
-    badge: 'Populaire',
+    discount: '+2 free',
+    badge: 'Popular',
     icon: Sparkles,
-    features: ['25 + 2 Lumens bonus', 'Economisez 2,50 EUR', 'Ideal pour debuter'],
+    features: ['25 + 2 bonus Lumens', '1 Lumen = $1', 'Great to get started'],
   },
   {
     amount: 100,
-    price: 80,
+    price: 100,
     bonus: 10,
-    discount: '-20%',
-    badge: 'Meilleur rapport',
+    discount: '+10 free',
+    badge: 'Best value',
     icon: Crown,
-    features: ['100 + 10 Lumens bonus', 'Economisez 20 EUR', 'Pour les contributeurs actifs'],
+    features: ['100 + 10 bonus Lumens', '1 Lumen = $1', 'For active contributors'],
   },
 ]
 
@@ -44,7 +44,7 @@ export function PurchaseForm() {
       {state?.success && (
         <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-sm">
           <Check className="h-4 w-4 shrink-0" />
-          <span>Lumens credites avec succes ! Votre solde a ete mis a jour.</span>
+          <span>Lumens credited successfully! Your balance has been updated.</span>
         </div>
       )}
       {state?.error && (
@@ -55,8 +55,8 @@ export function PurchaseForm() {
 
       <div className="grid md:grid-cols-3 gap-4">
         {PACKS.map((pack) => {
-          const isPopular = pack.badge === 'Populaire'
-          const isBest = pack.badge === 'Meilleur rapport'
+          const isPopular = pack.badge === 'Popular'
+          const isBest = pack.badge === 'Best value'
 
           return (
             <form action={formAction} key={pack.amount}>
@@ -100,7 +100,7 @@ export function PurchaseForm() {
                     <span className="text-sm font-normal text-white/40 ml-1">Lumens</span>
                   </div>
                   <div className="text-2xl font-bold text-[#E50914]">
-                    {pack.price.toFixed(2).replace('.', ',')}&#8364;
+                    ${pack.price.toFixed(2)}
                   </div>
                   {pack.bonus > 0 && (
                     <div className="text-xs text-purple-300 mt-1">
@@ -128,7 +128,7 @@ export function PurchaseForm() {
                   variant={isPopular ? 'default' : 'outline'}
                   className="w-full"
                 >
-                  Acheter {pack.amount} Lumens
+                  Buy {pack.amount} Lumens
                 </Button>
               </div>
             </form>

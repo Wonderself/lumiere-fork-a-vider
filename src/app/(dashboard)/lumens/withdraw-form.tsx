@@ -1,9 +1,10 @@
 'use client'
 
 import { useActionState, useState } from 'react'
+import Link from 'next/link'
 import { withdrawLumensAction } from '@/app/actions/lumens'
 import { Button } from '@/components/ui/button'
-import { Check, AlertCircle } from 'lucide-react'
+import { Check, AlertCircle, ShieldCheck } from 'lucide-react'
 
 export function WithdrawForm({ currentBalance }: { currentBalance: number }) {
   const [state, formAction, isPending] = useActionState(withdrawLumensAction, null)
@@ -18,21 +19,29 @@ export function WithdrawForm({ currentBalance }: { currentBalance: number }) {
       {state?.success && (
         <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-sm">
           <Check className="h-4 w-4 shrink-0" />
-          <span>Demande de retrait enregistree. Le virement sera effectue sous 14 jours ouvres.</span>
+          <span>Withdrawal request recorded. The transfer will be made within 14 business days.</span>
         </div>
       )}
-      {state?.error && (
+      {state?.error === 'NEEDS_KYC' ? (
+        <Link
+          href="/dashboard/kyc"
+          className="flex items-center gap-2 p-4 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-100/80 text-sm hover:border-amber-500/40 transition-colors"
+        >
+          <ShieldCheck className="h-4 w-4 shrink-0 text-amber-400" />
+          <span>You need to verify your identity once before withdrawing. <span className="font-semibold underline">Verify now →</span></span>
+        </Link>
+      ) : state?.error ? (
         <div className="flex items-center gap-2 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
           <AlertCircle className="h-4 w-4 shrink-0" />
           <span>{state.error}</span>
         </div>
-      )}
+      ) : null}
 
       <form action={formAction} className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <label htmlFor="withdraw-amount" className="block text-sm font-medium text-white/60 mb-2">
-              Montant a retirer (min. 10 Lumens)
+              Amount to withdraw (min. 10 Lumens)
             </label>
             <div className="relative">
               <input
@@ -59,7 +68,7 @@ export function WithdrawForm({ currentBalance }: { currentBalance: number }) {
               variant="outline"
               className="h-12 px-6"
             >
-              Retirer
+              Withdraw
             </Button>
           </div>
         </div>
@@ -67,37 +76,37 @@ export function WithdrawForm({ currentBalance }: { currentBalance: number }) {
         {/* Balance calculation */}
         <div className="flex items-center justify-between rounded-lg bg-white/[0.03] border border-white/5 p-4">
           <div className="space-y-1">
-            <div className="text-xs text-white/40">Solde actuel</div>
+            <div className="text-xs text-white/40">Current balance</div>
             <div className="text-sm font-semibold text-white">
-              {currentBalance.toLocaleString('fr-FR')} Lumens
+              {currentBalance.toLocaleString('en-US')} Lumens
             </div>
           </div>
           {amount && parsedAmount > 0 && (
             <>
               <div className="text-white/20 mx-4">&#8594;</div>
               <div className="space-y-1">
-                <div className="text-xs text-white/40">Retrait</div>
+                <div className="text-xs text-white/40">Withdraw</div>
                 <div className="text-sm font-semibold text-red-400">
-                  -{parsedAmount.toLocaleString('fr-FR')} Lumens
+                  -{parsedAmount.toLocaleString('en-US')} Lumens
                 </div>
               </div>
               <div className="text-white/20 mx-4">&#8594;</div>
               <div className="space-y-1">
-                <div className="text-xs text-white/40">Solde restant</div>
+                <div className="text-xs text-white/40">Remaining</div>
                 <div className={`text-sm font-semibold ${remaining >= 0 ? 'text-green-600' : 'text-red-400'}`}>
                   {remaining >= 0
-                    ? remaining.toLocaleString('fr-FR')
-                    : 'Insuffisant'
+                    ? remaining.toLocaleString('en-US')
+                    : 'Insufficient'
                   }{' '}
                   {remaining >= 0 && 'Lumens'}
                 </div>
               </div>
               <div className="text-white/20 mx-4">=</div>
               <div className="space-y-1">
-                <div className="text-xs text-white/40">Virement</div>
+                <div className="text-xs text-white/40">Transfer</div>
                 <div className="text-sm font-semibold text-[#E50914]">
                   {parsedAmount > 0 && parsedAmount <= currentBalance
-                    ? `${parsedAmount.toFixed(2).replace('.', ',')} EUR`
+                    ? `$${parsedAmount.toFixed(2)}`
                     : '—'
                   }
                 </div>

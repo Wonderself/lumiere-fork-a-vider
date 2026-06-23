@@ -24,11 +24,11 @@ async function getClientIP(): Promise<string> {
 // ─── Schemas ─────────────────────────────────────────────────
 
 const registerSchema = z.object({
-  email: z.string().email('Email invalide'),
-  password: z.string().min(8, 'Minimum 8 caractères'),
-  displayName: z.string().min(2, 'Minimum 2 caractères'),
+  email: z.string().email('Invalid email'),
+  password: z.string().min(8, 'Minimum 8 characters'),
+  displayName: z.string().min(2, 'Minimum 2 characters'),
   role: z.enum(['CONTRIBUTOR', 'ARTIST', 'STUNT_PERFORMER', 'VIEWER', 'SCREENWRITER', 'CREATOR']).default('CONTRIBUTOR'),
-  portfolioUrl: z.string().url('URL invalide').optional().or(z.literal('')),
+  portfolioUrl: z.string().url('Invalid URL').optional().or(z.literal('')),
   skills: z.array(z.string()).optional(),
   languages: z.array(z.string()).optional(),
 })
@@ -48,7 +48,7 @@ export async function registerAction(
   const ip = await getClientIP()
   const rl = await registerLimiter.check(`register:${ip}`)
   if (!rl.allowed) {
-    return { error: `Trop de tentatives. Réessayez dans ${rl.retryAfterSeconds}s.` }
+    return { error: `Too many attempts. Try again in ${rl.retryAfterSeconds}s.` }
   }
 
   const rawData = {
@@ -64,7 +64,7 @@ export async function registerAction(
   const parsed = registerSchema.safeParse(rawData)
   if (!parsed.success) {
     const firstError = parsed.error.issues?.[0]
-    return { error: firstError?.message ?? 'Données invalides.' }
+    return { error: firstError?.message ?? 'Invalid data.' }
   }
 
   const { email, password, displayName, role, portfolioUrl, skills, languages } = parsed.data
@@ -72,7 +72,7 @@ export async function registerAction(
   try {
     const existing = await prisma.user.findUnique({ where: { email: email.toLowerCase() } })
     if (existing) {
-      return { error: 'Un compte existe déjà avec cet email.' }
+      return { error: 'An account already exists with this email.' }
     }
 
     const passwordHash = await bcrypt.hash(password, 12)
@@ -110,7 +110,7 @@ export async function registerAction(
     return { success: true }
   } catch (error) {
     console.error('Register error:', error)
-    return { error: 'Une erreur est survenue. Veuillez réessayer.' }
+    return { error: 'Something went wrong. Please try again.' }
   }
 }
 
@@ -135,14 +135,14 @@ export async function loginAction(
     : '/dashboard'
 
   if (!email || !password) {
-    return { error: 'Email et mot de passe requis.' }
+    return { error: 'Email and password are required.' }
   }
 
   // Rate limiting by IP + email combo
   const ip = await getClientIP()
   const rl = await loginLimiter.check(`login:${ip}:${email?.toLowerCase()}`)
   if (!rl.allowed) {
-    return { error: `Trop de tentatives. Réessayez dans ${rl.retryAfterSeconds}s.` }
+    return { error: `Too many attempts. Try again in ${rl.retryAfterSeconds}s.` }
   }
 
   // Dev/demo bypass — skip DB validation for hardcoded admin
@@ -157,16 +157,16 @@ export async function loginAction(
       })
     } catch (dbError) {
       console.error('[loginAction] Database error:', dbError)
-      return { error: 'Erreur de connexion à la base de données. Réessayez.' }
+      return { error: 'Database connection error. Please try again.' }
     }
 
     if (!user || !user.passwordHash) {
-      return { error: 'Email ou mot de passe incorrect.' }
+      return { error: 'Incorrect email or password.' }
     }
 
     const valid = await bcrypt.compare(password, user.passwordHash)
     if (!valid) {
-      return { error: 'Email ou mot de passe incorrect.' }
+      return { error: 'Incorrect email or password.' }
     }
   }
 
@@ -187,7 +187,7 @@ export async function loginAction(
     }
 
     if (error instanceof AuthError) {
-      return { error: 'Email ou mot de passe incorrect.' }
+      return { error: 'Incorrect email or password.' }
     }
 
     // Log but don't fail — session cookie may already be set
@@ -205,13 +205,13 @@ export async function forgotPasswordAction(
   formData: FormData
 ) {
   const email = (formData.get('email') as string)?.trim().toLowerCase()
-  if (!email) return { error: 'Veuillez entrer votre email.' }
+  if (!email) return { error: 'Please enter your email.' }
 
   // Rate limiting
   const ip = await getClientIP()
   const rl = await passwordResetLimiter.check(`reset:${ip}`)
   if (!rl.allowed) {
-    return { error: `Trop de tentatives. Réessayez dans ${rl.retryAfterSeconds}s.` }
+    return { error: `Too many attempts. Try again in ${rl.retryAfterSeconds}s.` }
   }
 
   const user = await prisma.user.findUnique({ where: { email } })
@@ -256,18 +256,18 @@ export async function resetPasswordAction(
   const password = formData.get('password') as string
   const confirmPassword = formData.get('confirmPassword') as string
 
-  if (!token) return { error: 'Token manquant.' }
-  if (!password || password.length < 8) return { error: 'Minimum 8 caractères.' }
-  if (password !== confirmPassword) return { error: 'Les mots de passe ne correspondent pas.' }
+  if (!token) return { error: 'Missing token.' }
+  if (!password || password.length < 8) return { error: 'Minimum 8 characters.' }
+  if (password !== confirmPassword) return { error: 'Passwords do not match.' }
 
   const resetRecord = await prisma.passwordReset.findUnique({
     where: { token },
     include: { user: true },
   })
 
-  if (!resetRecord) return { error: 'Lien invalide ou expiré.' }
-  if (resetRecord.usedAt) return { error: 'Ce lien a déjà été utilisé.' }
-  if (resetRecord.expiresAt < new Date()) return { error: 'Ce lien a expiré. Demandez un nouveau lien.' }
+  if (!resetRecord) return { error: 'Invalid or expired link.' }
+  if (resetRecord.usedAt) return { error: 'This link has already been used.' }
+  if (resetRecord.expiresAt < new Date()) return { error: 'This link has expired. Request a new one.' }
 
   const passwordHash = await bcrypt.hash(password, 12)
 
@@ -288,7 +288,7 @@ export async function resetPasswordAction(
 // ─── Email Verification ──────────────────────────────────────
 
 export async function verifyEmailAction(token: string) {
-  if (!token) return { error: 'Token manquant.' }
+  if (!token) return { error: 'Missing token.' }
 
   // Use PasswordReset table with 'verify:' prefix for email verification tokens
   const record = await prisma.passwordReset.findUnique({
@@ -296,9 +296,9 @@ export async function verifyEmailAction(token: string) {
     include: { user: true },
   })
 
-  if (!record) return { error: 'Lien de verification invalide.' }
-  if (record.usedAt) return { error: 'Ce lien a deja ete utilise.' }
-  if (record.expiresAt < new Date()) return { error: 'Ce lien a expire. Demandez un nouveau lien.' }
+  if (!record) return { error: 'Invalid verification link.' }
+  if (record.usedAt) return { error: 'This link has already been used.' }
+  if (record.expiresAt < new Date()) return { error: 'This link has expired. Request a new one.' }
 
   await prisma.$transaction([
     prisma.user.update({
@@ -316,16 +316,16 @@ export async function verifyEmailAction(token: string) {
 
 export async function resendVerificationAction() {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const user = await prisma.user.findUnique({ where: { id: session.user.id } })
-  if (!user) return { error: 'Utilisateur introuvable' }
+  if (!user) return { error: 'User not found' }
   if (user.isVerified) return { success: true }
 
   // Rate limit verification emails
   const rl = await passwordResetLimiter.check(`verify:${user.id}`)
   if (!rl.allowed) {
-    return { error: `Trop de tentatives. Réessayez dans ${rl.retryAfterSeconds}s.` }
+    return { error: `Too many attempts. Try again in ${rl.retryAfterSeconds}s.` }
   }
 
   // Delete old verification tokens (those with 'verify:' prefix)
@@ -353,7 +353,7 @@ export async function resendVerificationAction() {
   })
 
   // Send verification email
-  sendWelcomeEmail(user.email, user.displayName || 'Utilisateur', verificationToken).catch((err) => console.error("[Email] Failed to send verification email:", err))
+  sendWelcomeEmail(user.email, user.displayName || 'User', verificationToken).catch((err) => console.error("[Email] Failed to send verification email:", err))
 
   return { success: true }
 }
@@ -361,10 +361,10 @@ export async function resendVerificationAction() {
 // ─── Update Profile ───────────────────────────────────────────
 
 const profileSchema = z.object({
-  displayName: z.string().min(2, 'Minimum 2 caractères').max(50),
+  displayName: z.string().min(2, 'Minimum 2 characters').max(50),
   bio: z.string().max(500).optional(),
-  avatarUrl: z.string().url('URL invalide').optional().or(z.literal('')),
-  portfolioUrl: z.string().url('URL invalide').optional().or(z.literal('')),
+  avatarUrl: z.string().url('Invalid URL').optional().or(z.literal('')),
+  portfolioUrl: z.string().url('Invalid URL').optional().or(z.literal('')),
   skills: z.array(z.string()).optional(),
   languages: z.array(z.string()).optional(),
   walletAddress: z.string().max(100).optional().or(z.literal('')),
@@ -375,7 +375,7 @@ export async function updateProfileAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const rawData = {
     displayName: formData.get('displayName') as string,
@@ -389,7 +389,7 @@ export async function updateProfileAction(
 
   const parsed = profileSchema.safeParse(rawData)
   if (!parsed.success) {
-    return { error: parsed.error.issues?.[0]?.message || 'Données invalides' }
+    return { error: parsed.error.issues?.[0]?.message || 'Invalid data' }
   }
 
   const { displayName, bio, avatarUrl, portfolioUrl, skills, languages, walletAddress } = parsed.data
@@ -412,6 +412,6 @@ export async function updateProfileAction(
     return { success: true }
   } catch (error) {
     console.error('Profile update error:', error)
-    return { error: 'Une erreur est survenue lors de la mise à jour.' }
+    return { error: 'An error occurred while updating.' }
   }
 }

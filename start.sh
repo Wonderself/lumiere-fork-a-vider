@@ -48,5 +48,18 @@ if [ "$SEED_DB" = "true" ]; then
   npx prisma db seed 2>&1 || echo "Warning: seed failed (data may already exist)"
 fi
 
+# Integration configuration check (informational — never blocks startup).
+# Anything left blank runs in a safe simulated/disabled mode.
+echo "=== Integration status ==="
+check_key() { [ -n "$1" ] && echo "  [ON ] $2" || echo "  [off] $2 (simulated/disabled)"; }
+check_key "$ANTHROPIC_API_KEY" "AI (Anthropic)"
+check_key "$RESEND_API_KEY" "Email (Resend)"
+check_key "$STRIPE_SECRET_KEY" "Payments — Lumen on/off-ramp (Stripe)"
+check_key "$KYC_PROVIDER" "Identity verification (KYC)"
+check_key "$USDC_PROVIDER_API_KEY" "Crypto rail — USDC stablecoin"
+check_key "$BITCOIN_PROVIDER_API_KEY" "Crypto rail — Bitcoin payments"
+check_key "$S3_ACCESS_KEY" "Storage (S3)"
+echo "=========================="
+
 echo "Starting Next.js server..."
 exec node server.js

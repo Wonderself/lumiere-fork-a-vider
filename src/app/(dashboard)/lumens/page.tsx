@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Sun, ArrowDownCircle, Gift, Sparkles, ShoppingCart, TrendingUp, TrendingDown, Coins } from 'lucide-react'
+import { Sun, ArrowDownCircle, Gift, Sparkles, ShoppingCart, TrendingUp, TrendingDown, Coins, ShieldCheck } from 'lucide-react'
 import { formatDateShort } from '@/lib/utils'
 import { PurchaseForm } from './purchase-form'
 import { WithdrawForm } from './withdraw-form'
@@ -11,20 +11,20 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Mes Lumens' }
+export const metadata: Metadata = { title: 'My Lumens' }
 
 function getTxTypeBadge(type: string) {
   switch (type) {
     case 'PURCHASE':
-      return <Badge className="border-blue-500/20 bg-blue-500/10 text-blue-400">Achat</Badge>
+      return <Badge className="border-blue-500/20 bg-blue-500/10 text-blue-400">Purchase</Badge>
     case 'BONUS':
       return <Badge className="border-purple-500/20 bg-purple-500/10 text-purple-400">Bonus</Badge>
     case 'TASK_REWARD':
       return <Badge className="border-green-500/20 bg-green-500/10 text-green-400">Reward</Badge>
     case 'SPENT':
-      return <Badge className="border-yellow-500/20 bg-yellow-500/10 text-yellow-400">Depense</Badge>
+      return <Badge className="border-yellow-500/20 bg-yellow-500/10 text-yellow-400">Spent</Badge>
     case 'WITHDRAWAL':
-      return <Badge className="border-red-500/20 bg-red-500/10 text-red-400">Retrait</Badge>
+      return <Badge className="border-red-500/20 bg-red-500/10 text-red-400">Withdrawal</Badge>
     default:
       return <Badge variant="secondary">{type}</Badge>
   }
@@ -36,7 +36,7 @@ export default async function LumensPage() {
 
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
-    select: { lumenBalance: true },
+    select: { lumenBalance: true, kycStatus: true },
   })
 
   if (!user) redirect('/login')
@@ -59,10 +59,10 @@ export default async function LumensPage() {
       {/* Page Title */}
       <div>
         <h1 className="text-3xl sm:text-4xl font-bold text-white font-playfair">
-          Mes Lumens
+          My Lumens
         </h1>
         <p className="text-white/50 mt-1">
-          Gerez votre portefeuille de Lumens — la monnaie de la plateforme.
+          Manage your Lumens wallet — the platform currency (1 Lumen = $1).
         </p>
       </div>
 
@@ -76,13 +76,13 @@ export default async function LumensPage() {
           <h2
             className="text-lg font-semibold text-white/60 mb-2"
           >
-            Mes Lumens
+            My Lumens
           </h2>
           <div className="text-6xl md:text-7xl font-bold text-[#E50914] mb-3 tracking-tight">
-            {user.lumenBalance.toLocaleString('fr-FR')}
+            {user.lumenBalance.toLocaleString('en-US')}
           </div>
           <p className="text-white/50 text-sm">
-            1 Lumen = {lumenPrice}&#8364; — Votre porte-monnaie plateforme
+            1 Lumen = ${lumenPrice} — Your platform wallet
           </p>
         </div>
       </div>
@@ -96,9 +96,9 @@ export default async function LumensPage() {
         return (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { label: 'Total gagne', value: `+${totalEarned}`, icon: TrendingUp, color: 'text-green-500', bg: 'bg-green-500/10 border-green-500/20' },
-              { label: 'Total depense', value: `-${totalSpent}`, icon: TrendingDown, color: 'text-red-500', bg: 'bg-red-500/10 border-red-500/20' },
-              { label: 'Rewards taches', value: `+${taskRewards}`, icon: Sparkles, color: 'text-[#E50914]', bg: 'bg-amber-500/10 border-amber-500/20' },
+              { label: 'Total earned', value: `+${totalEarned}`, icon: TrendingUp, color: 'text-green-500', bg: 'bg-green-500/10 border-green-500/20' },
+              { label: 'Total spent', value: `-${totalSpent}`, icon: TrendingDown, color: 'text-red-500', bg: 'bg-red-500/10 border-red-500/20' },
+              { label: 'Task rewards', value: `+${taskRewards}`, icon: Sparkles, color: 'text-[#E50914]', bg: 'bg-amber-500/10 border-amber-500/20' },
               { label: 'Bonus', value: `+${bonuses}`, icon: Coins, color: 'text-purple-500', bg: 'bg-purple-500/10 border-purple-500/20' },
             ].map((stat) => (
               <div key={stat.label} className={`p-4 rounded-xl border shadow-[0_2px_8px_rgba(0,0,0,0.3)] ${stat.bg}`}>
@@ -125,10 +125,10 @@ export default async function LumensPage() {
               <h2
                 className="text-xl font-bold text-white"
               >
-                Acheter des Lumens
+                Buy Lumens
               </h2>
               <p className="text-white/50 text-sm mt-0.5">
-                Choisissez un pack — plus vous achetez, plus vous economisez.
+                Pick a pack — the more you buy, the more you save.
               </p>
             </div>
           </div>
@@ -152,15 +152,27 @@ export default async function LumensPage() {
               <h2
                 className="text-xl font-bold text-white"
               >
-                Convertir en euros
+                Convert to cash
               </h2>
               <p className="text-white/50 text-sm mt-0.5">
-                Vos Lumens seront convertis en euros et vires sous 14 jours ouvres. 0 frais.
+                Your Lumens are converted to USD and transferred within 14 business days. No fees.
               </p>
             </div>
           </div>
         </div>
         <div className="px-4 sm:px-6 pb-6">
+          {user.kycStatus !== 'VERIFIED' && (
+            <a
+              href="/dashboard/kyc"
+              className="mb-4 flex items-center gap-3 rounded-xl border border-amber-500/20 bg-amber-500/[0.06] px-4 py-3 text-sm text-amber-100/80 hover:border-amber-500/40 transition-colors"
+            >
+              <ShieldCheck className="h-5 w-5 text-amber-400 shrink-0" />
+              <span>
+                Verify your identity once to unlock withdrawals — a quick, legally required step.{' '}
+                <span className="font-semibold underline">Verify now →</span>
+              </span>
+            </a>
+          )}
           <WithdrawForm currentBalance={user.lumenBalance} />
         </div>
       </div>
@@ -178,7 +190,7 @@ export default async function LumensPage() {
             <h2
               className="text-xl font-bold text-white"
             >
-              Historique
+              History
             </h2>
           </div>
         </div>
@@ -186,9 +198,9 @@ export default async function LumensPage() {
           {transactions.length === 0 ? (
             <div className="text-center py-12">
               <Gift className="h-10 w-10 text-white/30 mx-auto mb-3" />
-              <p className="text-white/60">Aucune transaction pour le moment.</p>
+              <p className="text-white/60">No transactions yet.</p>
               <p className="text-white/50 text-sm mt-1">
-                Achetez vos premiers Lumens ou completez une tache pour commencer.
+                Buy your first Lumens or complete a task to get started.
               </p>
             </div>
           ) : (
@@ -199,7 +211,7 @@ export default async function LumensPage() {
                     <th className="pb-3 text-xs text-white/60 font-medium">Date</th>
                     <th className="pb-3 text-xs text-white/60 font-medium">Type</th>
                     <th className="pb-3 text-xs text-white/60 font-medium">Description</th>
-                    <th className="pb-3 text-xs text-white/60 font-medium text-right">Montant</th>
+                    <th className="pb-3 text-xs text-white/60 font-medium text-right">Amount</th>
                   </tr>
                 </thead>
                 <tbody>

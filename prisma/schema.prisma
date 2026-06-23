@@ -30,6 +30,8 @@ model User {
   lumenBalance   Int       @default(0)
   isVerified     Boolean   @default(false)
   verifiedAt     DateTime?
+  kycStatus      KycStatus @default(NONE)
+  kycVerifiedAt  DateTime?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
@@ -701,6 +703,13 @@ enum NotifType {
   NEW_TASK_AVAILABLE
   SUBMISSION_REVIEWED
   SYSTEM
+}
+
+enum KycStatus {
+  NONE
+  PENDING
+  VERIFIED
+  REJECTED
 }
 
 enum LumenTxType {

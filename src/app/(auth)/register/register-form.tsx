@@ -6,11 +6,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { registerAction } from '@/app/actions/auth'
-import { signIn as nextAuthSignIn } from 'next-auth/react'
-import { SKILLS, LANGUAGES } from '@/lib/constants'
-import { CheckCircle, UserPlus, User, Mail, Lock, Link2, Briefcase, Eye, EyeOff } from 'lucide-react'
+import { CheckCircle, UserPlus, User, Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 const VALID_ROLES = ['CONTRIBUTOR', 'ARTIST', 'STUNT_PERFORMER', 'SCREENWRITER', 'VIEWER']
@@ -20,13 +17,11 @@ export function RegisterForm() {
   const searchParams = useSearchParams()
   const t = useTranslations('auth')
   const [state, action, isPending] = useActionState(registerAction, {})
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([])
-  const [selectedLanguages, setSelectedLanguages] = useState<string[]>(['Français'])
   const [showPassword, setShowPassword] = useState(false)
 
-  // Auto-select role from URL param (e.g. ?role=SCREENWRITER)
+  // Optional deep-link role (e.g. ?role=SCREENWRITER) — kept hidden, not a required choice.
   const urlRole = searchParams.get('role')?.toUpperCase() || ''
-  const [role, setRole] = useState(VALID_ROLES.includes(urlRole) ? urlRole : 'CONTRIBUTOR')
+  const role = VALID_ROLES.includes(urlRole) ? urlRole : 'CONTRIBUTOR'
 
   useEffect(() => {
     if (state.success) {
@@ -52,18 +47,6 @@ export function RegisterForm() {
     )
   }
 
-  const toggleSkill = (skill: string) => {
-    setSelectedSkills((prev) =>
-      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]
-    )
-  }
-
-  const toggleLanguage = (lang: string) => {
-    setSelectedLanguages((prev) =>
-      prev.includes(lang) ? prev.filter((l) => l !== lang) : [...prev, lang]
-    )
-  }
-
   return (
     <div className="space-y-10">
       {/* Header */}
@@ -75,9 +58,7 @@ export function RegisterForm() {
           <span className="text-shimmer">{role === 'SCREENWRITER' ? t('become_screenwriter') : t('join_cinegeny')}</span>
         </h1>
         <p className="text-white/50 text-sm sm:text-base">
-          {role === 'SCREENWRITER'
-            ? t('screenwriter_subtitle')
-            : t('register_subtitle_default')}
+          Create your free account. Watch, vote, and unlock everything else whenever you want.
         </p>
       </div>
 
@@ -87,13 +68,6 @@ export function RegisterForm() {
 
         <div className="relative sm:rounded-3xl rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8 sm:p-10 shadow-2xl shadow-black/20">
           <form action={action} className="space-y-7">
-            {/* Hidden fields for arrays */}
-            {selectedSkills.map((skill) => (
-              <input key={skill} type="hidden" name="skills" value={skill} />
-            ))}
-            {selectedLanguages.map((lang) => (
-              <input key={lang} type="hidden" name="languages" value={lang} />
-            ))}
             <input type="hidden" name="role" value={role} />
 
             {state.error && (
@@ -102,35 +76,35 @@ export function RegisterForm() {
               </div>
             )}
 
-            {/* Name + Email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <Label htmlFor="displayName" className="text-white/70 text-sm font-medium">{t('name_pseudo')}</Label>
-                <div className="relative">
-                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
-                  <Input
-                    id="displayName"
-                    name="displayName"
-                    placeholder="Jean Dupont"
-                    required
-                    minLength={2}
-                    className="pl-11 h-12 rounded-xl bg-white/[0.04] border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#E50914]/40 focus:ring-[#E50914]/20 transition-all duration-300"
-                  />
-                </div>
+            {/* Name */}
+            <div className="space-y-3">
+              <Label htmlFor="displayName" className="text-white/70 text-sm font-medium">{t('name_pseudo')}</Label>
+              <div className="relative">
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
+                <Input
+                  id="displayName"
+                  name="displayName"
+                  placeholder="Jane Doe"
+                  required
+                  minLength={2}
+                  className="pl-11 h-12 rounded-xl bg-white/[0.04] border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#E50914]/40 focus:ring-[#E50914]/20 transition-all duration-300"
+                />
               </div>
-              <div className="space-y-3">
-                <Label htmlFor="email" className="text-white/70 text-sm font-medium">{t('email')}</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="vous@exemple.com"
-                    required
-                    className="pl-11 h-12 rounded-xl bg-white/[0.04] border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#E50914]/40 focus:ring-[#E50914]/20 transition-all duration-300"
-                  />
-                </div>
+            </div>
+
+            {/* Email */}
+            <div className="space-y-3">
+              <Label htmlFor="email" className="text-white/70 text-sm font-medium">{t('email')}</Label>
+              <div className="relative">
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                  className="pl-11 h-12 rounded-xl bg-white/[0.04] border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#E50914]/40 focus:ring-[#E50914]/20 transition-all duration-300"
+                />
               </div>
             </div>
 
@@ -156,91 +130,6 @@ export function RegisterForm() {
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
-              </div>
-            </div>
-
-            {/* Separator */}
-            <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-
-            {/* Role */}
-            <div className="space-y-3">
-              <Label className="text-white/70 text-sm font-medium flex items-center gap-2">
-                <Briefcase className="h-3.5 w-3.5 text-[#E50914]/60" />
-                {t('desired_role')}
-              </Label>
-              <Select value={role} onValueChange={setRole}>
-                <SelectTrigger className="h-12 rounded-xl bg-white/[0.04] border-white/[0.08] text-white focus:border-[#E50914]/40 focus:ring-[#E50914]/20">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="CONTRIBUTOR">Contributeur Créatif</SelectItem>
-                  <SelectItem value="ARTIST">Artiste / Directeur Artistique</SelectItem>
-                  <SelectItem value="STUNT_PERFORMER">Cascadeur / Performer</SelectItem>
-                  <SelectItem value="SCREENWRITER">Scénariste</SelectItem>
-                  <SelectItem value="VIEWER">Spectateur</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Portfolio URL */}
-            <div className="space-y-3">
-              <Label htmlFor="portfolioUrl" className="text-white/70 text-sm font-medium flex items-center gap-2">
-                <Link2 className="h-3.5 w-3.5 text-[#E50914]/60" />
-                Portfolio URL <span className="text-white/25">{t('portfolio_optional')}</span>
-              </Label>
-              <Input
-                id="portfolioUrl"
-                name="portfolioUrl"
-                type="url"
-                placeholder="https://votre-portfolio.com"
-                className="h-12 rounded-xl bg-white/[0.04] border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#E50914]/40 focus:ring-[#E50914]/20 transition-all duration-300"
-              />
-            </div>
-
-            {/* Separator */}
-            <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-
-            {/* Skills */}
-            <div className="space-y-3">
-              <Label className="text-white/70 text-sm font-medium">
-                {t('skills_count')} <span className="text-[#E50914]/60">({selectedSkills.length})</span>
-              </Label>
-              <div className="flex flex-wrap gap-2.5">
-                {SKILLS.map((skill) => (
-                  <button
-                    key={skill}
-                    type="button"
-                    onClick={() => toggleSkill(skill)}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all duration-300 ${
-                      selectedSkills.includes(skill)
-                        ? 'bg-[#E50914]/15 border-[#E50914]/30 text-[#E50914] shadow-sm shadow-[#E50914]/10 scale-[1.02]'
-                        : 'bg-white/[0.03] border-white/[0.08] text-white/40 hover:border-white/15 hover:text-white/60 hover:bg-white/[0.05]'
-                    }`}
-                  >
-                    {skill}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Languages */}
-            <div className="space-y-3">
-              <Label className="text-white/70 text-sm font-medium">{t('languages_mastered')}</Label>
-              <div className="flex flex-wrap gap-2.5">
-                {LANGUAGES.map((lang) => (
-                  <button
-                    key={lang}
-                    type="button"
-                    onClick={() => toggleLanguage(lang)}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all duration-300 ${
-                      selectedLanguages.includes(lang)
-                        ? 'bg-[#E50914]/15 border-[#E50914]/30 text-[#E50914] shadow-sm shadow-[#E50914]/10 scale-[1.02]'
-                        : 'bg-white/[0.03] border-white/[0.08] text-white/40 hover:border-white/15 hover:text-white/60 hover:bg-white/[0.05]'
-                    }`}
-                  >
-                    {lang}
-                  </button>
-                ))}
               </div>
             </div>
 

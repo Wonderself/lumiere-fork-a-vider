@@ -39,11 +39,11 @@ import { NotificationBell } from '@/components/layout/notification-bell'
 
 const navLinks = [
   { href: '/films', label: 'Films', icon: Film },
+  { href: '/vote', label: 'Vote', icon: Trophy },
+  { href: '/participate', label: 'Participate', icon: Star },
+  { href: '/academy', label: 'Academy', icon: BookOpen },
   { href: '/streaming', label: 'Streaming', icon: Play },
-  { href: '/tasks', label: 'Tâches', icon: Star, protected: true },
-  { href: '/leaderboard', label: 'Classement', icon: Trophy },
-  { href: '/about', label: 'À Propos', icon: Info },
-  { href: '/roadmap', label: 'Roadmap', icon: BookOpen },
+  { href: '/about', label: 'About', icon: Info },
 ]
 
 export function Header() {
@@ -72,7 +72,7 @@ export function Header() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-0.5">
           {navLinks.map((link) => {
-            if (link.protected && !session?.user) return null
+            if ((link as { protected?: boolean }).protected && !session?.user) return null
             const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
             return (
               <Link
@@ -180,8 +180,8 @@ export function Header() {
             </div>
           ) : (
             <div className="flex items-center gap-2">
-              <Link href="/login"><Button variant="ghost" size="sm">Se connecter</Button></Link>
-              <Link href="/register"><Button size="sm">Rejoindre</Button></Link>
+              <Link href="/login"><Button variant="ghost" size="sm">Log in</Button></Link>
+              <Link href="/register"><Button size="sm">Join</Button></Link>
             </div>
           )}
         </div>
@@ -208,7 +208,7 @@ export function Header() {
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => {
-                if (link.protected && !session?.user) return null
+                if ((link as { protected?: boolean }).protected && !session?.user) return null
                 return (
                   <Link
                     key={link.href}

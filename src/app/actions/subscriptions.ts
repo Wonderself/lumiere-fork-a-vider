@@ -27,7 +27,7 @@ export async function subscribeToPlanAction(formData: FormData) {
   if (!session?.user?.id) return { error: 'Non authentifié' }
 
   const plan = formData.get('plan') as string
-  if (!plan || !PLAN_CONFIGS[plan]) return { error: 'Plan invalide' }
+  if (!plan || !PLAN_CONFIGS[plan]) return { error: 'Invalid plan' }
 
   const planConfig = PLAN_CONFIGS[plan]
 
@@ -72,10 +72,10 @@ export async function subscribeToPlanAction(formData: FormData) {
   })
 
   // Notify user
-  await createNotification(session.user.id, 'SYSTEM' as never, `Abonnement ${planConfig.name} activé`, {
+  await createNotification(session.user.id, 'SYSTEM' as never, `${planConfig.name} subscription activated`, {
     body: planConfig.priceEur > 0
-      ? `Votre abonnement ${planConfig.name} (${planConfig.priceEur}€/mois) est maintenant actif.`
-      : 'Votre plan gratuit est actif. Upgradez pour débloquer la HD et les téléchargements.',
+      ? `Your ${planConfig.name} subscription ($${planConfig.priceEur}/month) is now active.`
+      : 'Your free plan is active. Upgrade to unlock HD, downloads and more.',
     href: '/streaming',
   })
 
