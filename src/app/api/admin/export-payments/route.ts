@@ -23,7 +23,7 @@ export async function GET() {
   })
 
   // Build CSV
-  const headers = ['Date', 'Utilisateur', 'Email', 'Film', 'Tache', 'Montant EUR', 'Methode', 'Statut', 'Date Paiement', 'ID']
+  const headers = ['Date', 'Utilisateur', 'Email', 'Film', 'Tache', 'Montant EUR', 'Methode', 'Status', 'Date Paiement', 'ID']
   const rows = payments.map(p => [
     p.createdAt.toISOString().split('T')[0],
     `"${(p.user.displayName || '').replace(/"/g, '""')}"`,

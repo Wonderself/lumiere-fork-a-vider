@@ -81,7 +81,7 @@ export default function CookiesPage() {
                   <tr className="border-b border-white/10">
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Cookie</th>
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Finalité</th>
-                    <th className="text-left py-3 text-white/90 font-semibold">Durée</th>
+                    <th className="text-left py-3 text-white/90 font-semibold">Duration</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
@@ -130,7 +130,7 @@ export default function CookiesPage() {
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Cookie</th>
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Fournisseur</th>
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Finalité</th>
-                    <th className="text-left py-3 text-white/90 font-semibold">Durée</th>
+                    <th className="text-left py-3 text-white/90 font-semibold">Duration</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
@@ -169,7 +169,7 @@ export default function CookiesPage() {
                   <tr className="border-b border-white/10">
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Cookie</th>
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Finalité</th>
-                    <th className="text-left py-3 text-white/90 font-semibold">Durée</th>
+                    <th className="text-left py-3 text-white/90 font-semibold">Duration</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">

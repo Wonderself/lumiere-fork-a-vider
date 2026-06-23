@@ -64,7 +64,7 @@ export async function createTrailerProjectAction(
 ) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const raw = {
       title: formData.get('title') as string,
@@ -82,7 +82,7 @@ export async function createTrailerProjectAction(
     const parsed = createProjectSchema.safeParse(raw)
     if (!parsed.success) {
       const firstError = parsed.error.issues?.[0]
-      return { error: firstError?.message || 'Données invalides' }
+      return { error: firstError?.message || 'Invalid data' }
     }
 
     const data = parsed.data
@@ -132,14 +132,14 @@ export async function createTrailerProjectAction(
 export async function decomposeTrailerAction(projectId: string) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const project = await prisma.trailerProject.findUnique({
       where: { id: projectId },
     })
 
     if (!project) return { error: 'Projet introuvable' }
-    if (project.userId !== session.user.id) return { error: 'Non autorisé' }
+    if (project.userId !== session.user.id) return { error: 'Not authorized' }
     if (project.status !== 'DRAFT' && project.status !== 'AWAITING_INPUT') {
       return { error: 'Le projet ne peut pas être décomposé dans cet état' }
     }
@@ -154,7 +154,7 @@ export async function decomposeTrailerAction(projectId: string) {
     const config: TrailerDecomposeConfig = {
       genre: project.genre || 'Drama',
       duration: (project.duration || 'STANDARD_60S') as TrailerDecomposeConfig['duration'],
-      style: project.style || 'Cinématique',
+      style: project.style || 'Cinematic',
       isInternal: false,
       hasVoiceover: true,
       hasDialogue: false,
@@ -257,7 +257,7 @@ export async function updateTrailerChoiceAction(
 ) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const choice = await prisma.trailerChoice.findUnique({
       where: { id: choiceId },
@@ -267,7 +267,7 @@ export async function updateTrailerChoiceAction(
     })
 
     if (!choice) return { error: 'Choix introuvable' }
-    if (choice.project.userId !== session.user.id) return { error: 'Non autorisé' }
+    if (choice.project.userId !== session.user.id) return { error: 'Not authorized' }
 
     // Validate that selectedOption is one of the option IDs
     const options = choice.options as Array<{ id: string }>
@@ -319,7 +319,7 @@ export async function updateTrailerChoiceAction(
 export async function startTrailerGenerationAction(projectId: string) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const project = await prisma.trailerProject.findUnique({
       where: { id: projectId },
@@ -332,7 +332,7 @@ export async function startTrailerGenerationAction(projectId: string) {
     })
 
     if (!project) return { error: 'Projet introuvable' }
-    if (project.userId !== session.user.id) return { error: 'Non autorisé' }
+    if (project.userId !== session.user.id) return { error: 'Not authorized' }
     if (project.status !== 'AWAITING_INPUT' && project.status !== 'IN_PROGRESS') {
       return { error: 'Le projet n\'est pas prêt pour la génération' }
     }
@@ -393,7 +393,7 @@ export async function completeTrailerTaskAction(
 ) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const task = await prisma.trailerMicroTask.findUnique({
       where: { id: taskId },
@@ -414,7 +414,7 @@ export async function completeTrailerTaskAction(
 
     // Verify ownership or admin
     if (task.project.userId !== session.user.id && session.user.role !== 'ADMIN') {
-      return { error: 'Non autorisé' }
+      return { error: 'Not authorized' }
     }
 
     // Update task to COMPLETED
@@ -557,7 +557,7 @@ export async function submitTrailerToContestAction(
 ) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const project = await prisma.trailerProject.findUnique({
       where: { id: projectId },
@@ -572,7 +572,7 @@ export async function submitTrailerToContestAction(
     })
 
     if (!project) return { error: 'Projet introuvable' }
-    if (project.userId !== session.user.id) return { error: 'Non autorisé' }
+    if (project.userId !== session.user.id) return { error: 'Not authorized' }
     if (project.status !== 'COMPLETED') {
       return { error: 'Le projet doit être terminé avant de le soumettre' }
     }
@@ -630,7 +630,7 @@ export async function submitTrailerToContestAction(
 export async function getTrailerProjectAction(projectId: string) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const project = await prisma.trailerProject.findUnique({
       where: { id: projectId },
@@ -657,7 +657,7 @@ export async function getTrailerProjectAction(projectId: string) {
 
     if (!project) return { error: 'Projet introuvable' }
     if (project.userId !== session.user.id && session.user.role !== 'ADMIN') {
-      return { error: 'Non autorisé' }
+      return { error: 'Not authorized' }
     }
 
     return { success: true, project }
@@ -674,7 +674,7 @@ export async function getTrailerProjectAction(projectId: string) {
 export async function getMyTrailerProjectsAction() {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const projects = await prisma.trailerProject.findMany({
       where: { userId: session.user.id },
@@ -718,7 +718,7 @@ export async function getMyTrailerProjectsAction() {
 export async function deleteTrailerProjectAction(projectId: string) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const project = await prisma.trailerProject.findUnique({
       where: { id: projectId },
@@ -726,7 +726,7 @@ export async function deleteTrailerProjectAction(projectId: string) {
     })
 
     if (!project) return { error: 'Projet introuvable' }
-    if (project.userId !== session.user.id) return { error: 'Non autorisé' }
+    if (project.userId !== session.user.id) return { error: 'Not authorized' }
 
     if (project.status !== 'DRAFT' && project.status !== 'CANCELLED') {
       return { error: 'Seuls les projets en brouillon ou annulés peuvent être supprimés' }
@@ -760,12 +760,12 @@ export async function createTrailerChoiceAction(params: {
 }) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const parsed = createChoiceSchema.safeParse(params)
     if (!parsed.success) {
       const firstError = parsed.error.issues?.[0]
-      return { error: firstError?.message || 'Données invalides' }
+      return { error: firstError?.message || 'Invalid data' }
     }
 
     const data = parsed.data
@@ -776,7 +776,7 @@ export async function createTrailerChoiceAction(params: {
     })
 
     if (!project) return { error: 'Projet introuvable' }
-    if (project.userId !== session.user.id) return { error: 'Non autorisé' }
+    if (project.userId !== session.user.id) return { error: 'Not authorized' }
 
     if (data.taskId) {
       const task = await prisma.trailerMicroTask.findUnique({
@@ -824,7 +824,7 @@ export async function voteOnTrailerChoiceAction(
 ) {
   try {
     const session = await auth()
-    if (!session?.user?.id) return { error: 'Non authentifié' }
+    if (!session?.user?.id) return { error: 'Not authenticated' }
 
     const choice = await prisma.trailerChoice.findUnique({
       where: { id: choiceId },

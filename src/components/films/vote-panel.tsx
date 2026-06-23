@@ -178,7 +178,7 @@ export function VotePanel({
               className="flex flex-col items-center gap-2 py-5 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] text-emerald-400 hover:bg-emerald-500/[0.12] hover:border-emerald-500/40 transition-all duration-300"
             >
               <ThumbsUp className="h-6 w-6" />
-              <span className="text-sm font-semibold">Approuver</span>
+              <span className="text-sm font-semibold">Approve</span>
             </button>
 
             <button
@@ -186,7 +186,7 @@ export function VotePanel({
               className="flex flex-col items-center gap-2 py-5 rounded-xl border border-red-500/20 bg-red-500/[0.06] text-red-400 hover:bg-red-500/[0.12] hover:border-red-500/40 transition-all duration-300"
             >
               <ThumbsDown className="h-6 w-6" />
-              <span className="text-sm font-semibold">Rejeter</span>
+              <span className="text-sm font-semibold">Reject</span>
             </button>
           </div>
 

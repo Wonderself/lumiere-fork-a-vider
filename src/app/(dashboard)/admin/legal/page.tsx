@@ -49,10 +49,10 @@ async function updateLegalItemAction(formData: FormData) {
 // ============================================
 
 const statusConfig: Record<string, { label: string; color: string; icon: typeof CheckCircle }> = {
-  DONE: { label: 'Complété', color: 'bg-green-500/10 text-green-600 border-green-500/20', icon: CheckCircle },
-  IN_PROGRESS: { label: 'En cours', color: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20', icon: Clock },
+  DONE: { label: 'Completed', color: 'bg-green-500/10 text-green-600 border-green-500/20', icon: CheckCircle },
+  IN_PROGRESS: { label: 'In progress', color: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20', icon: Clock },
   PENDING: { label: 'En attente', color: 'bg-white/[0.05] text-white/50 border-white/10', icon: CircleDot },
-  BLOCKED: { label: 'Bloqué', color: 'bg-red-500/10 text-red-600 border-red-500/20', icon: Ban },
+  BLOCKED: { label: 'Locked', color: 'bg-red-500/10 text-red-600 border-red-500/20', icon: Ban },
   NA: { label: 'N/A', color: 'bg-white/[0.05] text-white/50 border-white/10', icon: Minus },
 }
 
@@ -233,7 +233,7 @@ export default async function AdminLegalPage() {
 
   const stats = [
     { label: 'Progression', value: `${progressPct}%`, sub: `${done}/${total} complétés`, color: 'text-[#E50914]', icon: CheckCircle },
-    { label: 'En cours', value: inProgress.toString(), sub: 'items actifs', color: 'text-yellow-600', icon: Clock },
+    { label: 'In progress', value: inProgress.toString(), sub: 'items actifs', color: 'text-yellow-600', icon: Clock },
     { label: 'Bloqués', value: blocked.toString(), sub: 'à débloquer', color: 'text-red-600', icon: Ban },
     { label: 'Priorité haute', value: highPriority.toString(), sub: 'restants', color: 'text-orange-600', icon: AlertTriangle },
     { label: 'Tâches Claude', value: claudeTasks.toString(), sub: 'automatisables', color: 'text-purple-600', icon: Bot },
@@ -433,9 +433,9 @@ export default async function AdminLegalPage() {
                               className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white/80 min-h-[36px]"
                             >
                               <option value="PENDING">En attente</option>
-                              <option value="IN_PROGRESS">En cours</option>
-                              <option value="DONE">Complété</option>
-                              <option value="BLOCKED">Bloqué</option>
+                              <option value="IN_PROGRESS">In progress</option>
+                              <option value="DONE">Completed</option>
+                              <option value="BLOCKED">Locked</option>
                               <option value="NA">N/A</option>
                             </select>
 

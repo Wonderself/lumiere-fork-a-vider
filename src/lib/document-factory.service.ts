@@ -122,7 +122,7 @@ function buildDocumentContent(
 
   // Sections
   for (const section of template.sections) {
-    if (['Parties', 'Film concerné'].includes(section)) continue
+    if (['Parties', 'Related film'].includes(section)) continue
     lines.push(`## ${section.toUpperCase()}`)
     lines.push('')
 

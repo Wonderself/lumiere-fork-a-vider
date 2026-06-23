@@ -40,10 +40,10 @@ function statusBadgeVariant(status: JobStatus): 'default' | 'secondary' | 'succe
 function statusLabel(status: JobStatus): string {
   switch (status) {
     case 'PENDING': return 'En attente'
-    case 'PROCESSING': return 'En cours'
-    case 'COMPLETED': return 'Terminé'
-    case 'FAILED': return 'Échoué'
-    case 'CANCELLED': return 'Annulé'
+    case 'PROCESSING': return 'In progress'
+    case 'COMPLETED': return 'Completed'
+    case 'FAILED': return 'Failed'
+    case 'CANCELLED': return 'Cancelled'
   }
 }
 
@@ -133,7 +133,7 @@ export default async function AdminTranscodingPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {[
             { label: 'En attente', value: stats.pending, icon: Clock, color: 'text-white/60', bg: 'bg-white/5' },
-            { label: 'En cours', value: stats.processing, icon: Activity, color: 'text-[#E50914]', bg: 'bg-[#E50914]/10' },
+            { label: 'In progress', value: stats.processing, icon: Activity, color: 'text-[#E50914]', bg: 'bg-[#E50914]/10' },
             { label: 'Terminés', value: stats.completed, icon: CheckCircle2, color: 'text-green-400', bg: 'bg-green-500/10' },
             { label: 'Échoués', value: stats.failed, icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/10' },
             { label: 'Annulés', value: stats.cancelled, icon: AlertCircle, color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
@@ -274,7 +274,7 @@ export default async function AdminTranscodingPage() {
                         </span>
                       ))}
                     </div>
-                    <Badge variant="success" className="shrink-0 text-[10px]">Terminé</Badge>
+                    <Badge variant="success" className="shrink-0 text-[10px]">Completed</Badge>
                     <div className="text-white/30 text-[10px] w-full sm:w-auto flex items-center gap-2">
                       <span>Durée : {formatDuration(job.startedAt, job.completedAt)}</span>
                       <span>·</span>
@@ -305,7 +305,7 @@ export default async function AdminTranscodingPage() {
                       <p className="text-white/80 text-sm truncate">{job.filmTitle}</p>
                       <p className="text-white/30 text-[10px] font-mono">{job.id}</p>
                     </div>
-                    <Badge variant="destructive" className="shrink-0 text-[10px]">Échoué</Badge>
+                    <Badge variant="destructive" className="shrink-0 text-[10px]">Failed</Badge>
                   </div>
                   {job.error && (
                     <div className="mt-2 px-3 py-2 rounded-lg bg-red-500/10 border border-red-500/15">
@@ -334,7 +334,7 @@ export default async function AdminTranscodingPage() {
                   {statusIcon(job.status as JobStatus)}
                   <span className="text-white/50 text-sm flex-1 truncate">{job.filmTitle}</span>
                   <span className="text-white/20 text-[10px] font-mono hidden sm:block">{job.id}</span>
-                  <Badge variant="warning" className="shrink-0 text-[10px]">Annulé</Badge>
+                  <Badge variant="warning" className="shrink-0 text-[10px]">Cancelled</Badge>
                 </CardContent>
               </Card>
             ))}

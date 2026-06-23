@@ -78,7 +78,7 @@ export async function addSubtitleAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const filmId = formData.get('filmId') as string
   const language = formData.get('language') as string
@@ -97,11 +97,11 @@ export async function addSubtitleAction(
     where: { id: filmId },
     select: { submittedById: true, slug: true },
   })
-  if (!film) return { error: 'Film introuvable' }
+  if (!film) return { error: 'Film not found' }
 
   const isOwner = film.submittedById === session.user.id
   const isAdmin = session.user.role === 'ADMIN'
-  if (!isOwner && !isAdmin) return { error: 'Non autorisé' }
+  if (!isOwner && !isAdmin) return { error: 'Not authorized' }
 
   // If content provided, validate and convert
   let finalUrl = subtitleUrl

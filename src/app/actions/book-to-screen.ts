@@ -57,7 +57,7 @@ function analyzeBookForAdaptation(params: {
   score += synopsisWords > 100 ? 8 : synopsisWords > 50 ? 4 : 0
 
   // Market appeal (popular genres)
-  const popularGenres = ['Thriller', 'Science-Fiction', 'Drame', 'Romance', 'Comédie']
+  const popularGenres = ['Thriller', 'Science-Fiction', 'Drame', 'Romance', 'Comedy']
   const marketAppeal = popularGenres.includes(genre) ? 80 : 60
   score += popularGenres.includes(genre) ? 7 : 0
 
@@ -153,7 +153,7 @@ export async function submitBookForAdaptationAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const title = formData.get('title') as string
   const author = formData.get('author') as string

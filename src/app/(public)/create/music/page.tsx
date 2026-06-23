@@ -181,7 +181,7 @@ export default function MusicPage() {
                 {
                   loading: 'Composition IA en cours...',
                   success: 'Piste originale générée et ajoutée à votre bibliothèque !',
-                  error: 'Erreur lors de la génération',
+                  error: 'Generation failed',
                 }
               )
             }}

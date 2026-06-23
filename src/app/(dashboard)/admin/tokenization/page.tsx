@@ -159,12 +159,12 @@ const statusColors: Record<string, string> = {
 }
 
 const statusLabels: Record<string, string> = {
-  DRAFT: 'Brouillon',
+  DRAFT: 'Draft',
   PENDING_LEGAL: 'En attente juridique',
   OPEN: 'Ouvert',
-  FUNDED: 'Financé',
+  FUNDED: 'Funded',
   CLOSED: 'Clôturé',
-  CANCELLED: 'Annulé',
+  CANCELLED: 'Cancelled',
   SUSPENDED: 'Suspendu',
 }
 
@@ -281,7 +281,7 @@ export default async function AdminTokenizationPage() {
               {/* Table header - desktop */}
               <div className="hidden lg:grid grid-cols-12 gap-4 px-4 py-2 text-xs text-white/30 uppercase tracking-wider">
                 <div className="col-span-3">Film</div>
-                <div className="col-span-1">Statut</div>
+                <div className="col-span-1">Status</div>
                 <div className="col-span-2">Levée / Cap</div>
                 <div className="col-span-1">Prix token</div>
                 <div className="col-span-1">Investisseurs</div>
@@ -478,7 +478,7 @@ export default async function AdminTokenizationPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-white/40 block mb-1.5">Période</label>
+                  <label className="text-xs text-white/40 block mb-1.5">Period</label>
                   <input
                     type="month"
                     name="period"
@@ -590,7 +590,7 @@ export default async function AdminTokenizationPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-white/40 block mb-1.5">Période</label>
+                  <label className="text-xs text-white/40 block mb-1.5">Period</label>
                   <input
                     type="month"
                     name="period"

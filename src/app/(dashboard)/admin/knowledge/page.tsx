@@ -112,7 +112,7 @@ export default function KnowledgeAdminPage() {
             <div className="flex gap-2">
               <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder="Recherchez dans la base de connaissances..." className="flex-1 rounded-xl border border-white/10 px-4 py-2.5 text-sm focus:border-[#E50914] focus:outline-none" onKeyDown={e => { if (e.key === 'Enter') performSearch() }} />
               <button onClick={performSearch} disabled={searching} className="px-4 py-2 bg-[#E50914] text-white text-sm rounded-xl disabled:opacity-50">
-                {searching ? '...' : 'Rechercher'}
+                {searching ? '...' : 'Search'}
               </button>
             </div>
             <p className="text-[10px] text-white/50 mt-2">Seuil similarité: {EMBEDDING_CONFIG.similarityThreshold} · Max résultats: {EMBEDDING_CONFIG.maxResults} · Fallback textuel si &lt;3 résultats</p>

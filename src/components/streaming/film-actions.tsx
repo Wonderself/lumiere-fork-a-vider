@@ -30,7 +30,7 @@ export function FilmActions({ filmTitle, filmSlug }: FilmActionsProps) {
       }
     } else {
       await navigator.clipboard.writeText(url)
-      toast.success('Lien copié dans le presse-papiers !')
+      toast.success('Link copied to clipboard!')
     }
   }
 

@@ -184,7 +184,7 @@ async function DbFilmPage({ film, credits }: { film: any; credits: FilmCredit[] 
               <div className="grid grid-cols-2 gap-5 text-center">
                 <div>
                   <div className="text-xl font-bold">{film.completedTasks}</div>
-                  <div className="text-xs text-white/30">Validées</div>
+                  <div className="text-xs text-white/30">Validated</div>
                 </div>
                 <div>
                   <div className="text-xl font-bold">{film.totalTasks}</div>

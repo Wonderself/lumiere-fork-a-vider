@@ -184,7 +184,7 @@ export function ProfileEditDialog({ user }: ProfileEditDialogProps) {
             }}
           >
             <Save className="h-4 w-4" />
-            {isPending ? 'Enregistrement...' : 'Enregistrer les modifications'}
+            {isPending ? 'Saving...' : 'Save changes'}
           </Button>
         </form>
       </DialogContent>

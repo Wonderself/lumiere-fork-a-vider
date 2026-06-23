@@ -89,8 +89,8 @@ export default function PromoCodesPage() {
           </div>
           <label className="flex items-center gap-2 text-xs text-white/60"><input type="checkbox" checked={newCode.onePerUser} onChange={e => setNewCode(p => ({ ...p, onePerUser: e.target.checked }))} className="accent-[#E50914]" />Un seul usage par utilisateur</label>
           <div className="flex gap-2">
-            <button onClick={createCode} className="px-4 py-2 bg-[#E50914] text-white text-xs rounded-lg">Créer</button>
-            <button onClick={() => setShowCreate(false)} className="px-4 py-2 bg-white/[0.05] text-white/60 text-xs rounded-lg">Annuler</button>
+            <button onClick={createCode} className="px-4 py-2 bg-[#E50914] text-white text-xs rounded-lg">Create</button>
+            <button onClick={() => setShowCreate(false)} className="px-4 py-2 bg-white/[0.05] text-white/60 text-xs rounded-lg">Cancel</button>
           </div>
         </div>
       )}
@@ -115,7 +115,7 @@ export default function PromoCodesPage() {
                   <div className="flex items-center gap-2">
                     <code className="text-sm font-mono font-bold text-white">{code.code}</code>
                     <button onClick={() => copyCode(code.code)} className="text-white/50 hover:text-white/60">{copied === code.code ? <Check className="h-3.5 w-3.5 text-green-500" /> : <Copy className="h-3.5 w-3.5" />}</button>
-                    {code.isActive ? <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-green-500/10 text-green-400">Actif</span> : <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/[0.05] text-white/50">Inactif</span>}
+                    {code.isActive ? <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-green-500/10 text-green-400">Active</span> : <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/[0.05] text-white/50">Inactive</span>}
                     {code.onePerUser && <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400">1/user</span>}
                   </div>
                   <p className="text-[10px] text-white/50 mt-0.5">{code.description}</p>

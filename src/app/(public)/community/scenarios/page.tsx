@@ -220,7 +220,7 @@ export default async function ScenariosPage() {
                       <CardContent className="p-5">
                         <div className="flex items-start justify-between mb-2">
                           <Badge variant={scenario.status === 'SHORTLISTED' ? 'warning' : 'secondary'}>
-                            {scenario.status === 'SHORTLISTED' ? 'Pre-selectionne' : 'Soumis'}
+                            {scenario.status === 'SHORTLISTED' ? 'Pre-selectionne' : 'Submitted'}
                           </Badge>
                           <span className="text-xs text-white/30">
                             {formatDate(scenario.createdAt)}

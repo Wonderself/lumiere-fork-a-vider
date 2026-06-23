@@ -177,7 +177,7 @@ export async function reviewBeforeSubmission(params: {
   const improvements: string[] = []
   if (qualityScore < 70) {
     improvements.push('Ajoutez plus de détails descriptifs')
-    improvements.push('Vérifiez la cohérence avec les scènes existantes')
+    improvements.push('Check consistency with existing scenes')
   }
   if (qualityScore < 50) {
     improvements.push('Le contenu semble trop court ou incomplet')

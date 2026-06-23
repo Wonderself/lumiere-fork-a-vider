@@ -158,7 +158,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <button onClick={generatePosts} disabled={generating || !postTopic.trim()} className="w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-                {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Génération...</> : <><Zap className="h-5 w-5" />Générer les posts</>}
+                {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Zap className="h-5 w-5" />Générer les posts</>}
               </button>
             </div>
 
@@ -175,7 +175,7 @@ export default function MarketingPage() {
                         <div className="flex gap-1.5 ml-auto">
                           <button onClick={() => copyPost(post.content, post.id)} className="px-2 py-1 rounded text-xs bg-gray-800 text-gray-400 hover:bg-gray-700 flex items-center gap-1">
                             {copied === post.id ? <Check className="h-3 w-3 text-green-400" /> : <Copy className="h-3 w-3" />}
-                            {copied === post.id ? 'Copié' : 'Copier'}
+                            {copied === post.id ? 'Copied' : 'Copy'}
                           </button>
                           <button onClick={() => addToCalendar(post)} className="px-2 py-1 rounded text-xs bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 flex items-center gap-1">
                             <Calendar className="h-3 w-3" />Planifier
@@ -239,8 +239,8 @@ export default function MarketingPage() {
                     <option value="">Template (optionnel)</option>
                     {CAMPAIGN_TEMPLATES.map(t => <option key={t.id} value={t.id}>{t.name} ({t.type})</option>)}
                   </select>
-                  <button onClick={createCampaign} className="px-4 py-2 bg-green-600 text-white text-sm rounded-xl">Créer</button>
-                  <button onClick={() => setShowNewCampaign(false)} className="px-4 py-2 bg-gray-700 text-gray-300 text-sm rounded-xl">Annuler</button>
+                  <button onClick={createCampaign} className="px-4 py-2 bg-green-600 text-white text-sm rounded-xl">Create</button>
+                  <button onClick={() => setShowNewCampaign(false)} className="px-4 py-2 bg-gray-700 text-gray-300 text-sm rounded-xl">Cancel</button>
                 </div>
               </div>
             )}

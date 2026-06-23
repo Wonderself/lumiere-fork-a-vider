@@ -240,7 +240,7 @@ export function SubmitScenarioForm() {
                   className="gap-2"
                 >
                   <Sparkles className="h-4 w-4" />
-                  {isPending ? 'Envoi en cours...' : 'Soumettre la proposition'}
+                  {isPending ? 'Sending...' : 'Soumettre la proposition'}
                 </Button>
               </div>
             </form>

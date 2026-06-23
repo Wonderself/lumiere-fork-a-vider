@@ -30,10 +30,10 @@ import { submitScreenplayAction } from '@/app/actions/screenplays'
 
 const STEPS = [
   { id: 'infos', label: 'Infos', icon: FileText },
-  { id: 'contenu', label: 'Contenu', icon: PenTool },
+  { id: 'contenu', label: 'Content', icon: PenTool },
   { id: 'tolerance', label: 'Tolerance IA', icon: Wand2 },
   { id: 'revenue', label: 'Revenue Share', icon: DollarSign },
-  { id: 'review', label: 'Soumettre', icon: Send },
+  { id: 'review', label: 'Submit', icon: Send },
 ]
 
 const GENRES = [
@@ -389,7 +389,7 @@ export default function ScreenplayNewPage() {
                     </div>
                   )}
                   <div className="flex justify-between">
-                    <span className="text-sm text-white/40">Contenu</span>
+                    <span className="text-sm text-white/40">Content</span>
                     <span className="text-sm text-white/60">
                       {content.length > 0
                         ? `${content.length} caracteres`

@@ -183,7 +183,7 @@ export default async function AdminCatalogPage(
                 <tr className="border-b border-white/5">
                   <th className="text-left text-xs text-white/40 font-medium p-4">Film</th>
                   <th className="text-left text-xs text-white/40 font-medium p-4">Createur</th>
-                  <th className="text-center text-xs text-white/40 font-medium p-4">Statut</th>
+                  <th className="text-center text-xs text-white/40 font-medium p-4">Status</th>
                   <th className="text-right text-xs text-white/40 font-medium p-4">Vues</th>
                   <th className="text-right text-xs text-white/40 font-medium p-4">Rev. Share</th>
                   <th className="text-right text-xs text-white/40 font-medium p-4">Date</th>
@@ -269,7 +269,7 @@ export default async function AdminCatalogPage(
                             <button
                               type="submit"
                               className="p-1.5 rounded-lg text-red-400 hover:bg-red-500/10 transition-colors"
-                              title="Rejeter"
+                              title="Reject"
                             >
                               <XCircle className="h-4 w-4" />
                             </button>

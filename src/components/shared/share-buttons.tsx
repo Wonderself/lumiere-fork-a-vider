@@ -95,7 +95,7 @@ export function ShareButtons({ url, title, description, compact, className }: Sh
               >
                 <Icon className="h-4 w-4" style={{ color: config.color }} />
                 <span className="text-sm text-gray-300">
-                  {config.type === 'copy' && copied ? 'Copié !' : config.label}
+                  {config.type === 'copy' && copied ? 'Copied!' : config.label}
                 </span>
               </button>
             )

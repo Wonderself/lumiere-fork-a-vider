@@ -51,7 +51,7 @@ function parseUserAgent(ua: string): { device: string; browser: string; os: stri
  */
 export async function recordSessionAction(ip?: string, userAgent?: string) {
   const session = await auth()
-  if (!session?.user?.id) return { success: false, error: 'Non authentifié' }
+  if (!session?.user?.id) return { success: false, error: 'Not authenticated' }
 
   const parsed = userAgent ? parseUserAgent(userAgent) : { device: 'Unknown', browser: 'Unknown', os: 'Unknown' }
 
@@ -75,7 +75,7 @@ export async function recordSessionAction(ip?: string, userAgent?: string) {
  */
 export async function getActiveSessionsAction() {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié', sessions: null }
+  if (!session?.user?.id) return { error: 'Not authenticated', sessions: null }
 
   const sessions = await prisma.userSession.findMany({
     where: {
@@ -105,7 +105,7 @@ export async function getActiveSessionsAction() {
  */
 export async function revokeSessionAction(sessionId: string) {
   const session = await auth()
-  if (!session?.user?.id) return { success: false, error: 'Non authentifié' }
+  if (!session?.user?.id) return { success: false, error: 'Not authenticated' }
 
   const userSession = await prisma.userSession.findUnique({
     where: { id: sessionId },
@@ -113,7 +113,7 @@ export async function revokeSessionAction(sessionId: string) {
   })
 
   if (!userSession) return { success: false, error: 'Session introuvable' }
-  if (userSession.userId !== session.user.id) return { success: false, error: 'Accès refusé' }
+  if (userSession.userId !== session.user.id) return { success: false, error: 'Access denied' }
   if (userSession.revokedAt) return { success: false, error: 'Session déjà révoquée' }
 
   await prisma.userSession.update({
@@ -129,7 +129,7 @@ export async function revokeSessionAction(sessionId: string) {
  */
 export async function revokeAllSessionsAction() {
   const session = await auth()
-  if (!session?.user?.id) return { success: false, error: 'Non authentifié', count: 0 }
+  if (!session?.user?.id) return { success: false, error: 'Not authenticated', count: 0 }
 
   const result = await prisma.userSession.updateMany({
     where: {

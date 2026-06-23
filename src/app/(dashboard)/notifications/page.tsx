@@ -110,7 +110,7 @@ export default async function NotificationsPage({
     { value: '', label: 'Toutes' },
     { value: 'TASK_VALIDATED', label: 'Validees' },
     { value: 'TASK_REJECTED', label: 'Rejetees' },
-    { value: 'PAYMENT_RECEIVED', label: 'Paiements' },
+    { value: 'PAYMENT_RECEIVED', label: 'Payments' },
     { value: 'LEVEL_UP', label: 'Niveaux' },
     { value: 'SYSTEM', label: 'Systeme' },
   ]

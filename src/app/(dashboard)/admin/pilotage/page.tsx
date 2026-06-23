@@ -215,14 +215,14 @@ const INIT_SUBSIDIES: Subsidy[] = [
     desc: "Plus grand fonds cinéma d'Israël. Fiction, documentaire, animation. 7-8 films/an gros budget.",
     residency: "Résident israélien.",
     tasks: [{t:"Développer projet film complet",done:false},{t:"Identifier réalisateur israélien",done:false},{t:"Soumettre au calendrier Rabinovich",done:false}],
-    docs: ["Scénario", "Note intention", "Budget prod", "CV"] },
+    docs: ["Screenplay", "Note intention", "Budget prod", "CV"] },
 
   { id: "nfct", name: "NFCT (New Fund for Cinema & TV)", entity: "IL", cat: "Cinéma IL", amount: "Variable — développement, production, post-prod", rate: "Max 80% du budget", timing: "2 appels/an", difficulty: 3, priority: 2, deadline: "Appels sur nfct.org.il", status: "todo",
     url: "https://nfct.org.il/",
     desc: "Parcours: développement, production, finalisation. Producteur peut soumettre 5 projets max/appel.",
     residency: "Résidents israéliens de 18+ ans.",
     tasks: [{t:"Vérifier dates sur nfct.org.il",done:false},{t:"Préparer dossier bon parcours",done:false}],
-    docs: ["Scénario", "Note intention", "Budget"] },
+    docs: ["Screenplay", "Note intention", "Budget"] },
 
   // ===== FRANCE =====
   { id: "jei", name: "JEI (Jeune Entreprise Innovante)", entity: "FR", cat: "Fiscalité FR", amount: "~80-160K€/an (exonérations charges sociales)", rate: "Exonération totale charges patronales R&D", timing: "Déclaration à la création + annuelle", difficulty: 2, priority: 1, deadline: "Création SAS", status: "todo",
@@ -272,7 +272,7 @@ const INIT_SUBSIDIES: Subsidy[] = [
     desc: "Coprod internationale FR + monde. Réalisateur étranger (israélien OK). SAS FR = coproducteur FR.",
     residency: "N/A",
     tasks: [{t:"Film coprod FR-IL avec réalisateur israélien",done:false},{t:"Dépôt sur CNC MesAides",done:false}],
-    docs: ["Contrat coprod FR-IL", "Scénario", "Budget bilatéral"] },
+    docs: ["Contrat coprod FR-IL", "Screenplay", "Budget bilatéral"] },
 
   { id: "bpi-french", name: "BPI Bourse French Tech", entity: "FR", cat: "BPI", amount: "30-90K€", rate: "Subvention", timing: "Continu", difficulty: 2, priority: 2, deadline: "Continu", status: "todo",
     url: "https://www.bpifrance.fr/",
@@ -371,7 +371,7 @@ const difficultyStars = (d: number) => '★'.repeat(d) + '☆'.repeat(5 - d)
 
 const statusBadge = (s: string) => {
   if (s === 'done') return <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/10 text-green-600 border border-green-500/20">Fait</span>
-  if (s === 'in-progress') return <span className="text-[10px] px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-600 border border-yellow-500/20">En cours</span>
+  if (s === 'in-progress') return <span className="text-[10px] px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-600 border border-yellow-500/20">In progress</span>
   return <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.05] text-white/50 border border-white/10">A faire</span>
 }
 
@@ -379,7 +379,7 @@ const instCatIcon = (cat: string) => {
   if (cat.includes('VC')) return <Briefcase className="h-4 w-4 text-violet-400" />
   if (cat.includes('Angel')) return <Users className="h-4 w-4 text-amber-600" />
   if (cat.includes('ccélérateur') || cat.includes('Hub')) return <GraduationCap className="h-4 w-4 text-cyan-600" />
-  if (cat.includes('Cinéma') || cat.includes('Fonds') || cat.includes('Fondation')) return <Film className="h-4 w-4 text-rose-600" />
+  if (cat.includes('Cinema') || cat.includes('Fonds') || cat.includes('Fondation')) return <Film className="h-4 w-4 text-rose-600" />
   if (cat.includes('Banque')) return <Building2 className="h-4 w-4 text-emerald-600" />
   if (cat.includes('BPI')) return <Landmark className="h-4 w-4 text-blue-600" />
   return <Globe2 className="h-4 w-4 text-white/50" />
@@ -520,7 +520,7 @@ export default function PilotagePage() {
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder="Rechercher..."
+            placeholder="Search..."
             className="w-full pl-10 pr-4 py-2.5 bg-white/[0.03] border border-white/10 rounded-xl text-sm text-white/80 placeholder:text-white/40 focus:outline-none focus:border-[#E50914]/30 transition-colors"
           />
         </div>
@@ -547,7 +547,7 @@ export default function PilotagePage() {
             className="pl-4 pr-8 py-2.5 bg-white/[0.03] border border-white/10 rounded-xl text-sm text-white/60 appearance-none cursor-pointer focus:outline-none focus:border-[#E50914]/30 min-w-[160px]"
           >
             {catOptions.map(c => (
-              <option key={c} value={c}>{c === 'ALL' ? 'Toutes catégories' : c}</option>
+              <option key={c} value={c}>{c === 'ALL' ? 'All categories' : c}</option>
             ))}
           </select>
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-3 w-3 text-white/40 pointer-events-none" />
@@ -688,7 +688,7 @@ export default function PilotagePage() {
 
                     {sub.tasks.length > 0 && (
                       <div className="space-y-1.5">
-                        <p className="text-[10px] font-medium text-white/50 uppercase">Tâches</p>
+                        <p className="text-[10px] font-medium text-white/50 uppercase">Tasks</p>
                         {sub.tasks.map((task, idx) => (
                           <div key={idx} className="flex items-start gap-2.5">
                             <span className={`mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center text-[10px] ${

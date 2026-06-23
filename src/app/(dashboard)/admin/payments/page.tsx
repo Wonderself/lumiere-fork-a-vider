@@ -49,7 +49,7 @@ export default async function AdminPaymentsPage() {
     <div className="space-y-10">
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2 font-playfair">Paiements</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2 font-playfair">Payments</h1>
           <p className="text-white/50">{payments.length} paiement{payments.length > 1 ? 's' : ''} au total</p>
         </div>
         <Link href="/api/admin/export-payments" target="_blank">
@@ -98,7 +98,7 @@ export default async function AdminPaymentsPage() {
             <div className="col-span-3">Tâche / Film</div>
             <div className="col-span-2">Montant</div>
             <div className="col-span-1">Méthode</div>
-            <div className="col-span-1">Statut</div>
+            <div className="col-span-1">Status</div>
             <div className="col-span-1">Date</div>
             <div className="col-span-1">Action</div>
           </div>

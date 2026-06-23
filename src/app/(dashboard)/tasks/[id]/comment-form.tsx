@@ -57,7 +57,7 @@ export function CommentForm({ taskId }: CommentFormProps) {
           className="gap-2"
         >
           <Send className="h-3.5 w-3.5" />
-          {isPending ? 'Envoi...' : 'Ajouter un commentaire'}
+          {isPending ? 'Sending...' : 'Ajouter un commentaire'}
         </Button>
       </div>
     </form>

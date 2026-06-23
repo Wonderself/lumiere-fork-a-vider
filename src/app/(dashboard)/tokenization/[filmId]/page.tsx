@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ filmId: s
   const { filmId } = await params
   const film = await prisma.film.findUnique({ where: { id: filmId } })
   return {
-    title: film ? `${film.title} — Tokenization` : 'Film introuvable',
+    title: film ? `${film.title} — Tokenization` : 'Film not found',
   }
 }
 

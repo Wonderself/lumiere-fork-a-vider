@@ -29,7 +29,7 @@ const STATUS_CONFIG: Record<
   string,
   { label: string; icon: typeof CheckCircle; color: string }
 > = {
-  SUBMITTED: { label: 'Soumis', icon: Clock, color: 'text-blue-400' },
+  SUBMITTED: { label: 'Submitted', icon: Clock, color: 'text-blue-400' },
   EVALUATING: { label: 'En evaluation', icon: Clock, color: 'text-yellow-400' },
   ACCEPTED: { label: 'Accepte', icon: CheckCircle, color: 'text-green-400' },
   REJECTED: { label: 'Refuse', icon: XCircle, color: 'text-red-400' },

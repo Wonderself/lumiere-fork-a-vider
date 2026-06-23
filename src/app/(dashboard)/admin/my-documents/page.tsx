@@ -50,14 +50,14 @@ const TEMPLATES: DocTemplate[] = [
   { id: 'incident-report', name: 'Rapport d\'Incident', category: 'Rapports', icon: Shield, prompt: 'Rédige un template de rapport d\'incident technique.' },
   { id: 'audit-report', name: 'Rapport d\'Audit', category: 'Rapports', icon: ClipboardList, prompt: 'Génère un rapport d\'audit de sécurité/qualité.' },
   // Creative
-  { id: 'brief-creatif', name: 'Brief Créatif', category: 'Créatif', icon: Lightbulb, prompt: 'Rédige un brief créatif pour un nouveau film.' },
-  { id: 'synopsis', name: 'Synopsis Film', category: 'Créatif', icon: Film, prompt: 'Génère un synopsis de film basé sur un concept.' },
-  { id: 'character-bible', name: 'Bible Personnages', category: 'Créatif', icon: Users, prompt: 'Crée une bible de personnages détaillée.' },
-  { id: 'mood-board-desc', name: 'Description Mood Board', category: 'Créatif', icon: PenTool, prompt: 'Décris un mood board visuel pour un projet.' },
+  { id: 'brief-creatif', name: 'Brief Créatif', category: 'Creative', icon: Lightbulb, prompt: 'Rédige un brief créatif pour un nouveau film.' },
+  { id: 'synopsis', name: 'Synopsis Film', category: 'Creative', icon: Film, prompt: 'Génère un synopsis de film basé sur un concept.' },
+  { id: 'character-bible', name: 'Bible Personnages', category: 'Creative', icon: Users, prompt: 'Crée une bible de personnages détaillée.' },
+  { id: 'mood-board-desc', name: 'Description Mood Board', category: 'Creative', icon: PenTool, prompt: 'Décris un mood board visuel pour un projet.' },
   // Strategy
-  { id: 'roadmap', name: 'Roadmap Produit', category: 'Stratégie', icon: Calendar, prompt: 'Génère une roadmap produit sur 6 mois.' },
-  { id: 'competitive', name: 'Analyse Concurrentielle', category: 'Stratégie', icon: Award, prompt: 'Réalise une analyse concurrentielle détaillée.' },
-  { id: 'okr', name: 'OKRs Trimestriels', category: 'Stratégie', icon: Target, prompt: 'Définis les OKRs du trimestre.' },
+  { id: 'roadmap', name: 'Roadmap Produit', category: 'Strategy', icon: Calendar, prompt: 'Génère une roadmap produit sur 6 mois.' },
+  { id: 'competitive', name: 'Analyse Concurrentielle', category: 'Strategy', icon: Award, prompt: 'Réalise une analyse concurrentielle détaillée.' },
+  { id: 'okr', name: 'OKRs Trimestriels', category: 'Strategy', icon: Target, prompt: 'Définis les OKRs du trimestre.' },
 ]
 
 const CATEGORIES = Array.from(new Set(TEMPLATES.map(t => t.category)))
@@ -191,7 +191,7 @@ export default function MyDocumentsPage() {
                 <div className="flex gap-2">
                   <button onClick={copyContent} className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-white/[0.05] hover:bg-white/[0.08] transition-colors">
                     {copied ? <Check className="h-3.5 w-3.5 text-green-500" /> : <Copy className="h-3.5 w-3.5" />}
-                    {copied ? 'Copié' : 'Copier'}
+                    {copied ? 'Copied' : 'Copy'}
                   </button>
                   <button onClick={saveDoc} className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-green-500/10 text-green-400 hover:bg-green-500/15 transition-colors">
                     <Download className="h-3.5 w-3.5" /> Sauver

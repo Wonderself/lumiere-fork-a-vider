@@ -122,7 +122,7 @@ export default function AgentsPage() {
             <span className="text-sm font-medium text-[#E50914]">{ALL_AGENTS.length} agents spécialisés</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white font-[family-name:var(--font-playfair)] mb-4">
-            Agents IA <span className="text-[#E50914]">Cinéma</span>
+            Agents IA <span className="text-[#E50914]">Cinema</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Une équipe complète d&apos;experts IA spécialisés dans chaque métier du cinéma.

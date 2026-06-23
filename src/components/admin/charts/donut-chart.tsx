@@ -7,7 +7,7 @@ export function DonutChart({ data, size = 180, title }: {
   size?: number
   title?: string
 }) {
-  if (!data.length) return <div className="text-white/30 text-sm text-center py-8">Pas de données</div>
+  if (!data.length) return <div className="text-white/30 text-sm text-center py-8">No data</div>
 
   const total = data.reduce((s, d) => s + d.value, 0) || 1
   const r = size / 2 - 10

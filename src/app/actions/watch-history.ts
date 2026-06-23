@@ -27,7 +27,7 @@ export async function recordWatchProgressAction(
   durationSeconds: number
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   // Clamp progress between 0 and 100
   const clampedProgress = Math.min(100, Math.max(0, progressPercent))
@@ -161,7 +161,7 @@ export async function getContinueWatchingAction() {
  */
 export async function markAsWatchedAction(filmId: string) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   // Find existing view
   const existingView = await prisma.filmView.findFirst({

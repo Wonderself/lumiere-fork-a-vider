@@ -46,8 +46,8 @@ export default async function SubscriptionPage() {
   const subscription = await getUserSubscription(session.user.id)
 
   const statusConfig = {
-    active: { label: 'Actif', color: 'bg-green-500/10 text-green-500 border-green-500/20' },
-    cancelled: { label: 'Annulé', color: 'bg-red-500/10 text-red-400 border-red-500/20' },
+    active: { label: 'Active', color: 'bg-green-500/10 text-green-500 border-green-500/20' },
+    cancelled: { label: 'Cancelled', color: 'bg-red-500/10 text-red-400 border-red-500/20' },
     expired: { label: 'Expiré', color: 'bg-white/[0.05] text-white/50 border-white/10' },
   }
 

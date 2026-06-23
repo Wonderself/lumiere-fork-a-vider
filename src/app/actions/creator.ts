@@ -9,7 +9,7 @@ export async function saveCreatorProfileAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const stageName = formData.get('stageName') as string
   const niche = formData.get('niche') as string
@@ -64,7 +64,7 @@ export async function generateVideoAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const profile = await prisma.creatorProfile.findUnique({
     where: { userId: session.user.id },
@@ -142,7 +142,7 @@ export async function generateTrendingVideoAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const profile = await prisma.creatorProfile.findUnique({
     where: { userId: session.user.id },
@@ -252,7 +252,7 @@ export async function connectSocialAccountAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const platform = formData.get('platform') as string
   const handle = formData.get('handle') as string

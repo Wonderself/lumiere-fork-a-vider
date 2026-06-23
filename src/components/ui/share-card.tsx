@@ -44,7 +44,7 @@ export function ShareCard({ title, description, url, compact = false }: ShareCar
         <button
           onClick={handleCopyLink}
           className="h-9 w-9 rounded-lg bg-white/10 text-white/60 hover:text-white hover:bg-white/15 transition-colors flex items-center justify-center border border-white/10"
-          title="Copier le lien"
+          title="Copy link"
         >
           {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
         </button>

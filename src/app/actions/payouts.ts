@@ -7,7 +7,7 @@ import { revalidatePath } from 'next/cache'
 async function requireAdmin() {
   const session = await auth()
   if (!session?.user?.id || (session.user as { role?: string }).role !== 'ADMIN') {
-    throw new Error('Accès refusé')
+    throw new Error('Access denied')
   }
   return session
 }

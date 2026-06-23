@@ -260,7 +260,7 @@ export default async function AdminFilmTokenizerPage() {
               <CardContent className="space-y-6">
                 {/* Film selector */}
                 <div>
-                  <label className="text-xs text-white/40 block mb-1.5">Sélectionner un film</label>
+                  <label className="text-xs text-white/40 block mb-1.5">Select a film</label>
                   <select
                     name="filmId"
                     required
@@ -270,7 +270,7 @@ export default async function AdminFilmTokenizerPage() {
                     <option value="">Choisir un film...</option>
                     {availableFilms.map((film) => (
                       <option key={film.id} value={film.id}>
-                        {film.title} — {film.genre || 'Genre non défini'} — Budget: {formatPrice(film.estimatedBudget || 0)}
+                        {film.title} — {film.genre || 'Genre not set'} — Budget: {formatPrice(film.estimatedBudget || 0)}
                       </option>
                     ))}
                   </select>

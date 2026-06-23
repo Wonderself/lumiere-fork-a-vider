@@ -116,7 +116,7 @@ export function SubmitEntryForm({ contestId }: SubmitEntryFormProps) {
                   className="gap-2"
                 >
                   <Film className="h-4 w-4" />
-                  {isPending ? 'Envoi...' : 'Soumettre mon trailer'}
+                  {isPending ? 'Sending...' : 'Soumettre mon trailer'}
                 </Button>
               </div>
             </form>

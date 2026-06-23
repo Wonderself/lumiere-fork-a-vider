@@ -73,7 +73,7 @@ export function ForgotPasswordForm() {
                 size="lg"
                 loading={isPending}
               >
-                {isPending ? 'Envoi en cours...' : 'Envoyer le lien'}
+                {isPending ? 'Sending...' : 'Envoyer le lien'}
               </Button>
             </form>
           )}

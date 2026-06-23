@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Dashboard Scenariste' }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: typeof Clock }> = {
-  SUBMITTED: { label: 'Soumis', color: 'bg-blue-500/10 text-blue-600 border-blue-500/20', icon: Clock },
+  SUBMITTED: { label: 'Submitted', color: 'bg-blue-500/10 text-blue-600 border-blue-500/20', icon: Clock },
   SHORTLISTED: { label: 'Preselectione', color: 'bg-purple-500/10 text-purple-600 border-purple-500/20', icon: Star },
   VOTING: { label: 'En Vote', color: 'bg-[#E50914]/10 text-[#E50914] border-[#E50914]/20', icon: TrendingUp },
   WINNER: { label: 'Gagnant', color: 'bg-green-500/10 text-green-600 border-green-500/20', icon: Trophy },

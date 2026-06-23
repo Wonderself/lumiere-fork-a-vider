@@ -68,7 +68,7 @@ const roadmap: Phase[] = [
   },
   {
     id: 'v3',
-    name: 'Paiements',
+    name: 'Payments',
     version: 'V3',
     description: 'Les contributeurs sont payés. Stripe, co-production, transparence totale.',
     status: 'done',
@@ -138,7 +138,7 @@ const roadmap: Phase[] = [
     items: [
       { id: 'v7-1', title: 'Déploiement Production', description: 'Docker + Coolify sur Hetzner, HTTPS via Traefik, CI/CD', status: 'in_progress', difficulty: 'trivial', note: 'Coolify + Hetzner configuré' },
       { id: 'v7-2', title: 'SEO complet', description: 'Metadata dynamique, sitemap XML, robots.txt, JSON-LD Movie schema', status: 'done', difficulty: 'easy', note: 'OpenGraph + Twitter Cards + JSON-LD' },
-      { id: 'v7-3', title: 'Sécurité', description: 'Middleware auth, validation Zod, protection routes admin, rate limiting, security headers', status: 'done', difficulty: 'medium', note: 'Rate limiting (login/register/reset) + CSP + HSTS + X-Frame-Options + X-Content-Type-Options' },
+      { id: 'v7-3', title: 'Security', description: 'Middleware auth, validation Zod, protection routes admin, rate limiting, security headers', status: 'done', difficulty: 'medium', note: 'Rate limiting (login/register/reset) + CSP + HSTS + X-Frame-Options + X-Content-Type-Options' },
       { id: 'v7-4', title: 'Cache & performance', description: 'Redis ISR, images optimisées, Lighthouse 90+', status: 'done', difficulty: 'easy', note: 'Redis getCached sur films, leaderboard, community (2-5 min TTL)' },
       { id: 'v7-5', title: 'Monitoring Sentry', description: 'Error tracking, alertes, dashboard performance', status: 'done', difficulty: 'trivial', note: 'instrumentation.ts + global-error.tsx + dynamic import conditionnel' },
       { id: 'v7-6', title: 'Pages légales RGPD', description: 'CGU, confidentialité, cookies — conformes RGPD/CNIL', status: 'done', difficulty: 'trivial', note: '3 pages légales complètes' },
@@ -255,7 +255,7 @@ const roadmap: Phase[] = [
 
 const STATUS_CONFIG = {
   done: { icon: CheckCircle, color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20', label: 'Termine', badge: 'bg-green-500/15 text-green-400 border-green-500/20' },
-  in_progress: { icon: Clock, color: 'text-[#E50914]', bg: 'bg-[#E50914]/10 border-[#E50914]/20', label: 'En cours', badge: 'bg-[#E50914]/15 text-[#E50914] border-[#E50914]/20' },
+  in_progress: { icon: Clock, color: 'text-[#E50914]', bg: 'bg-[#E50914]/10 border-[#E50914]/20', label: 'In progress', badge: 'bg-[#E50914]/15 text-[#E50914] border-[#E50914]/20' },
   todo: { icon: Circle, color: 'text-white/30', bg: 'bg-white/5 border-white/10', label: 'A faire', badge: 'bg-white/5 text-white/30 border-white/10' },
 }
 

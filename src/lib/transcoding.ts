@@ -179,15 +179,15 @@ export async function startTranscodingAction(
   requestedProfiles: string[] = ['360p', '720p', '1080p']
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   // Verify admin
   const user = await prisma.user.findUnique({ where: { id: session.user.id }, select: { role: true } })
-  if (user?.role !== 'ADMIN') return { error: 'Accès refusé' }
+  if (user?.role !== 'ADMIN') return { error: 'Access denied' }
 
   // Verify film exists
   const film = await prisma.film.findUnique({ where: { id: filmId }, select: { id: true, title: true, slug: true } })
-  if (!film) return { error: 'Film introuvable' }
+  if (!film) return { error: 'Film not found' }
 
   // Validate profiles
   const validProfiles = requestedProfiles.filter(p => p in QUALITY_PROFILES)
@@ -232,10 +232,10 @@ export function getAvailableProfiles() {
  */
 export async function setFilmHlsUrl(filmId: string, hlsUrl: string) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const user = await prisma.user.findUnique({ where: { id: session.user.id }, select: { role: true } })
-  if (user?.role !== 'ADMIN') return { error: 'Accès refusé' }
+  if (user?.role !== 'ADMIN') return { error: 'Access denied' }
 
   await prisma.film.update({
     where: { id: filmId },

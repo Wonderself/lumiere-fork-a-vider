@@ -106,7 +106,7 @@ export default function DocumentFactoryPage() {
     }
 
     for (const section of selectedTemplate.sections) {
-      if (['Parties', 'Film concerné'].includes(section)) continue
+      if (['Parties', 'Related film'].includes(section)) continue
       content += `## ${section.toUpperCase()}\n\n`
       const sectionText = sectionContent[section]
       if (sectionText) {
@@ -265,7 +265,7 @@ export default function DocumentFactoryPage() {
         </div>
 
         <button onClick={generateDoc} disabled={generating} className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-          {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Génération en cours...</> : <><Zap className="h-5 w-5" />Générer le document (~{selectedTemplate.estimatedCredits} crédits)</>}
+          {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Zap className="h-5 w-5" />Générer le document (~{selectedTemplate.estimatedCredits} crédits)</>}
         </button>
       </div>
     )
@@ -285,12 +285,12 @@ export default function DocumentFactoryPage() {
           <div className="flex gap-2">
             <button onClick={copyDoc} className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-white/[0.05] hover:bg-white/[0.08]">
               {copied ? <Check className="h-3.5 w-3.5 text-green-500" /> : <Copy className="h-3.5 w-3.5" />}
-              {copied ? 'Copié' : 'Copier'}
+              {copied ? 'Copied' : 'Copy'}
             </button>
             <button onClick={saveDoc} className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-green-500/10 text-green-400 hover:bg-green-500/15">
               <Download className="h-3.5 w-3.5" /> Archiver
             </button>
-            <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-blue-500/10 text-blue-400 hover:bg-blue-500/15" title="Bientôt disponible" disabled>
+            <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs bg-blue-500/10 text-blue-400 hover:bg-blue-500/15" title="Coming soon" disabled>
               <FileText className="h-3.5 w-3.5" /> Export PDF
             </button>
           </div>

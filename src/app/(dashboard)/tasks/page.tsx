@@ -79,9 +79,9 @@ export default async function TasksPage({
           <p className="text-white/50">{tasks.length} tâche{tasks.length > 1 ? 's' : ''} trouvée{tasks.length > 1 ? 's' : ''}</p>
         </div>
         <div className="hidden sm:flex items-center gap-3 text-xs text-white/50">
-          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> Disponible</span>
-          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500" /> En cours</span>
-          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#E50914]" /> Validée</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> Available</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500" /> In progress</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#E50914]" /> Validated</span>
         </div>
       </div>
 
@@ -128,8 +128,8 @@ export default async function TasksPage({
             >
               <option value="">Disponibles & En cours</option>
               <option value="AVAILABLE">Disponibles</option>
-              <option value="CLAIMED">En cours</option>
-              <option value="VALIDATED">Validées</option>
+              <option value="CLAIMED">In progress</option>
+              <option value="VALIDATED">Validated</option>
             </select>
             <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-white/50 pointer-events-none" />
           </div>
@@ -153,7 +153,7 @@ export default async function TasksPage({
           </Button>
 
           <Link href="/tasks">
-            <Button variant="ghost" size="sm" className="h-10 rounded-xl text-white/50 hover:text-white/60 transition-all duration-300">Réinitialiser</Button>
+            <Button variant="ghost" size="sm" className="h-10 rounded-xl text-white/50 hover:text-white/60 transition-all duration-300">Reset</Button>
           </Link>
         </form>
       </div>

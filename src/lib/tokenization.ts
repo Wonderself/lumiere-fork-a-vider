@@ -98,12 +98,12 @@ export const RISK_LABELS: Record<string, { label: string; color: string; bgColor
 
 /** Offering status labels */
 export const OFFERING_STATUS_LABELS: Record<string, string> = {
-  DRAFT: 'Brouillon',
+  DRAFT: 'Draft',
   PENDING_LEGAL: 'Revue juridique',
   OPEN: 'Ouvert',
-  FUNDED: 'Financé',
+  FUNDED: 'Funded',
   CLOSED: 'Clôturé',
-  CANCELLED: 'Annulé',
+  CANCELLED: 'Cancelled',
   SUSPENDED: 'Suspendu',
 }
 
@@ -114,7 +114,7 @@ export const PROPOSAL_TYPE_LABELS: Record<string, string> = {
   BUDGET_REALLOC: 'Réallocation Budget',
   DISTRIBUTION: 'Distribution',
   MARKETING: 'Marketing',
-  CREATIVE: 'Créatif',
+  CREATIVE: 'Creative',
   GENERAL: 'Général',
 }
 
@@ -122,8 +122,8 @@ export const PROPOSAL_TYPE_LABELS: Record<string, string> = {
 export const DIVIDEND_STATUS_LABELS: Record<string, string> = {
   PENDING: 'En attente',
   CALCULATED: 'Calculé',
-  PAID: 'Payé',
-  FAILED: 'Échoué',
+  PAID: 'Paid',
+  FAILED: 'Failed',
 }
 
 // ============================================
@@ -294,7 +294,7 @@ export function getTimeRemaining(closesAt: Date | null): string {
   if (!closesAt) return 'Pas de date limite'
   const now = new Date()
   const diff = closesAt.getTime() - now.getTime()
-  if (diff <= 0) return 'Terminé'
+  if (diff <= 0) return 'Completed'
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24))
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))

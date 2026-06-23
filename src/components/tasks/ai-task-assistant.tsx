@@ -30,7 +30,7 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
     await new Promise(r => setTimeout(r, 1500))
     setSuggestions([
       { type: 'creative', title: 'Approche alternative', content: `Pour cette tâche de ${taskCategory}, explorez un angle différent. Pensez aux émotions que vous voulez transmettre.` },
-      { type: 'technical', title: 'Format recommandé', content: 'Suivez les standards du projet pour cette catégorie de tâche. Vérifiez les guidelines dans la fiche du film.' },
+      { type: 'technical', title: 'Recommended format', content: 'Suivez les standards du projet pour cette catégorie de tâche. Vérifiez les guidelines dans la fiche du film.' },
       { type: 'improvement', title: 'Enrichissement', content: 'Ajoutez des détails sensoriels et des descriptions d\'ambiance pour renforcer l\'impact de votre contribution.' },
     ])
     setLoading(false)
@@ -46,7 +46,7 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
       score,
       passed: score >= 70,
       feedback: score >= 80 ? 'Excellent travail !' : score >= 60 ? 'Bonne soumission avec des améliorations possibles.' : 'Des améliorations sont nécessaires.',
-      improvements: score < 80 ? ['Vérifiez la cohérence avec les scènes existantes', 'Enrichissez les descriptions visuelles'] : [],
+      improvements: score < 80 ? ['Check consistency with existing scenes', 'Enrichissez les descriptions visuelles'] : [],
     })
     setLoading(false)
   }

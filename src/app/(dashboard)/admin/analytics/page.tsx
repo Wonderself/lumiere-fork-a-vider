@@ -65,7 +65,7 @@ export default async function AdminAnalyticsPage() {
   // KPI cards data
   const kpis = data ? [
     {
-      label: 'Utilisateurs',
+      label: 'Users',
       value: data.users.total,
       sub: `+${data.users.new7d} cette semaine`,
       trend: data.users.new7d > 0 ? 'up' : 'neutral',
@@ -341,7 +341,7 @@ export default async function AdminAnalyticsPage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { label: 'Disponibles', value: data.tasks.available, color: '#3b82f6' },
-                { label: 'En cours', value: data.tasks.inProgress, color: '#E50914' },
+                { label: 'In progress', value: data.tasks.inProgress, color: '#E50914' },
                 { label: 'Completees', value: data.tasks.completed, color: '#22c55e' },
                 { label: 'Total', value: data.tasks.total, color: '#9ca3af' },
               ].map((item) => (

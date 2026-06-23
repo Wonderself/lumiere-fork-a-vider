@@ -24,7 +24,7 @@ export default async function NewTaskPage() {
   return (
     <div className="max-w-2xl space-y-8">
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold font-playfair">Nouvelle Tâche</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold font-playfair">New task</h1>
         <p className="text-white/50">Créer une nouvelle tâche pour un film.</p>
       </div>
 
@@ -45,7 +45,7 @@ export default async function NewTaskPage() {
               required
               className="h-10 w-full rounded-xl border border-white/10 bg-white/5 px-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 transition-colors duration-300"
             >
-              <option value="">Sélectionner un film</option>
+              <option value="">Select a film</option>
               {films.map((film) => (
                 <option key={film.id} value={film.id}>{film.title}</option>
               ))}
@@ -118,7 +118,7 @@ export default async function NewTaskPage() {
               name="status"
               className="h-10 w-full rounded-xl border border-white/10 bg-white/5 px-3 text-sm text-white focus:outline-none"
             >
-              <option value="AVAILABLE">Disponible</option>
+              <option value="AVAILABLE">Available</option>
               <option value="LOCKED">Verrouillée</option>
             </select>
           </div>
@@ -164,7 +164,7 @@ export default async function NewTaskPage() {
         <div className="flex gap-3">
           <Button type="submit" size="lg">Créer la Tâche</Button>
           <Link href="/admin/tasks">
-            <Button type="button" variant="outline" size="lg">Annuler</Button>
+            <Button type="button" variant="outline" size="lg">Cancel</Button>
           </Link>
         </div>
       </form>

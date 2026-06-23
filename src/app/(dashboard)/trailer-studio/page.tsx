@@ -18,16 +18,16 @@ export const metadata: Metadata = {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: typeof Clock }> = {
-  DRAFT: { label: 'Brouillon', color: 'bg-white/[0.05] text-white/60', icon: Clock },
+  DRAFT: { label: 'Draft', color: 'bg-white/[0.05] text-white/60', icon: Clock },
   DECOMPOSING: { label: 'Décomposition...', color: 'bg-blue-100 text-blue-600', icon: Loader2 },
   AWAITING_INPUT: { label: 'En attente', color: 'bg-amber-100 text-amber-600', icon: Clock },
-  IN_PROGRESS: { label: 'En cours', color: 'bg-purple-100 text-purple-600', icon: Loader2 },
+  IN_PROGRESS: { label: 'In progress', color: 'bg-purple-100 text-purple-600', icon: Loader2 },
   COMMUNITY_VOTE: { label: 'Vote communauté', color: 'bg-pink-100 text-pink-600', icon: Trophy },
   ASSEMBLING: { label: 'Assemblage', color: 'bg-indigo-100 text-indigo-600', icon: Loader2 },
   REVIEW: { label: 'Vérification', color: 'bg-orange-100 text-orange-600', icon: Clock },
-  COMPLETED: { label: 'Terminé', color: 'bg-green-100 text-green-600', icon: CheckCircle2 },
+  COMPLETED: { label: 'Completed', color: 'bg-green-100 text-green-600', icon: CheckCircle2 },
   SUBMITTED: { label: 'Soumis au concours', color: 'bg-[#E50914]/10 text-[#E50914]', icon: Trophy },
-  CANCELLED: { label: 'Annulé', color: 'bg-red-100 text-red-600', icon: Clock },
+  CANCELLED: { label: 'Cancelled', color: 'bg-red-100 text-red-600', icon: Clock },
 }
 
 export default async function TrailerStudioPage() {

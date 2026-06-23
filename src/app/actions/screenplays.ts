@@ -63,7 +63,7 @@ export async function submitScreenplayAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const parsed = screenplaySchema.safeParse({
     title: formData.get('title'),
@@ -75,7 +75,7 @@ export async function submitScreenplayAction(
   })
 
   if (!parsed.success) {
-    return { error: parsed.error.issues?.[0]?.message || 'Données invalides' }
+    return { error: parsed.error.issues?.[0]?.message || 'Invalid data' }
   }
 
   const { title, logline, genre, content, modificationTolerance, revenueShareBps } = parsed.data
@@ -104,7 +104,7 @@ export async function submitScreenplayAction(
 
   // Notify user
   await createNotification(session.user.id, 'SUBMISSION_REVIEWED', `Scénario "${title}" évalué`, {
-    body: `Score IA : ${score}/100 — ${status === 'ACCEPTED' ? 'Accepté' : 'À retravailler'}`,
+    body: `Score IA : ${score}/100 — ${status === 'ACCEPTED' ? 'Accepted' : 'À retravailler'}`,
     href: '/screenplays',
   })
 
@@ -128,7 +128,7 @@ export async function submitScreenplayAction(
 
 export async function generateScreenplayDealAction(formData: FormData) {
   const session = await auth()
-  if (!session?.user || session.user.role !== 'ADMIN') return { error: 'Non autorisé' }
+  if (!session?.user || session.user.role !== 'ADMIN') return { error: 'Not authorized' }
 
   const screenplayId = formData.get('screenplayId') as string
   if (!screenplayId) return { error: 'ID manquant' }

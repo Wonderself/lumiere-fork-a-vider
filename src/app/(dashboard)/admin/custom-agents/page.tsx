@@ -33,10 +33,10 @@ const AUTONOMY_CONFIG = {
 }
 
 const STATUS_CONFIG = {
-  active: { label: 'Actif', color: 'text-green-600', dot: 'bg-green-500' },
+  active: { label: 'Active', color: 'text-green-600', dot: 'bg-green-500' },
   paused: { label: 'Pause', color: 'text-yellow-600', dot: 'bg-yellow-500' },
   error: { label: 'Erreur', color: 'text-red-600', dot: 'bg-red-500' },
-  disabled: { label: 'Désactivé', color: 'text-white/50', dot: 'bg-white/30' },
+  disabled: { label: 'Disabled', color: 'text-white/50', dot: 'bg-white/30' },
 }
 
 export default function CustomAgentsPage() {

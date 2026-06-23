@@ -127,7 +127,7 @@ export default function PosterMakerPage() {
             </div>
 
             <button onClick={generate} disabled={generating || !title.trim() || !genre} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-40 transition-colors">
-              {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Génération...</> : <><Wand2 className="h-5 w-5" />Créer l&apos;affiche</>}
+              {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Wand2 className="h-5 w-5" />Créer l&apos;affiche</>}
             </button>
 
             <p className="text-[10px] text-emerald-400 text-center">0% commission — ~1.5 crédits par affiche</p>
@@ -136,7 +136,7 @@ export default function PosterMakerPage() {
           {/* Preview */}
           <div>
             <h3 className="text-sm font-semibold text-gray-400 mb-4">
-              {posters.length > 0 ? `${posters.length} affiche(s) créée(s)` : 'Aperçu'}
+              {posters.length > 0 ? `${posters.length} affiche(s) créée(s)` : 'Overview'}
             </h3>
             {posters.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-gray-700 bg-gray-900/30 aspect-[2/3] flex items-center justify-center">
@@ -189,7 +189,7 @@ export default function PosterMakerPage() {
                             try { await navigator.share(shareData) } catch { /* cancelled */ }
                           } else {
                             await navigator.clipboard.writeText(poster.url)
-                            toast.success('Lien copié dans le presse-papiers !')
+                            toast.success('Link copied to clipboard!')
                           }
                         }}
                         className="flex-1 py-2 text-xs bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700"

@@ -13,13 +13,13 @@ import {
 import { createTrailerProjectAction } from '@/app/actions/trailer'
 
 const GENRES = [
-  'Science-Fiction', 'Action', 'Drame', 'Horreur', 'Comédie',
+  'Science-Fiction', 'Action', 'Drame', 'Horreur', 'Comedy',
   'Thriller', 'Romance', 'Animation', 'Documentaire', 'Musical',
   'Fantaisie', 'Historique', 'Biblique', 'Policier', 'Aventure',
 ]
 
 const STYLES = [
-  'Cinématique', 'Anime', 'Film Noir', 'Documentaire', 'Rétro/Vintage',
+  'Cinematic', 'Anime', 'Film Noir', 'Documentaire', 'Rétro/Vintage',
   'Futuriste', 'Réaliste', 'Expressionniste', 'Minimaliste', 'Épique',
 ]
 
@@ -196,7 +196,7 @@ export function NewTrailerForm() {
           <div className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
             <Clock className="h-4 w-4 text-blue-400" />
           </div>
-          <h2 className="text-base font-semibold text-white">Durée</h2>
+          <h2 className="text-base font-semibold text-white">Duration</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
@@ -259,7 +259,7 @@ export function NewTrailerForm() {
           className="bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold shadow-md px-8"
           loading={isPending}
         >
-          {isPending ? 'Création...' : (
+          {isPending ? 'Creating...' : (
             <>
               <Wand2 className="h-4 w-4 mr-2" />
               Créer le projet

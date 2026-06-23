@@ -72,7 +72,7 @@ export default async function EarningsPage() {
   const statusLabels: Record<string, string> = {
     COMPLETED: 'Paye',
     PENDING: 'En attente',
-    PROCESSING: 'En cours',
+    PROCESSING: 'In progress',
     FAILED: 'Echoue',
   }
 

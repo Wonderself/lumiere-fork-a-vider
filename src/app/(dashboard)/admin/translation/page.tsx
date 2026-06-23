@@ -112,7 +112,7 @@ export default function TranslationPage() {
                 <span className="text-xs text-white/50">{targetConfig?.flag} {targetConfig?.name}</span>
                 <button onClick={copyText} className="flex items-center gap-1 text-xs text-white/50 hover:text-white">
                   {copied ? <Check className="h-3.5 w-3.5 text-green-500" /> : <Copy className="h-3.5 w-3.5" />}
-                  {copied ? 'Copié' : 'Copier'}
+                  {copied ? 'Copied' : 'Copy'}
                 </button>
               </div>
               <pre className="text-sm text-white/80 whitespace-pre-wrap leading-relaxed font-sans">{translatedText}</pre>

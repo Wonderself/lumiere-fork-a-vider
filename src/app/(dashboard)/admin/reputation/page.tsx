@@ -235,7 +235,7 @@ export default async function AdminReputationPage(
         <div className={`rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-white/10 bg-white/[0.02] overflow-hidden ${selectedUserId ? 'lg:col-span-3' : ''}`}>
           <div className="p-5 border-b border-white/5 flex items-center gap-2">
             <Users className="h-4 w-4 text-white/50" />
-            <h2 className="text-sm font-semibold text-white/80">Utilisateurs</h2>
+            <h2 className="text-sm font-semibold text-white/80">Users</h2>
             <span className="text-xs text-white/50 ml-auto">{users.length} resultats</span>
           </div>
 

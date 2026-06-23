@@ -74,8 +74,8 @@ const BONUS_TYPE_ICONS: Record<string, React.ComponentType<{ className?: string 
 
 const BONUS_TYPE_LABELS: Record<string, string> = {
   INTERVIEW: 'Interview',
-  DELETED_SCENE: 'Scène coupée',
-  BLOOPER: 'Bêtisier',
+  DELETED_SCENE: 'Deleted scene',
+  BLOOPER: 'Bloopers',
   BTS: 'Coulisses',
   DIRECTORS_COMMENTARY: 'Commentaire',
   CONCEPT_ART: 'Concept Art',

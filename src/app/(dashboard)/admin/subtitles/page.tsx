@@ -114,7 +114,7 @@ function AddSubtitlePanel({ film, onClose, onSuccess }: { film: Film; onClose: (
           onSuccess()
           return `Sous-titres générés pour ${autoLangs.map(l => SUPPORTED_LANGUAGES.find(x => x.code === l)?.label).join(', ')} !`
         },
-        error: 'Erreur lors de la génération',
+        error: 'Generation failed',
       }
     )
   }
@@ -427,7 +427,7 @@ export default function AdminSubtitlesPage() {
                 <thead>
                   <tr className="border-b border-white/5">
                     <th className="text-left text-xs text-white/40 font-medium p-4">Film</th>
-                    <th className="text-center text-xs text-white/40 font-medium p-4">Statut</th>
+                    <th className="text-center text-xs text-white/40 font-medium p-4">Status</th>
                     <th className="text-left text-xs text-white/40 font-medium p-4">Pistes de sous-titres</th>
                     <th className="text-right text-xs text-white/40 font-medium p-4">Actions</th>
                   </tr>

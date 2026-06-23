@@ -249,7 +249,7 @@ export function Header() {
               ) : (
                 <div className="flex gap-2 pt-3">
                   <Link href="/login" onClick={() => setMobileOpen(false)} className="flex-1">
-                    <Button variant="outline" size="sm" className="w-full">Se connecter</Button>
+                    <Button variant="outline" size="sm" className="w-full">Sign in</Button>
                   </Link>
                   <Link href="/register" onClick={() => setMobileOpen(false)} className="flex-1">
                     <Button size="sm" className="w-full">Rejoindre</Button>

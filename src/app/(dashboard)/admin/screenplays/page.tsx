@@ -31,16 +31,16 @@ export default async function AdminScreenplaysPage() {
   }
 
   const statusLabels: Record<string, string> = {
-    SUBMITTED: 'Soumis',
+    SUBMITTED: 'Submitted',
     EVALUATING: 'En évaluation',
-    ACCEPTED: 'Accepté',
-    REJECTED: 'Refusé',
+    ACCEPTED: 'Accepted',
+    REJECTED: 'Rejected',
   }
 
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2 font-playfair">Scénarios</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2 font-playfair">Screenplays</h1>
         <p className="text-white/60">{screenplays.length} scénario{screenplays.length > 1 ? 's' : ''} soumis</p>
       </div>
 
@@ -72,7 +72,7 @@ export default async function AdminScreenplaysPage() {
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/50">
                       <span>par {s.user.displayName || s.user.email}</span>
                       <span>·</span>
-                      <span>{s.genre || 'Genre non défini'}</span>
+                      <span>{s.genre || 'Genre not set'}</span>
                       <span>·</span>
                       <span>{formatDate(s.createdAt)}</span>
                       <span>·</span>

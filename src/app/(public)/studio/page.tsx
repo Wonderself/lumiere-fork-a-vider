@@ -117,7 +117,7 @@ export default function StudioPage() {
         <div className="flex gap-2 mb-8">
           {[
             { key: 'photo' as const, label: 'Photos', icon: Camera },
-            { key: 'video' as const, label: 'Vidéos', icon: Video },
+            { key: 'video' as const, label: 'Videos', icon: Video },
             { key: 'gallery' as const, label: `Galerie (${gallery.length})`, icon: Grid3X3 },
             { key: 'queue' as const, label: 'File agents', icon: Clock },
           ].map(t => {
@@ -174,13 +174,13 @@ export default function StudioPage() {
                 </div>
               </div>
               <div>
-                <label className="text-xs text-gray-400 mb-2 block">Qualité</label>
+                <label className="text-xs text-gray-400 mb-2 block">Quality</label>
                 <button onClick={() => setHdMode(!hdMode)} className={`px-4 py-2 rounded-lg text-xs font-medium ${hdMode ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-400'}`}>{hdMode ? 'HD ✓' : 'Standard'}</button>
               </div>
             </div>
 
             <button onClick={genPhoto} disabled={generating || !prompt.trim()} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-              {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Génération...</> : <><Wand2 className="h-5 w-5" />Générer</>}
+              {generating ? <><Loader2 className="h-5 w-5 animate-spin" />Generating...</> : <><Wand2 className="h-5 w-5" />Generate</>}
             </button>
           </div>
         )}
@@ -188,10 +188,10 @@ export default function StudioPage() {
         {tab === 'video' && (
           <div className="space-y-6">
             <div className="rounded-2xl border border-gray-800 bg-gray-900/50 p-6">
-              <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Décrivez la séquence vidéo..." rows={3} className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
+              <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the video sequence..." rows={3} className="w-full rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
             </div>
             <div>
-              <label className="text-xs text-gray-400 mb-2 block">Durée</label>
+              <label className="text-xs text-gray-400 mb-2 block">Duration</label>
               <div className="flex gap-2">
                 {([5, 10, 15] as const).map(d => (
                   <button key={d} onClick={() => setDuration(d)} className={`px-4 py-2 rounded-lg text-xs font-medium ${duration === d ? 'bg-[#E50914] text-white' : 'bg-gray-800 text-gray-400'}`}>{d}s</button>
@@ -260,7 +260,7 @@ export default function StudioPage() {
                   <p className="text-xs text-gray-500 mt-1">{preview.style} · {preview.category} · {preview.agent}</p>
                 </div>
               </div>
-              <button onClick={() => setPreview(null)} className="mt-4 w-full py-2 bg-gray-800 text-gray-400 rounded-xl text-sm">Fermer</button>
+              <button onClick={() => setPreview(null)} className="mt-4 w-full py-2 bg-gray-800 text-gray-400 rounded-xl text-sm">Close</button>
             </div>
           </div>
         )}

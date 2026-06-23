@@ -63,7 +63,7 @@ export default function InvoicingPage() {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Facturation</h1>
+          <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Billing</h1>
           <p className="text-sm text-white/50 mt-1">Devis, factures, TVA automatique, suivi paiements</p>
         </div>
         <button onClick={() => setView(view === 'list' ? 'create' : 'list')} className="flex items-center gap-1.5 px-4 py-2 bg-[#E50914] text-white text-xs font-medium rounded-lg hover:bg-[#FF2D2D]">
@@ -118,7 +118,7 @@ export default function InvoicingPage() {
             </div>
             <button onClick={createInvoice} disabled={generating} className="w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] text-white font-semibold rounded-xl disabled:opacity-50">
               {generating ? <Loader2 className="h-5 w-5 animate-spin" /> : <Calculator className="h-5 w-5" />}
-              {generating ? 'Création...' : `Créer la facture (${total.toFixed(2)} €)`}
+              {generating ? 'Creating...' : `Créer la facture (${total.toFixed(2)} €)`}
             </button>
           </div>
         </div>

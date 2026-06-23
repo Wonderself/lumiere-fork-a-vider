@@ -331,7 +331,7 @@ export function VideoPlayer({
                         : 'text-white/50 hover:text-white hover:bg-white/[0.06]'
                     }`}
                   >
-                    <span>Désactivé</span>
+                    <span>Disabled</span>
                     {activeSubtitle === null && <Check className="h-3 w-3 shrink-0" />}
                   </button>
 

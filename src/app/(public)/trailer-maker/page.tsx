@@ -194,7 +194,7 @@ export default function TrailerMakerPage() {
                             try { await navigator.share({ title: result.filmTitle, text: shareText, url: window.location.href }) } catch { /* cancelled */ }
                           } else {
                             await navigator.clipboard.writeText(window.location.href)
-                            toast.success('Lien copié dans le presse-papiers !')
+                            toast.success('Link copied to clipboard!')
                           }
                         }}
                         className="px-3 py-1.5 rounded-lg text-xs bg-gray-800 text-gray-400 hover:bg-gray-700"

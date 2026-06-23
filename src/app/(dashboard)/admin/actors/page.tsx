@@ -114,9 +114,9 @@ export default async function AdminActorsPage() {
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="font-semibold truncate">{actor.name}</h3>
                   {actor.isActive ? (
-                    <Badge variant="success">Actif</Badge>
+                    <Badge variant="success">Active</Badge>
                   ) : (
-                    <Badge variant="secondary">Inactif</Badge>
+                    <Badge variant="secondary">Inactive</Badge>
                   )}
                   <Badge className={`text-[10px] ${STYLE_COLORS[actor.style] || STYLE_COLORS.VERSATILE}`}>
                     {ACTOR_STYLE_LABELS[actor.style as keyof typeof ACTOR_STYLE_LABELS]}

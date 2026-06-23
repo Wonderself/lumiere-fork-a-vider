@@ -34,7 +34,7 @@ const CREDIT_PACKS = [
   },
   {
     id: 'createur',
-    name: 'Créateur',
+    name: 'Creator',
     credits: 500,
     bonus: 50,
     price: 19.99,

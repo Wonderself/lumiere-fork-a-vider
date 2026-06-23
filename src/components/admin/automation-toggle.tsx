@@ -103,7 +103,7 @@ export function AutomationCard({ item, type }: AutomationCardProps) {
             <div className="flex items-center gap-2 mb-1">
               <h4 className="font-medium text-sm">{item.title}</h4>
               {active && (
-                <Badge variant="success" className="text-[10px]">Actif</Badge>
+                <Badge variant="success" className="text-[10px]">Active</Badge>
               )}
             </div>
             <p className="text-xs text-white/50 mb-2">{item.description}</p>

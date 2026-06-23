@@ -6,7 +6,7 @@ export default function PublicLoading() {
           <div className="absolute inset-0 rounded-full border-2 border-[#E50914]/20" />
           <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#E50914] animate-spin" />
         </div>
-        <p className="text-sm text-white/30 animate-pulse">Chargement...</p>
+        <p className="text-sm text-white/30 animate-pulse">Loading...</p>
       </div>
     </div>
   )

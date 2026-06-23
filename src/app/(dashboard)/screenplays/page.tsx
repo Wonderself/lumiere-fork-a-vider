@@ -23,7 +23,7 @@ const STATUS_CONFIG: Record<
   string,
   { label: string; variant: 'default' | 'secondary' | 'destructive' | 'success' | 'warning'; className?: string }
 > = {
-  SUBMITTED: { label: 'Soumis', variant: 'secondary', className: 'border-blue-500/30 bg-blue-500/10 text-blue-600' },
+  SUBMITTED: { label: 'Submitted', variant: 'secondary', className: 'border-blue-500/30 bg-blue-500/10 text-blue-600' },
   EVALUATING: { label: 'En evaluation', variant: 'warning' },
   ACCEPTED: { label: 'Accepte', variant: 'success' },
   REJECTED: { label: 'Refuse', variant: 'destructive' },

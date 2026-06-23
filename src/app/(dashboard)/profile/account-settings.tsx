@@ -64,7 +64,7 @@ export function AccountSettings() {
         }, 3000)
       }
     } catch {
-      setDeleteError('Une erreur est survenue.')
+      setDeleteError('Something went wrong.')
     } finally {
       setDeleting(false)
     }

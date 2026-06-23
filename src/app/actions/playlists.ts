@@ -61,14 +61,14 @@ export async function addToPlaylistAction(
   filmId: string
 ): Promise<{ success?: boolean; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour modifier une playlist.' }
+  if (!session?.user?.id) return { error: 'You must be signed in to edit a playlist.' }
 
   if (!playlistId || !filmId) return { error: 'Données manquantes.' }
 
   try {
     const playlist = await prisma.playlist.findUnique({ where: { id: playlistId } })
     if (!playlist) return { error: 'Playlist introuvable.' }
-    if (playlist.userId !== session.user.id) return { error: 'Non autorisé.' }
+    if (playlist.userId !== session.user.id) return { error: 'Not authorized.' }
 
     const itemCount = await prisma.playlistItem.count({ where: { playlistId } })
     if (itemCount >= 200) {
@@ -108,14 +108,14 @@ export async function removeFromPlaylistAction(
   filmId: string
 ): Promise<{ success?: boolean; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour modifier une playlist.' }
+  if (!session?.user?.id) return { error: 'You must be signed in to edit a playlist.' }
 
   if (!playlistId || !filmId) return { error: 'Données manquantes.' }
 
   try {
     const playlist = await prisma.playlist.findUnique({ where: { id: playlistId } })
     if (!playlist) return { error: 'Playlist introuvable.' }
-    if (playlist.userId !== session.user.id) return { error: 'Non autorisé.' }
+    if (playlist.userId !== session.user.id) return { error: 'Not authorized.' }
 
     await prisma.playlistItem.deleteMany({ where: { playlistId, filmId } })
 
@@ -252,7 +252,7 @@ export async function getUserPlaylistsAction(
     }
 
     const session = await auth()
-    if (!session?.user?.id) return { playlists: [], error: 'Vous devez être connecté.' }
+    if (!session?.user?.id) return { playlists: [], error: 'You must be signed in.' }
 
     const playlists = await prisma.playlist.findMany({
       where: { userId: session.user.id },
@@ -293,7 +293,7 @@ export async function deletePlaylistAction(
   try {
     const playlist = await prisma.playlist.findUnique({ where: { id: playlistId } })
     if (!playlist) return { error: 'Playlist introuvable.' }
-    if (playlist.userId !== session.user.id) return { error: 'Non autorisé.' }
+    if (playlist.userId !== session.user.id) return { error: 'Not authorized.' }
 
     await prisma.playlist.delete({ where: { id: playlistId } })
 
@@ -312,7 +312,7 @@ export async function updatePlaylistAction(
   data: { title?: string; description?: string; isPublic?: boolean }
 ): Promise<{ success?: boolean; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour modifier une playlist.' }
+  if (!session?.user?.id) return { error: 'You must be signed in to edit a playlist.' }
 
   if (!playlistId) return { error: 'Identifiant de playlist manquant.' }
   if (!data || Object.keys(data).length === 0) return { error: 'Aucune donnée à mettre à jour.' }
@@ -325,7 +325,7 @@ export async function updatePlaylistAction(
   try {
     const playlist = await prisma.playlist.findUnique({ where: { id: playlistId } })
     if (!playlist) return { error: 'Playlist introuvable.' }
-    if (playlist.userId !== session.user.id) return { error: 'Non autorisé.' }
+    if (playlist.userId !== session.user.id) return { error: 'Not authorized.' }
 
     await prisma.playlist.update({
       where: { id: playlistId },

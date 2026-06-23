@@ -46,7 +46,7 @@ export async function startTranscodeAction(
     where: { id: filmId },
     select: { id: true, title: true, slug: true, trailerUrl: true },
   })
-  if (!film) return { error: 'Film introuvable' }
+  if (!film) return { error: 'Film not found' }
 
   // L'URL source du film (trailerUrl ou placeholder)
   const inputUrl = film.trailerUrl || `/uploads/films/${film.slug}/source.mp4`

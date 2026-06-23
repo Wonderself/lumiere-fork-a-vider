@@ -8,7 +8,7 @@ import { createHash } from 'crypto'
 
 export async function exportPersonalDataAction() {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non autorisé' }
+  if (!session?.user?.id) return { error: 'Not authorized' }
 
   const userId = session.user.id
 
@@ -41,7 +41,7 @@ export async function exportPersonalDataAction() {
     },
   })
 
-  if (!user) return { error: 'Utilisateur introuvable' }
+  if (!user) return { error: 'User not found' }
 
   // Fetch related data in parallel
   const [
@@ -227,7 +227,7 @@ export async function exportPersonalDataAction() {
 
 export async function requestAccountDeletionAction(confirmEmail: string) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non autorisé' }
+  if (!session?.user?.id) return { error: 'Not authorized' }
 
   const userId = session.user.id
 
@@ -237,7 +237,7 @@ export async function requestAccountDeletionAction(confirmEmail: string) {
     select: { email: true },
   })
 
-  if (!user) return { error: 'Utilisateur introuvable' }
+  if (!user) return { error: 'User not found' }
 
   // Verify the confirmation email matches
   if (user.email.toLowerCase() !== confirmEmail.trim().toLowerCase()) {

@@ -24,7 +24,7 @@ import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = { title: 'Mon Profil' }
+export const metadata: Metadata = { title: 'My profile' }
 
 const ROLE_LABELS: Record<string, string> = {
   ADMIN: 'Administrateur',

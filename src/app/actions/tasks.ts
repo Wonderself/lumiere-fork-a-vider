@@ -164,7 +164,7 @@ export async function submitTaskAction(formData: FormData) {
 
   // Notify user about AI review
   await createNotification(session.user.id, 'SUBMISSION_REVIEWED', `Revue IA terminée`, {
-    body: `Score IA : ${aiResult.score}/100 — ${aiResult.verdict === 'AI_APPROVED' ? 'Approuvé' : 'En attente de revue humaine'}`,
+    body: `Score IA : ${aiResult.score}/100 — ${aiResult.verdict === 'AI_APPROVED' ? 'Approved' : 'En attente de revue humaine'}`,
     href: `/tasks/${taskId}`,
   })
 

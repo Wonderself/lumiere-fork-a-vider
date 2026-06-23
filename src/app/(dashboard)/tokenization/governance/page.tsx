@@ -59,7 +59,7 @@ function TokenizationNav({ active }: { active: string }) {
 function ProposalStatusBadge({ status }: { status: string }) {
   switch (status) {
     case 'ACTIVE':
-      return <Badge variant="warning" className="text-xs"><Timer className="h-3 w-3 mr-1" />En cours</Badge>
+      return <Badge variant="warning" className="text-xs"><Timer className="h-3 w-3 mr-1" />In progress</Badge>
     case 'PASSED':
       return <Badge variant="success" className="text-xs"><CheckCircle2 className="h-3 w-3 mr-1" />Adoptée</Badge>
     case 'REJECTED':
@@ -421,13 +421,13 @@ export default async function GovernancePage() {
                   <form action={async (fd: FormData) => { 'use server'; await createProposalAction(null, fd) }} className="space-y-4">
                     {/* Offering select */}
                     <div>
-                      <label className="text-white/50 text-xs mb-1.5 block">Film concerné</label>
+                      <label className="text-white/50 text-xs mb-1.5 block">Related film</label>
                       <select
                         name="offeringId"
                         required
                         className="flex h-10 w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#E50914]/50 focus:border-[#E50914]/50 transition-all duration-200"
                       >
-                        <option value="" className="bg-[#111]">Sélectionner un film</option>
+                        <option value="" className="bg-[#111]">Select a film</option>
                         {userOfferings.map((o) => (
                           <option key={o.id} value={o.id} className="bg-[#111]">
                             {o.film.title} ({balances.get(o.id) || 0} tokens)

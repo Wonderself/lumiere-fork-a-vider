@@ -387,7 +387,7 @@ export default async function AdminBonusContentPage(props: { searchParams: Promi
                       <button
                         type="submit"
                         className="h-8 w-8 rounded-lg hover:bg-red-500/10 flex items-center justify-center text-white/20 hover:text-red-400 transition-colors"
-                        title="Supprimer"
+                        title="Delete"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>

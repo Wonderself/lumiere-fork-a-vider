@@ -38,7 +38,7 @@ const ACTION_FOLDERS: ActionFolder[] = [
   { name: 'Juridique', icon: Shield, color: '#6366F1', items: [] },
   { name: 'Équipe', icon: Flag, color: '#F59E0B', items: [] },
   { name: 'Partenariats', icon: Eye, color: '#EC4899', items: [] },
-  { name: 'Communauté', icon: Calendar, color: '#14B8A6', items: [] },
+  { name: 'Community', icon: Calendar, color: '#14B8A6', items: [] },
 ]
 
 export default function MyStrategyPage() {
@@ -142,7 +142,7 @@ export default function MyStrategyPage() {
                   <option value="medium">Moyenne</option>
                   <option value="low">Basse</option>
                 </select>
-                <button onClick={addObjective} className="px-4 py-2 bg-[#E50914] text-white text-sm rounded-lg">Ajouter</button>
+                <button onClick={addObjective} className="px-4 py-2 bg-[#E50914] text-white text-sm rounded-lg">Add</button>
               </div>
             </div>
           )}
@@ -203,7 +203,7 @@ export default function MyStrategyPage() {
               <h3 className="text-lg font-semibold text-white mb-2">Plan Stratégique IA</h3>
               <p className="text-sm text-white/50 mb-6 max-w-md mx-auto">L&apos;agent Studio Head analyse votre situation et génère un plan stratégique complet.</p>
               <button onClick={generateAIPlan} disabled={generatingPlan} className="px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-                {generatingPlan ? <><Loader2 className="inline h-5 w-5 animate-spin mr-2" />Génération...</> : <><Brain className="inline h-5 w-5 mr-2" />Générer le plan</>}
+                {generatingPlan ? <><Loader2 className="inline h-5 w-5 animate-spin mr-2" />Generating...</> : <><Brain className="inline h-5 w-5 mr-2" />Générer le plan</>}
               </button>
             </div>
           ) : (

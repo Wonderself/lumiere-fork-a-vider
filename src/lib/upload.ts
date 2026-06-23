@@ -55,7 +55,7 @@ export async function getPresignedUploadUrl(
   fileSize: number
 ): Promise<{ error?: string; data?: PresignedResult }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   // Validate file type
   const allowedMimes = ALLOWED_TYPES[category]

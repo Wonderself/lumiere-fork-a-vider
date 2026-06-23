@@ -46,7 +46,7 @@ async function getStripe() {
 export const STRIPE_PLANS = {
   free: {
     id: 'free',
-    name: 'Gratuit',
+    name: 'Free',
     priceMonthly: 0,
     stripePriceId: null,
     features: ['720p streaming', '1 écran', 'Publicités'],
@@ -75,7 +75,7 @@ export const STRIPE_PLANS = {
  */
 export async function createCheckoutSessionAction(planId: 'basic' | 'premium') {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const plan = STRIPE_PLANS[planId]
   if (!plan) return { error: 'Plan invalide' }
@@ -128,11 +128,11 @@ export async function createCheckoutSessionAction(planId: 'basic' | 'premium') {
  */
 export async function createPayoutAction(paymentId: string) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   // Verify admin
   const admin = await prisma.user.findUnique({ where: { id: session.user.id }, select: { role: true } })
-  if (admin?.role !== 'ADMIN') return { error: 'Accès refusé' }
+  if (admin?.role !== 'ADMIN') return { error: 'Access denied' }
 
   const payment = await prisma.payment.findUnique({
     where: { id: paymentId },
@@ -271,7 +271,7 @@ export async function generateAutoPayment(
  */
 export async function createConnectOnboardingAction() {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const stripe = await getStripe()
   if (!stripe) {

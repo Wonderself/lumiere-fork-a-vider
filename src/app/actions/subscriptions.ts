@@ -24,7 +24,7 @@ import type { PlanConfig } from '@/lib/subscription-plans'
  */
 export async function subscribeToPlanAction(formData: FormData) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const plan = formData.get('plan') as string
   if (!plan || !PLAN_CONFIGS[plan]) return { error: 'Invalid plan' }
@@ -99,7 +99,7 @@ export async function subscribeToPlanAction(formData: FormData) {
  */
 export async function cancelSubscriptionAction() {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const sub = await prisma.subscription.findUnique({
     where: { userId: session.user.id },

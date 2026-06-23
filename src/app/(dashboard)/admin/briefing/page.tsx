@@ -100,7 +100,7 @@ export default function BriefingPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { label: 'Nouveaux users', value: `+${briefingData.newUsers}`, total: briefingData.totalUsers, icon: TrendingUp, color: 'text-blue-600' },
-                { label: 'Requêtes IA', value: briefingData.aiRequests, icon: Zap, color: 'text-orange-600' },
+                { label: 'AI requests', value: briefingData.aiRequests, icon: Zap, color: 'text-orange-600' },
                 { label: 'Revenue', value: `${microToCredits(briefingData.revenue).toFixed(1)} cr`, icon: BarChart3, color: 'text-green-600' },
                 { label: 'Conversations', value: briefingData.conversations, icon: Activity, color: 'text-purple-600' },
                 { label: 'Tâches validées', value: briefingData.tasksCompleted, icon: CheckCircle2, color: 'text-emerald-600' },
@@ -129,7 +129,7 @@ export default function BriefingPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex gap-2 flex-wrap">
               <select value={filterCat} onChange={e => setFilterCat(e.target.value)} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs">
-                <option value="all">Toutes catégories</option>
+                <option value="all">All categories</option>
                 {IMPROVEMENT_CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
               </select>
               <select value={filterImpact} onChange={e => setFilterImpact(e.target.value)} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs">

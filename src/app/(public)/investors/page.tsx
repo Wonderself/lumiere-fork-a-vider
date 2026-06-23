@@ -97,7 +97,7 @@ const PIPELINE_PROJECTS = [
     subtitle: 'The Miracle Protocol',
     genre: 'Docu-série',
     format: '4x52\'',
-    status: 'Développement',
+    status: 'Development',
     financing: 'CNC, CIR, Fondation Shoah, Coprod Jessica Philippe',
     pitch: 'Le 7 Octobre à travers les miracles et la résilience humaine.',
     color: COLORS.red,
@@ -107,7 +107,7 @@ const PIPELINE_PROJECTS = [
     title: 'KETER',
     subtitle: 'The Singularity Point',
     genre: 'Thriller Sci-Fi',
-    format: 'Long-métrage',
+    format: 'Feature film',
     status: 'Écriture',
     financing: 'BPI Deeptech, IIA R&D, CNC',
     pitch: '"Nolan meets Zohar" — quand l\'IA atteint la conscience, la Kabbale avait la réponse.',
@@ -118,7 +118,7 @@ const PIPELINE_PROJECTS = [
     title: 'LE CODE D\'ESTHER',
     subtitle: 'Docu-fiction',
     genre: 'Docu-fiction',
-    format: 'Long-métrage',
+    format: 'Feature film',
     status: 'Droits acquis',
     financing: 'CNC, Europe Créative, Fondation Judaïsme Français',
     pitch: 'Adaptation du best-seller. Le Da Vinci Code juif.',
@@ -140,8 +140,8 @@ const PIPELINE_PROJECTS = [
     title: 'LE DERNIER CONVOI',
     subtitle: 'Film / Docu-drama',
     genre: 'Docu-drama',
-    format: 'Long-métrage',
-    status: 'Développement',
+    format: 'Feature film',
+    status: 'Development',
     financing: 'Fondation Shoah, Claims Conference, CNC, connexion Kev Adams',
     pitch: 'La Shoah en Afrique du Nord — l\'histoire jamais racontée.',
     color: '#E67E22',
@@ -150,7 +150,7 @@ const PIPELINE_PROJECTS = [
     num: 6,
     title: 'CARNAVAL',
     subtitle: 'Bad Trip',
-    genre: 'Court-métrage',
+    genre: 'Short film',
     format: '15\'',
     status: 'PRÊT À PRODUIRE',
     financing: 'Autofinancement + CNC court-métrage',
@@ -196,7 +196,7 @@ const GRANTS_DATA = {
     { name: 'BPI Transition Numérique Culture & IA', organism: 'Bpifrance', maxAmount: '50% (min 400K budget)', eligibility: 'Culture + IA', status: 'NOT_STARTED' },
     { name: 'CNC Grande Fabrique de l\'Image / AMT', organism: 'CNC', maxAmount: '40-50%', eligibility: 'Innovation audiovisuelle', status: 'NOT_STARTED' },
     { name: 'CNC Aide au développement', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Société agréée', status: 'NOT_STARTED' },
-    { name: 'CNC Aide au court-métrage', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Court-métrage', status: 'NOT_STARTED' },
+    { name: 'CNC Aide au court-métrage', organism: 'CNC', maxAmount: 'Par projet', eligibility: 'Short film', status: 'NOT_STARTED' },
     { name: 'CIR (Crédit Impôt Recherche)', organism: 'État Français', maxAmount: '30% dépenses R&D', eligibility: 'Toute entreprise R&D', status: 'IN_PROGRESS' },
     { name: 'C2I (Crédit Impôt International)', organism: 'CNC / État', maxAmount: '30-40% production France', eligibility: 'Coproduction internationale', status: 'NOT_STARTED' },
     { name: 'CII (Crédit Impôt Innovation)', organism: 'État Français', maxAmount: '20-30%', eligibility: 'PME innovante', status: 'NOT_STARTED' },
@@ -444,10 +444,10 @@ function PieChart({ slices }: { slices: typeof TOKENOMICS_SLICES }) {
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, { label: string; variant: 'success' | 'warning' | 'secondary' | 'default' | 'destructive' }> = {
     NOT_STARTED: { label: 'Non démarré', variant: 'secondary' },
-    IN_PROGRESS: { label: 'En cours', variant: 'warning' },
-    SUBMITTED: { label: 'Soumis', variant: 'default' },
-    APPROVED: { label: 'Approuvé', variant: 'success' },
-    REJECTED: { label: 'Refusé', variant: 'destructive' },
+    IN_PROGRESS: { label: 'In progress', variant: 'warning' },
+    SUBMITTED: { label: 'Submitted', variant: 'default' },
+    APPROVED: { label: 'Approved', variant: 'success' },
+    REJECTED: { label: 'Rejected', variant: 'destructive' },
   }
   const s = map[status] || map.NOT_STARTED
   return <Badge variant={s.variant} className="text-[10px]">{s.label}</Badge>
@@ -721,7 +721,7 @@ export default function InvestorsPage() {
                       <span className="text-white font-medium">{phase.tokensAllocated.toLocaleString('fr-FR')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/50">Période</span>
+                      <span className="text-white/50">Period</span>
                       <span className="text-white font-medium text-xs">
                         {phase.startDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })} — {phase.endDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}
                       </span>
@@ -1221,7 +1221,7 @@ export default function InvestorsPage() {
                         <th className="text-left p-3 text-white/50 font-medium border-b border-white/[0.06] hidden md:table-cell">Organisme</th>
                         <th className="text-right p-3 text-white/50 font-medium border-b border-white/[0.06]">Montant max</th>
                         <th className="text-right p-3 text-white/50 font-medium border-b border-white/[0.06] hidden sm:table-cell">Éligibilité</th>
-                        <th className="text-center p-3 text-white/50 font-medium border-b border-white/[0.06]">Statut</th>
+                        <th className="text-center p-3 text-white/50 font-medium border-b border-white/[0.06]">Status</th>
                       </tr>
                     </thead>
                     <tbody>

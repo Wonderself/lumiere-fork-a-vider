@@ -181,7 +181,7 @@ export default async function AdminTaskEditPage({ params }: { params: Promise<{ 
 
             {/* Status */}
             <div className="space-y-2">
-              <Label htmlFor="status">Statut</Label>
+              <Label htmlFor="status">Status</Label>
               <select
                 id="status"
                 name="status"

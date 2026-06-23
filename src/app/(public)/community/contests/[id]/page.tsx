@@ -133,7 +133,7 @@ export default async function ContestDetailPage({
             {contest.startDate && (
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
-                <span>{formatDate(contest.startDate)} — {contest.endDate ? formatDate(contest.endDate) : 'En cours'}</span>
+                <span>{formatDate(contest.startDate)} — {contest.endDate ? formatDate(contest.endDate) : 'In progress'}</span>
               </div>
             )}
             <div className="flex items-center gap-2">

@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: typeof CheckCircle2 }> = {
-  DRAFT: { label: 'Brouillon', color: 'text-white/50', icon: FileText },
+  DRAFT: { label: 'Draft', color: 'text-white/50', icon: FileText },
   PENDING_REVIEW: { label: 'En attente', color: 'text-yellow-600', icon: Clock },
-  APPROVED: { label: 'Approuvé', color: 'text-blue-600', icon: CheckCircle2 },
-  DENIED: { label: 'Refusé', color: 'text-red-400', icon: XCircle },
+  APPROVED: { label: 'Approved', color: 'text-blue-600', icon: CheckCircle2 },
+  DENIED: { label: 'Rejected', color: 'text-red-400', icon: XCircle },
   EXECUTING: { label: 'Exécution', color: 'text-purple-600', icon: Zap },
-  COMPLETED: { label: 'Terminé', color: 'text-green-600', icon: CheckCircle2 },
-  FAILED: { label: 'Échoué', color: 'text-red-500', icon: AlertTriangle },
-  ROLLED_BACK: { label: 'Annulé', color: 'text-orange-600', icon: RotateCcw },
+  COMPLETED: { label: 'Completed', color: 'text-green-600', icon: CheckCircle2 },
+  FAILED: { label: 'Failed', color: 'text-red-500', icon: AlertTriangle },
+  ROLLED_BACK: { label: 'Cancelled', color: 'text-orange-600', icon: RotateCcw },
 }
 
 const SEVERITY_CONFIG: Record<string, { label: string; color: string; bg: string }> = {

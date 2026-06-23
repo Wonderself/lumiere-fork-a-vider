@@ -39,17 +39,17 @@ export const DIFFICULTY_STARS = {
 
 export const TASK_STATUS_LABELS = {
   LOCKED: 'Verrouillée',
-  AVAILABLE: 'Disponible',
-  CLAIMED: 'En cours',
+  AVAILABLE: 'Available',
+  CLAIMED: 'In progress',
   SUBMITTED: 'Soumise',
   AI_REVIEW: 'Revue IA',
   HUMAN_REVIEW: 'Revue Humaine',
-  VALIDATED: 'Validée',
+  VALIDATED: 'Validated',
   REJECTED: 'Rejetée',
 } as const
 
 export const FILM_STATUS_LABELS = {
-  DRAFT: 'Brouillon',
+  DRAFT: 'Draft',
   PRE_PRODUCTION: 'Pré-production',
   IN_PRODUCTION: 'En production',
   POST_PRODUCTION: 'Post-production',
@@ -57,7 +57,7 @@ export const FILM_STATUS_LABELS = {
 } as const
 
 export const PHASE_LABELS = {
-  SCRIPT: 'Scénario',
+  SCRIPT: 'Screenplay',
   STORYBOARD: 'Storyboard',
   PREVIZ: 'Préviz',
   DESIGN: 'Design',
@@ -93,7 +93,7 @@ export const CATALOG_LABELS = {
   RUPPIN: 'Ruppin College',
   BIBLE: 'Films Bibliques',
   ACTION: 'Action',
-  COMMUNITY: 'Communauté',
+  COMMUNITY: 'Community',
 } as const
 
 export const SKILLS = [
@@ -131,7 +131,7 @@ export const GENRES = [
   'Action',
   'Aventure',
   'Animation',
-  'Comédie',
+  'Comedy',
   'Documentaire',
   'Drame',
   'Fantaisie',
@@ -147,7 +147,7 @@ export const GENRES = [
 
 export const ACTOR_STYLE_LABELS = {
   DRAMATIC: 'Dramatique',
-  COMEDY: 'Comédie',
+  COMEDY: 'Comedy',
   ACTION: 'Action',
   VERSATILE: 'Polyvalent',
   HORROR: 'Horreur',
@@ -165,8 +165,8 @@ export const CAST_ROLE_LABELS = {
 
 export const BONUS_TYPE_LABELS = {
   INTERVIEW: 'Interview',
-  DELETED_SCENE: 'Scène coupée',
-  BLOOPER: 'Bêtisier',
+  DELETED_SCENE: 'Deleted scene',
+  BLOOPER: 'Bloopers',
   BTS: 'Making-of',
   DIRECTORS_COMMENTARY: 'Commentaire du réalisateur',
   CONCEPT_ART: 'Concept Art',
@@ -176,7 +176,7 @@ export const BONUS_TYPE_LABELS = {
 } as const
 
 export const SCENARIO_STATUS_LABELS = {
-  SUBMITTED: 'Soumis',
+  SUBMITTED: 'Submitted',
   SHORTLISTED: 'Présélectionné',
   VOTING: 'En vote',
   WINNER: 'Gagnant',
@@ -187,5 +187,5 @@ export const CONTEST_STATUS_LABELS = {
   UPCOMING: 'À venir',
   OPEN: 'Ouvert',
   VOTING: 'En vote',
-  CLOSED: 'Terminé',
+  CLOSED: 'Completed',
 } as const

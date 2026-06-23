@@ -28,7 +28,7 @@ export default async function AdminUsersPage() {
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold font-playfair">Utilisateurs</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold font-playfair">Users</h1>
         <p className="text-white/50">
           {users.length} utilisateur{users.length > 1 ? 's' : ''} —{' '}
           {users.filter((u) => !u.isVerified).length} en attente de validation

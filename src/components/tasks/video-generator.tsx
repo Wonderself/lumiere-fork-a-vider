@@ -35,7 +35,7 @@ export function VideoGenerator({ filmProjectId, onGenerated }: VideoGeneratorPro
     setResult(null)
 
     // Simulate async polling (in production: submit job → poll status → get result)
-    const steps = ['Envoi au provider...', 'Génération en cours...', 'Rendu final...', 'Téléchargement...']
+    const steps = ['Envoi au provider...', 'Generating...', 'Rendu final...', 'Téléchargement...']
     for (let i = 0; i <= 100; i += 5) {
       await new Promise(r => setTimeout(r, activeConfig.estimatedTime * 10))
       setProgress(i)

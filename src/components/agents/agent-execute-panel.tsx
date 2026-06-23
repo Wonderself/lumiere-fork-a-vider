@@ -127,7 +127,7 @@ export function AgentExecutePanel({ agentSlug, agentName, agentColor, tier }: Ag
               className="flex items-center gap-1 text-xs text-gray-400 hover:text-white transition-colors"
             >
               {copied ? <Check className="h-3.5 w-3.5 text-green-400" /> : <Copy className="h-3.5 w-3.5" />}
-              {copied ? 'Copié' : 'Copier'}
+              {copied ? 'Copied' : 'Copy'}
             </button>
           </div>
           <div className="prose prose-invert prose-sm max-w-none">

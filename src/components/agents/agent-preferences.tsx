@@ -48,7 +48,7 @@ export function AgentPreferences({ initialValues }: AgentPreferencesProps) {
       if (result && 'error' in result) {
         toast.error((result as any).error)
       } else {
-        toast.success('Préférences sauvegardées')
+        toast.success('Preferences saved')
       }
     } catch {
       toast.error('Erreur lors de la sauvegarde')

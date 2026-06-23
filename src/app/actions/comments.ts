@@ -13,7 +13,7 @@ const taskCommentSchema = z.object({
 
 export async function addTaskCommentAction(prevState: { error?: string; success?: boolean } | null, formData: FormData) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const parsed = taskCommentSchema.safeParse({
     taskId: formData.get('taskId'),
@@ -21,7 +21,7 @@ export async function addTaskCommentAction(prevState: { error?: string; success?
   })
 
   if (!parsed.success) {
-    return { error: parsed.error.issues?.[0]?.message || 'Données invalides' }
+    return { error: parsed.error.issues?.[0]?.message || 'Invalid data' }
   }
 
   const { taskId, content } = parsed.data
@@ -226,7 +226,7 @@ export async function deleteCommentAction(
   commentId: string
 ): Promise<{ success?: boolean; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté.' }
+  if (!session?.user?.id) return { error: 'You must be signed in.' }
 
   if (!commentId) return { error: 'Commentaire manquant.' }
 
@@ -241,7 +241,7 @@ export async function deleteCommentAction(
     const isOwner = comment.userId === session.user.id
     const isAdmin = (session.user as { role?: string }).role === 'ADMIN'
 
-    if (!isOwner && !isAdmin) return { error: 'Non autorisé.' }
+    if (!isOwner && !isAdmin) return { error: 'Not authorized.' }
 
     await prisma.filmComment.update({
       where: { id: commentId },
@@ -264,7 +264,7 @@ export async function editCommentAction(
   content: string
 ): Promise<{ success?: boolean; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté.' }
+  if (!session?.user?.id) return { error: 'You must be signed in.' }
 
   if (!commentId) return { error: 'Commentaire manquant.' }
 
@@ -281,7 +281,7 @@ export async function editCommentAction(
 
     if (!comment) return { error: 'Commentaire introuvable.' }
     if (comment.isHidden) return { error: 'Ce commentaire a été supprimé.' }
-    if (comment.userId !== session.user.id) return { error: 'Non autorisé.' }
+    if (comment.userId !== session.user.id) return { error: 'Not authorized.' }
 
     await prisma.filmComment.update({
       where: { id: commentId },

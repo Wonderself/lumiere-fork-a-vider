@@ -190,14 +190,14 @@ function GeneratedVoiceItem({
         <button
           onClick={() => toast.success('Téléchargement de la piste audio...')}
           className="p-2 rounded-lg text-white/30 hover:text-white/60 hover:bg-white/[0.06] transition-colors"
-          title="Télécharger"
+          title="Download"
         >
           <Download className="h-4 w-4" />
         </button>
         <button
           onClick={onDelete}
           className="p-2 rounded-lg text-white/30 hover:text-red-400 hover:bg-red-500/10 transition-colors"
-          title="Supprimer"
+          title="Delete"
         >
           <Trash2 className="h-4 w-4" />
         </button>
@@ -240,7 +240,7 @@ export default function VoicesPage() {
       setGenerated(prev => [result, ...prev])
       toast.success(`Voix générée — ${result.voiceName} · ${result.creditCost} crédits utilisés`)
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Erreur lors de la génération')
+      toast.error(err instanceof Error ? err.message : 'Generation failed')
     } finally {
       setIsGenerating(false)
     }

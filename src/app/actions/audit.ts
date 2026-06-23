@@ -15,9 +15,9 @@ async function getClientIP(): Promise<string> {
 
 async function requireAdmin() {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
   const user = await prisma.user.findUnique({ where: { id: session.user.id }, select: { role: true } })
-  if (user?.role !== 'ADMIN') return { error: 'Accès refusé' }
+  if (user?.role !== 'ADMIN') return { error: 'Access denied' }
   return { session, error: null }
 }
 

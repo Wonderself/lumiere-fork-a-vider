@@ -21,7 +21,7 @@ export async function generateMetadata(
     where: { slug },
     select: { title: true, synopsis: true, thumbnailUrl: true },
   })
-  if (!film) return { title: 'Film introuvable' }
+  if (!film) return { title: 'Film not found' }
   return {
     title: `${film.title} — CINEGENY Streaming`,
     description: film.synopsis || `Regardez ${film.title} on CINEGENY`,

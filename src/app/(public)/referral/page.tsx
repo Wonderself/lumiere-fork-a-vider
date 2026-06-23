@@ -45,7 +45,7 @@ export default function ReferralPage() {
           <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 max-w-sm mx-auto flex items-center gap-3 mb-4">
             <code className="flex-1 text-xl font-mono font-bold text-white tracking-wider">{referralCode}</code>
             <button onClick={copyLink} className="px-4 py-2 rounded-lg bg-[#E50914] text-white text-sm font-medium hover:bg-[#FF2D2D]">
-              {copied ? <><Check className="inline h-4 w-4 mr-1" />Copié</> : <><Copy className="inline h-4 w-4 mr-1" />Copier le lien</>}
+              {copied ? <><Check className="inline h-4 w-4 mr-1" />Copied</> : <><Copy className="inline h-4 w-4 mr-1" />Copy link</>}
             </button>
           </div>
           <p className="text-xs text-gray-500">Vous avez parrainé <span className="text-white font-bold">{referralCount}</span> personne(s)</p>

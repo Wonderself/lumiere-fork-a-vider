@@ -146,7 +146,7 @@ export default function GuardrailsPage() {
           </h2>
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             {Object.keys(data.modelDistribution).length === 0 ? (
-              <p className="text-sm text-white/50 text-center py-4">Pas encore de données</p>
+              <p className="text-sm text-white/50 text-center py-4">No data yet</p>
             ) : (
               <div className="space-y-3">
                 {Object.entries(data.modelDistribution).map(([model, stats]) => {

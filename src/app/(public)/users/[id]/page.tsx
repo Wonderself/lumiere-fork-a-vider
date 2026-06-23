@@ -18,7 +18,7 @@ type Props = { params: Promise<{ id: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const user = await prisma.user.findUnique({ where: { id }, select: { displayName: true, email: true } })
-  if (!user) return { title: 'Utilisateur introuvable' }
+  if (!user) return { title: 'User not found' }
   return { title: `${user.displayName || user.email} — Profil Createur` }
 }
 

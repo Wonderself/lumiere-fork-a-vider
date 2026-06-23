@@ -18,7 +18,7 @@ interface GeneratedMedia {
 }
 
 const PHOTO_STYLES = [
-  { id: 'cinematic', label: 'Cinématique', desc: 'Éclairage cinéma, profondeur de champ' },
+  { id: 'cinematic', label: 'Cinematic', desc: 'Éclairage cinéma, profondeur de champ' },
   { id: 'noir', label: 'Film Noir', desc: 'Noir et blanc, contrastes forts' },
   { id: 'scifi', label: 'Sci-Fi', desc: 'Futuriste, néons, atmosphérique' },
   { id: 'documentary', label: 'Documentaire', desc: 'Réaliste, naturel, authenticité' },
@@ -27,7 +27,7 @@ const PHOTO_STYLES = [
 
 const RATIOS = [
   { id: '1:1', label: '1:1', desc: 'Carré', w: 1024, h: 1024 },
-  { id: '16:9', label: '16:9', desc: 'Cinéma', w: 1280, h: 720 },
+  { id: '16:9', label: '16:9', desc: 'Cinema', w: 1280, h: 720 },
   { id: '9:16', label: '9:16', desc: 'Portrait', w: 720, h: 1280 },
   { id: '4:3', label: '4:3', desc: 'Classique', w: 1024, h: 768 },
 ]
@@ -102,7 +102,7 @@ export default function MyStudioPage() {
       <div className="flex gap-2">
         {[
           { key: 'photo' as const, label: 'Photos', icon: Camera },
-          { key: 'video' as const, label: 'Vidéos', icon: Video },
+          { key: 'video' as const, label: 'Videos', icon: Video },
           { key: 'gallery' as const, label: `Galerie (${gallery.length})`, icon: Grid3X3 },
         ].map(t => {
           const TIcon = t.icon
@@ -148,7 +148,7 @@ export default function MyStudioPage() {
               </div>
             </div>
             <div>
-              <label className="text-xs text-white/50 mb-2 block">Qualité</label>
+              <label className="text-xs text-white/50 mb-2 block">Quality</label>
               <button onClick={() => setHdMode(!hdMode)} className={`px-4 py-2 rounded-lg text-xs font-medium ${hdMode ? 'bg-purple-600 text-white' : 'bg-white/[0.05] text-white/60'}`}>
                 {hdMode ? 'HD ✓' : 'Standard'}
               </button>
@@ -157,7 +157,7 @@ export default function MyStudioPage() {
 
           {/* Generate */}
           <button onClick={generatePhoto} disabled={generating || !prompt.trim()} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-            {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Génération...</> : <><Wand2 className="h-5 w-5" /> Générer l&apos;image</>}
+            {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Generating...</> : <><Wand2 className="h-5 w-5" /> Générer l&apos;image</>}
           </button>
         </div>
       )}
@@ -166,11 +166,11 @@ export default function MyStudioPage() {
         <div className="space-y-6">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <label className="text-xs text-white/50 mb-1.5 block">Prompt vidéo</label>
-            <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Décrivez la séquence vidéo..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
+            <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the video sequence..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
           </div>
 
           <div>
-            <label className="text-xs text-white/50 mb-2 block">Durée</label>
+            <label className="text-xs text-white/50 mb-2 block">Duration</label>
             <div className="flex gap-2">
               {VIDEO_DURATIONS.map(d => (
                 <button key={d.id} onClick={() => setDuration(d.id)} className={`px-4 py-2 rounded-lg text-xs font-medium ${duration === d.id ? 'bg-[#E50914] text-white' : 'bg-white/[0.05] text-white/60 hover:bg-white/[0.08]'}`}>

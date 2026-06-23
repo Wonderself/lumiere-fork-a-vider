@@ -13,7 +13,7 @@ import Link from 'next/link'
 import { sendCollabRequestAction, respondToCollabAction } from '@/app/actions/collabs'
 
 const MOCK_CREATORS = [
-  { id: '1', name: 'Sophie M.', reputation: 78, level: 'Expert', badge: '🏆', specialties: ['Scénario', 'Réalisation'], tasksCompleted: 34, votesReceived: 156, isMentor: true },
+  { id: '1', name: 'Sophie M.', reputation: 78, level: 'Expert', badge: '🏆', specialties: ['Screenplay', 'Réalisation'], tasksCompleted: 34, votesReceived: 156, isMentor: true },
   { id: '2', name: 'Alex D.', reputation: 65, level: 'Expert', badge: '🏆', specialties: ['VFX', 'Montage'], tasksCompleted: 22, votesReceived: 89, isMentor: true },
   { id: '3', name: 'Marie L.', reputation: 52, level: 'Créateur Confirmé', badge: '🎬', specialties: ['Composition', 'Sound Design'], tasksCompleted: 15, votesReceived: 67, isMentor: false },
   { id: '4', name: 'Lucas R.', reputation: 41, level: 'Créateur Confirmé', badge: '🎬', specialties: ['Production', 'Marketing'], tasksCompleted: 11, votesReceived: 45, isMentor: false },
@@ -80,7 +80,7 @@ export default function CommunityHubPage() {
       const formData = new FormData()
       formData.set('collabId', collabId)
       formData.set('action', action)
-      formData.set('response', action === 'accept' ? 'Accepté' : 'Refusé')
+      formData.set('response', action === 'accept' ? 'Accepted' : 'Rejected')
 
       await respondToCollabAction(formData)
       toast.success(action === 'accept' ? 'Collaboration acceptée !' : 'Collaboration refusée')

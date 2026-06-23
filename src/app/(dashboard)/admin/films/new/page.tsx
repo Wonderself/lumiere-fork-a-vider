@@ -95,7 +95,7 @@ export default async function NewFilmPage() {
 
         <div className="flex gap-3">
           <Button type="submit" size="lg">Créer le Film</Button>
-          <Button type="button" variant="outline" size="lg" onClick={() => history.back()}>Annuler</Button>
+          <Button type="button" variant="outline" size="lg" onClick={() => history.back()}>Cancel</Button>
         </div>
       </form>
     </div>

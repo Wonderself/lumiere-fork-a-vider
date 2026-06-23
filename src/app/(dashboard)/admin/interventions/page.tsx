@@ -474,7 +474,7 @@ export default async function InterventionsPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
           { icon: Eye, label: 'Queue Reviews', href: '/admin/reviews', color: 'text-yellow-600' },
-          { icon: Users, label: 'Utilisateurs', href: '/admin/users', color: 'text-blue-600' },
+          { icon: Users, label: 'Users', href: '/admin/users', color: 'text-blue-600' },
           { icon: Activity, label: 'Analytics', href: '/admin/analytics', color: 'text-purple-600' },
           { icon: Shield, label: 'Parametres', href: '/admin/settings', color: 'text-green-600' },
         ].map((action) => (

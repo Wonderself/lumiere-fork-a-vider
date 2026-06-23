@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 }
 
-const GENRES = ['Tous', 'Sci-Fi', 'Drame', 'Action', 'Comédie', 'Thriller', 'Animation', 'Documentaire', 'Horreur', 'Romance']
+const GENRES = ['Tous', 'Sci-Fi', 'Drame', 'Action', 'Comedy', 'Thriller', 'Animation', 'Documentaire', 'Horreur', 'Romance']
 
 export default async function StreamingPage(props: { searchParams: Promise<{ genre?: string; q?: string }> }) {
   const searchParams = await props.searchParams

@@ -137,7 +137,7 @@ export default function AdminSocialPage() {
             </div>
 
             <button onClick={generatePosts} disabled={generating || !topic.trim()} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-              {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Génération...</> : <><Zap className="h-5 w-5" /> Générer les posts</>}
+              {generating ? <><Loader2 className="h-5 w-5 animate-spin" /> Generating...</> : <><Zap className="h-5 w-5" /> Générer les posts</>}
             </button>
           </div>
 
@@ -155,7 +155,7 @@ export default function AdminSocialPage() {
                       <div className="flex gap-1.5 ml-auto">
                         <button onClick={() => copyPost(post.content, `gen-${i}`)} className="text-xs px-2 py-1 rounded bg-white/[0.05] hover:bg-white/[0.08] flex items-center gap-1">
                           {copied === `gen-${i}` ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
-                          {copied === `gen-${i}` ? 'Copié' : 'Copier'}
+                          {copied === `gen-${i}` ? 'Copied' : 'Copy'}
                         </button>
                         <button onClick={() => addToCalendar(post)} className="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-400 hover:bg-blue-500/15 flex items-center gap-1">
                           <Calendar className="h-3 w-3" /> Planifier

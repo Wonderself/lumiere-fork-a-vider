@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string }> = {
   PENDING: { label: 'En attente', color: 'text-yellow-600', bg: 'bg-yellow-500/10 border-yellow-500/20' },
-  PROCESSING: { label: 'En cours', color: 'text-blue-600', bg: 'bg-blue-500/10 border-blue-500/20' },
-  COMPLETED: { label: 'Complété', color: 'text-green-600', bg: 'bg-green-500/10 border-green-500/20' },
-  FAILED: { label: 'Échoué', color: 'text-red-400', bg: 'bg-red-500/10 border-red-500/20' },
+  PROCESSING: { label: 'In progress', color: 'text-blue-600', bg: 'bg-blue-500/10 border-blue-500/20' },
+  COMPLETED: { label: 'Completed', color: 'text-green-600', bg: 'bg-green-500/10 border-green-500/20' },
+  FAILED: { label: 'Failed', color: 'text-red-400', bg: 'bg-red-500/10 border-red-500/20' },
 }
 
 const METHOD_LABELS: Record<string, string> = {

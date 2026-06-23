@@ -54,7 +54,7 @@ export default async function AdminBillingPage() {
       border: 'border-emerald-500/20',
     },
     {
-      label: 'Requêtes IA',
+      label: 'AI requests',
       value: stats.totalRequests.toLocaleString(),
       icon: Activity,
       color: 'text-blue-400',

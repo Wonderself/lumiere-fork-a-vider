@@ -24,7 +24,7 @@ async function requireAdmin() {
  */
 export async function getBitrateProfilesAction() {
   const session = await requireAdmin()
-  if (!session) return { error: 'Accès refusé', profiles: null }
+  if (!session) return { error: 'Access denied', profiles: null }
 
   const profiles = Object.entries(QUALITY_PROFILES).map(([key, profile]) => ({
     key,
@@ -46,13 +46,13 @@ export async function getBitrateProfilesAction() {
  */
 export async function getFilmBitrateConfigAction(filmId: string) {
   const session = await requireAdmin()
-  if (!session) return { error: 'Accès refusé', config: null, filmTitle: null }
+  if (!session) return { error: 'Access denied', config: null, filmTitle: null }
 
   const film = await prisma.catalogFilm.findUnique({
     where: { id: filmId },
     select: { title: true, tags: true },
   })
-  if (!film) return { error: 'Film introuvable', config: null, filmTitle: null }
+  if (!film) return { error: 'Film not found', config: null, filmTitle: null }
 
   const bitrateTag = film.tags.find((tag) => tag.startsWith(BITRATE_TAG_PREFIX))
 
@@ -83,7 +83,7 @@ export async function getFilmBitrateConfigAction(filmId: string) {
  */
 export async function setFilmBitrateConfigAction(filmId: string, enabledProfiles: string[]) {
   const session = await requireAdmin()
-  if (!session) return { success: false, error: 'Accès refusé' }
+  if (!session) return { success: false, error: 'Access denied' }
 
   if (!enabledProfiles || enabledProfiles.length === 0) {
     return { success: false, error: 'Au moins un profil doit être activé' }
@@ -101,7 +101,7 @@ export async function setFilmBitrateConfigAction(filmId: string, enabledProfiles
     where: { id: filmId },
     select: { tags: true },
   })
-  if (!film) return { success: false, error: 'Film introuvable' }
+  if (!film) return { success: false, error: 'Film not found' }
 
   const filteredTags = film.tags.filter((tag) => !tag.startsWith(BITRATE_TAG_PREFIX))
   const newBitrateTag = `${BITRATE_TAG_PREFIX}${enabledProfiles.join(',')}`

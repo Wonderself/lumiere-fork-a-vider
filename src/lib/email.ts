@@ -128,7 +128,7 @@ export async function sendTaskValidatedEmail(
       Votre contribution a été validée avec succès.
     </p>
     <div style="background:#0A0A0A;border:1px solid #E50914/20;border-radius:12px;padding:20px;margin:16px 0;">
-      <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Tâche</p>
+      <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Task</p>
       <p style="margin:0 0 12px;color:#fff;font-weight:600;">${taskTitle}</p>
       <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Film</p>
       <p style="margin:0 0 12px;color:#fff;font-weight:600;">${filmTitle}</p>
@@ -149,7 +149,7 @@ export async function sendPaymentEmail(
   amountEur: number,
   method: string
 ): Promise<boolean> {
-  const html = layout('Paiement effectué', `
+  const html = layout('Payment completed', `
     <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Paiement envoyé 💰</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
       ${displayName}, votre paiement a été traité avec succès.
@@ -207,7 +207,7 @@ export async function sendWeeklyDigest(
     <div style="display:flex;gap:12px;margin:16px 0;">
       <div style="flex:1;background:#0A0A0A;border-radius:12px;padding:16px;text-align:center;">
         <p style="margin:0;color:#E50914;font-weight:700;font-size:24px;">${stats.tasksCompleted}</p>
-        <p style="margin:4px 0 0;color:#ffffff60;font-size:12px;">Tâches</p>
+        <p style="margin:4px 0 0;color:#ffffff60;font-size:12px;">Tasks</p>
       </div>
       <div style="flex:1;background:#0A0A0A;border-radius:12px;padding:16px;text-align:center;">
         <p style="margin:0;color:#E50914;font-weight:700;font-size:24px;">${stats.lumensEarned}</p>

@@ -52,7 +52,7 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
       <button
         onClick={handleCopy}
         className="relative inline-flex items-center justify-center h-9 w-9 rounded-lg border border-white/10 bg-white/[0.03] text-white/40 hover:text-[#E50914] hover:border-[#E50914]/30 transition-colors"
-        title="Copier le lien"
+        title="Copy link"
       >
         <Link2 style={{ width: 16, height: 16 }} />
         {copied && (

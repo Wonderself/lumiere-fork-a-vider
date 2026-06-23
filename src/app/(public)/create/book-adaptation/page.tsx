@@ -32,7 +32,7 @@ const GENRES = [
   'Science-Fiction',
   'Drame',
   'Romance',
-  'Comédie',
+  'Comedy',
   'Action',
   'Horreur',
   'Fantasy',
@@ -163,7 +163,7 @@ export default function BookAdaptationPage() {
               <div className="flex items-center gap-3 p-4 rounded-xl bg-[#E50914]/[0.06] border border-[#E50914]/15 mb-6">
                 <Clock className="h-4 w-4 text-[#E50914] shrink-0" />
                 <div>
-                  <p className="text-white/50 text-xs">Format recommandé</p>
+                  <p className="text-white/50 text-xs">Recommended format</p>
                   <p className="text-white font-semibold text-sm">{FORMAT_LABELS[analysis.suggestedFormat]}</p>
                 </div>
               </div>

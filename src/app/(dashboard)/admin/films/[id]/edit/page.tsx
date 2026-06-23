@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Admin — Éditer Film' }
 
 const FILM_STATUSES = [
-  { value: 'DRAFT', label: 'Brouillon' },
+  { value: 'DRAFT', label: 'Draft' },
   { value: 'PRE_PRODUCTION', label: 'Pré-Production' },
   { value: 'IN_PRODUCTION', label: 'En Production' },
   { value: 'POST_PRODUCTION', label: 'Post-Production' },
@@ -63,7 +63,7 @@ export default async function EditFilmPage({ params }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="status">Statut</Label>
+            <Label htmlFor="status">Status</Label>
             <select
               id="status"
               name="status"
@@ -148,7 +148,7 @@ export default async function EditFilmPage({ params }: Props) {
           {film.coverImageUrl && (
             <img
               src={film.coverImageUrl}
-              alt="Aperçu"
+              alt="Overview"
               className="mt-2 h-32 w-48 object-cover rounded-lg border border-white/10"
             />
           )}
@@ -175,7 +175,7 @@ export default async function EditFilmPage({ params }: Props) {
             </div>
             <div>
               <div className="text-xl font-bold">{film._count.tasks}</div>
-              <div className="text-xs text-white/30">Tâches</div>
+              <div className="text-xs text-white/30">Tasks</div>
             </div>
             <div>
               <div className="text-xl font-bold">{film.phases.length}</div>
@@ -185,9 +185,9 @@ export default async function EditFilmPage({ params }: Props) {
         </div>
 
         <div className="flex gap-3">
-          <Button type="submit" size="lg">Enregistrer les modifications</Button>
+          <Button type="submit" size="lg">Save changes</Button>
           <Link href="/admin/films">
-            <Button type="button" variant="outline" size="lg">Annuler</Button>
+            <Button type="button" variant="outline" size="lg">Cancel</Button>
           </Link>
         </div>
       </form>

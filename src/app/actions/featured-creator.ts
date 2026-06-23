@@ -69,19 +69,19 @@ export async function setFeaturedCreatorAction(
   achievement: string
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { success: false, error: 'Non authentifié' }
+  if (!session?.user?.id) return { success: false, error: 'Not authenticated' }
 
   const admin = await prisma.user.findUnique({
     where: { id: session.user.id },
     select: { role: true },
   })
-  if (admin?.role !== 'ADMIN') return { success: false, error: 'Accès refusé' }
+  if (admin?.role !== 'ADMIN') return { success: false, error: 'Access denied' }
 
   const targetUser = await prisma.user.findUnique({
     where: { id: userId },
     select: { id: true },
   })
-  if (!targetUser) return { success: false, error: 'Utilisateur introuvable' }
+  if (!targetUser) return { success: false, error: 'User not found' }
 
   const weekStart = getMondayOfCurrentWeek()
 
@@ -117,13 +117,13 @@ export async function setFeaturedCreatorAction(
  */
 export async function autoSelectFeaturedCreatorAction() {
   const session = await auth()
-  if (!session?.user?.id) return { success: false, error: 'Non authentifié', creator: null }
+  if (!session?.user?.id) return { success: false, error: 'Not authenticated', creator: null }
 
   const admin = await prisma.user.findUnique({
     where: { id: session.user.id },
     select: { role: true },
   })
-  if (admin?.role !== 'ADMIN') return { success: false, error: 'Accès refusé', creator: null }
+  if (admin?.role !== 'ADMIN') return { success: false, error: 'Access denied', creator: null }
 
   const sevenDaysAgo = new Date()
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
@@ -160,7 +160,7 @@ export async function autoSelectFeaturedCreatorAction() {
       tasksCompleted: true,
     },
   })
-  if (!topUser) return { success: false, error: 'Utilisateur introuvable', creator: null }
+  if (!topUser) return { success: false, error: 'User not found', creator: null }
 
   const weekStart = getMondayOfCurrentWeek()
   const name = topUser.displayName || 'Contributeur'

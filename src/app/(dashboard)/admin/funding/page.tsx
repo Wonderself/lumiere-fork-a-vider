@@ -29,10 +29,10 @@ const statusColors: Record<string, string> = {
 const statusLabels: Record<string, string> = {
   NOT_STARTED: 'Non démarré',
   ELIGIBLE: 'Éligible',
-  IN_PROGRESS: 'En cours',
+  IN_PROGRESS: 'In progress',
   SUBMITTED: 'Dossier déposé',
   ACCEPTED: 'Obtenu',
-  REJECTED: 'Refusé',
+  REJECTED: 'Rejected',
   EXPIRED: 'Expiré',
 }
 

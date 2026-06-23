@@ -8,7 +8,7 @@ export function LineChart({ data, color = '#E50914', height = 200, title }: {
   height?: number
   title?: string
 }) {
-  if (!data.length) return <div className="text-white/30 text-sm text-center py-8">Pas de données</div>
+  if (!data.length) return <div className="text-white/30 text-sm text-center py-8">No data</div>
 
   const w = 600
   const h = height

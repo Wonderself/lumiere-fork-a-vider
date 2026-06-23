@@ -66,7 +66,7 @@ export default function EnhancedBillingPage() {
   const kpis = [
     { label: 'Revenue totale', value: `${microToCredits(data.totalRevenue).toFixed(2)} cr`, icon: DollarSign, color: 'text-green-400', bg: 'bg-green-500/10' },
     { label: 'Marge', value: `${microToCredits(data.totalMargin).toFixed(2)} cr`, icon: TrendingUp, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-    { label: 'Requêtes IA', value: data.totalRequests.toLocaleString(), icon: Activity, color: 'text-blue-400', bg: 'bg-blue-500/10' },
+    { label: 'AI requests', value: data.totalRequests.toLocaleString(), icon: Activity, color: 'text-blue-400', bg: 'bg-blue-500/10' },
     { label: 'Wallets actifs', value: data.activeWallets, icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/10' },
     { label: 'Solde total', value: `${microToCredits(data.totalBalance).toFixed(2)} cr`, icon: Wallet, color: 'text-orange-400', bg: 'bg-orange-500/10' },
   ]
@@ -118,7 +118,7 @@ export default function EnhancedBillingPage() {
             <PieChart className="h-4 w-4 text-purple-500" /> Distribution par action
           </h2>
           {pieData.length === 0 ? (
-            <div className="flex items-center justify-center h-[250px] text-sm text-white/50">Pas encore de données</div>
+            <div className="flex items-center justify-center h-[250px] text-sm text-white/50">No data yet</div>
           ) : (
             <ResponsiveContainer width="100%" height={250}>
               <RPieChart>
@@ -141,7 +141,7 @@ export default function EnhancedBillingPage() {
           <BarChart3 className="h-4 w-4 text-blue-500" /> Crédits consommés par action
         </h2>
         {actionChartData.length === 0 ? (
-          <div className="flex items-center justify-center h-[200px] text-sm text-white/50">Pas encore de données</div>
+          <div className="flex items-center justify-center h-[200px] text-sm text-white/50">No data yet</div>
         ) : (
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={actionChartData}>
@@ -172,7 +172,7 @@ export default function EnhancedBillingPage() {
             </div>
           ))}
           {data.topUsers.length === 0 && (
-            <div className="p-6 text-center text-sm text-white/50">Pas encore de données</div>
+            <div className="p-6 text-center text-sm text-white/50">No data yet</div>
           )}
         </div>
       </div>

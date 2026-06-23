@@ -92,7 +92,7 @@ export default function ProStudioPage() {
             </div>
           </div>
           <div className="flex gap-2">
-            <Link href="/studio/guided" className="text-[10px] text-gray-500 hover:text-white px-3 py-1.5 rounded-lg bg-gray-800">Mode Guidé</Link>
+            <Link href="/studio/guided" className="text-[10px] text-gray-500 hover:text-white px-3 py-1.5 rounded-lg bg-gray-800">Guided mode</Link>
             <button onClick={() => setCompareMode(!compareMode)} className={`text-[10px] px-3 py-1.5 rounded-lg ${compareMode ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-500'}`}>
               <Columns className="inline h-3 w-3 mr-1" />Comparer
             </button>
@@ -103,7 +103,7 @@ export default function ProStudioPage() {
         <div className="flex gap-1.5 mb-6">
           {[
             { key: 'photo' as const, label: 'Photo', icon: Camera },
-            { key: 'video' as const, label: 'Vidéo', icon: Video },
+            { key: 'video' as const, label: 'Video', icon: Video },
             { key: 'batch' as const, label: `Batch (×${batchCount})`, icon: Grid3X3 },
             { key: 'history' as const, label: `Historique (${promptHistory.length})`, icon: History },
             { key: 'projects' as const, label: `Galerie (${gallery.length})`, icon: FolderOpen },
@@ -193,8 +193,8 @@ export default function ProStudioPage() {
 
                 {/* Generate Buttons */}
                 <button onClick={() => generate(tab === 'batch' ? batchCount : 1)} disabled={generating || !prompt.trim()} className="w-full flex items-center justify-center gap-2 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-50 transition-colors">
-                  {generating ? <><Loader2 className="h-5 w-5 animate-spin" />{tab === 'batch' ? `Batch ×${batchCount}...` : 'Génération...'}</> :
-                    <><Wand2 className="h-5 w-5" />{tab === 'batch' ? `Batch ×${batchCount}` : 'Générer'}</>}
+                  {generating ? <><Loader2 className="h-5 w-5 animate-spin" />{tab === 'batch' ? `Batch ×${batchCount}...` : 'Generating...'}</> :
+                    <><Wand2 className="h-5 w-5" />{tab === 'batch' ? `Batch ×${batchCount}` : 'Generate'}</>}
                 </button>
 
                 {tab === 'batch' && (
@@ -212,7 +212,7 @@ export default function ProStudioPage() {
             {tab === 'video' && (
               <div className="space-y-4">
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-                  <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Décrivez la séquence vidéo..." rows={4} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
+                  <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the video sequence..." rows={4} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-[#E50914] focus:outline-none resize-none" />
                 </div>
                 <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
                   <label className="text-[10px] text-gray-400 mb-2 block">Provider vidéo ({VIDEO_MODELS.length})</label>
@@ -288,7 +288,7 @@ export default function ProStudioPage() {
             <div className="mt-6 rounded-xl border border-gray-800 bg-gray-900/30 p-4">
               <div className="flex items-center gap-2 mb-2"><Keyboard className="h-3.5 w-3.5 text-gray-500" /><span className="text-[10px] text-gray-500">Raccourcis</span></div>
               <div className="flex gap-4 text-[10px] text-gray-600">
-                <span><kbd className="px-1 py-0.5 bg-gray-800 rounded text-[9px]">⌘+Enter</kbd> Générer</span>
+                <span><kbd className="px-1 py-0.5 bg-gray-800 rounded text-[9px]">⌘+Enter</kbd> Generate</span>
                 <span><kbd className="px-1 py-0.5 bg-gray-800 rounded text-[9px]">⌘+B</kbd> Batch</span>
                 <span><kbd className="px-1 py-0.5 bg-gray-800 rounded text-[9px]">⌘+C</kbd> Comparer</span>
                 <span><kbd className="px-1 py-0.5 bg-gray-800 rounded text-[9px]">⌘+H</kbd> Historique</span>

@@ -54,7 +54,7 @@ const STATUS_CONFIG: Record<
     icon: Clock,
   },
   IN_PROGRESS: {
-    label: 'En cours',
+    label: 'In progress',
     color: 'text-purple-400',
     bgColor: 'bg-purple-400/10',
     borderColor: 'border-purple-400/20',
@@ -156,7 +156,7 @@ export default async function DashboardOrdersPage() {
               bg: 'bg-[#E50914]/10',
             },
             {
-              label: 'En cours',
+              label: 'In progress',
               value: activeOrders.length,
               icon: Clock,
               color: 'text-amber-400',

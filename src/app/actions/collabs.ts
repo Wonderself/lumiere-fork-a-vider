@@ -34,7 +34,7 @@ export async function sendCollabRequestAction(
     where: { id: toUserId },
     include: { creatorProfile: true },
   })
-  if (!targetUser) return { error: 'Utilisateur introuvable' }
+  if (!targetUser) return { error: 'User not found' }
   if (!targetUser.creatorProfile) return { error: 'Cet utilisateur n\'a pas de profil createur' }
 
   // Check sender balance for escrow

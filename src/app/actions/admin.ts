@@ -407,7 +407,7 @@ export async function runAiReviewAction(formData: FormData) {
   ])
 
   await createNotification(submission.userId, 'SUBMISSION_REVIEWED', 'Revue IA terminée', {
-    body: `Score IA : ${aiResult.score}/100 — ${aiResult.verdict === 'AI_APPROVED' ? 'Approuvé' : 'En attente de revue humaine'}`,
+    body: `Score IA : ${aiResult.score}/100 — ${aiResult.verdict === 'AI_APPROVED' ? 'Approved' : 'En attente de revue humaine'}`,
     href: `/tasks/${submission.taskId}`,
   })
 
@@ -455,7 +455,7 @@ export async function grantLumensAction(formData: FormData) {
   })
   if (!parsed.success) {
     const firstError = parsed.error.issues?.[0]
-    return { error: firstError?.message || 'Données invalides' }
+    return { error: firstError?.message || 'Invalid data' }
   }
   const { userId, amount, reason } = parsed.data
 
@@ -597,7 +597,7 @@ export async function markPaymentPaidAction(formData: FormData) {
 
   await prisma.payment.update({ where: { id: paymentId }, data: { status: 'COMPLETED', paidAt: new Date() } })
 
-  await createNotification(payment.userId, 'PAYMENT_RECEIVED', 'Paiement effectué', {
+  await createNotification(payment.userId, 'PAYMENT_RECEIVED', 'Payment completed', {
     body: `Votre paiement de ${payment.amountEur.toFixed(2)}€ a été traité. Facture disponible.`,
     href: `/dashboard/earnings`,
   })
@@ -634,7 +634,7 @@ export async function bulkMarkPaidAction(formData: FormData) {
   })
 
   for (const payment of payments) {
-    await createNotification(payment.userId, 'PAYMENT_RECEIVED', 'Paiement effectué', {
+    await createNotification(payment.userId, 'PAYMENT_RECEIVED', 'Payment completed', {
       body: `Votre paiement de ${payment.amountEur.toFixed(2)}€ a été traité.`,
       href: '/profile/payments',
     })

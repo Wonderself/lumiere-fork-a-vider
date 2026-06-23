@@ -61,7 +61,7 @@ export default function PreferencesPage() {
     }
 
     setSaving(false)
-    toast.success('Préférences sauvegardées')
+    toast.success('Preferences saved')
   }
 
   if (!loaded) return null
@@ -69,7 +69,7 @@ export default function PreferencesPage() {
   return (
     <div className="space-y-8 max-w-2xl">
       <div>
-        <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Préférences</h1>
+        <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Preferences</h1>
         <p className="text-sm text-white/50 mt-1">Personnalisez votre expérience CineGeny</p>
       </div>
 
@@ -80,7 +80,7 @@ export default function PreferencesPage() {
           {[
             { value: 'light' as const, label: 'Clair', icon: Sun },
             { value: 'dark' as const, label: 'Sombre', icon: Moon },
-            { value: 'system' as const, label: 'Système', icon: Monitor },
+            { value: 'system' as const, label: 'System', icon: Monitor },
           ].map(opt => {
             const OIcon = opt.icon
             return (

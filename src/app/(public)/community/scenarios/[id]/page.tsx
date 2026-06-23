@@ -15,7 +15,7 @@ import type { Metadata } from 'next'
 export const dynamic = 'force-dynamic'
 
 const STATUS_CONFIG: Record<string, { label: string; variant: 'default' | 'success' | 'warning' | 'secondary' | 'destructive' }> = {
-  SUBMITTED: { label: 'Soumis', variant: 'secondary' },
+  SUBMITTED: { label: 'Submitted', variant: 'secondary' },
   SHORTLISTED: { label: 'Pre-selectionne', variant: 'warning' },
   VOTING: { label: 'En Vote', variant: 'default' },
   WINNER: { label: 'Gagnant', variant: 'success' },

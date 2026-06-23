@@ -10,7 +10,7 @@ export async function submitFilmAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const title = formData.get('title') as string
   const synopsis = formData.get('synopsis') as string
@@ -68,7 +68,7 @@ export async function submitFilmAction(
 
   // Auto-generate contract
   const contractTerms = generateFilmContract({
-    creatorName: user?.displayName || user?.email || 'Créateur',
+    creatorName: user?.displayName || user?.email || 'Creator',
     filmTitle: title,
     revenueSharePct,
     exclusivity,

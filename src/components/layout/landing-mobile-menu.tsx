@@ -7,7 +7,7 @@ import { Menu, X, Film, Play, Star, Trophy, LogIn, UserPlus } from 'lucide-react
 const links = [
   { label: 'Films', href: '/films', icon: Film },
   { label: 'Streaming', href: '#streaming', icon: Play },
-  { label: 'Tâches', href: '/tasks', icon: Star },
+  { label: 'Tasks', href: '/tasks', icon: Star },
   { label: 'Classement', href: '/leaderboard', icon: Trophy },
 ]
 

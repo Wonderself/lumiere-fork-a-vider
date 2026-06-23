@@ -122,7 +122,7 @@ export default function ImageBankPage() {
               <p className="text-sm text-white">{preview.alt} — 📷 {preview.photographer}</p>
               <button onClick={() => { addToMoodboard(preview); setPreview(null) }} className="px-3 py-1.5 rounded-lg bg-[#E50914] text-white text-xs">Ajouter au moodboard</button>
             </div>
-            <button onClick={() => setPreview(null)} className="mt-3 w-full py-2 bg-white/[0.08] text-white/60 rounded-xl text-sm">Fermer</button>
+            <button onClick={() => setPreview(null)} className="mt-3 w-full py-2 bg-white/[0.08] text-white/60 rounded-xl text-sm">Close</button>
           </div>
         </div>
       )}

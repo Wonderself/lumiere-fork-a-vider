@@ -7,7 +7,7 @@ export function BarChart({ data, height = 200, title }: {
   height?: number
   title?: string
 }) {
-  if (!data.length) return <div className="text-white/30 text-sm text-center py-8">Pas de données</div>
+  if (!data.length) return <div className="text-white/30 text-sm text-center py-8">No data</div>
   const max = Math.max(...data.map(d => d.value), 1)
 
   return (

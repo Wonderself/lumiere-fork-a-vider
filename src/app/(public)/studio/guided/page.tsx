@@ -124,10 +124,10 @@ export default function GuidedStudioPage() {
           <div>
             <div className="flex items-center gap-3 mb-2">
               <Link href="/studio" className="text-xs text-gray-500 hover:text-white">Studio ←</Link>
-              <span className="text-xs text-gray-700">Mode Guidé</span>
+              <span className="text-xs text-gray-700">Guided mode</span>
             </div>
             <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">
-              Studio Créatif — <span className="text-[#E50914]">Mode Guidé</span>
+              Studio Créatif — <span className="text-[#E50914]">Guided mode</span>
             </h1>
           </div>
           <Link href="/studio/pro" className="text-xs text-gray-500 hover:text-[#E50914] flex items-center gap-1">
@@ -219,7 +219,7 @@ export default function GuidedStudioPage() {
 
             {/* Navigation */}
             <div className="flex justify-between pt-4">
-              <button onClick={() => setStep(0)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-white"><ArrowLeft className="h-4 w-4" />Retour</button>
+              <button onClick={() => setStep(0)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-white"><ArrowLeft className="h-4 w-4" />Back</button>
               <button onClick={() => setStep(2)} disabled={!prompt.trim()} className="flex items-center gap-2 px-6 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl disabled:opacity-30 transition-colors">
                 Suivant <ArrowRight className="h-4 w-4" />
               </button>
@@ -280,13 +280,13 @@ export default function GuidedStudioPage() {
                 <div><p className="text-[10px] text-gray-500">Type</p><p className="text-xs font-medium text-white">{creationType.label}</p></div>
                 <div><p className="text-[10px] text-gray-500">Style</p><p className="text-xs font-medium text-white">{PHOTO_STYLES.find(s => s.id === style)?.label}</p></div>
                 <div><p className="text-[10px] text-gray-500">Format</p><p className="text-xs font-medium text-white">{ratio}</p></div>
-                <div><p className="text-[10px] text-gray-500">Qualité</p><p className="text-xs font-medium text-white">{hdMode ? 'HD' : 'Standard'}</p></div>
+                <div><p className="text-[10px] text-gray-500">Quality</p><p className="text-xs font-medium text-white">{hdMode ? 'HD' : 'Standard'}</p></div>
               </div>
               <p className="text-[10px] text-emerald-400 text-center mt-3">~{hdMode ? '2.0' : '1.5'} crédits · 0% commission</p>
             </div>
 
             <div className="flex justify-between pt-4">
-              <button onClick={() => setStep(1)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-white"><ArrowLeft className="h-4 w-4" />Retour</button>
+              <button onClick={() => setStep(1)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-white"><ArrowLeft className="h-4 w-4" />Back</button>
               <button onClick={() => { setStep(3); setTimeout(generate, 500) }} className="flex items-center gap-2 px-8 py-3 bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold rounded-xl transition-colors text-lg">
                 <Sparkles className="h-5 w-5" /> Générer
               </button>
@@ -338,7 +338,7 @@ export default function GuidedStudioPage() {
                 <Download className="h-4 w-4" /> Télécharger
               </button>
               <button onClick={async () => { await navigator.clipboard.writeText(result!); setCopied(true); setTimeout(() => setCopied(false), 2000) }} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-700 bg-gray-800/50 text-sm text-gray-300 hover:bg-gray-700 transition-colors">
-                {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />} {copied ? 'Copié' : 'Copier URL'}
+                {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />} {copied ? 'Copied' : 'Copier URL'}
               </button>
               <button onClick={() => { setSaved(true); toast.success('Sauvegardé dans votre projet') }} className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors ${saved ? 'bg-green-600 text-white' : 'border border-[#E50914] text-[#E50914] hover:bg-[#E50914] hover:text-white'}`}>
                 {saved ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />} {saved ? 'Sauvé' : 'Sauver'}

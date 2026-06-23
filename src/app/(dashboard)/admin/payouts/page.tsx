@@ -195,7 +195,7 @@ export default async function AdminPayoutsPage(
                   <th className="text-right text-xs text-white/40 font-medium p-4">Vues</th>
                   <th className="text-right text-xs text-white/40 font-medium p-4">Ratio</th>
                   <th className="text-right text-xs text-white/40 font-medium p-4">Montant</th>
-                  <th className="text-center text-xs text-white/40 font-medium p-4">Statut</th>
+                  <th className="text-center text-xs text-white/40 font-medium p-4">Status</th>
                   <th className="text-right text-xs text-white/40 font-medium p-4">Action</th>
                 </tr>
               </thead>

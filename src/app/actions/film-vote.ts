@@ -58,14 +58,14 @@ export async function getFilmVoteStateAction(filmId: string): Promise<FilmVoteSt
 /** Cast / switch / toggle a vote for the current IP. */
 export async function voteFilmByIpAction(filmId: string, voteType: 'up' | 'down'): Promise<FilmVoteState> {
   if (!filmId || !['up', 'down'].includes(voteType)) {
-    return { up: 0, down: 0, total: 0, forPct: 50, userVote: null, error: 'Données invalides' }
+    return { up: 0, down: 0, total: 0, forPct: 50, userVote: null, error: 'Invalid data' }
   }
 
   try {
     const ip = await getClientIp()
     const film = await prisma.film.findUnique({ where: { id: filmId }, select: { slug: true } })
     if (!film) {
-      return { up: 0, down: 0, total: 0, forPct: 50, userVote: null, error: 'Film introuvable' }
+      return { up: 0, down: 0, total: 0, forPct: 50, userVote: null, error: 'Film not found' }
     }
 
     const existing = await prisma.filmIpVote.findUnique({ where: { filmId_ip: { filmId, ip } } })

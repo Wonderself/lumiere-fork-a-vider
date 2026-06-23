@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache'
 
 export async function voteFilmAction(formData: FormData) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const filmId = formData.get('filmId') as string
   const voteType = formData.get('voteType') as string // 'up' or 'down'
@@ -15,7 +15,7 @@ export async function voteFilmAction(formData: FormData) {
   if (!['up', 'down'].includes(voteType)) return { error: 'Type de vote invalide' }
 
   const film = await prisma.film.findUnique({ where: { id: filmId }, select: { slug: true } })
-  if (!film) return { error: 'Film introuvable' }
+  if (!film) return { error: 'Film not found' }
 
   // Check if user already voted this type
   const existingVote = await prisma.filmVote.findUnique({
@@ -48,7 +48,7 @@ export async function backFilmAction(
   formData: FormData
 ) {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Non authentifié' }
+  if (!session?.user?.id) return { error: 'Not authenticated' }
 
   const filmId = formData.get('filmId') as string
   const amountStr = formData.get('amount') as string
@@ -58,7 +58,7 @@ export async function backFilmAction(
   if (!amount || amount < 50) return { error: 'Montant minimum : 50€' }
 
   const film = await prisma.film.findUnique({ where: { id: filmId }, select: { slug: true, estimatedBudget: true } })
-  if (!film) return { error: 'Film introuvable' }
+  if (!film) return { error: 'Film not found' }
 
   // Calculate revenue share in basis points (100 bps = 1%)
   // Simple formula: 1% per 500€ invested, max 10%
