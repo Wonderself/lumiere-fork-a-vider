@@ -82,7 +82,7 @@ async function main() {
   // ─── 3. TEST SEED USERS ────────────────────
   console.log('\n👥 3. UTILISATEURS SEEDÉS')
   const seedUsers = [
-    { email: 'admin@cinegeny.film', pw: 'Admin1234!', role: 'ADMIN' },
+    { email: 'admin@cinegeny.film', pw: (process.env.SEED_ADMIN_PASSWORD || ''), role: 'ADMIN' },
     { email: 'contributeur@cinegeny.film', pw: 'Test1234!', role: 'CONTRIBUTOR' },
     { email: 'artiste@cinegeny.film', pw: 'Test1234!', role: 'ARTIST' },
     { email: 'scenariste@cinegeny.film', pw: 'Test1234!', role: 'SCREENWRITER' },

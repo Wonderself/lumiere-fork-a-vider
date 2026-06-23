@@ -26,7 +26,7 @@ async function main() {
   console.log('Hash prefix:', admin.passwordHash.substring(0, 7))
 
   // Test with bcryptjs
-  const testPassword = 'Admin1234!'
+  const testPassword = (process.env.SEED_ADMIN_PASSWORD || '')
   console.log('\nTesting password:', testPassword)
 
   const valid = await bcrypt.compare(testPassword, admin.passwordHash)
