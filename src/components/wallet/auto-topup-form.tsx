@@ -29,7 +29,7 @@ export function AutoTopupForm({ enabled, threshold, amount }: AutoTopupFormProps
       if ('error' in result && result.error) {
         toast.error(result.error)
       } else {
-        toast.success('Paramètres de rechargement mis à jour')
+        toast.success('Top-up settings updated')
       }
     } catch {
       toast.error('Erreur lors de la sauvegarde')

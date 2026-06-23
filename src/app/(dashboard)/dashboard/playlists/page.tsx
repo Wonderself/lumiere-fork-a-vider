@@ -186,7 +186,7 @@ function PlaylistCard({ playlist, onDelete, onToggleExpand, expanded }: {
               onClick={handleToggleVisibility}
               disabled={togglingVisibility}
               className="p-1.5 rounded-lg text-white/40 hover:text-white/70 hover:bg-white/5 transition-colors"
-              title={isPublic ? 'Rendre privé' : 'Rendre public'}
+              title={isPublic ? 'Make private' : 'Rendre public'}
             >
               {togglingVisibility ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -211,7 +211,7 @@ function PlaylistCard({ playlist, onDelete, onToggleExpand, expanded }: {
             <button
               onClick={() => onToggleExpand(playlist.id)}
               className="p-1.5 rounded-lg text-white/40 hover:text-white/70 hover:bg-white/5 transition-colors"
-              title={expanded ? 'Réduire' : 'Voir les films'}
+              title={expanded ? 'Collapse' : 'Voir les films'}
             >
               {expanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
             </button>
@@ -321,7 +321,7 @@ function CreatePlaylistForm({ onCreated }: { onCreated: (p: PlaylistSummary) => 
   return (
     <div className="rounded-xl border border-[#E50914]/20 bg-[#E50914]/5 p-5">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-white font-semibold text-sm">Créer une playlist</h3>
+        <h3 className="text-white font-semibold text-sm">Create a playlist</h3>
         <button
           onClick={() => { setOpen(false); setError(null) }}
           className="text-white/40 hover:text-white/70 transition-colors"
@@ -364,7 +364,7 @@ function CreatePlaylistForm({ onCreated }: { onCreated: (p: PlaylistSummary) => 
             />
           </div>
           <span className="text-white/60 text-xs">
-            {isPublic ? 'Playlist publique' : 'Playlist privée'}
+            {isPublic ? 'Playlist publique' : 'Private playlist'}
           </span>
         </label>
         {error && (

@@ -36,7 +36,7 @@ export function AgentExecutePanel({ agentSlug, agentName, agentColor, tier }: Ag
         setResponse((result as any).response || 'No response')
       }
     } catch {
-      toast.error('Erreur lors de l\'exécution')
+      toast.error('Error during execution')
     }
     setLoading(false)
   }
@@ -48,7 +48,7 @@ export function AgentExecutePanel({ agentSlug, agentName, agentColor, tier }: Ag
         toast.error(result.error)
       } else if ('favorited' in result) {
         setFavorited(result.favorited)
-        toast.success(result.favorited ? 'Agent ajouté aux favoris' : 'Agent retiré des favoris')
+        toast.success(result.favorited ? 'Agent added to favorites' : 'Agent removed from favorites')
       }
     } catch {
       toast.error('Erreur')

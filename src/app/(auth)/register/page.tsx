@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Inscription — CINEGENY',
-  description: 'Créez votre compte et rejoignez le studio de cinéma collaboratif propulsé par l\'IA.',
+  description: 'Create your account and join the AI-powered collaborative film studio.',
 }
 
 export default function RegisterPage() {

@@ -4,8 +4,8 @@ import { ForgotPasswordForm } from './forgot-password-form'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Mot de passe oublié — CINEGENY',
-  description: 'Réinitialisez votre mot de passe CINEGENY.',
+  title: 'Forgot password — CINEGENY',
+  description: 'Reset your CINEGENY password.',
 }
 
 export default function ForgotPasswordPage() {

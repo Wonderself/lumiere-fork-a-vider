@@ -36,7 +36,7 @@ export function ModelSelector({ taskType, category, onSelect, selectedModel }: M
       {/* Header */}
       <div className="flex items-center justify-between">
         <label className="text-xs text-white/50 font-medium">
-          {isUserChoice ? 'Choisissez votre modèle IA' : 'Modèle IA imposé (cohérence film)'}
+          {isUserChoice ? 'Choose your AI model' : 'Enforced AI model (film consistency)'}
         </label>
         {!isUserChoice && (
           <span className="flex items-center gap-1 text-[10px] text-orange-500">

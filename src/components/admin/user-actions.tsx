@@ -54,7 +54,7 @@ export function UserActions({ userId, userEmail, userRole }: UserActionsProps) {
             type="number"
             value={creditAmount}
             onChange={e => setCreditAmount(e.target.value)}
-            placeholder="Montant (crédits)"
+            placeholder="Amount (credits)"
             className="flex-1 rounded-lg border border-white/10 px-3 py-2 text-sm focus:border-[#E50914] focus:outline-none"
           />
           <button
@@ -72,7 +72,7 @@ export function UserActions({ userId, userEmail, userRole }: UserActionsProps) {
         <h3 className="text-sm font-semibold text-[#1A1A2E] mb-4 flex items-center gap-2">
           <Flag className="h-4 w-4 text-blue-500" /> Feature Flags (par user)
         </h3>
-        <p className="text-xs text-white/50 mb-3">Activez/désactivez des fonctionnalités pour cet utilisateur sans déploiement.</p>
+        <p className="text-xs text-white/50 mb-3">Enable/disable features for this user without a deployment.</p>
         <div className="space-y-2">
           {[
             { key: 'beta_features', label: 'Beta Features', desc: 'Accès aux fonctionnalités expérimentales' },
@@ -124,7 +124,7 @@ export function UserActions({ userId, userEmail, userRole }: UserActionsProps) {
             <Trash2 className="h-4 w-4 text-red-500" />
             <div className="flex-1">
               <p className="text-xs font-medium text-red-700">Soft Delete</p>
-              <p className="text-[10px] text-white/50">Marquer le compte comme supprimé (réversible)</p>
+              <p className="text-[10px] text-white/50">Mark the account as deleted (reversible)</p>
             </div>
           </button>
 
@@ -132,7 +132,7 @@ export function UserActions({ userId, userEmail, userRole }: UserActionsProps) {
             <RefreshCcw className="h-4 w-4 text-white/50" />
             <div className="flex-1">
               <p className="text-xs font-medium text-[#1A1A2E]">Reset API Key</p>
-              <p className="text-[10px] text-white/50">Invalider et régénérer la clé API</p>
+              <p className="text-[10px] text-white/50">Revoke and regenerate API key</p>
             </div>
           </button>
         </div>

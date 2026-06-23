@@ -40,9 +40,9 @@ export function FilmVoteButton({
       setUp(res.up)
       setDown(res.down)
       setUserVote(res.userVote)
-      if (res.userVote === null) toast.success('Vote retiré')
+      if (res.userVote === null) toast.success('Vote removed')
       else if (res.userVote === 'up') toast.success('Vote pour — merci !')
-      else toast.success('Vote contre enregistré')
+      else toast.success('Vote against recorded')
     })
   }
 

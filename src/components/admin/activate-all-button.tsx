@@ -11,7 +11,7 @@ interface ActivateAllButtonProps {
 export function ActivateAllButton({ remaining }: ActivateAllButtonProps) {
   function handleClick() {
     if (remaining === 0) {
-      toast.info('Tous les modules sont déjà activés')
+      toast.info('All modules are already enabled')
       return
     }
     toast.promise(

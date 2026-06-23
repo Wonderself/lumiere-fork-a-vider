@@ -30,11 +30,11 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
     await new Promise(r => setTimeout(r, 1500))
     setSuggestions([
       { type: 'creative', title: 'Approche alternative', content: `Pour cette tâche de ${taskCategory}, explorez un angle différent. Pensez aux émotions que vous voulez transmettre.` },
-      { type: 'technical', title: 'Recommended format', content: 'Suivez les standards du projet pour cette catégorie de tâche. Vérifiez les guidelines dans la fiche du film.' },
-      { type: 'improvement', title: 'Enrichissement', content: 'Ajoutez des détails sensoriels et des descriptions d\'ambiance pour renforcer l\'impact de votre contribution.' },
+      { type: 'technical', title: 'Recommended format', content: 'Follow the project standards for this task category. Check the guidelines on the film page.' },
+      { type: 'improvement', title: 'Enrichissement', content: 'Add sensory details and mood descriptions to strengthen the impact of your contribution.' },
     ])
     setLoading(false)
-    toast.success('Suggestions générées')
+    toast.success('Generated suggestions')
   }
 
   async function runReview() {
@@ -45,7 +45,7 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
     setReview({
       score,
       passed: score >= 70,
-      feedback: score >= 80 ? 'Excellent travail !' : score >= 60 ? 'Bonne soumission avec des améliorations possibles.' : 'Des améliorations sont nécessaires.',
+      feedback: score >= 80 ? 'Excellent travail !' : score >= 60 ? 'Good submission with room for improvement.' : 'Improvements are needed.',
       improvements: score < 80 ? ['Check consistency with existing scenes', 'Enrichissez les descriptions visuelles'] : [],
     })
     setLoading(false)
@@ -118,7 +118,7 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
             {!review ? (
               <div className="text-center py-6">
                 <Shield className="h-8 w-8 text-gray-300 mx-auto mb-2" />
-                <p className="text-sm text-gray-400">Vérifiez la cohérence avant de soumettre.</p>
+                <p className="text-sm text-gray-400">Check consistency before submitting.</p>
                 <button onClick={runReview} disabled={loading} className="mt-3 px-4 py-2 bg-[#E50914] text-white text-sm rounded-lg disabled:opacity-50">
                   {loading ? <Loader2 className="inline h-4 w-4 animate-spin mr-1" /> : <Eye className="inline h-4 w-4 mr-1" />}
                   Lancer la review IA
@@ -135,7 +135,7 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
                 </div>
                 {review.improvements.length > 0 && (
                   <div className="space-y-1">
-                    <p className="text-xs font-medium text-white/50">Améliorations suggérées :</p>
+                    <p className="text-xs font-medium text-white/50">Suggested improvements:</p>
                     {review.improvements.map((imp, i) => (
                       <p key={i} className="text-xs text-white/50 flex items-center gap-1">
                         <XCircle className="h-3 w-3 text-orange-400 shrink-0" /> {imp}
@@ -162,7 +162,7 @@ export function AITaskAssistant({ taskCategory, taskDescription, filmProjectId, 
               {loading && <div className="flex gap-1"><div className="h-2 w-2 rounded-full bg-gray-300 animate-bounce" /><div className="h-2 w-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: '150ms' }} /><div className="h-2 w-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: '300ms' }} /></div>}
             </div>
             <div className="flex gap-2">
-              <input value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') sendChat() }} placeholder={`Demandez à ${agent?.name || 'l\'agent'}...`} className="flex-1 rounded-lg border border-white/10 px-3 py-2 text-xs focus:border-[#E50914] focus:outline-none" />
+              <input value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') sendChat() }} placeholder={`Ask ${agent?.name || 'l\'agent'}...`} className="flex-1 rounded-lg border border-white/10 px-3 py-2 text-xs focus:border-[#E50914] focus:outline-none" />
               <button onClick={sendChat} disabled={!chatInput.trim() || loading} className="h-8 w-8 rounded-lg bg-[#E50914] text-white disabled:opacity-30 flex items-center justify-center shrink-0">
                 <Send className="h-3.5 w-3.5" />
               </button>

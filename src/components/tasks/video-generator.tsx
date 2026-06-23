@@ -51,7 +51,7 @@ export function VideoGenerator({ filmProjectId, onGenerated }: VideoGeneratorPro
     <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-5">
       <div className="flex items-center gap-2">
         <Video className="h-5 w-5 text-[#E50914]" />
-        <h3 className="text-sm font-semibold text-[#1A1A2E]">Génération Vidéo IA</h3>
+        <h3 className="text-sm font-semibold text-[#1A1A2E]">AI Video Generation</h3>
       </div>
 
       {/* Provider Selection */}
@@ -135,7 +135,7 @@ export function VideoGenerator({ filmProjectId, onGenerated }: VideoGeneratorPro
       {result && (
         <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-center">
           <Video className="h-8 w-8 text-green-500 mx-auto mb-2" />
-          <p className="text-sm text-green-700 font-medium">Vidéo générée !</p>
+          <p className="text-sm text-green-700 font-medium">Video generated!</p>
           <p className="text-[10px] text-green-500">Provider: {model?.name} · {activeConfig.maxResolution}</p>
         </div>
       )}

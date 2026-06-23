@@ -33,7 +33,7 @@ export function ShareButtons({ url, title, description, compact, className }: Sh
       await navigator.clipboard.writeText(fullUrl)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-      toast.success('Lien copié !')
+      toast.success('Link copied!')
       return
     }
 

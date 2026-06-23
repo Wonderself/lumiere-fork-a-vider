@@ -15,12 +15,12 @@ interface PreferencesSlider {
 }
 
 const SLIDERS: PreferencesSlider[] = [
-  { key: 'formality', label: 'Formalité', labelLeft: 'Casual', labelRight: 'Formel', icon: '🎭', defaultValue: 50 },
-  { key: 'length', label: 'Longueur', labelLeft: 'Concis', labelRight: 'Détaillé', icon: '📏', defaultValue: 50 },
-  { key: 'creativity', label: 'Créativité', labelLeft: 'Conservateur', labelRight: 'Audacieux', icon: '🎨', defaultValue: 60 },
-  { key: 'proactivity', label: 'Proactivité', labelLeft: 'Réactif', labelRight: 'Proactif', icon: '🚀', defaultValue: 50 },
-  { key: 'expertise', label: 'Expertise', labelLeft: 'Débutant', labelRight: 'Expert', icon: '🎓', defaultValue: 50 },
-  { key: 'humor', label: 'Humour', labelLeft: 'Sérieux', labelRight: 'Humoristique', icon: '😄', defaultValue: 20 },
+  { key: 'formality', label: 'Formality', labelLeft: 'Casual', labelRight: 'Formel', icon: '🎭', defaultValue: 50 },
+  { key: 'length', label: 'Longueur', labelLeft: 'Concis', labelRight: 'Detailed', icon: '📏', defaultValue: 50 },
+  { key: 'creativity', label: 'Creativity', labelLeft: 'Conservateur', labelRight: 'Audacieux', icon: '🎨', defaultValue: 60 },
+  { key: 'proactivity', label: 'Proactivity', labelLeft: 'Responsive', labelRight: 'Proactif', icon: '🚀', defaultValue: 50 },
+  { key: 'expertise', label: 'Expertise', labelLeft: 'Beginner', labelRight: 'Expert', icon: '🎓', defaultValue: 50 },
+  { key: 'humor', label: 'Humour', labelLeft: 'Serious', labelRight: 'Humoristique', icon: '😄', defaultValue: 20 },
 ]
 
 interface AgentPreferencesProps {
@@ -105,7 +105,7 @@ export function AgentPreferences({ initialValues }: AgentPreferencesProps) {
         className="mt-6 flex items-center gap-2 px-5 py-2.5 bg-[#E50914] hover:bg-[#FF2D2D] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-50 w-full justify-center"
       >
         <Save className="h-4 w-4" />
-        {saving ? 'Sauvegarde...' : 'Sauvegarder les préférences'}
+        {saving ? 'Sauvegarde...' : 'Save preferences'}
       </button>
     </div>
   )

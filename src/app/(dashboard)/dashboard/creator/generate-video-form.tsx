@@ -11,14 +11,14 @@ export function GenerateVideoForm() {
   const [state, formAction, isPending] = useActionState(generateVideoAction, null)
 
   useEffect(() => {
-    if (state?.success) toast.success('Vidéo en cours de génération !')
+    if (state?.success) toast.success('Video generating!')
     if (state?.error) toast.error(state.error)
   }, [state])
 
   return (
     <form action={formAction} className="space-y-4">
       <div>
-        <label className="text-xs text-white/50 mb-1.5 block">Titre de la vidéo</label>
+        <label className="text-xs text-white/50 mb-1.5 block">Video title</label>
         <input
           name="title"
           required
@@ -31,7 +31,7 @@ export function GenerateVideoForm() {
         <textarea
           name="script"
           rows={3}
-          placeholder="Décrivez la scène ou collez votre script..."
+          placeholder="Describe the scene or paste your script..."
           className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white focus:border-[#E50914] focus:outline-none resize-none"
         />
       </div>

@@ -100,7 +100,7 @@ export function FileUpload({
         onUploaded(publicUrl, fileKey)
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Upload échoué')
+      setError(err instanceof Error ? err.message : 'Upload failed')
     } finally {
       setUploading(false)
     }
@@ -140,7 +140,7 @@ export function FileUpload({
         {uploaded ? (
           <div className="flex flex-col items-center gap-2">
             <CheckCircle className="h-8 w-8 text-green-400" />
-            <p className="text-sm text-green-400 font-medium">Upload réussi</p>
+            <p className="text-sm text-green-400 font-medium">Upload successful</p>
             <p className="text-xs text-white/40 truncate max-w-full">{fileName}</p>
           </div>
         ) : uploading ? (

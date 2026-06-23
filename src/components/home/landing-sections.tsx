@@ -36,8 +36,8 @@ export function StudioShowcaseSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { title: 'Photos & Storyboards', desc: '5 styles, 4 ratios, qualité HD', icon: Image, color: '#3B82F6', href: '/studio' },
-            { title: 'Vidéos IA', desc: '7 providers, jusqu\'à 15s, async', icon: Video, color: '#E50914', href: '/studio' },
+            { title: 'Photos & Storyboards', desc: '5 styles, 4 ratios, HD quality', icon: Image, color: '#3B82F6', href: '/studio' },
+            { title: 'AI Videos', desc: '7 providers, up to 15s, async', icon: Video, color: '#E50914', href: '/studio' },
             { title: 'Affiches & Trailers', desc: 'Inventez un film, l\'IA fait le reste', icon: Film, color: '#8B5CF6', href: '/trailer-maker' },
           ].map(item => {
             const Icon = item.icon
@@ -46,7 +46,7 @@ export function StudioShowcaseSection() {
                 <Icon className="h-10 w-10 mb-4" style={{ color: item.color }} />
                 <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#E50914] transition-colors">{item.title}</h3>
                 <p className="text-sm text-gray-500 mb-4">{item.desc}</p>
-                <span className="text-xs text-[#E50914] flex items-center gap-1 group-hover:gap-2 transition-all">Découvrir <ArrowRight className="h-3.5 w-3.5" /></span>
+                <span className="text-xs text-[#E50914] flex items-center gap-1 group-hover:gap-2 transition-all">Discover <ArrowRight className="h-3.5 w-3.5" /></span>
               </Link>
             )
           })}
@@ -86,9 +86,9 @@ export function WhyCineGenySection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { title: '200+ Pages', detail: 'App complète prête à l\'emploi', icon: '📱' },
-            { title: '113 Agents IA', detail: 'Chaque métier du cinéma couvert', icon: '🤖' },
-            { title: '0% Commission', detail: 'Coût réel des tokens IA uniquement', icon: '💚' },
+            { title: '200+ Pages', detail: 'Complete ready-to-use app', icon: '📱' },
+            { title: '113 Agents IA', detail: 'Every film craft covered', icon: '🤖' },
+            { title: '0% Commission', detail: 'Real AI token cost only', icon: '💚' },
           ].map(stat => (
             <div key={stat.title} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 text-center">
               <span className="text-3xl">{stat.icon}</span>
@@ -169,7 +169,7 @@ export function FAQSection() {
     <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-white mb-4">Questions <span className="text-[#E50914]">Fréquentes</span></h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Questions <span className="text-[#E50914]">Frequent</span></h2>
           <p className="text-gray-400">5 catégories · {FAQ_CATEGORIES.reduce((s, c) => s + c.items.length, 0)} questions</p>
         </div>
 

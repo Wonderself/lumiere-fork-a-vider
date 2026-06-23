@@ -130,7 +130,7 @@ function useLiveCounter(base: number) {
 export function NetflixHome({ data }: { data: HomeData }) {
   const hasDbData = data.allFilms.length > 0
 
-  // À l'affiche — a single curated row of 10 films (keeps the homepage light)
+  // Now showing — a single curated row of 10 films (keeps the homepage light)
   const afficheFilms: FilmCard[] = (hasDbData ? data.allFilms : TRENDING_FILMS)
     .slice(0, 10)
     .map((f, i) => ({ ...f, id: `affiche-${i}` }))
@@ -306,8 +306,8 @@ export function NetflixHome({ data }: { data: HomeData }) {
           </div>
         </section>
 
-        {/* ── À l'affiche (single curated row of 10 films) ── */}
-        <FilmRow title="À l'affiche" films={afficheFilms} href="/films" />
+        {/* ── Now showing (single curated row of 10 films) ── */}
+        <FilmRow title="Now showing" films={afficheFilms} href="/films" />
 
         {/* ── Vote CTA Block ── */}
         <section className="relative my-10 md:my-14 mx-4 sm:mx-8 md:mx-16 lg:mx-20 rounded-3xl overflow-hidden">

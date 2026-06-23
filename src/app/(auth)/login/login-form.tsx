@@ -43,7 +43,7 @@ export function LoginForm() {
         window.location.href = callbackUrl
       }
     } catch {
-      setError('Erreur de connexion. Réessayez.')
+      setError('Sign-in error. Please try again.')
       setLoading(false)
     }
   }

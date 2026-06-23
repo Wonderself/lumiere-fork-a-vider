@@ -50,7 +50,7 @@ export default async function ActivityPage() {
       date: t.createdAt, color: t.amount > 0 ? '#10B981' : '#EF4444', icon: 'credit',
     })),
     ...votes.map(v => ({
-      type: 'vote', title: `Vote: ${v.film.title}`, detail: 'Film voté',
+      type: 'vote', title: `Vote: ${v.film.title}`, detail: 'Film voted',
       date: v.createdAt, color: '#F59E0B', icon: 'star',
     })),
   ].sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 50)
@@ -61,12 +61,12 @@ export default async function ActivityPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Activity Log</h1>
-        <p className="text-sm text-white/50 mt-1">Journal complet de votre activité sur la plateforme</p>
+        <p className="text-sm text-white/50 mt-1">Complete log of your activity on the platform</p>
       </div>
 
       <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
         {timeline.length === 0 ? (
-          <div className="p-12 text-center text-sm text-white/50">Aucune activité enregistrée</div>
+          <div className="p-12 text-center text-sm text-white/50">No activity recorded</div>
         ) : (
           <div className="divide-y divide-white/10">
             {timeline.map((item, i) => {

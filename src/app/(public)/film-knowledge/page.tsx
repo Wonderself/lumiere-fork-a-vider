@@ -165,7 +165,7 @@ export default function FilmKnowledgePage() {
             {!activeCategory ? (
               <div className="rounded-2xl border border-dashed border-gray-700 bg-gray-900/30 p-12 text-center">
                 <Brain className="h-12 w-12 text-gray-600 mx-auto mb-4" />
-                <p className="text-sm text-gray-500">Select a category to start filling your film's memory</p>
+                <p className="text-sm text-gray-500">Select a category to start filling your film memory</p>
               </div>
             ) : (
               <div className="space-y-6">

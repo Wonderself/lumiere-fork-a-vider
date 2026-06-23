@@ -229,7 +229,7 @@ const extendedAdminSections: CollapsibleNavSection[] = [
   {
     collapsible: true,
     defaultOpen: false,
-    title: 'Système & Infrastructure',
+    title: 'System & Infrastructure',
     icon: Cpu,
     dotColor: 'bg-sky-400',
     links: [
@@ -252,7 +252,7 @@ const extendedAdminSections: CollapsibleNavSection[] = [
     dotColor: 'bg-emerald-400',
     links: [
       { href: '/admin/billing', label: 'Billing', icon: Receipt },
-      { href: '/admin/billing/enhanced', label: 'Revenus détaillés', icon: LineChart },
+      { href: '/admin/billing/enhanced', label: 'Detailed revenue', icon: LineChart },
       { href: '/admin/financial', label: 'Finance', icon: BadgeDollarSign },
       { href: '/admin/invoicing', label: 'Devis & Factures', icon: FileText },
       { href: '/admin/promo-codes', label: 'Codes Promo', icon: Tag },
@@ -300,7 +300,7 @@ const extendedAdminSections: CollapsibleNavSection[] = [
       { href: '/admin/my-studio', label: 'Mon Studio', icon: Clapperboard },
       { href: '/admin/my-documents', label: 'Mes Documents', icon: FolderOpen },
       { href: '/admin/my-discussions', label: 'Mes Discussions', icon: MessagesSquare },
-      { href: '/admin/my-strategy', label: 'Ma Stratégie', icon: Map },
+      { href: '/admin/my-strategy', label: 'My Strategy', icon: Map },
       { href: '/admin/my-agents', label: 'Mes Agents', icon: Bot },
       { href: '/admin/admin-chat', label: 'Chat Admin', icon: MessageSquare },
       { href: '/admin/todo-fondateur', label: 'Todo Fondateur', icon: CheckSquare },
@@ -492,7 +492,7 @@ export function Sidebar() {
       <button
         onClick={() => setMobileOpen(true)}
         className="lg:hidden fixed top-[72px] left-3 z-40 h-10 w-10 rounded-lg bg-[#111]/90 border border-white/10 flex items-center justify-center text-white/50 hover:text-white transition-colors backdrop-blur-sm shadow-sm"
-        aria-label="Ouvrir le menu latéral"
+        aria-label="Open the side menu"
       >
         <Menu className="h-5 w-5" />
       </button>

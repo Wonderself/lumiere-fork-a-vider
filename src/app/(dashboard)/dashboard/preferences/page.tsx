@@ -70,7 +70,7 @@ export default function PreferencesPage() {
     <div className="space-y-8 max-w-2xl">
       <div>
         <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-playfair)]">Preferences</h1>
-        <p className="text-sm text-white/50 mt-1">Personnalisez votre expérience CineGeny</p>
+        <p className="text-sm text-white/50 mt-1">Customize your CineGeny experience</p>
       </div>
 
       {/* Appearance */}
@@ -106,10 +106,10 @@ export default function PreferencesPage() {
         <h2 className="text-sm font-semibold text-white flex items-center gap-2"><Bell className="h-4 w-4 text-yellow-500" /> Notifications</h2>
         {[
           { label: 'Notifications push', desc: 'Recevoir les notifications dans le navigateur', value: pushNotifs, set: setPushNotifs, icon: Smartphone },
-          { label: 'Notifications email', desc: 'Recevoir les résumés par email', value: emailNotifs, set: setEmailNotifs, icon: Bell },
-          { label: 'Alerte solde bas', desc: 'Alerte quand les crédits sont faibles', value: lowBalanceAlert, set: setLowBalanceAlert, icon: Bell },
-          { label: 'Tâches & missions', desc: 'Notifications pour les nouvelles tâches', value: taskAlerts, set: setTaskAlerts, icon: Bell },
-          { label: 'Résultats des votes', desc: 'Résultats des votes communautaires', value: voteAlerts, set: setVoteAlerts, icon: Bell },
+          { label: 'Notifications email', desc: 'Receive summaries by email', value: emailNotifs, set: setEmailNotifs, icon: Bell },
+          { label: 'Alerte solde bas', desc: 'Alert when credits are low', value: lowBalanceAlert, set: setLowBalanceAlert, icon: Bell },
+          { label: 'Tasks & missions', desc: 'Notifications for new tasks', value: taskAlerts, set: setTaskAlerts, icon: Bell },
+          { label: 'Vote results', desc: 'Community vote results', value: voteAlerts, set: setVoteAlerts, icon: Bell },
         ].map(notif => {
           const NIcon = notif.icon
           return (

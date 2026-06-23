@@ -26,12 +26,12 @@ export function AgentConfigSlideOver({ open, onClose, agentSlug }: AgentConfigSl
   }
 
   return (
-    <SlideOver open={open} onClose={onClose} title="Configuration Agent" description="Modifier les paramètres d'un agent IA" width="lg">
+    <SlideOver open={open} onClose={onClose} title="Configuration Agent" description="Edit AI agent settings" width="lg">
       <div className="space-y-6">
         {/* Agent Selector */}
         {!agentSlug && (
           <div>
-            <label className="text-xs text-white/50 mb-1.5 block">Sélectionner un agent</label>
+            <label className="text-xs text-white/50 mb-1.5 block">Select an agent</label>
             <select
               value={selectedAgent?.slug || ''}
               onChange={e => {
@@ -85,7 +85,7 @@ export function AgentConfigSlideOver({ open, onClose, agentSlug }: AgentConfigSl
                 className="w-full accent-[#E50914]"
               />
               <div className="flex justify-between text-[10px] text-white/50">
-                <span>0 (déterministe)</span><span>1 (créatif)</span>
+                <span>0 (deterministic)</span><span>1 (creative)</span>
               </div>
             </div>
 

@@ -28,7 +28,7 @@ export function WatchlistButton({
           toast.error(result.error)
         } else {
           setInWatchlist(false)
-          toast.success('Retiré de votre liste')
+          toast.success('Removed from your list')
         }
       } else {
         const result = await addToWatchlistAction(filmId)
@@ -36,7 +36,7 @@ export function WatchlistButton({
           toast.error(result.error)
         } else {
           setInWatchlist(true)
-          toast.success('Ajouté à votre liste')
+          toast.success('Added to your list')
         }
       }
     })
@@ -46,7 +46,7 @@ export function WatchlistButton({
     <button
       onClick={handleToggle}
       disabled={isPending}
-      aria-label={inWatchlist ? 'Retirer de la liste' : 'Ajouter à la liste'}
+      aria-label={inWatchlist ? 'Retirer de la liste' : 'Add to list'}
       className={`flex items-center gap-2 px-5 py-2.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
         inWatchlist
           ? 'bg-white/10 text-white hover:bg-white/15'
