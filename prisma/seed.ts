@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { Pool } from 'pg'
 import bcrypt from 'bcryptjs'
+import { randomBytes } from 'node:crypto'
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! })
 const adapter = new PrismaPg(pool)
@@ -33,12 +34,18 @@ async function main() {
   // =============================================
   // USERS (10 variés)
   // =============================================
-  const pw = await bcrypt.hash('Admin1234!', 12)
-  const pwUser = await bcrypt.hash('Test1234!', 12)
+  // Admin password comes from the SEED_ADMIN_PASSWORD env var (set it in Coolify).
+  // If absent, a random one is generated so no real password ever lives in the repo.
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD || randomBytes(12).toString('base64url')
+  if (!process.env.SEED_ADMIN_PASSWORD) {
+    console.warn('⚠️  SEED_ADMIN_PASSWORD not set — generated a random admin password (not shown). Set it in env to control it.')
+  }
+  const pw = await bcrypt.hash(adminPassword, 12)
+  const pwUser = await bcrypt.hash(process.env.SEED_USER_PASSWORD || 'Test1234!', 12)
 
   const admin = await prisma.user.upsert({
     where: { email: 'admin@cinegeny.film' },
-    update: {},
+    update: { passwordHash: pw, role: 'ADMIN' },
     create: {
       email: 'admin@cinegeny.film',
       passwordHash: pw,
@@ -3076,7 +3083,7 @@ async function main() {
   console.log('🎬 Seed CINEGENY V10 terminé avec succès!')
   console.log('='.repeat(50))
   console.log('\n📋 Comptes de test:')
-  console.log('   Admin       : admin@cinegeny.film         / Admin1234!')
+  console.log(`   Admin       : admin@cinegeny.film         / ${adminPassword}`)
   console.log('   Contributeur: contributeur@cinegeny.film  / Test1234!')
   console.log('   Artiste     : artiste@cinegeny.film       / Test1234!  (créateur, Pro)')
   console.log('   Scénariste  : scenariste@cinegeny.film    / Test1234!')
