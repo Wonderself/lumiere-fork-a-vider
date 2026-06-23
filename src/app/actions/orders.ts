@@ -73,7 +73,7 @@ export async function createOrderAction(
     }),
   ])
 
-  revalidatePath('/collabs/orders')
+  revalidatePath('/dashboard/orders')
   return { success: true }
 }
 
@@ -113,11 +113,11 @@ export async function claimOrderAction(formData: FormData) {
   // Notify client
   await createNotification(order.clientUserId, 'SYSTEM', 'Commande acceptee', {
     body: `Un createur a accepte votre commande "${order.title}".`,
-    href: `/collabs/orders/${orderId}`,
+    href: `/dashboard/orders/${orderId}`,
   })
 
-  revalidatePath('/collabs/orders')
-  revalidatePath(`/collabs/orders/${orderId}`)
+  revalidatePath('/dashboard/orders')
+  revalidatePath(`/dashboard/orders/${orderId}`)
 }
 
 // ============================================
@@ -152,11 +152,11 @@ export async function deliverOrderAction(formData: FormData) {
   // Notify client
   await createNotification(order.clientUserId, 'SYSTEM', 'Livraison recue', {
     body: `Le createur a livre votre commande "${order.title}". Verifiez et validez !`,
-    href: `/collabs/orders/${orderId}`,
+    href: `/dashboard/orders/${orderId}`,
   })
 
-  revalidatePath('/collabs/orders')
-  revalidatePath(`/collabs/orders/${orderId}`)
+  revalidatePath('/dashboard/orders')
+  revalidatePath(`/dashboard/orders/${orderId}`)
 }
 
 // ============================================
@@ -193,12 +193,12 @@ export async function requestRevisionAction(formData: FormData) {
   if (order.creatorUserId) {
     await createNotification(order.creatorUserId, 'SYSTEM', 'Revision demandee', {
       body: `Le client demande une revision pour "${order.title}".${reason ? ` Raison : ${reason}` : ''}`,
-      href: `/collabs/orders/${orderId}`,
+      href: `/dashboard/orders/${orderId}`,
     })
   }
 
-  revalidatePath('/collabs/orders')
-  revalidatePath(`/collabs/orders/${orderId}`)
+  revalidatePath('/dashboard/orders')
+  revalidatePath(`/dashboard/orders/${orderId}`)
 }
 
 // ============================================
@@ -267,9 +267,9 @@ export async function completeOrderAction(formData: FormData) {
   // Notify creator
   await createNotification(order.creatorUserId, 'SYSTEM', 'Commande completee !', {
     body: `La commande "${order.title}" est terminee. ${order.priceTokens} tokens ont ete credites.${clientRating ? ` Note: ${clientRating}/5` : ''}`,
-    href: `/collabs/orders/${orderId}`,
+    href: `/dashboard/orders/${orderId}`,
   })
 
-  revalidatePath('/collabs/orders')
-  revalidatePath(`/collabs/orders/${orderId}`)
+  revalidatePath('/dashboard/orders')
+  revalidatePath(`/dashboard/orders/${orderId}`)
 }

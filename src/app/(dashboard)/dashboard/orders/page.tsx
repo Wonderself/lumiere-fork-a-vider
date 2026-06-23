@@ -22,8 +22,8 @@ import {
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Mes Commandes — CINEGENY',
-  description: 'Suivez l\'état de vos commandes vidéo sur CINEGENY.',
+  title: 'My Orders — CINEGENY',
+  description: 'Track the status of your video orders on CINEGENY.',
 }
 
 type OrderStatus =
@@ -40,14 +40,14 @@ const STATUS_CONFIG: Record<
   { label: string; color: string; bgColor: string; borderColor: string; icon: ComponentType<{ className?: string }> }
 > = {
   OPEN: {
-    label: 'Ouverte',
+    label: 'Open',
     color: 'text-blue-400',
     bgColor: 'bg-blue-400/10',
     borderColor: 'border-blue-400/20',
     icon: PackageOpen,
   },
   CLAIMED: {
-    label: 'Acceptée',
+    label: 'Accepted',
     color: 'text-amber-400',
     bgColor: 'bg-amber-400/10',
     borderColor: 'border-amber-400/20',
@@ -61,28 +61,28 @@ const STATUS_CONFIG: Record<
     icon: RefreshCcw,
   },
   DELIVERED: {
-    label: 'Livrée',
+    label: 'Delivered',
     color: 'text-green-400',
     bgColor: 'bg-green-400/10',
     borderColor: 'border-green-400/20',
     icon: CheckCircle2,
   },
   REVISION: {
-    label: 'Révision',
+    label: 'Revision',
     color: 'text-orange-400',
     bgColor: 'bg-orange-400/10',
     borderColor: 'border-orange-400/20',
     icon: RefreshCcw,
   },
   COMPLETED: {
-    label: 'Terminée',
+    label: 'Completed',
     color: 'text-white/50',
     bgColor: 'bg-white/[0.05]',
     borderColor: 'border-white/[0.08]',
     icon: CheckCircle2,
   },
   DISPUTED: {
-    label: 'Litige',
+    label: 'Disputed',
     color: 'text-red-400',
     bgColor: 'bg-red-400/10',
     borderColor: 'border-red-400/20',
@@ -91,7 +91,7 @@ const STATUS_CONFIG: Record<
 }
 
 function formatDate(date: Date) {
-  return date.toLocaleDateString('fr-FR', {
+  return date.toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
@@ -129,18 +129,18 @@ export default async function DashboardOrdersPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-white font-[family-name:var(--font-playfair)]">
-            Mes Commandes
+            My Orders
           </h1>
           <p className="text-white/50 mt-1.5 text-sm">
-            Suivez l&apos;avancement de vos commandes vidéo
+            Track the progress of your video orders
           </p>
         </div>
         <Link
-          href="/collabs/orders/new"
+          href="/community-hub"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold text-sm transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-[#E50914]/20"
         >
           <Clapperboard className="h-4 w-4" />
-          Nouvelle commande
+          New order
         </Link>
       </div>
 
@@ -149,7 +149,7 @@ export default async function DashboardOrdersPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             {
-              label: 'Total commandes',
+              label: 'Total orders',
               value: orders.length,
               icon: ShoppingBag,
               color: 'text-[#E50914]',
@@ -163,7 +163,7 @@ export default async function DashboardOrdersPage() {
               bg: 'bg-amber-400/10',
             },
             {
-              label: 'Tokens dépensés',
+              label: 'Tokens spent',
               value: totalSpent,
               icon: Coins,
               color: 'text-purple-400',
@@ -193,16 +193,16 @@ export default async function DashboardOrdersPage() {
             <ShoppingBag className="h-8 w-8 text-[#E50914]/60" />
           </div>
           <h2 className="text-white font-bold text-lg font-playfair mb-2">
-            Aucune commande pour l&apos;instant
+            No orders yet
           </h2>
           <p className="text-white/50 text-sm max-w-sm mx-auto mb-8 leading-relaxed">
-            Passez votre première commande vidéo pour collaborer avec des créateurs CINEGENY.
+            Place your first video order to collaborate with CINEGENY creators.
           </p>
           <Link
-            href="/collabs/orders"
+            href="/community-hub"
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#E50914] hover:bg-[#FF2D2D] text-white font-semibold text-sm transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-[#E50914]/20"
           >
-            Explorer les commandes
+            Find a creator
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -214,7 +214,7 @@ export default async function DashboardOrdersPage() {
           <div className="flex items-center gap-3 mb-5">
             <Clock className="h-4 w-4 text-[#E50914]" />
             <h2 className="text-white font-bold text-base font-playfair">
-              Commandes actives
+              Active orders
             </h2>
             <span className="px-2 py-0.5 rounded-full bg-[#E50914]/10 text-[#E50914] text-xs font-semibold">
               {activeOrders.length}
@@ -228,7 +228,7 @@ export default async function DashboardOrdersPage() {
               return (
                 <Link
                   key={order.id}
-                  href={`/collabs/orders/${order.id}`}
+                  href={`/dashboard/orders/${order.id}`}
                   className="block"
                 >
                   <div className="group bg-white/5 rounded-2xl ring-1 ring-white/10 border border-white/[0.06] hover:border-[#E50914]/25 hover:bg-white/[0.07] transition-all duration-300 p-5 sm:p-6">
@@ -253,7 +253,7 @@ export default async function DashboardOrdersPage() {
                           <div className="flex flex-wrap items-center gap-3 mt-2.5">
                             {order.creatorUserId && (
                               <span className="text-white/40 text-xs">
-                                Créateur : <span className="text-white/60">{String((order as unknown as { creator?: { displayName?: string; email?: string } }).creator?.displayName || (order as unknown as { creator?: { email?: string } }).creator?.email || 'Inconnu')}</span>
+                                Creator: <span className="text-white/60">{String((order as unknown as { creator?: { displayName?: string; email?: string } }).creator?.displayName || (order as unknown as { creator?: { email?: string } }).creator?.email || 'Unknown')}</span>
                               </span>
                             )}
                             {order.deadline && (
@@ -274,12 +274,12 @@ export default async function DashboardOrdersPage() {
                       <div className="flex items-center gap-4 shrink-0 pl-14 sm:pl-0">
                         {order.status === 'REVISION' && (
                           <span className="text-orange-400 text-xs">
-                            Révision {order.revisionCount}/{order.maxRevisions}
+                            Revision {order.revisionCount}/{order.maxRevisions}
                           </span>
                         )}
                         {order.status === 'DELIVERED' && (
                           <span className="px-3 py-1.5 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold animate-pulse">
-                            À valider
+                            To review
                           </span>
                         )}
                         <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-[#E50914] transition-colors" />
@@ -299,7 +299,7 @@ export default async function DashboardOrdersPage() {
           <div className="flex items-center gap-3 mb-5">
             <CheckCircle2 className="h-4 w-4 text-white/40" />
             <h2 className="text-white/60 font-bold text-base font-playfair">
-              Historique
+              History
             </h2>
             <span className="px-2 py-0.5 rounded-full bg-white/[0.05] text-white/40 text-xs font-semibold">
               {completedOrders.length}
@@ -313,7 +313,7 @@ export default async function DashboardOrdersPage() {
               return (
                 <Link
                   key={order.id}
-                  href={`/collabs/orders/${order.id}`}
+                  href={`/dashboard/orders/${order.id}`}
                   className="block"
                 >
                   <div className="group bg-white/[0.02] rounded-2xl ring-1 ring-white/[0.06] border border-white/[0.04] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300 p-5">
@@ -340,13 +340,13 @@ export default async function DashboardOrdersPage() {
                           </span>
                           {order.clientRating !== null && order.clientRating !== undefined && (
                             <span className="text-amber-400/70 text-xs">
-                              Note : {order.clientRating}/5
+                              Rating: {order.clientRating}/5
                             </span>
                           )}
                           {order.deliveryUrl && (
                             <span className="flex items-center gap-1 text-white/30 text-xs">
                               <ExternalLink className="h-3 w-3" />
-                              Livraison disponible
+                              Delivery available
                             </span>
                           )}
                         </div>
@@ -365,7 +365,7 @@ export default async function DashboardOrdersPage() {
       {orders.length > 0 && (
         <div className="pt-2">
           <Link
-            href="/collabs/orders"
+            href="/community-hub"
             className="flex items-center justify-between p-5 rounded-2xl bg-gradient-to-r from-[#E50914]/[0.06] to-transparent border border-[#E50914]/10 hover:border-[#E50914]/25 transition-all duration-300 group"
           >
             <div className="flex items-center gap-3">
@@ -373,8 +373,8 @@ export default async function DashboardOrdersPage() {
                 <ShoppingBag className="h-5 w-5 text-[#E50914]" />
               </div>
               <div>
-                <p className="text-white/80 font-semibold text-sm">Marché des commandes</p>
-                <p className="text-white/40 text-xs">Voir toutes les commandes disponibles</p>
+                <p className="text-white/80 font-semibold text-sm">Order marketplace</p>
+                <p className="text-white/40 text-xs">Find creators to collaborate with</p>
               </div>
             </div>
             <ChevronRight className="h-5 w-5 text-white/30 group-hover:text-[#E50914] transition-colors" />

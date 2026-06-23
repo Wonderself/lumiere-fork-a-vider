@@ -60,11 +60,11 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
           <Image
-            src="/images/cinegeny-logo.svg"
-            alt="CINEGENY Studio"
-            width={140}
-            height={40}
-            className="h-8 w-auto object-contain group-hover:brightness-110 transition-all duration-300"
+            src="/images/cinegeny-logo.png"
+            alt="CINEGENY — Cinema & Creative Studio"
+            width={263}
+            height={145}
+            className="h-11 sm:h-12 w-auto object-contain group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-300"
             priority
           />
         </Link>
