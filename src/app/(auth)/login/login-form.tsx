@@ -36,7 +36,7 @@ export function LoginForm() {
       })
 
       if (result?.error) {
-        setError('Email ou mot de passe incorrect.')
+        setError('Incorrect email or password.')
         setLoading(false)
       } else {
         // Success — full page navigation (no flash)
@@ -51,7 +51,7 @@ export function LoginForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email || !password) {
-      setError('Email et mot de passe requis.')
+      setError('Email and password are required.')
       return
     }
     handleLogin(email, password)
@@ -91,7 +91,7 @@ export function LoginForm() {
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="vous@exemple.com ou admin123"
+                  placeholder="you@example.com"
                   required
                   autoComplete="username"
                   className="w-full pl-11 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#E50914]/40 focus:ring-1 focus:ring-[#E50914]/20 outline-none transition-all duration-300"
@@ -159,31 +159,6 @@ export function LoginForm() {
             </svg>
             Continue with Google
           </button>
-
-          {/* Demo accounts */}
-          <div className="mt-10 flex items-center gap-3">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.06]" />
-            <span className="text-xs text-white/20 uppercase tracking-widest">{t('demo_accounts')}</span>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/[0.06]" />
-          </div>
-          <div className="mt-5 space-y-3.5">
-            <button
-              type="button"
-              disabled={loading}
-              onClick={() => handleLogin('admin123', 'admin123')}
-              className="w-full rounded-xl bg-[#E50914]/[0.06] border border-[#E50914]/15 hover:border-[#E50914]/30 hover:bg-[#E50914]/10 p-3.5 text-left transition-all duration-300 group cursor-pointer disabled:opacity-50"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-semibold text-[#E50914]/80 group-hover:text-[#E50914]">Admin</p>
-                  <p className="text-[11px] text-white/35 mt-0.5">admin123 / admin123</p>
-                </div>
-                <span className="text-[10px] text-[#E50914]/40 group-hover:text-[#E50914]/70 uppercase tracking-wider font-medium">
-                  {loading ? 'Signing in...' : t('quick_login')}
-                </span>
-              </div>
-            </button>
-          </div>
         </div>
       </div>
 
