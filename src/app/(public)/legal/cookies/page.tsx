@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Politique Cookies',
-  description: 'Politique d\'utilisation des cookies de la plateforme CINEGENY — gestion de vos préférences et informations sur les traceurs utilisés.',
+  title: 'Cookie Policy',
+  description: 'How the CINEGENY platform uses cookies — manage your preferences and learn about the trackers we use.',
 }
 
 export default function CookiesPage() {
@@ -13,15 +13,15 @@ export default function CookiesPage() {
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/10 border border-[#E50914]/20 text-[#E50914] text-xs font-medium tracking-wider uppercase mb-6">
-            Cookies & Traceurs
+            Cookies & Trackers
           </div>
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
-            Politique Cookies
+            Cookie Policy
           </h1>
           <p className="text-white/40 text-sm">
-            Dernière mise à jour : 22 février 2026
+            Last updated: February 22, 2026
           </p>
         </div>
 
@@ -30,14 +30,14 @@ export default function CookiesPage() {
           {/* Introduction */}
           <section>
             <p className="text-white/70 leading-relaxed">
-              La présente Politique Cookies explique comment la plateforme{' '}
-              <strong className="text-[#E50914]">CINEGENY</strong>, éditée par CINEGENY
-              Studio, utilise des cookies et technologies similaires lorsque vous naviguez
-              sur notre site. Elle complète notre{' '}
+              This Cookie Policy explains how the{' '}
+              <strong className="text-[#E50914]">CINEGENY</strong> platform, operated by CINEGENY
+              Studio, uses cookies and similar technologies when you browse our site. It
+              complements our{' '}
               <Link href="/legal/privacy" className="text-[#E50914] underline underline-offset-4 hover:text-[#FF2D2D] transition-colors">
-                Politique de Confidentialité
+                Privacy Policy
               </Link>{' '}
-              et est conforme aux recommandations de la CNIL et au RGPD.
+              and is consistent with GDPR and CNIL guidance.
             </p>
           </section>
 
@@ -46,19 +46,18 @@ export default function CookiesPage() {
             <h2
               className="text-2xl font-bold text-[#E50914] mb-4"
             >
-              1. Qu&apos;est-ce qu&apos;un cookie ?
+              1. What is a cookie?
             </h2>
             <p className="text-white/70 leading-relaxed">
-              Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur,
-              tablette, smartphone) lors de la consultation d&apos;un site web. Il permet au site
-              de mémoriser des informations sur votre visite (langue préférée, identifiants
-              de session, préférences d&apos;affichage, etc.) afin de faciliter votre navigation
-              ultérieure.
+              A cookie is a small text file placed on your device (computer, tablet,
+              smartphone) when you visit a website. It lets the site remember information
+              about your visit (preferred language, session identifiers, display preferences,
+              etc.) to make your future browsing easier.
             </p>
             <p className="text-white/70 leading-relaxed mt-3">
-              Les cookies ne contiennent pas de virus et ne peuvent pas accéder aux autres
-              données stockées sur votre terminal. Ils sont soit « propriétaires » (déposés
-              par notre site), soit « tiers » (déposés par nos partenaires).
+              Cookies do not contain viruses and cannot access other data stored on your
+              device. They are either &quot;first-party&quot; (set by our site) or &quot;third-party&quot;
+              (set by our partners).
             </p>
           </section>
 
@@ -67,13 +66,12 @@ export default function CookiesPage() {
             <h2
               className="text-2xl font-bold text-[#E50914] mb-4"
             >
-              2. Cookies strictement nécessaires
+              2. Strictly necessary cookies
             </h2>
             <p className="text-white/70 leading-relaxed mb-4">
-              Ces cookies sont indispensables au fonctionnement de la Plateforme. Ils ne
-              peuvent pas être désactivés. Ils ne stockent aucune donnée personnelle
-              identifiable et sont exemptés de consentement conformément à l&apos;article 82
-              de la loi Informatique et Libertés.
+              These cookies are essential for the platform to work. They cannot be disabled.
+              They store no personally identifiable data and are exempt from consent under
+              applicable e-privacy rules.
             </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-white/70">
@@ -87,23 +85,23 @@ export default function CookiesPage() {
                 <tbody className="divide-y divide-white/5">
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">next-auth.session-token</td>
-                    <td className="py-3 pr-4">Authentification et maintien de la session utilisateur</td>
-                    <td className="py-3">Session (30 jours)</td>
+                    <td className="py-3 pr-4">Authentication and keeping the user session active</td>
+                    <td className="py-3">Session (30 days)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">next-auth.csrf-token</td>
-                    <td className="py-3 pr-4">Protection contre les attaques CSRF</td>
+                    <td className="py-3 pr-4">Protection against CSRF attacks</td>
                     <td className="py-3">Session</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">next-auth.callback-url</td>
-                    <td className="py-3 pr-4">Redirection après authentification</td>
+                    <td className="py-3 pr-4">Redirect after authentication</td>
                     <td className="py-3">Session</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">cookie-consent</td>
-                    <td className="py-3 pr-4">Mémorisation de votre choix concernant les cookies</td>
-                    <td className="py-3">12 mois</td>
+                    <td className="py-3 pr-4">Remembering your cookie choices</td>
+                    <td className="py-3">12 months</td>
                   </tr>
                 </tbody>
               </table>
@@ -115,20 +113,19 @@ export default function CookiesPage() {
             <h2
               className="text-2xl font-bold text-[#E50914] mb-4"
             >
-              3. Cookies analytiques
+              3. Analytics cookies
             </h2>
             <p className="text-white/70 leading-relaxed mb-4">
-              Ces cookies nous permettent de mesurer l&apos;audience de la Plateforme et de
-              comprendre comment les utilisateurs interagissent avec nos services. Les
-              données collectées sont anonymisées et agrégées. Ces cookies ne sont déposés
-              qu&apos;avec votre consentement.
+              These cookies let us measure the platform&apos;s audience and understand how users
+              interact with our services. The data collected is anonymized and aggregated.
+              These cookies are only set with your consent.
             </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-white/70">
                 <thead>
                   <tr className="border-b border-white/10">
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Cookie</th>
-                    <th className="text-left py-3 pr-4 text-white/90 font-semibold">Fournisseur</th>
+                    <th className="text-left py-3 pr-4 text-white/90 font-semibold">Provider</th>
                     <th className="text-left py-3 pr-4 text-white/90 font-semibold">Purpose</th>
                     <th className="text-left py-3 text-white/90 font-semibold">Duration</th>
                   </tr>
@@ -137,17 +134,16 @@ export default function CookiesPage() {
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">plausible_*</td>
                     <td className="py-3 pr-4">Plausible Analytics</td>
-                    <td className="py-3 pr-4">Mesure d&apos;audience respectueuse de la vie privée (sans données personnelles)</td>
-                    <td className="py-3">13 mois</td>
+                    <td className="py-3 pr-4">Privacy-friendly audience measurement (no personal data)</td>
+                    <td className="py-3">13 months</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-white/50 text-sm mt-3 italic">
-              Note : Nous utilisons Plausible Analytics, un outil d&apos;analyse respectueux de
-              la vie privée qui ne dépose pas de cookies par défaut et ne trace pas les
-              utilisateurs entre les sites. L&apos;utilisation de cookies analytiques est donc
-              minimale.
+              Note: We use Plausible Analytics, a privacy-friendly analytics tool that sets no
+              cookies by default and does not track users across sites. Our use of analytics
+              cookies is therefore minimal.
             </p>
           </section>
 
@@ -156,12 +152,11 @@ export default function CookiesPage() {
             <h2
               className="text-2xl font-bold text-[#E50914] mb-4"
             >
-              4. Cookies de personnalisation
+              4. Personalization cookies
             </h2>
             <p className="text-white/70 leading-relaxed mb-4">
-              Ces cookies permettent d&apos;adapter la Plateforme à vos préférences et
-              d&apos;améliorer votre expérience utilisateur. Ils ne sont déposés qu&apos;avec votre
-              consentement.
+              These cookies let us tailor the platform to your preferences and improve your
+              experience. They are only set with your consent.
             </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-white/70">
@@ -175,23 +170,23 @@ export default function CookiesPage() {
                 <tbody className="divide-y divide-white/5">
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">locale</td>
-                    <td className="py-3 pr-4">Mémorisation de la langue d&apos;interface choisie</td>
-                    <td className="py-3">12 mois</td>
+                    <td className="py-3 pr-4">Remembering your chosen interface language</td>
+                    <td className="py-3">12 months</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">theme</td>
-                    <td className="py-3 pr-4">Préférence de thème visuel (sombre/clair)</td>
-                    <td className="py-3">12 mois</td>
+                    <td className="py-3 pr-4">Visual theme preference (dark/light)</td>
+                    <td className="py-3">12 months</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">task-filters</td>
-                    <td className="py-3 pr-4">Mémorisation des filtres de recherche de tâches</td>
+                    <td className="py-3 pr-4">Remembering your task search filters</td>
                     <td className="py-3">Session</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-xs text-[#E50914]">video-quality</td>
-                    <td className="py-3 pr-4">Préférence de qualité vidéo pour le lecteur</td>
-                    <td className="py-3">12 mois</td>
+                    <td className="py-3 pr-4">Video quality preference for the player</td>
+                    <td className="py-3">12 months</td>
                   </tr>
                 </tbody>
               </table>
@@ -203,41 +198,40 @@ export default function CookiesPage() {
             <h2
               className="text-2xl font-bold text-[#E50914] mb-4"
             >
-              5. Gestion de vos préférences
+              5. Managing your preferences
             </h2>
             <p className="text-white/70 leading-relaxed">
-              Vous pouvez à tout moment modifier vos préférences en matière de cookies :
+              You can change your cookie preferences at any time:
             </p>
 
-            <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">5.1. Via notre bannière cookies</h3>
+            <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">5.1. Via our cookie banner</h3>
             <p className="text-white/70 leading-relaxed">
-              Lors de votre première visite, une bannière vous permet d&apos;accepter ou de
-              refuser les cookies non essentiels. Vous pouvez modifier ce choix à tout moment
-              en supprimant le cookie <code className="text-[#E50914] text-xs bg-white/5 px-1.5 py-0.5 rounded">cookie-consent</code>{' '}
-              de votre navigateur, ce qui déclenchera un nouvel affichage de la bannière.
+              On your first visit, a banner lets you accept or decline non-essential cookies.
+              You can change this choice at any time by deleting the{' '}
+              <code className="text-[#E50914] text-xs bg-white/5 px-1.5 py-0.5 rounded">cookie-consent</code>{' '}
+              cookie from your browser, which will show the banner again.
             </p>
 
-            <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">5.2. Via les paramètres de votre navigateur</h3>
+            <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">5.2. Via your browser settings</h3>
             <p className="text-white/70 leading-relaxed">
-              Vous pouvez configurer votre navigateur pour accepter ou refuser les cookies.
-              Voici les liens vers les instructions des navigateurs les plus courants :
+              You can configure your browser to accept or refuse cookies. Here are links to
+              instructions for the most common browsers:
             </p>
             <ul className="list-disc list-inside text-white/70 leading-relaxed mt-2 space-y-1 ml-4">
-              <li><strong className="text-white/90">Chrome</strong> : Paramètres &gt; Confidentialité et sécurité &gt; Cookies</li>
-              <li><strong className="text-white/90">Firefox</strong> : Paramètres &gt; Vie privée et sécurité &gt; Cookies</li>
-              <li><strong className="text-white/90">Safari</strong> : Préférences &gt; Confidentialité &gt; Cookies</li>
-              <li><strong className="text-white/90">Edge</strong> : Paramètres &gt; Cookies et autorisations de site</li>
+              <li><strong className="text-white/90">Chrome</strong>: Settings &gt; Privacy and security &gt; Cookies</li>
+              <li><strong className="text-white/90">Firefox</strong>: Settings &gt; Privacy & Security &gt; Cookies</li>
+              <li><strong className="text-white/90">Safari</strong>: Preferences &gt; Privacy &gt; Cookies</li>
+              <li><strong className="text-white/90">Edge</strong>: Settings &gt; Cookies and site permissions</li>
             </ul>
             <p className="text-white/50 text-sm mt-3 italic">
-              Attention : la désactivation de certains cookies peut affecter le fonctionnement
-              de la Plateforme, notamment l&apos;authentification et la navigation.
+              Note: disabling certain cookies may affect how the platform works, in particular
+              authentication and navigation.
             </p>
 
-            <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">5.3. Opt-out analytique</h3>
+            <h3 className="text-lg font-semibold text-white/90 mb-2 mt-4">5.3. Analytics opt-out</h3>
             <p className="text-white/70 leading-relaxed">
-              Vous pouvez désactiver le suivi analytique en activant la fonctionnalité
-              « Do Not Track » (DNT) de votre navigateur. Plausible Analytics respecte
-              nativement ce signal.
+              You can disable analytics tracking by enabling the &quot;Do Not Track&quot; (DNT)
+              feature in your browser. Plausible Analytics natively respects this signal.
             </p>
           </section>
 
@@ -246,29 +240,27 @@ export default function CookiesPage() {
             <h2
               className="text-2xl font-bold text-[#E50914] mb-4"
             >
-              6. Durée de conservation des cookies
+              6. How long cookies are kept
             </h2>
             <p className="text-white/70 leading-relaxed">
-              Conformément aux recommandations de la CNIL, les cookies et traceurs ont les
-              durées de vie suivantes :
+              In line with CNIL guidance, cookies and trackers have the following lifetimes:
             </p>
             <ul className="list-disc list-inside text-white/70 leading-relaxed mt-2 space-y-2 ml-4">
               <li>
-                <strong className="text-white/90">Cookies de session</strong> : supprimés
-                automatiquement à la fermeture du navigateur ;
+                <strong className="text-white/90">Session cookies</strong>: automatically deleted
+                when you close your browser;
               </li>
               <li>
-                <strong className="text-white/90">Cookies persistants</strong> : 12 mois maximum
-                à compter de leur dépôt ;
+                <strong className="text-white/90">Persistent cookies</strong>: up to 12 months from
+                when they are set;
               </li>
               <li>
-                <strong className="text-white/90">Consentement cookies</strong> : votre choix est
-                conservé pendant 12 mois, au-delà desquels une nouvelle demande de
-                consentement vous sera présentée ;
+                <strong className="text-white/90">Cookie consent</strong>: your choice is kept for
+                12 months, after which you will be asked for consent again;
               </li>
               <li>
-                <strong className="text-white/90">Cookies analytiques</strong> : 13 mois maximum
-                conformément aux recommandations de la CNIL.
+                <strong className="text-white/90">Analytics cookies</strong>: up to 13 months, in
+                line with CNIL guidance.
               </li>
             </ul>
           </section>
@@ -281,15 +273,14 @@ export default function CookiesPage() {
               7. Contact
             </h2>
             <p className="text-white/70 leading-relaxed">
-              Pour toute question relative à notre utilisation des cookies, vous pouvez
-              contacter notre Délégué à la Protection des Données à l&apos;adresse{' '}
+              For any question about our use of cookies, you can contact our Data Protection
+              Officer at{' '}
               <span className="text-[#E50914]">dpo@cinegeny.studio</span>.
             </p>
             <p className="text-white/70 leading-relaxed mt-3">
-              Pour en savoir plus sur la protection de vos données personnelles, consultez
-              notre{' '}
+              To learn more about how we protect your personal data, see our{' '}
               <Link href="/legal/privacy" className="text-[#E50914] underline underline-offset-4 hover:text-[#FF2D2D] transition-colors">
-                Politique de Confidentialité
+                Privacy Policy
               </Link>.
             </p>
           </section>
@@ -297,9 +288,9 @@ export default function CookiesPage() {
           {/* Disclaimer */}
           <div className="mt-8 pt-8 border-t border-white/10">
             <p className="text-white/30 text-xs leading-relaxed italic">
-              Ce document est un modèle indicatif et ne constitue pas un conseil juridique.
-              Il est recommandé de faire valider cette politique par un professionnel
-              avant toute mise en production.
+              This document is an indicative template and does not constitute legal advice.
+              We recommend having this policy reviewed by a professional before going to
+              production.
             </p>
           </div>
         </div>
@@ -307,10 +298,10 @@ export default function CookiesPage() {
         {/* Navigation */}
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm">
           <Link href="/legal/terms" className="text-[#E50914] underline underline-offset-4 hover:text-[#FF2D2D] transition-colors">
-            Conditions Générales d&apos;Utilisation
+            Terms of Service
           </Link>
           <Link href="/legal/privacy" className="text-[#E50914] underline underline-offset-4 hover:text-[#FF2D2D] transition-colors">
-            Politique de Confidentialité
+            Privacy Policy
           </Link>
         </div>
       </div>
