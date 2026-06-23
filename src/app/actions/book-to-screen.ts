@@ -94,7 +94,7 @@ function analyzeBookForAdaptation(params: {
 - **Titre original** : ${title}
 - **Genre** : ${genre}
 - **Pages** : ${pageCount}
-- **Format suggéré** : ${suggestedFormat === 'SERIES' ? 'Série (6-10 épisodes)' : suggestedFormat === 'FEATURE' ? 'Long métrage (90-120 min)' : 'Court métrage (15-30 min)'}
+- **Format suggéré** : ${suggestedFormat === 'SERIES' ? 'Series (6-10 episodes)' : suggestedFormat === 'FEATURE' ? 'Feature film (90-120 min)' : 'Short film (15-30 min)'}
 
 ## Structure Proposée
 
@@ -118,7 +118,7 @@ function analyzeBookForAdaptation(params: {
 - **Éléments à conserver** : personnages principaux, arc narratif central, atmosphère du genre ${genre}
 - **Éléments à adapter** : monologues intérieurs → dialogues, descriptions → visuels
 - **Ajouts possibles** : scènes d'action visuelles, dialogues condensés, rythme cinématographique
-${estimatedBudget === 'HIGH' ? '\n- **Budget VFX** : prévoir un budget significatif pour les effets visuels' : ''}
+${estimatedBudget === 'HIGH' ? '\n- **VFX budget**: plan a significant budget for visual effects' : ''}
 
 ## Équipe Recommandée
 - 1 scénariste adaptateur

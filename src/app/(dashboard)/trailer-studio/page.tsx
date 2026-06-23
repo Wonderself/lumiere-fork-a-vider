@@ -14,17 +14,17 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Studio Bande-Annonce — CINEGENY',
-  description: 'Créez des bandes-annonces cinématographiques avec l\'IA',
+  description: 'Create cinematic trailers with AI',
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: typeof Clock }> = {
   DRAFT: { label: 'Draft', color: 'bg-white/[0.05] text-white/60', icon: Clock },
-  DECOMPOSING: { label: 'Décomposition...', color: 'bg-blue-100 text-blue-600', icon: Loader2 },
+  DECOMPOSING: { label: 'Breaking down...', color: 'bg-blue-100 text-blue-600', icon: Loader2 },
   AWAITING_INPUT: { label: 'En attente', color: 'bg-amber-100 text-amber-600', icon: Clock },
   IN_PROGRESS: { label: 'In progress', color: 'bg-purple-100 text-purple-600', icon: Loader2 },
-  COMMUNITY_VOTE: { label: 'Vote communauté', color: 'bg-pink-100 text-pink-600', icon: Trophy },
+  COMMUNITY_VOTE: { label: 'Community vote', color: 'bg-pink-100 text-pink-600', icon: Trophy },
   ASSEMBLING: { label: 'Assemblage', color: 'bg-indigo-100 text-indigo-600', icon: Loader2 },
-  REVIEW: { label: 'Vérification', color: 'bg-orange-100 text-orange-600', icon: Clock },
+  REVIEW: { label: 'Verification', color: 'bg-orange-100 text-orange-600', icon: Clock },
   COMPLETED: { label: 'Completed', color: 'bg-green-100 text-green-600', icon: CheckCircle2 },
   SUBMITTED: { label: 'Soumis au concours', color: 'bg-[#E50914]/10 text-[#E50914]', icon: Trophy },
   CANCELLED: { label: 'Cancelled', color: 'bg-red-100 text-red-600', icon: Clock },
@@ -125,9 +125,9 @@ export default async function TrailerStudioPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { step: '1', title: 'Décrivez votre concept', desc: 'Genre, style, ambiance, durée — donnez le brief créatif' },
-              { step: '2', title: 'Faites vos choix', desc: 'Personnages, décors, musique — l\'IA vous propose, vous choisissez' },
-              { step: '3', title: 'L\'IA génère tout', desc: 'Chaque scène, chaque plan, chaque son est créé par l\'IA' },
+              { step: '1', title: 'Describe your concept', desc: 'Genre, style, mood, length — give the creative brief' },
+              { step: '2', title: 'Faites vos choix', desc: 'Characters, sets, music — AI suggests, you choose' },
+              { step: '3', title: 'AI generates everything', desc: 'Every scene, every shot, every sound is created by AI' },
               { step: '4', title: 'Soumettez au concours', desc: 'Participez et gagnez la production de votre film !' },
             ].map((item) => (
               <div key={item.step} className="relative rounded-xl border border-white/10 bg-white/[0.03] p-6">

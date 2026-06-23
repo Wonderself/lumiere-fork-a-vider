@@ -23,7 +23,7 @@ import {
 async function requireAdmin() {
   const session = await auth()
   if (!session?.user || session.user.role !== 'ADMIN') {
-    return { error: 'Accès refusé — administrateur requis' }
+    return { error: 'Access denied — administrator required' }
   }
   return { session }
 }

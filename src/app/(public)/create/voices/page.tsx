@@ -78,7 +78,7 @@ function VoiceCard({
   selected: boolean
   onSelect: () => void
 }) {
-  const genderLabel = voice.gender === 'male' ? 'Masculin' : voice.gender === 'female' ? 'Féminin' : 'Neutre'
+  const genderLabel = voice.gender === 'male' ? 'Masculin' : voice.gender === 'female' ? 'Female' : 'Neutre'
   const genderIcon = voice.gender === 'male' ? '♂' : voice.gender === 'female' ? '♀' : '⚧'
 
   return (
@@ -188,7 +188,7 @@ function GeneratedVoiceItem({
       {/* Actions */}
       <div className="flex items-center gap-2 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
         <button
-          onClick={() => toast.success('Téléchargement de la piste audio...')}
+          onClick={() => toast.success('Uploading audio track...')}
           className="p-2 rounded-lg text-white/30 hover:text-white/60 hover:bg-white/[0.06] transition-colors"
           title="Download"
         >
@@ -231,8 +231,8 @@ export default function VoicesPage() {
   const visibleVoices = showAllVoices ? VOICES : VOICES.slice(0, 4)
 
   async function handleGenerate() {
-    if (!text.trim()) { toast.error('Entrez du texte à vocaliser'); return }
-    if (!unlocked) { toast.error('Complétez les étapes précédentes pour débloquer cette fonctionnalité'); return }
+    if (!text.trim()) { toast.error('Enter text to voice'); return }
+    if (!unlocked) { toast.error('Complete the previous steps to unlock this feature'); return }
 
     setIsGenerating(true)
     try {
@@ -248,7 +248,7 @@ export default function VoicesPage() {
 
   function deleteGenerated(id: string) {
     setGenerated(prev => prev.filter(g => g.id !== id))
-    toast.success('Piste supprimée')
+    toast.success('Track deleted')
   }
 
   const selectedLangInfo = VOICE_LANGUAGES.find(l => l.code === selectedLanguage)
@@ -279,9 +279,9 @@ export default function VoicesPage() {
         <h2 className="text-lg font-bold text-white/80 mb-6">Comment ça marche</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { icon: Mic2, title: 'Choisissez une voix', desc: '8 presets cinématographiques — narrateur, héros, vilain, enfant et plus encore.' },
-            { icon: Globe, title: 'Sélectionnez la langue', desc: '12 langues supportées pour atteindre votre audience internationale.' },
-            { icon: Sparkles, title: 'Générez en un clic', desc: 'L\'IA génère une piste audio expressionnelle en quelques secondes. 0,5 crédit par 100 caractères.' },
+            { icon: Mic2, title: 'Choisissez une voix', desc: '8 cinematic presets — narrator, hero, villain, child and more.' },
+            { icon: Globe, title: 'Select the language', desc: '12 supported languages to reach your international audience.' },
+            { icon: Sparkles, title: 'Generate in one click', desc: 'L\'IA génère une piste audio expressionnelle en quelques secondes. 0,5 crédit par 100 caractères.' },
           ].map(item => (
             <div
               key={item.title}

@@ -121,7 +121,7 @@ export async function createTrailerProjectAction(
     return { success: true, projectId: project.id }
   } catch (err) {
     console.error('[trailer] createTrailerProjectAction error:', err)
-    return { error: 'Erreur lors de la création du projet' }
+    return { error: 'Error creating the project' }
   }
 }
 
@@ -141,7 +141,7 @@ export async function decomposeTrailerAction(projectId: string) {
     if (!project) return { error: 'Projet introuvable' }
     if (project.userId !== session.user.id) return { error: 'Not authorized' }
     if (project.status !== 'DRAFT' && project.status !== 'AWAITING_INPUT') {
-      return { error: 'Le projet ne peut pas être décomposé dans cet état' }
+      return { error: 'The project cannot be broken down in this state' }
     }
 
     // Set status to DECOMPOSING
@@ -170,7 +170,7 @@ export async function decomposeTrailerAction(projectId: string) {
         where: { id: projectId },
         data: { status: 'DRAFT' as never },
       })
-      return { error: 'Erreur lors de la décomposition du trailer' }
+      return { error: 'Error breaking down the trailer' }
     }
 
     // Delete any existing tasks (in case of re-decomposition)
@@ -243,7 +243,7 @@ export async function decomposeTrailerAction(projectId: string) {
     return { success: true, tasksCount: taskDefs.length }
   } catch (err) {
     console.error('[trailer] decomposeTrailerAction error:', err)
-    return { error: 'Erreur lors de la décomposition' }
+    return { error: 'Breakdown failed' }
   }
 }
 
@@ -308,7 +308,7 @@ export async function updateTrailerChoiceAction(
     return { success: true }
   } catch (err) {
     console.error('[trailer] updateTrailerChoiceAction error:', err)
-    return { error: 'Erreur lors de la mise à jour du choix' }
+    return { error: 'Error updating the choice' }
   }
 }
 
@@ -334,7 +334,7 @@ export async function startTrailerGenerationAction(projectId: string) {
     if (!project) return { error: 'Projet introuvable' }
     if (project.userId !== session.user.id) return { error: 'Not authorized' }
     if (project.status !== 'AWAITING_INPUT' && project.status !== 'IN_PROGRESS') {
-      return { error: 'Le projet n\'est pas prêt pour la génération' }
+      return { error: 'The project isn\'t ready for generation' }
     }
 
     // Check credit balance
@@ -374,7 +374,7 @@ export async function startTrailerGenerationAction(projectId: string) {
     return { success: true }
   } catch (err) {
     console.error('[trailer] startTrailerGenerationAction error:', err)
-    return { error: 'Erreur lors du démarrage de la génération' }
+    return { error: 'Error starting generation' }
   }
 }
 
@@ -543,7 +543,7 @@ export async function completeTrailerTaskAction(
     return { success: true, progressPct, allDone }
   } catch (err) {
     console.error('[trailer] completeTrailerTaskAction error:', err)
-    return { error: 'Erreur lors de la complétion de la tâche' }
+    return { error: 'Error completing the task' }
   }
 }
 
@@ -574,7 +574,7 @@ export async function submitTrailerToContestAction(
     if (!project) return { error: 'Projet introuvable' }
     if (project.userId !== session.user.id) return { error: 'Not authorized' }
     if (project.status !== 'COMPLETED') {
-      return { error: 'Le projet doit être terminé avant de le soumettre' }
+      return { error: 'The project must be completed before submitting it' }
     }
 
     const contest = await prisma.trailerContest.findUnique({
@@ -592,7 +592,7 @@ export async function submitTrailerToContestAction(
       where: { contestId, userId: session.user.id },
     })
     if (existingEntry) {
-      return { error: 'Vous avez déjà soumis un trailer à ce concours' }
+      return { error: 'You have already submitted a trailer to this contest' }
     }
 
     await prisma.trailerEntry.create({
@@ -663,7 +663,7 @@ export async function getTrailerProjectAction(projectId: string) {
     return { success: true, project }
   } catch (err) {
     console.error('[trailer] getTrailerProjectAction error:', err)
-    return { error: 'Erreur lors de la récupération du projet' }
+    return { error: 'Error fetching the project' }
   }
 }
 
@@ -707,7 +707,7 @@ export async function getMyTrailerProjectsAction() {
     return { success: true, projects }
   } catch (err) {
     console.error('[trailer] getMyTrailerProjectsAction error:', err)
-    return { error: 'Erreur lors de la récupération des projets' }
+    return { error: 'Error fetching projects' }
   }
 }
 
@@ -729,7 +729,7 @@ export async function deleteTrailerProjectAction(projectId: string) {
     if (project.userId !== session.user.id) return { error: 'Not authorized' }
 
     if (project.status !== 'DRAFT' && project.status !== 'CANCELLED') {
-      return { error: 'Seuls les projets en brouillon ou annulés peuvent être supprimés' }
+      return { error: 'Only draft or cancelled projects can be deleted' }
     }
 
     await prisma.trailerProject.delete({
@@ -784,7 +784,7 @@ export async function createTrailerChoiceAction(params: {
         select: { projectId: true },
       })
       if (!task || task.projectId !== data.projectId) {
-        return { error: 'La tâche n\'appartient pas à ce projet' }
+        return { error: 'The task doesn\'t belong to this project' }
       }
     }
 
@@ -810,7 +810,7 @@ export async function createTrailerChoiceAction(params: {
     return { success: true, choiceId: choice.id }
   } catch (err) {
     console.error('[trailer] createTrailerChoiceAction error:', err)
-    return { error: 'Erreur lors de la création du choix' }
+    return { error: 'Error creating the choice' }
   }
 }
 
@@ -841,10 +841,10 @@ export async function voteOnTrailerChoiceAction(
 
     if (!choice) return { error: 'Choix introuvable' }
     if (!choice.isOpenToVote) return { error: 'Ce choix n\'est pas ouvert au vote' }
-    if (choice.resolvedAt) return { error: 'Ce choix a déjà été résolu' }
+    if (choice.resolvedAt) return { error: 'This choice has already been resolved' }
 
     if (choice.voteDeadline && new Date() > choice.voteDeadline) {
-      return { error: 'La période de vote est terminée' }
+      return { error: 'The voting period has ended' }
     }
 
     const options = choice.options as Array<{ id: string }>
@@ -857,7 +857,7 @@ export async function voteOnTrailerChoiceAction(
       },
     })
     if (existingVote) {
-      return { error: 'Vous avez déjà voté pour ce choix' }
+      return { error: 'You have already voted for this choice' }
     }
 
     await prisma.trailerChoiceVote.create({
@@ -917,6 +917,6 @@ export async function getOpenContestsAction() {
     return { success: true, contests }
   } catch (err) {
     console.error('[trailer] getOpenContestsAction error:', err)
-    return { error: 'Erreur lors de la récupération des concours' }
+    return { error: 'Error fetching contests' }
   }
 }

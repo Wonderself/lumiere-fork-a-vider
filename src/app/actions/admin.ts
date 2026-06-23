@@ -81,7 +81,7 @@ const changeUserRoleSchema = z.object({
 
 const grantLumensSchema = z.object({
   userId: cuidSchema,
-  amount: z.number().int().min(1, 'Minimum 1 Lumen').max(100000, 'Montant trop élevé'),
+  amount: z.number().int().min(1, 'Minimum 1 Lumen').max(100000, 'Amount too high'),
   reason: z.string().max(500).optional(),
 })
 
@@ -406,7 +406,7 @@ export async function runAiReviewAction(formData: FormData) {
     }),
   ])
 
-  await createNotification(submission.userId, 'SUBMISSION_REVIEWED', 'Revue IA terminée', {
+  await createNotification(submission.userId, 'SUBMISSION_REVIEWED', 'AI review complete', {
     body: `Score IA : ${aiResult.score}/100 — ${aiResult.verdict === 'AI_APPROVED' ? 'Approved' : 'En attente de revue humaine'}`,
     href: `/tasks/${submission.taskId}`,
   })
@@ -422,7 +422,7 @@ export async function verifyUserAction(formData: FormData) {
   if (!userIdParsed.success) return
   const userId = userIdParsed.data
   await prisma.user.update({ where: { id: userId }, data: { isVerified: true, verifiedAt: new Date() } })
-  await createNotification(userId, 'SYSTEM', 'Compte vérifié', {
+  await createNotification(userId, 'SYSTEM', 'Account verified', {
     body: 'Votre compte a été vérifié par un administrateur. Vous avez accès à toutes les fonctionnalités.',
     href: '/dashboard',
   })
@@ -438,7 +438,7 @@ export async function changeUserRoleAction(formData: FormData) {
   if (!parsed.success) return
   const { userId, role } = parsed.data
   await prisma.user.update({ where: { id: userId }, data: { role: role as any } })
-  await createNotification(userId, 'SYSTEM', 'Rôle mis à jour', {
+  await createNotification(userId, 'SYSTEM', 'Role updated', {
     body: `Votre rôle a été changé en ${role}.`,
     href: '/profile',
   })
@@ -496,7 +496,7 @@ export async function approveSubmissionAction(formData: FormData) {
   await prisma.$transaction([
     prisma.taskSubmission.update({
       where: { id: submissionId },
-      data: { status: 'HUMAN_APPROVED', humanReviewerId: session.user.id, humanFeedback: feedback || 'Approuvé par review humaine.' },
+      data: { status: 'HUMAN_APPROVED', humanReviewerId: session.user.id, humanFeedback: feedback || 'Approved by human review.' },
     }),
     prisma.task.update({ where: { id: submission.taskId }, data: { status: 'VALIDATED', validatedAt: new Date() } }),
     prisma.user.update({
@@ -573,7 +573,7 @@ export async function rejectSubmissionAction(formData: FormData) {
     prisma.task.update({ where: { id: submission.taskId }, data: { status: canRetry ? 'CLAIMED' : 'REJECTED' } }),
   ])
 
-  await createNotification(submission.userId, 'TASK_REJECTED', 'Soumission refusée', {
+  await createNotification(submission.userId, 'TASK_REJECTED', 'Submission rejected', {
     body: canRetry
       ? `Votre soumission pour "${submission.task.title}" a été refusée. Vous pouvez réessayer (tentative ${submission.task.currentAttempt}/${submission.task.maxAttempts}).`
       : `Votre soumission pour "${submission.task.title}" a été définitivement refusée.`,
@@ -805,11 +805,11 @@ export async function completePhaseAction(formData: FormData) {
 export async function reassignTaskAction(formData: FormData) {
   await requireAdmin()
   const taskIdParsed = cuidSchema.safeParse(formData.get('taskId') as string)
-  if (!taskIdParsed.success) return { error: 'Tâche invalide.' }
+  if (!taskIdParsed.success) return { error: 'Invalid task.' }
   const taskId = taskIdParsed.data
 
   const task = await prisma.task.findUnique({ where: { id: taskId } })
-  if (!task) return { error: 'Tâche introuvable.' }
+  if (!task) return { error: 'Task not found.' }
 
   await prisma.task.update({
     where: { id: taskId },
@@ -817,7 +817,7 @@ export async function reassignTaskAction(formData: FormData) {
   })
 
   if (task.claimedById) {
-    await createNotification(task.claimedById, 'SYSTEM', 'Tâche réattribuée', {
+    await createNotification(task.claimedById, 'SYSTEM', 'Task reassigned', {
       body: `La tâche "${task.title}" vous a été retirée par un administrateur.`,
       href: '/tasks',
     })
@@ -846,7 +846,7 @@ export async function cleanupExpiredTasksAction() {
     })
 
     if (task.claimedById) {
-      await createNotification(task.claimedById, 'SYSTEM', 'Tâche expirée', {
+      await createNotification(task.claimedById, 'SYSTEM', 'Task expired', {
         body: `La tâche "${task.title}" a expiré et est de nouveau disponible.`,
         href: '/tasks',
       })

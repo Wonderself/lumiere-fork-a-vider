@@ -29,13 +29,13 @@ export function VideoGenerator({ filmProjectId, onGenerated }: VideoGeneratorPro
   const model = getModelById(selectedProvider)
 
   async function generate() {
-    if (!prompt.trim()) { toast.error('Décrivez la scène vidéo'); return }
+    if (!prompt.trim()) { toast.error('Describe the video scene'); return }
     setGenerating(true)
     setProgress(0)
     setResult(null)
 
     // Simulate async polling (in production: submit job → poll status → get result)
-    const steps = ['Envoi au provider...', 'Generating...', 'Rendu final...', 'Téléchargement...']
+    const steps = ['Envoi au provider...', 'Generating...', 'Rendu final...', 'Uploading...']
     for (let i = 0; i <= 100; i += 5) {
       await new Promise(r => setTimeout(r, activeConfig.estimatedTime * 10))
       setProgress(i)
@@ -96,7 +96,7 @@ export function VideoGenerator({ filmProjectId, onGenerated }: VideoGeneratorPro
       </div>
 
       {/* Prompt */}
-      <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Décrivez la scène vidéo en détail (mouvement caméra, action, ambiance)..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
+      <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Describe the video scene in detail (camera movement, action, mood)..." rows={3} className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#E50914] focus:outline-none resize-none" />
 
       {inputType === 'image' && (
         <input value={imageUrl} onChange={e => setImageUrl(e.target.value)} placeholder="URL de l'image source..." className="w-full rounded-xl border border-white/10 px-4 py-2.5 text-sm focus:border-[#E50914] focus:outline-none" />

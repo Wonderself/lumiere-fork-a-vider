@@ -15,7 +15,7 @@ const screenplaySchema = z.object({
   title: z.string().min(2, 'Titre trop court').max(200),
   logline: z.string().max(500).optional(),
   genre: z.string().optional(),
-  content: z.string().min(100, 'Le scénario doit contenir au moins 100 caractères'),
+  content: z.string().min(100, 'The screenplay must be at least 100 characters'),
   modificationTolerance: z.coerce.number().min(0).max(50).default(20),
   revenueShareBps: z.coerce.number().min(0).max(3000).default(0),
 })

@@ -46,7 +46,7 @@ export async function buyTokensAction(
       return { success: false, error: 'L\'offre n\'est pas encore ouverte.' }
     }
     if (offering.closesAt && now > offering.closesAt) {
-      return { success: false, error: 'L\'offre est clôturée.' }
+      return { success: false, error: 'The offering is closed.' }
     }
 
     // Check min/max investment
@@ -72,7 +72,7 @@ export async function buyTokensAction(
     if (offering.kycRequired) {
       const user = await prisma.user.findUnique({ where: { id: session.user.id } })
       if (!user?.isVerified) {
-        return { success: false, error: 'Vérification KYC requise avant d\'investir. Veuillez vérifier votre profil.' }
+        return { success: false, error: 'Identity verification required before investing. Please verify your profile.' }
       }
     }
 
@@ -148,7 +148,7 @@ export async function buyTokensAction(
     return { success: true }
   } catch (error) {
     console.error('buyTokensAction error:', error)
-    return { success: false, error: 'Erreur lors de l\'achat. Veuillez réessayer.' }
+    return { success: false, error: 'Purchase failed. Please try again.' }
   }
 }
 
@@ -171,7 +171,7 @@ export async function listTokensForSaleAction(
   const pricePerToken = parseFloat(pricePerTokenStr)
 
   if (!offeringId || !tokenCount || tokenCount < 1 || !pricePerToken || pricePerToken <= 0) {
-    return { success: false, error: 'Paramètres invalides.' }
+    return { success: false, error: 'Invalid parameters.' }
   }
 
   try {
@@ -246,7 +246,7 @@ export async function listTokensForSaleAction(
     return { success: true }
   } catch (error) {
     console.error('listTokensForSaleAction error:', error)
-    return { success: false, error: 'Erreur lors de la mise en vente. Veuillez réessayer.' }
+    return { success: false, error: 'Listing failed. Please try again.' }
   }
 }
 
@@ -333,7 +333,7 @@ export async function buyFromSecondaryAction(
     return { success: true }
   } catch (error) {
     console.error('buyFromSecondaryAction error:', error)
-    return { success: false, error: 'Erreur lors de l\'achat. Veuillez réessayer.' }
+    return { success: false, error: 'Purchase failed. Please try again.' }
   }
 }
 
@@ -363,14 +363,14 @@ export async function createProposalAction(
   }
 
   if (description.length < 20) {
-    return { success: false, error: 'La description doit contenir au moins 20 caractères.' }
+    return { success: false, error: 'The description must be at least 20 characters.' }
   }
 
   try {
     // Check user holds tokens for this offering
     const balance = await getTokenBalance(offeringId, session.user.id)
     if (balance <= 0) {
-      return { success: false, error: 'Vous devez détenir des tokens pour créer une proposition.' }
+      return { success: false, error: 'You must hold tokens to create a proposal.' }
     }
 
     // Check offering exists and has voting rights
@@ -383,7 +383,7 @@ export async function createProposalAction(
     }
 
     if (!offering.votingRights) {
-      return { success: false, error: 'Les droits de vote ne sont pas activés pour cette offre.' }
+      return { success: false, error: 'Voting rights are not enabled for this offering.' }
     }
 
     // Set deadline (default 7 days)
@@ -418,7 +418,7 @@ export async function createProposalAction(
     return { success: true }
   } catch (error) {
     console.error('createProposalAction error:', error)
-    return { success: false, error: 'Erreur lors de la création de la proposition.' }
+    return { success: false, error: 'Error creating the proposal.' }
   }
 }
 
@@ -453,7 +453,7 @@ export async function voteOnProposalAction(
     }
 
     if (new Date() > proposal.deadline) {
-      return { success: false, error: 'Le délai de vote est expiré.' }
+      return { success: false, error: 'The voting deadline has passed.' }
     }
 
     // Check user has not already voted
@@ -467,7 +467,7 @@ export async function voteOnProposalAction(
     })
 
     if (existingVote) {
-      return { success: false, error: 'Vous avez déjà voté sur cette proposition.' }
+      return { success: false, error: 'You have already voted on this proposal.' }
     }
 
     // Get user's token weight (balance = voting power)
