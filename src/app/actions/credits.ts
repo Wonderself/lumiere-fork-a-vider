@@ -82,7 +82,7 @@ export async function getFilmCreditsAction(filmSlug: string) {
       phase: 'SCRIPT' as const,
       tasks: [
         {
-          title: `Scénario : ${scenario.title}`,
+          title: `Screenplay: ${scenario.title}`,
           type: 'PROMPT_WRITING' as const,
           contributor: {
             id: scenario.author.id,

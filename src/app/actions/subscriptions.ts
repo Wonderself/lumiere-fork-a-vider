@@ -37,7 +37,7 @@ export async function subscribeToPlanAction(formData: FormData) {
   })
 
   if (existing?.plan === plan && existing.status === 'active') {
-    return { error: 'Vous êtes déjà abonné à ce plan' }
+    return { error: 'You are already subscribed to this plan' }
   }
 
   // If Stripe is configured and plan is paid, create checkout session
@@ -129,7 +129,7 @@ export async function cancelSubscriptionAction() {
 
   // Notify user
   await createNotification(session.user.id, 'SYSTEM' as never, 'Subscription cancelled', {
-    body: `Votre abonnement ${config.name} a été annulé. Vous conservez l'accès jusqu'à la fin de la période en cours.`,
+    body: `Your ${config.name} subscription has been cancelled. You keep access until the end of the current period.`,
     href: '/dashboard/subscription',
   })
 

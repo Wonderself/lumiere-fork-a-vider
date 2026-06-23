@@ -11,7 +11,7 @@ export async function voteFilmAction(formData: FormData) {
   const filmId = formData.get('filmId') as string
   const voteType = formData.get('voteType') as string // 'up' or 'down'
 
-  if (!filmId || !voteType) return { error: 'Données manquantes' }
+  if (!filmId || !voteType) return { error: 'Missing data' }
   if (!['up', 'down'].includes(voteType)) return { error: 'Type de vote invalide' }
 
   const film = await prisma.film.findUnique({ where: { id: filmId }, select: { slug: true } })
@@ -65,9 +65,9 @@ export async function backFilmAction(
   const revenueShareBps = Math.min(Math.floor((amount / 500) * 100), 1000)
 
   // Determine perks based on amount
-  const perks: string[] = ['Accès avant-première']
-  if (amount >= 100) perks.push('Nom au générique')
-  if (amount >= 500) perks.push('Invitation événement', 'Revenue share', 'Making-of exclusif')
+  const perks: string[] = ['Early-access premiere']
+  if (amount >= 100) perks.push('Credit name')
+  if (amount >= 500) perks.push('Event invitation', 'Revenue share', 'Making-of exclusif')
 
   // Check if already a backer
   const existing = await prisma.filmBacker.findUnique({

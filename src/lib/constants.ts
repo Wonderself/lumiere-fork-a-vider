@@ -50,7 +50,7 @@ export const TASK_STATUS_LABELS = {
 
 export const FILM_STATUS_LABELS = {
   DRAFT: 'Draft',
-  PRE_PRODUCTION: 'Pré-production',
+  PRE_PRODUCTION: 'Pre-production',
   IN_PRODUCTION: 'En production',
   POST_PRODUCTION: 'Post-production',
   RELEASED: 'Sorti',
@@ -59,30 +59,30 @@ export const FILM_STATUS_LABELS = {
 export const PHASE_LABELS = {
   SCRIPT: 'Screenplay',
   STORYBOARD: 'Storyboard',
-  PREVIZ: 'Préviz',
+  PREVIZ: 'Previz',
   DESIGN: 'Design',
   ANIMATION: 'Animation',
   VFX: 'VFX',
   AUDIO: 'Audio',
   EDITING: 'Montage',
-  COLOR: 'Étalonnage',
+  COLOR: 'Color grading',
   FINAL: 'Finalisation',
 } as const
 
 export const TASK_TYPE_LABELS = {
-  PROMPT_WRITING: 'Écriture de Prompt',
-  IMAGE_GEN: 'Génération Image',
+  PROMPT_WRITING: 'Prompt Writing',
+  IMAGE_GEN: 'Image Generation',
   VIDEO_REVIEW: 'Video review',
   STUNT_CAPTURE: 'Capture Cascade',
   DANCE_CAPTURE: 'Capture Danse',
-  DIALOGUE_EDIT: 'Édition Dialogue',
-  COLOR_GRADE: 'Étalonnage',
+  DIALOGUE_EDIT: 'Dialogue Editing',
+  COLOR_GRADE: 'Color grading',
   SOUND_DESIGN: 'Sound Design',
   CONTINUITY_CHECK: 'Continuity check',
   QA_REVIEW: 'QA Review',
   CHARACTER_DESIGN: 'Design Personnage',
   ENV_DESIGN: "Design d'Environnement",
-  MOTION_REF: 'Référence Mouvement',
+  MOTION_REF: 'Motion Reference',
   COMPOSITING: 'Compositing',
   TRANSLATION: 'Traduction',
   SUBTITLE: 'Sous-titrage',
@@ -152,13 +152,13 @@ export const ACTOR_STYLE_LABELS = {
   VERSATILE: 'Polyvalent',
   HORROR: 'Horreur',
   ROMANCE: 'Romance',
-  EXPERIMENTAL: 'Expérimental',
+  EXPERIMENTAL: 'Experimental',
 } as const
 
 export const CAST_ROLE_LABELS = {
-  LEAD: 'Rôle principal',
-  SUPPORTING: 'Second rôle',
-  CAMEO: 'Caméo',
+  LEAD: 'Lead role',
+  SUPPORTING: 'Supporting role',
+  CAMEO: 'Cameo',
   VOICE: 'Voix',
   NARRATOR: 'Narrateur',
 } as const
@@ -168,7 +168,7 @@ export const BONUS_TYPE_LABELS = {
   DELETED_SCENE: 'Deleted scene',
   BLOOPER: 'Bloopers',
   BTS: 'Making-of',
-  DIRECTORS_COMMENTARY: 'Commentaire du réalisateur',
+  DIRECTORS_COMMENTARY: 'Director commentary',
   CONCEPT_ART: 'Concept Art',
   SOUNDTRACK: 'Bande originale',
   MAKING_OF: 'Coulisses',
@@ -177,14 +177,14 @@ export const BONUS_TYPE_LABELS = {
 
 export const SCENARIO_STATUS_LABELS = {
   SUBMITTED: 'Submitted',
-  SHORTLISTED: 'Présélectionné',
+  SHORTLISTED: 'Shortlisted',
   VOTING: 'En vote',
   WINNER: 'Gagnant',
   ARCHIVED: 'Archived',
 } as const
 
 export const CONTEST_STATUS_LABELS = {
-  UPCOMING: 'À venir',
+  UPCOMING: 'Upcoming',
   OPEN: 'Ouvert',
   VOTING: 'En vote',
   CLOSED: 'Completed',

@@ -190,7 +190,7 @@ export async function submitBookForAdaptationAction(
   })
 
   // Notify admin
-  await createNotification(session.user.id, 'SYSTEM' as never, `Analyse d'adaptation terminée`, {
+  await createNotification(session.user.id, 'SYSTEM' as never, `Adaptation analysis complete`, {
     body: `"${title}" — Score: ${analysis.score}/100 — ${analysis.suggestedFormat} — ${analysis.estimatedBudget} budget`,
     href: '/screenplays',
   })

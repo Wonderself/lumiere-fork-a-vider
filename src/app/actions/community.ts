@@ -36,7 +36,7 @@ export async function submitScenarioAction(prevState: { error?: string; success?
     return { error: 'The title must be between 5 and 200 characters.' }
   }
   if (!logline || logline.length < 10 || logline.length > 500) {
-    return { error: 'Le logline doit contenir entre 10 et 500 caractères.' }
+    return { error: 'The logline must be between 10 and 500 characters.' }
   }
 
   try {
@@ -93,7 +93,7 @@ export async function voteScenarioAction(formData: FormData) {
   })
 
   if (!subscription || subscription.plan === 'FREE') {
-    return { error: 'Réservé aux membres Premium (Starter+). Passez à un abonnement supérieur pour voter.' }
+    return { error: 'Reserved for Premium members (Starter+). Upgrade your plan to vote.' }
   }
 
   // Check proposal exists and is in VOTING status
@@ -143,7 +143,7 @@ export async function voteScenarioAction(formData: FormData) {
   } catch (e: unknown) {
     // Unique constraint violation = already voted
     if ((e as { code?: string })?.code === 'P2002') {
-      return { error: 'Vous avez déjà voté pour cette proposition.' }
+      return { error: 'You have already voted for this proposal.' }
     }
     console.error('voteScenarioAction error:', e)
     return { error: 'Voting failed. Please try again.' }
@@ -155,7 +155,7 @@ export async function shortlistScenariosAction(formData: FormData) {
   if (!session?.user || session.user.role !== 'ADMIN') redirect('/dashboard')
 
   const proposalIds = (formData.get('proposalIds') as string)?.split(',').filter(Boolean)
-  if (!proposalIds?.length) return { error: 'Aucune proposition sélectionnée.' }
+  if (!proposalIds?.length) return { error: 'No proposal selected.' }
 
   try {
     await prisma.scenarioProposal.updateMany({
@@ -220,7 +220,7 @@ export async function pickScenarioWinnerAction(formData: FormData) {
           userId: proposal.authorId,
           amount: Math.round(proposal.prizePoolEur * 100),
           type: 'BONUS',
-          description: `Prix scénario gagnant — "${proposal.title}"`,
+          description: `Winning screenplay prize — "${proposal.title}"`,
           relatedId: proposalId,
         },
       })
@@ -353,7 +353,7 @@ export async function pickScenarioWinnerAction(formData: FormData) {
     return { success: true }
   } catch (e) {
     console.error('pickScenarioWinnerAction error:', e)
-    return { error: 'Erreur lors de la sélection du gagnant.' }
+    return { error: 'Error selecting the winner.' }
   }
 }
 
@@ -375,7 +375,7 @@ export async function createContestAction(formData: FormData) {
   const autoClose = formData.get('autoClose') === 'true'
 
   if (!title || title.length < 3) {
-    return { error: 'Le titre doit contenir au moins 3 caractères.' }
+    return { error: 'The title must be at least 3 characters.' }
   }
 
   try {
@@ -399,7 +399,7 @@ export async function createContestAction(formData: FormData) {
     return { success: true }
   } catch (e) {
     console.error('createContestAction error:', e)
-    return { error: 'Erreur lors de la création du concours.' }
+    return { error: 'Error creating the contest.' }
   }
 }
 
@@ -450,7 +450,7 @@ export async function voteTrailerAction(formData: FormData) {
   if (!session?.user) redirect('/login')
 
   const entryId = formData.get('entryId') as string
-  if (!entryId) return { error: 'Entrée invalide.' }
+  if (!entryId) return { error: 'Invalid entry.' }
 
   // Check entry's contest is in VOTING status
   const entry = await prisma.trailerEntry.findUnique({
@@ -493,7 +493,7 @@ export async function voteTrailerAction(formData: FormData) {
     return { success: true }
   } catch (e: unknown) {
     if ((e as { code?: string })?.code === 'P2002') {
-      return { error: 'Vous avez déjà voté pour cette entrée.' }
+      return { error: 'You have already voted for this entry.' }
     }
     console.error('voteTrailerAction error:', e)
     return { error: 'Voting failed. Please try again.' }
@@ -510,7 +510,7 @@ const MONTHLY_THEMES = [
   { month: 3, theme: 'Femmes de Cinema', description: 'Celebrez les femmes dans le cinema — creatrices, actrices, personnages.' },
   { month: 4, theme: 'Nature & Environnement', description: 'Films eco-conscients, nature, survie et notre lien a la planete.' },
   { month: 5, theme: 'Travail & Passion', description: 'Histoires de metiers, vocations et la quete de sens au quotidien.' },
-  { month: 6, theme: 'Musique & Rythme', description: 'Le cinema rencontre la musique — clips, comédies musicales, biopics.' },
+  { month: 6, theme: 'Musique & Rythme', description: 'Where cinema meets music — clips, musicals, biopics.' },
   { month: 7, theme: 'Aventure Estivale', description: 'Road trips, voyages, decouvertes et liberte sous le soleil.' },
   { month: 8, theme: 'Science-Fiction', description: 'Futur, espace, technologie, IA — imaginez demain.' },
   { month: 9, theme: 'Rentree des Createurs', description: 'Retour a la creation — histoires d\'ecoles, d\'apprentissage, de mentorat.' },
@@ -583,7 +583,7 @@ export async function updateContestStatusAction(formData: FormData) {
   const contestId = formData.get('contestId') as string
   const newStatus = formData.get('newStatus') as string
 
-  if (!contestId || !newStatus) return { error: 'Paramètres manquants.' }
+  if (!contestId || !newStatus) return { error: 'Missing parameters.' }
 
   try {
     const updateData: Record<string, unknown> = { status: newStatus }
@@ -684,6 +684,6 @@ export async function updateContestStatusAction(formData: FormData) {
     return { success: true }
   } catch (e) {
     console.error('updateContestStatusAction error:', e)
-    return { error: 'Erreur lors de la mise à jour du statut.' }
+    return { error: 'Error updating the status.' }
   }
 }

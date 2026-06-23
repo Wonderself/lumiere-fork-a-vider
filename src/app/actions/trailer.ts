@@ -346,7 +346,7 @@ export async function startTrailerGenerationAction(projectId: string) {
     const balance = creditAccount?.balance ?? 0
     if (balance < project.estimatedCredits) {
       return {
-        error: `Crédits insuffisants. Requis : ${project.estimatedCredits}, disponibles : ${balance}`,
+        error: `Insufficient credits. Required: ${project.estimatedCredits}, available: ${balance}`,
       }
     }
 

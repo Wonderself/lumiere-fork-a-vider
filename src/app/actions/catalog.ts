@@ -26,7 +26,7 @@ export async function submitFilmAction(
   const acceptTerms = formData.get('acceptTerms') === 'true'
 
   if (!title || !synopsis || !videoUrl) {
-    return { error: 'Titre, synopsis et URL de la vidéo sont requis' }
+    return { error: 'Title, synopsis and video URL are required' }
   }
   if (!acceptTerms) {
     return { error: 'Vous devez accepter les conditions du contrat' }

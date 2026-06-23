@@ -423,7 +423,7 @@ export async function verifyUserAction(formData: FormData) {
   const userId = userIdParsed.data
   await prisma.user.update({ where: { id: userId }, data: { isVerified: true, verifiedAt: new Date() } })
   await createNotification(userId, 'SYSTEM', 'Account verified', {
-    body: 'Votre compte a été vérifié par un administrateur. Vous avez accès à toutes les fonctionnalités.',
+    body: 'Your account was verified by an administrator. You now have access to all features.',
     href: '/dashboard',
   })
   revalidatePath('/admin/users')
@@ -439,7 +439,7 @@ export async function changeUserRoleAction(formData: FormData) {
   const { userId, role } = parsed.data
   await prisma.user.update({ where: { id: userId }, data: { role: role as any } })
   await createNotification(userId, 'SYSTEM', 'Role updated', {
-    body: `Votre rôle a été changé en ${role}.`,
+    body: `Your role has been changed to ${role}.`,
     href: '/profile',
   })
   revalidatePath('/admin/users')
@@ -462,12 +462,12 @@ export async function grantLumensAction(formData: FormData) {
   await prisma.$transaction([
     prisma.user.update({ where: { id: userId }, data: { lumenBalance: { increment: amount } } }),
     prisma.lumenTransaction.create({
-      data: { userId, amount, type: 'BONUS', description: reason || `Bonus de ${amount} Lumens attribué par un administrateur` },
+      data: { userId, amount, type: 'BONUS', description: reason || `Bonus of ${amount} Lumens granted by an administrator` },
     }),
   ])
 
-  await createNotification(userId, 'PAYMENT_RECEIVED', `${amount} Lumens reçus`, {
-    body: reason || `Un administrateur vous a attribué ${amount} Lumens bonus.`,
+  await createNotification(userId, 'PAYMENT_RECEIVED', `${amount} Lumens received`, {
+    body: reason || `An administrator granted you ${amount} bonus Lumens.`,
     href: '/lumens',
   })
 
@@ -510,12 +510,12 @@ export async function approveSubmissionAction(formData: FormData) {
       update: { status: 'PENDING' },
     }),
     prisma.lumenTransaction.create({
-      data: { userId: submission.userId, amount: lumenReward, type: 'TASK_REWARD', description: `Récompense pour la tâche "${submission.task.title}"`, relatedId: submission.taskId },
+      data: { userId: submission.userId, amount: lumenReward, type: 'TASK_REWARD', description: `Reward for the task "${submission.task.title}"`, relatedId: submission.taskId },
     }),
   ])
 
   await createNotification(submission.userId, 'TASK_VALIDATED', 'Task validated', {
-    body: `Votre soumission pour "${submission.task.title}" a été approuvée. +${points} points, +${lumenReward} Lumens.`,
+    body: `Your submission for "${submission.task.title}" has been approved. +${points} points, +${lumenReward} Lumens.`,
     href: `/tasks/${submission.taskId}`,
   })
 
@@ -576,7 +576,7 @@ export async function rejectSubmissionAction(formData: FormData) {
   await createNotification(submission.userId, 'TASK_REJECTED', 'Submission rejected', {
     body: canRetry
       ? `Votre soumission pour "${submission.task.title}" a été refusée. Vous pouvez réessayer (tentative ${submission.task.currentAttempt}/${submission.task.maxAttempts}).`
-      : `Votre soumission pour "${submission.task.title}" a été définitivement refusée.`,
+      : `Your submission for "${submission.task.title}" has been permanently rejected.`,
     href: `/tasks/${submission.taskId}`,
   })
 
@@ -598,7 +598,7 @@ export async function markPaymentPaidAction(formData: FormData) {
   await prisma.payment.update({ where: { id: paymentId }, data: { status: 'COMPLETED', paidAt: new Date() } })
 
   await createNotification(payment.userId, 'PAYMENT_RECEIVED', 'Payment completed', {
-    body: `Votre paiement de ${payment.amountEur.toFixed(2)}€ a été traité. Facture disponible.`,
+    body: `Your payment of $${payment.amountEur.toFixed(2)} has been processed. Facture disponible.`,
     href: `/dashboard/earnings`,
   })
 
@@ -635,7 +635,7 @@ export async function bulkMarkPaidAction(formData: FormData) {
 
   for (const payment of payments) {
     await createNotification(payment.userId, 'PAYMENT_RECEIVED', 'Payment completed', {
-      body: `Votre paiement de ${payment.amountEur.toFixed(2)}€ a été traité.`,
+      body: `Your payment of $${payment.amountEur.toFixed(2)} has been processed.`,
       href: '/profile/payments',
     })
   }
@@ -818,7 +818,7 @@ export async function reassignTaskAction(formData: FormData) {
 
   if (task.claimedById) {
     await createNotification(task.claimedById, 'SYSTEM', 'Task reassigned', {
-      body: `La tâche "${task.title}" vous a été retirée par un administrateur.`,
+      body: `The task "${task.title}" was removed from you by an administrator.`,
       href: '/tasks',
     })
   }
@@ -847,7 +847,7 @@ export async function cleanupExpiredTasksAction() {
 
     if (task.claimedById) {
       await createNotification(task.claimedById, 'SYSTEM', 'Task expired', {
-        body: `La tâche "${task.title}" a expiré et est de nouveau disponible.`,
+        body: `The task "${task.title}" has expired and is available again.`,
         href: '/tasks',
       })
     }

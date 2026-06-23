@@ -67,51 +67,51 @@ export async function sendWelcomeEmail(to: string, displayName: string, verifica
   const verifySection = verificationToken
     ? `
     <div style="text-align:center;margin-bottom:24px;">
-      ${goldButton('Vérifier mon Email', `${baseUrl}/verify-email?token=${verificationToken}`)}
+      ${goldButton('Verify my email', `${baseUrl}/verify-email?token=${verificationToken}`)}
     </div>
     <p style="color:#ffffff60;font-size:13px;margin:0 0 24px;text-align:center;">
-      Ce lien expire dans <strong>24 heures</strong>.
+      This link expires in <strong>24 hours</strong>.
     </p>`
     : ''
 
-  const html = layout('Bienvenue sur CINEGENY', `
-    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Bienvenue, ${displayName} !</h1>
+  const html = layout('Welcome to CINEGENY', `
+    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Welcome, ${displayName}!</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
-      Vous faites maintenant partie de la communauté CINEGENY — le premier studio de cinéma collaboratif propulsé par l'IA.
+      You are now part of the CINEGENY community — the first AI-powered collaborative film studio.
     </p>
     ${verifySection}
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 24px;">
-      Explorez les films en production, contribuez vos talents, et gagnez des récompenses pour chaque tâche validée.
+      Explore films in production, contribute your talents, and earn rewards for every validated task.
     </p>
     <div style="text-align:center;">
-      ${goldButton('Découvrir les Films', `${baseUrl}/films`)}
+      ${goldButton('Discover films', `${baseUrl}/films`)}
     </div>
     <div style="margin-top:24px;padding-top:20px;border-top:1px solid #ffffff10;">
       <p style="color:#ffffff60;font-size:13px;margin:0;">
-        Complétez votre profil et vos compétences pour recevoir des recommandations de tâches personnalisées.
+        Complete your profile and skills to get personalized task recommendations.
       </p>
     </div>
   `)
-  return send(to, 'Bienvenue sur CINEGENY', html)
+  return send(to, 'Welcome to CINEGENY', html)
 }
 
 /** Password reset email */
 export async function sendPasswordResetEmail(to: string, token: string): Promise<boolean> {
   const baseUrl = process.env.NEXTAUTH_URL || 'https://cinegeny.studio'
   const resetUrl = `${baseUrl}/reset-password?token=${token}`
-  const html = layout('Réinitialisation du mot de passe', `
-    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Mot de passe oublié ?</h1>
+  const html = layout('Password reset', `
+    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Forgot your password?</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
-      Vous avez demandé la réinitialisation de votre mot de passe. Cliquez sur le bouton ci-dessous pour en choisir un nouveau.
+      You requested a password reset. Click the button below to choose a new one.
     </p>
     <div style="text-align:center;">
-      ${goldButton('Réinitialiser mon mot de passe', resetUrl)}
+      ${goldButton('Reset my password', resetUrl)}
     </div>
     <p style="color:#ffffff60;font-size:13px;margin:24px 0 0;line-height:1.5;">
-      Ce lien expire dans <strong>1 heure</strong>. Si vous n'avez pas fait cette demande, ignorez cet email.
+      This link expires in <strong>1 hour</strong>. If you did not request this, please ignore this email.
     </p>
   `)
-  return send(to, 'Réinitialiser votre mot de passe — CINEGENY', html)
+  return send(to, 'Reset your password — CINEGENY', html)
 }
 
 /** Task validated — payment coming */
@@ -123,9 +123,9 @@ export async function sendTaskValidatedEmail(
   amountEur: number
 ): Promise<boolean> {
   const html = layout('Task validated', `
-    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Bravo, ${displayName} ! 🎬</h1>
+    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Well done, ${displayName}! 🎬</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
-      Votre contribution a été validée avec succès.
+      Your contribution has been successfully validated.
     </p>
     <div style="background:#0A0A0A;border:1px solid #E50914/20;border-radius:12px;padding:20px;margin:16px 0;">
       <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Task</p>
@@ -133,13 +133,13 @@ export async function sendTaskValidatedEmail(
       <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Film</p>
       <p style="margin:0 0 12px;color:#fff;font-weight:600;">${filmTitle}</p>
       <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Compensation</p>
-      <p style="margin:0;color:#E50914;font-weight:700;font-size:20px;">${amountEur.toFixed(2)} €</p>
+      <p style="margin:0;color:#E50914;font-weight:700;font-size:20px;">$${amountEur.toFixed(2)}</p>
     </div>
     <div style="text-align:center;">
-      ${goldButton('Voir mes revenus', 'https://cinegeny.studio/dashboard/earnings')}
+      ${goldButton('View my earnings', 'https://cinegeny.studio/dashboard/earnings')}
     </div>
   `)
-  return send(to, `Tâche validée — ${amountEur.toFixed(2)}€ crédités`, html)
+  return send(to, `Task validated — $${amountEur.toFixed(2)} credited`, html)
 }
 
 /** Payment processed */
@@ -150,20 +150,20 @@ export async function sendPaymentEmail(
   method: string
 ): Promise<boolean> {
   const html = layout('Payment completed', `
-    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Paiement envoyé 💰</h1>
+    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Payment sent 💰</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
-      ${displayName}, votre paiement a été traité avec succès.
+      ${displayName}, your payment has been processed successfully.
     </p>
     <div style="background:#0A0A0A;border-radius:12px;padding:20px;margin:16px 0;text-align:center;">
       <p style="margin:0 0 4px;color:#ffffff80;font-size:13px;">Montant</p>
-      <p style="margin:0 0 12px;color:#E50914;font-weight:700;font-size:28px;">${amountEur.toFixed(2)} €</p>
+      <p style="margin:0 0 12px;color:#E50914;font-weight:700;font-size:28px;">$${amountEur.toFixed(2)}</p>
       <p style="margin:0;color:#ffffff60;font-size:13px;">via ${method}</p>
     </div>
     <div style="text-align:center;">
-      ${goldButton('Voir l\'historique', 'https://cinegeny.studio/dashboard/earnings')}
+      ${goldButton('View history', 'https://cinegeny.studio/dashboard/earnings')}
     </div>
   `)
-  return send(to, `Paiement de ${amountEur.toFixed(2)}€ envoyé`, html)
+  return send(to, `Payment of $${amountEur.toFixed(2)} sent`, html)
 }
 
 /** Screenplay accepted — deal proposed */
@@ -173,24 +173,24 @@ export async function sendScreenplayAcceptedEmail(
   screenplayTitle: string,
   revenueSharePct: number
 ): Promise<boolean> {
-  const html = layout('Scénario accepté', `
-    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Félicitations, ${displayName} ! 📝</h1>
+  const html = layout('Screenplay accepted', `
+    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Congratulations, ${displayName}! 📝</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 16px;">
-      Votre scénario <strong>"${screenplayTitle}"</strong> a été sélectionné pour la production.
+      Your screenplay <strong>"${screenplayTitle}"</strong> has been selected for production.
     </p>
     <div style="background:#0A0A0A;border-radius:12px;padding:20px;margin:16px 0;">
-      <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Votre part des revenus</p>
+      <p style="margin:0 0 8px;color:#ffffff80;font-size:13px;">Your revenue share</p>
       <p style="margin:0 0 12px;color:#E50914;font-weight:700;font-size:24px;">${revenueSharePct}%</p>
       <p style="color:#ffffff60;font-size:13px;margin:0;">
-        Vous recevrez ${revenueSharePct}% de tous les revenus générés par le film (streaming, VOD, licences).
-        Un contrat détaillé vous sera proposé.
+        You will receive ${revenueSharePct}% of all revenue generated by the film (streaming, VOD, licensing).
+        A detailed contract will be offered to you.
       </p>
     </div>
     <div style="text-align:center;">
-      ${goldButton('Voir mon scénario', 'https://cinegeny.studio/screenplays')}
+      ${goldButton('View my screenplay', 'https://cinegeny.studio/screenplays')}
     </div>
   `)
-  return send(to, `Scénario "${screenplayTitle}" accepté — Deal proposé`, html)
+  return send(to, `Screenplay "${screenplayTitle}" accepted — Deal offered`, html)
 }
 
 /** Weekly digest (summary of activity) */
@@ -199,10 +199,10 @@ export async function sendWeeklyDigest(
   displayName: string,
   stats: { tasksCompleted: number; lumensEarned: number; newFilms: number }
 ): Promise<boolean> {
-  const html = layout('Résumé de la semaine', `
-    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">Cette semaine sur CINEGENY</h1>
+  const html = layout('Weekly summary', `
+    <h1 style="font-size:24px;margin:0 0 16px;color:#E50914;">This week on CINEGENY</h1>
     <p style="color:#ffffffcc;line-height:1.6;margin:0 0 24px;">
-      Bonjour ${displayName}, voici votre résumé d'activité.
+      Hi ${displayName}, here is your activity summary.
     </p>
     <div style="display:flex;gap:12px;margin:16px 0;">
       <div style="flex:1;background:#0A0A0A;border-radius:12px;padding:16px;text-align:center;">
@@ -215,12 +215,12 @@ export async function sendWeeklyDigest(
       </div>
       <div style="flex:1;background:#0A0A0A;border-radius:12px;padding:16px;text-align:center;">
         <p style="margin:0;color:#E50914;font-weight:700;font-size:24px;">${stats.newFilms}</p>
-        <p style="margin:4px 0 0;color:#ffffff60;font-size:12px;">Nouveaux films</p>
+        <p style="margin:4px 0 0;color:#ffffff60;font-size:12px;">New films</p>
       </div>
     </div>
     <div style="text-align:center;margin-top:24px;">
-      ${goldButton('Voir le Dashboard', 'https://cinegeny.studio/dashboard')}
+      ${goldButton('Open the Dashboard', 'https://cinegeny.studio/dashboard')}
     </div>
   `)
-  return send(to, `Votre semaine CINEGENY — ${stats.tasksCompleted} tâches, ${stats.lumensEarned} Lumens`, html)
+  return send(to, `Your CINEGENY week — ${stats.tasksCompleted} tasks, ${stats.lumensEarned} Lumens`, html)
 }

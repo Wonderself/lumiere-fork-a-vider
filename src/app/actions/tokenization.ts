@@ -178,7 +178,7 @@ export async function listTokensForSaleAction(
     // Check user has enough tokens
     const balance = await getTokenBalance(offeringId, session.user.id)
     if (balance < tokenCount) {
-      return { success: false, error: `Solde insuffisant. Vous possédez ${balance} token(s).` }
+      return { success: false, error: `Insufficient balance. You own ${balance} token(s).` }
     }
 
     // Check lockup period on purchases
@@ -212,7 +212,7 @@ export async function listTokensForSaleAction(
     const availableForSale = unlockedTokens - alreadyListed
 
     if (tokenCount > availableForSale) {
-      return { success: false, error: `Seulement ${availableForSale} token(s) déverrouillé(s) et disponibles à la vente.` }
+      return { success: false, error: `Only ${availableForSale} token(s) unlocked and available for sale.` }
     }
 
     // Create transfer listing (pending, no buyer yet)
@@ -296,7 +296,7 @@ export async function buyFromSecondaryAction(
           userId: session.user.id,
           amount: -transfer.tokenCount,
           type: 'TOKEN_PURCHASE',
-          description: `Achat secondaire de ${transfer.tokenCount} token(s) à ${transfer.pricePerToken}€/token`,
+          description: `Secondary purchase of ${transfer.tokenCount} token(s) at $${transfer.pricePerToken}/token`,
           relatedId: transfer.offeringId,
         },
       })
@@ -306,7 +306,7 @@ export async function buyFromSecondaryAction(
           userId: transfer.fromUserId,
           amount: transfer.tokenCount,
           type: 'TOKEN_SALE',
-          description: `Vente de ${transfer.tokenCount} token(s) à ${transfer.pricePerToken}€/token (frais: ${transfer.fee}€)`,
+          description: `Sale of ${transfer.tokenCount} token(s) at $${transfer.pricePerToken}/token (fee: $${transfer.fee})`,
           relatedId: transfer.offeringId,
         },
       })
@@ -589,7 +589,7 @@ export async function claimDividendAction(
           userId: session.user.id,
           amount: lumenAmount,
           type: 'TOKEN_DIVIDEND',
-          description: `Dividende de ${dividend.amount}€ pour la période ${dividend.period}`,
+          description: `Dividend of $${dividend.amount} for the ${dividend.period} period`,
           relatedId: dividend.offeringId,
         },
       })

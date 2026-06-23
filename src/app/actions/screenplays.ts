@@ -44,9 +44,9 @@ function evaluateScreenplay(content: string, title: string): { score: number; fe
 
   const feedbacks: Record<string, string> = {
     excellent: `"${title}" présente une qualité narrative remarquable. La structure est solide, les dialogues sont naturels, et le potentiel visuel est élevé. Recommandé pour production.`,
-    good: `"${title}" est un scénario prometteur avec une bonne base narrative. Quelques ajustements sur le rythme et les transitions amélioreraient l'ensemble.`,
-    average: `"${title}" nécessite un travail supplémentaire. La trame narrative a du potentiel mais la structure et les dialogues peuvent être renforcés.`,
-    poor: `"${title}" ne répond pas encore aux critères de production. Un retravail significatif est recommandé sur la structure narrative et le format.`,
+    good: `"${title}" is a promising screenplay with a solid narrative foundation. A few adjustments to pacing and transitions would improve the whole.`,
+    average: `"${title}" needs more work. The narrative has potential but the structure and dialogue can be strengthened.`,
+    poor: `"${title}" does not yet meet production criteria. Significant rework is recommended on the narrative structure and format.`,
   }
 
   let category: string
@@ -103,8 +103,8 @@ export async function submitScreenplayAction(
   await registerContentHash('screenplay', screenplay.id, content, session.user.id)
 
   // Notify user
-  await createNotification(session.user.id, 'SUBMISSION_REVIEWED', `Scénario "${title}" évalué`, {
-    body: `Score IA : ${score}/100 — ${status === 'ACCEPTED' ? 'Accepted' : 'À retravailler'}`,
+  await createNotification(session.user.id, 'SUBMISSION_REVIEWED', `Screenplay "${title}" evaluated`, {
+    body: `AI score: ${score}/100 — ${status === 'ACCEPTED' ? 'Accepted' : 'Needs rework'}`,
     href: '/screenplays',
   })
 
@@ -165,7 +165,7 @@ export async function generateScreenplayDealAction(formData: FormData) {
 
   // Notify writer
   await createNotification(screenplay.userId, 'SYSTEM' as never, 'Deal proposé pour votre scénario', {
-    body: `Un contrat de ${revenueSharePct}% des revenus vous est proposé pour "${screenplay.title}". Consultez les détails sur votre page scénarios.`,
+    body: `A ${revenueSharePct}% revenue-share contract is offered to you for "${screenplay.title}". See the details on your screenplays page.`,
     href: '/screenplays',
   })
 

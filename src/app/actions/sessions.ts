@@ -114,7 +114,7 @@ export async function revokeSessionAction(sessionId: string) {
 
   if (!userSession) return { success: false, error: 'Session introuvable' }
   if (userSession.userId !== session.user.id) return { success: false, error: 'Access denied' }
-  if (userSession.revokedAt) return { success: false, error: 'Session déjà révoquée' }
+  if (userSession.revokedAt) return { success: false, error: 'Session already revoked' }
 
   await prisma.userSession.update({
     where: { id: sessionId },

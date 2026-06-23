@@ -23,7 +23,7 @@ export async function saveCreatorProfileAction(
   const step = parseInt(formData.get('step') as string || '0', 10)
 
   if (!stageName && step >= 3) {
-    return { error: 'Nom de scène requis' }
+    return { error: 'Stage name required' }
   }
 
   await prisma.creatorProfile.upsert({
@@ -85,7 +85,7 @@ export async function generateVideoAction(
 
   const cost = 10 // TOKEN_COSTS.VIDEO_GEN_STANDARD
   if ((user?.lumenBalance || 0) < cost) {
-    return { error: `Solde insuffisant. Coût : ${cost} tokens.` }
+    return { error: `Insufficient balance. Cost: ${cost} tokens.` }
   }
 
   // Create video record (in GENERATING state — actual generation would be async)
@@ -111,7 +111,7 @@ export async function generateVideoAction(
       userId: session.user.id,
       amount: -cost,
       type: 'VIDEO_GEN',
-      description: `Génération vidéo : ${title}`,
+      description: `Video generation: ${title}`,
     },
   })
 
@@ -155,25 +155,25 @@ export async function generateTrendingVideoAction(
   const platforms = formData.getAll('platforms') as string[]
   const scheduleType = formData.get('scheduleType') as string
 
-  if (!trendId) return { error: 'Sélectionnez une tendance' }
-  if (!identityType) return { error: 'Sélectionnez votre identité' }
-  if (platforms.length === 0) return { error: 'Sélectionnez au moins une plateforme' }
+  if (!trendId) return { error: 'Select a trend' }
+  if (!identityType) return { error: 'Select your identity' }
+  if (platforms.length === 0) return { error: 'Select at least one platform' }
 
   // Map trend IDs to titles
   const trendTitles: Record<string, string> = {
     'face-movie': 'Mon visage dans un film IA',
-    'pov-director': 'POV: Je suis réalisateur IA',
+    'pov-director': 'POV: I am an AI director',
     'before-after': 'Before/After VFX IA',
     'storytime': 'Storytime: Comment j\'ai produit un film',
-    'reaction': 'Réaction à mon film IA',
-    '3-scenes': '3 scènes, 1 acteur (moi)',
+    'reaction': 'Reaction to my AI film',
+    '3-scenes': '3 scenes, 1 actor (me)',
     'film-60s': 'Film en 60 secondes',
     'casting-family': 'Casting ma famille dans un film',
-    'future-cinema': 'Le futur du cinéma',
-    'making-of': 'Making-of: De l\'idée au film',
+    'future-cinema': 'The future of cinema',
+    'making-of': 'Making-of: From idea to film',
   }
 
-  const title = trendTitles[trendId] || 'Vidéo Tendance IA'
+  const title = trendTitles[trendId] || 'Trending AI Video'
 
   // Token cost based on trend complexity
   const trendCosts: Record<string, number> = {
@@ -198,7 +198,7 @@ export async function generateTrendingVideoAction(
   })
 
   if ((user?.lumenBalance || 0) < cost) {
-    return { error: `Solde insuffisant. Coût : ${cost} tokens. Votre solde : ${user?.lumenBalance || 0} tokens.` }
+    return { error: `Insufficient balance. Cost: ${cost} tokens. Votre solde : ${user?.lumenBalance || 0} tokens.` }
   }
 
   // Create video record
@@ -238,7 +238,7 @@ export async function generateTrendingVideoAction(
       userId: session.user.id,
       amount: -cost,
       type: 'VIDEO_GEN',
-      description: `Vidéo tendance : ${title}`,
+      description: `Trending video: ${title}`,
     },
   })
 

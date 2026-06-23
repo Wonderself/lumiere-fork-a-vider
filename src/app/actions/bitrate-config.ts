@@ -93,7 +93,7 @@ export async function setFilmBitrateConfigAction(filmId: string, enabledProfiles
   if (invalidProfiles.length > 0) {
     return {
       success: false,
-      error: `Profils invalides : ${invalidProfiles.join(', ')}. Profils acceptés : ${VALID_PROFILES.join(', ')}`,
+      error: `Profils invalides : ${invalidProfiles.join(', ')}. Accepted profiles: ${VALID_PROFILES.join(', ')}`,
     }
   }
 

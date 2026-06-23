@@ -51,7 +51,7 @@ function validateSubtitleContent(content: string): { valid: boolean; cueCount: n
   const cueCount = lines.filter(l => timestampPattern.test(l)).length
 
   if (cueCount === 0) {
-    return { valid: false, cueCount: 0, error: 'Aucun sous-titre trouvé dans le fichier' }
+    return { valid: false, cueCount: 0, error: 'No subtitles found in the file' }
   }
 
   return { valid: true, cueCount }
@@ -90,7 +90,7 @@ export async function addSubtitleAction(
 
   // Validate language
   const isValidLang = SUPPORTED_LANGUAGES.some(l => l.code === language)
-  if (!isValidLang) return { error: 'Langue non supportée' }
+  if (!isValidLang) return { error: 'Unsupported language' }
 
   // Check film exists and user is owner or admin
   const film = await prisma.catalogFilm.findUnique({

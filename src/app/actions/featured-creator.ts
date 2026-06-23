@@ -164,8 +164,8 @@ export async function autoSelectFeaturedCreatorAction() {
 
   const weekStart = getMondayOfCurrentWeek()
   const name = topUser.displayName || 'Contributeur'
-  const headline = `Créateur de la semaine — ${taskCount} tâche${taskCount > 1 ? 's' : ''} validée${taskCount > 1 ? 's' : ''}`
-  const achievement = `Top contributeur de la semaine avec ${taskCount} tâche${taskCount > 1 ? 's' : ''} validée${taskCount > 1 ? 's' : ''} en 7 jours`
+  const headline = `Creator of the week — ${taskCount} task${taskCount > 1 ? 's' : ''} validated`
+  const achievement = `Top contributor of the week with ${taskCount} task${taskCount > 1 ? 's' : ''} validated in 7 days`
 
   await prisma.featuredCreator.updateMany({
     where: { isActive: true },

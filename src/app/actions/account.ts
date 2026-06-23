@@ -203,7 +203,7 @@ export async function exportPersonalDataAction() {
 
   const exportData = {
     exportDate: new Date().toISOString(),
-    format: 'RGPD Art. 20 — Portabilité des données',
+    format: 'GDPR Art. 20 — Data portability',
     user,
     submissions,
     payments,
@@ -241,7 +241,7 @@ export async function requestAccountDeletionAction(confirmEmail: string) {
 
   // Verify the confirmation email matches
   if (user.email.toLowerCase() !== confirmEmail.trim().toLowerCase()) {
-    return { error: "L'email ne correspond pas à votre compte." }
+    return { error: "The email does not match your account." }
   }
 
   // Anonymize user data (keep record for referential integrity but strip PII)
@@ -256,7 +256,7 @@ export async function requestAccountDeletionAction(confirmEmail: string) {
       where: { id: userId },
       data: {
         email: `deleted-${anonymizedHash}@anonymized.cinegeny.studio`,
-        displayName: 'Utilisateur supprimé',
+        displayName: 'User deleted',
         passwordHash: 'DELETED',
         avatarUrl: null,
         bio: null,

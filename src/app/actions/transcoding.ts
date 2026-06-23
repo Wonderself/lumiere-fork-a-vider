@@ -86,12 +86,12 @@ export async function startTranscodeAction(
         })),
         ffmpegCommand: `ffmpeg ${ffmpegArgs.join(' ')}`,
         status: job.status,
-        message: `Job de transcodage créé pour "${film.title}" avec ${requestedProfiles.length} profil(s).`,
+        message: `Transcoding job created for "${film.title}" with ${requestedProfiles.length} profile(s).`,
       },
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Erreur inconnue'
-    return { error: `Échec de création du job: ${message}` }
+    return { error: `Failed to create the job: ${message}` }
   }
 }
 
@@ -170,7 +170,7 @@ export async function cancelTranscodeAction(jobId: string) {
   const cancelled = cancelTranscodeJob(jobId)
   if (!cancelled) {
     return {
-      error: `Impossible d'annuler le job — statut actuel: ${job.status}. Seuls les jobs PENDING ou PROCESSING peuvent être annulés.`,
+      error: `Cannot cancel the job — current status: ${job.status}. Only PENDING or PROCESSING jobs can be cancelled.`,
     }
   }
 
@@ -178,7 +178,7 @@ export async function cancelTranscodeAction(jobId: string) {
     data: {
       jobId,
       status: 'CANCELLED' as const,
-      message: `Job de transcodage pour "${job.filmTitle}" annulé.`,
+      message: `Transcoding job for "${job.filmTitle}" cancelled.`,
     },
   }
 }
@@ -227,7 +227,7 @@ export async function updateTranscodeJobAction(
       id: updated.id,
       status: updated.status,
       progress: updated.progress,
-      message: `Job mis à jour — statut: ${updated.status}, progrès: ${updated.progress}%`,
+      message: `Job updated — status: ${updated.status}, progress: ${updated.progress}%`,
     },
   }
 }

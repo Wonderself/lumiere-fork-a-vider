@@ -13,7 +13,7 @@ export async function createPlaylistAction(
   isPublic?: boolean
 ): Promise<{ success?: boolean; playlist?: { id: string; title: string; description: string | null; isPublic: boolean; coverUrl: string | null; createdAt: string }; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour créer une playlist.' }
+  if (!session?.user?.id) return { error: 'You must be logged in to create a playlist.' }
 
   const trimmedTitle = title?.trim()
   if (!trimmedTitle || trimmedTitle.length < 1 || trimmedTitle.length > 100) {
@@ -48,7 +48,7 @@ export async function createPlaylistAction(
     }
   } catch (error) {
     console.error('[playlists] createPlaylistAction error:', error)
-    return { error: 'Erreur lors de la création de la playlist.' }
+    return { error: 'Error creating the playlist.' }
   }
 }
 
@@ -96,7 +96,7 @@ export async function addToPlaylistAction(
       return { success: true }
     }
     console.error('[playlists] addToPlaylistAction error:', error)
-    return { error: 'Erreur lors de l\'ajout du film à la playlist.' }
+    return { error: 'Error adding the film to the playlist.' }
   }
 }
 
@@ -174,7 +174,7 @@ export async function getPlaylistAction(
     if (!playlist.isPublic) {
       const session = await auth()
       if (!session?.user?.id || session.user.id !== playlist.userId) {
-        return { error: 'Cette playlist est privée.' }
+        return { error: 'This playlist is private.' }
       }
     }
 
@@ -204,7 +204,7 @@ export async function getPlaylistAction(
     }
   } catch (error) {
     console.error('[playlists] getPlaylistAction error:', error)
-    return { error: 'Erreur lors de la récupération de la playlist.' }
+    return { error: 'Error retrieving the playlist.' }
   }
 }
 
@@ -275,7 +275,7 @@ export async function getUserPlaylistsAction(
     }
   } catch (error) {
     console.error('[playlists] getUserPlaylistsAction error:', error)
-    return { playlists: [], error: 'Erreur lors de la récupération des playlists.' }
+    return { playlists: [], error: 'Error retrieving the playlists.' }
   }
 }
 
@@ -286,7 +286,7 @@ export async function deletePlaylistAction(
   playlistId: string
 ): Promise<{ success?: boolean; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour supprimer une playlist.' }
+  if (!session?.user?.id) return { error: 'You must be logged in to delete a playlist.' }
 
   if (!playlistId) return { error: 'Identifiant de playlist manquant.' }
 

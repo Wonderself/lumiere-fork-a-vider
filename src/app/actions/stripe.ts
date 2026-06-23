@@ -49,21 +49,21 @@ export const STRIPE_PLANS = {
     name: 'Free',
     priceMonthly: 0,
     stripePriceId: null,
-    features: ['720p streaming', '1 écran', 'Publicités'],
+    features: ['720p streaming', '1 screen', 'Ads'],
   },
   basic: {
     id: 'basic',
     name: 'Basic',
     priceMonthly: 499, // in cents
     stripePriceId: process.env.STRIPE_PRICE_BASIC || null,
-    features: ['1080p streaming', '2 écrans', 'Ad-free', '5 films hors-ligne'],
+    features: ['1080p streaming', '2 screens', 'Ad-free', '5 films hors-ligne'],
   },
   premium: {
     id: 'premium',
     name: 'Premium',
     priceMonthly: 999, // in cents
     stripePriceId: process.env.STRIPE_PRICE_PREMIUM || null,
-    features: ['4K HDR streaming', '4 écrans', 'Ad-free', 'Téléchargements illimités', 'Badge Premium'],
+    features: ['4K HDR streaming', '4 screens', 'Ad-free', 'Unlimited downloads', 'Badge Premium'],
   },
 } as const
 
@@ -139,7 +139,7 @@ export async function createPayoutAction(paymentId: string) {
     include: { user: { select: { id: true, email: true, displayName: true, walletAddress: true } } },
   })
   if (!payment) return { error: 'Paiement introuvable' }
-  if (payment.status === 'COMPLETED') return { error: 'Paiement déjà effectué' }
+  if (payment.status === 'COMPLETED') return { error: 'Payment already made' }
 
   const stripe = await getStripe()
 
@@ -158,7 +158,7 @@ export async function createPayoutAction(paymentId: string) {
         amount: payment.amountEur,
         recipient: payment.user.email,
         mock: true,
-        message: `Paiement de ${payment.amountEur}€ marqué comme complété (mode mock).`,
+        message: `Payment of $${payment.amountEur} marked as completed (mock mode).`,
       },
     }
   }
@@ -197,7 +197,7 @@ export async function createPayoutAction(paymentId: string) {
     }
   } catch (err) {
     console.error('[Stripe] Transfer failed:', err)
-    return { error: 'Échec du transfert Stripe' }
+    return { error: 'Stripe transfer failed' }
   }
 }
 

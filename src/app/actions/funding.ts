@@ -81,7 +81,7 @@ export async function createFundingAction(
   const priority = parseInt(formData.get('priority') as string || '0', 10)
 
   if (!name || !organism || !type || !description || !eligibility) {
-    return { error: 'Tous les champs obligatoires doivent être remplis' }
+    return { error: 'All required fields must be filled in' }
   }
 
   await prisma.publicFunding.create({

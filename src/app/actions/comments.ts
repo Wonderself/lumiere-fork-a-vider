@@ -8,7 +8,7 @@ import { z } from 'zod'
 
 const taskCommentSchema = z.object({
   taskId: z.string().min(1),
-  content: z.string().min(1, 'Le commentaire ne peut pas être vide').max(2000),
+  content: z.string().min(1, 'The comment cannot be empty').max(2000),
 })
 
 export async function addTaskCommentAction(prevState: { error?: string; success?: boolean } | null, formData: FormData) {
@@ -43,7 +43,7 @@ export async function addTaskCommentAction(prevState: { error?: string; success?
 
   if (task.claimedById && task.claimedById !== session.user.id) {
     await createNotification(task.claimedById, 'SYSTEM', 'Nouveau commentaire', {
-      body: `Un commentaire a été ajouté sur la tâche "${task.title}"`,
+      body: `A comment was added on the task "${task.title}"`,
       href: `/tasks/${taskId}`,
     })
   }
@@ -83,7 +83,7 @@ export async function addCommentAction(
   parentId?: string
 ): Promise<{ success?: boolean; comment?: object; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour commenter.' }
+  if (!session?.user?.id) return { error: 'You must be logged in to comment.' }
 
   if (!filmId) return { error: 'Film manquant.' }
 
@@ -177,7 +177,7 @@ export async function likeCommentAction(
   commentId: string
 ): Promise<{ liked?: boolean; likesCount?: number; error?: string }> {
   const session = await auth()
-  if (!session?.user?.id) return { error: 'Vous devez être connecté pour aimer un commentaire.' }
+  if (!session?.user?.id) return { error: 'You must be logged in to like a comment.' }
 
   if (!commentId) return { error: 'Commentaire manquant.' }
 
