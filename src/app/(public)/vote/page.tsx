@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { FileText, Clapperboard, Film, Clock, ArrowRight, ArrowDown, Vote, CheckCircle2 } from 'lucide-react'
+import { FileText, Clapperboard, Film, Clock, ArrowRight, ArrowDown, CheckCircle2 } from 'lucide-react'
+import { InfinityMark } from '@/components/brand/infinity-mark'
 
 export const metadata: Metadata = {
   title: 'Vote — Decide the films of tomorrow | CINEGENY',
@@ -57,9 +58,7 @@ export default function VotePage() {
       <div className="mx-auto max-w-5xl px-5 sm:px-8 py-16 sm:py-24">
         {/* Hero */}
         <div className="max-w-3xl space-y-5">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#E50914]/10 border border-[#E50914]/20">
-            <Vote className="h-8 w-8 text-[#E50914]" />
-          </div>
+          <InfinityMark className="h-12 w-auto" animate />
           <h1 className="text-3xl sm:text-5xl font-bold font-playfair">
             You decide what gets <span className="text-[#E50914]">made</span>.
           </h1>
@@ -75,15 +74,15 @@ export default function VotePage() {
           {STAGES.map((s, i) => (
             <div key={s.title}>
               <div
-                className={`rounded-2xl border p-6 sm:p-7 transition-colors ${
+                className={`group rounded-2xl border p-6 sm:p-7 transition-all duration-300 ${
                   s.live
-                    ? 'border-white/[0.08] bg-white/[0.03] hover:border-[#E50914]/30'
+                    ? 'border-white/[0.08] bg-white/[0.03] hover:border-[#E50914]/30 hover:bg-white/[0.05]'
                     : 'border-white/[0.06] bg-white/[0.02] opacity-70'
                 }`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                   <div className="flex items-center gap-4 flex-1 min-w-0">
-                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#E50914]/10 border border-[#E50914]/20 shrink-0">
+                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#E50914]/25 to-[#E50914]/[0.04] ring-1 ring-[#E50914]/25 shadow-lg shadow-[#E50914]/10 shrink-0 transition-transform duration-300 group-hover:scale-105">
                       <s.icon className="h-7 w-7 text-[#E50914]" />
                     </div>
                     <div className="min-w-0">

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { auth } from '@/lib/auth'
 import { LEVELS, totalMinutes, lessonCount } from '@/content/academy'
-import { GraduationCap, Clock, BookOpen, Lock, ArrowRight, PlayCircle } from 'lucide-react'
+import { Clock, BookOpen, Lock, ArrowRight, PlayCircle } from 'lucide-react'
+import { InfinityMark } from '@/components/brand/infinity-mark'
 
 export const metadata: Metadata = {
   title: 'Academy — Learn AI Filmmaking | CINEGENY',
@@ -19,9 +20,7 @@ export default async function AcademyPage() {
       <div className="mx-auto max-w-5xl px-5 sm:px-8 py-16 sm:py-24">
         {/* Hero */}
         <div className="max-w-3xl space-y-5">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#E50914]/10 border border-[#E50914]/20">
-            <GraduationCap className="h-8 w-8 text-[#E50914]" />
-          </div>
+          <InfinityMark className="h-12 w-auto" animate />
           <h1 className="text-3xl sm:text-5xl font-bold font-playfair">
             CINEGENY <span className="text-[#E50914]">Academy</span>
           </h1>

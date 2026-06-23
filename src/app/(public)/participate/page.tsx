@@ -9,8 +9,9 @@ import {
   Drama,
   Rocket,
   GraduationCap,
-  Vote,
 } from 'lucide-react'
+import { InfinityMark, InfinityDivider } from '@/components/brand/infinity-mark'
+import { MotionCard } from '@/components/ui/motion'
 
 export const metadata: Metadata = {
   title: 'Participate — CINEGENY',
@@ -69,9 +70,8 @@ export default function ParticipatePage() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24">
         {/* Hero */}
         <div className="text-center max-w-3xl mx-auto space-y-5">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#E50914]/10 border border-[#E50914]/20">
-            <Vote className="h-8 w-8 text-[#E50914]" />
-          </div>
+          <InfinityMark className="h-12 w-auto mx-auto" animate />
+
           <h1 className="text-3xl sm:text-5xl font-bold font-playfair">
             One account. <span className="text-[#E50914]">Every way to take part.</span>
           </h1>
@@ -95,15 +95,17 @@ export default function ParticipatePage() {
           </div>
         </div>
 
+        <InfinityDivider />
+
         {/* Capability grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CAPABILITIES.map(({ icon: Icon, title, desc, href, cta }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {CAPABILITIES.map(({ icon: Icon, title, desc, href, cta }, i) => (
+            <MotionCard key={title} delay={i * 0.06}>
             <Link
-              key={title}
               href={href}
-              className="group relative rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:border-[#E50914]/30 hover:bg-white/[0.05] transition-all duration-300"
+              className="group relative block h-full rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:border-[#E50914]/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#E50914]/10 border border-[#E50914]/20 mb-4">
+              <div className="relative inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#E50914]/25 to-[#E50914]/[0.04] ring-1 ring-[#E50914]/25 shadow-lg shadow-[#E50914]/10 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                 <Icon className="h-6 w-6 text-[#E50914]" />
               </div>
               <h2 className="text-lg font-semibold mb-2">{title}</h2>
@@ -112,6 +114,7 @@ export default function ParticipatePage() {
                 {cta} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
             </Link>
+            </MotionCard>
           ))}
         </div>
 
