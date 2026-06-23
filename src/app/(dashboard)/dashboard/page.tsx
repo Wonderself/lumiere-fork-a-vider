@@ -71,7 +71,7 @@ export default async function DashboardPage() {
   const recommendations = await getRecommendedTasks().catch(() => [])
 
   const now = new Date()
-  const frenchDate = now.toLocaleDateString('fr-FR', {
+  const formattedDate = now.toLocaleDateString('en-US', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -83,11 +83,11 @@ export default async function DashboardPage() {
       {/* Welcome */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <p className="text-white/60 text-sm capitalize mb-2">{frenchDate}</p>
+          <p className="text-white/60 text-sm capitalize mb-2">{formattedDate}</p>
           <h1 className="text-2xl sm:text-3xl font-bold text-white font-[family-name:var(--font-playfair)]">
-            Bonjour, {user.displayName || 'Contributeur'}
+            Hello, {user.displayName || 'Contributor'}
           </h1>
-          <p className="text-white/60 mt-2 text-sm">Votre hub central</p>
+          <p className="text-white/60 mt-2 text-sm">Your central hub</p>
         </div>
         <div className="flex items-center gap-3">
           <Badge className="border-[#E50914]/30 bg-[#E50914]/10 text-[#E50914]">
@@ -105,10 +105,10 @@ export default async function DashboardPage() {
       {/* KPI Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {[
-          { label: 'Taches completees', value: user.tasksCompleted, icon: CheckCircle2, color: 'text-green-500', bg: 'bg-green-500/10' },
+          { label: 'Tasks completed', value: user.tasksCompleted, icon: CheckCircle2, color: 'text-green-500', bg: 'bg-green-500/10' },
           { label: 'Points', value: user.points, icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-500/10' },
           { label: 'Reputation', value: `${user.reputationScore}/100`, icon: Star, color: 'text-[#E50914]', bg: 'bg-[#E50914]/10' },
-          { label: 'Tokens Film', value: totalTokensHeld, icon: Coins, color: 'text-amber-500', bg: 'bg-[#E50914]/100/10' },
+          { label: 'Film tokens', value: totalTokensHeld, icon: Coins, color: 'text-amber-500', bg: 'bg-[#E50914]/100/10' },
         ].map((kpi) => (
           <div key={kpi.label} className="bg-white/5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] ring-1 ring-white/10 border border-white/10/60 p-4 sm:p-6">
             <div className="flex items-center gap-3 sm:gap-4 min-h-[52px]">
@@ -154,11 +154,11 @@ export default async function DashboardPage() {
           <div className="flex items-center gap-3">
             <Sparkles className="h-5 w-5 text-[#E50914]" />
             <h2 className="text-white font-bold text-lg font-playfair">
-              Recommande pour vous
+              Recommended for you
             </h2>
           </div>
           <Link href="/tasks" className="text-sm text-[#E50914] hover:underline">
-            Voir toutes →
+            View all →
           </Link>
         </div>
         {recommendations.length > 0 ? (
@@ -190,10 +190,10 @@ export default async function DashboardPage() {
             <div className="mx-auto w-14 h-14 rounded-2xl bg-[#E50914]/10 flex items-center justify-center mb-4">
               <Zap className="h-6 w-6 text-[#E50914]/60" />
             </div>
-            <p className="text-white/60 font-semibold mb-1">Pas encore de recommandations</p>
-            <p className="text-white/60 text-sm max-w-sm mx-auto mb-5">Completez votre profil et realisez vos premieres taches pour recevoir des recommandations personnalisees.</p>
+            <p className="text-white/60 font-semibold mb-1">No recommendations yet</p>
+            <p className="text-white/60 text-sm max-w-sm mx-auto mb-5">Complete your profile and finish your first tasks to receive personalized recommendations.</p>
             <Link href="/tasks" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#E50914] text-white text-sm font-medium hover:bg-[#FF2D2D] transition-colors">
-              Explorer les taches disponibles
+              Explore available tasks
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -212,11 +212,11 @@ export default async function DashboardPage() {
               <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-[#E50914] transition-colors" />
             </div>
             <h3 className="text-white font-semibold text-base">Studio Films</h3>
-            <p className="text-white/60 text-sm leading-relaxed">Micro-taches cinema, VFX, doublage, montage.</p>
+            <p className="text-white/60 text-sm leading-relaxed">Film micro-tasks, VFX, dubbing, editing.</p>
             <div className="flex items-center gap-2 pt-3 border-t border-white/10">
-              <span className="text-white/50 text-xs">{user.tasksCompleted} taches</span>
+              <span className="text-white/50 text-xs">{user.tasksCompleted} tasks</span>
               <span className="text-white/30">|</span>
-              <span className="text-white/50 text-xs">{user.tasksValidated} validees</span>
+              <span className="text-white/50 text-xs">{user.tasksValidated} validated</span>
             </div>
           </div>
         </Link>
@@ -231,9 +231,9 @@ export default async function DashboardPage() {
               <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-red-400 transition-colors" />
             </div>
             <h3 className="text-white font-semibold text-base">Streaming</h3>
-            <p className="text-white/60 text-sm leading-relaxed">Soumettez et regardez les films IA.</p>
+            <p className="text-white/60 text-sm leading-relaxed">Submit and watch AI films.</p>
             <div className="flex items-center gap-2 pt-3 border-t border-white/10">
-              <span className="text-white/50 text-xs">{user._count.catalogFilms} films soumis</span>
+              <span className="text-white/50 text-xs">{user._count.catalogFilms} films submitted</span>
             </div>
           </div>
         </Link>
@@ -247,14 +247,14 @@ export default async function DashboardPage() {
               </div>
               <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-amber-600 transition-colors" />
             </div>
-            <h3 className="text-white font-semibold text-base">Investissement</h3>
-            <p className="text-white/60 text-sm leading-relaxed">Tokens de films, dividendes, gouvernance.</p>
+            <h3 className="text-white font-semibold text-base">Investment</h3>
+            <p className="text-white/60 text-sm leading-relaxed">Film tokens, dividends, governance.</p>
             <div className="flex items-center gap-2 pt-3 border-t border-white/10">
               <span className="text-amber-500 text-xs">{totalTokensHeld} tokens</span>
               {pendingDividends > 0 && (
                 <>
                   <span className="text-white/30">|</span>
-                  <span className="text-green-500 text-xs">{pendingDividends} dividende(s)</span>
+                  <span className="text-green-500 text-xs">{pendingDividends} dividend(s)</span>
                 </>
               )}
             </div>
@@ -272,7 +272,7 @@ export default async function DashboardPage() {
                 <ChevronRight className="h-4 w-4 text-white/30 group-hover:text-orange-600 transition-colors" />
               </div>
               <h3 className="text-white font-semibold text-base">Administration</h3>
-              <p className="text-white/60 text-sm leading-relaxed">Utilisateurs, catalogue, payouts.</p>
+              <p className="text-white/60 text-sm leading-relaxed">Users, catalog, payouts.</p>
             </div>
           </Link>
         )}
@@ -287,8 +287,8 @@ export default async function DashboardPage() {
                 <Scale className="h-5 w-5 text-[#E50914]" />
               </div>
               <div>
-                <h3 className="font-semibold text-white/90 text-sm">Espace Scenariste</h3>
-                <p className="text-xs text-white/50">Gerez vos scenarios, suivez les votes et scores IA</p>
+                <h3 className="font-semibold text-white/90 text-sm">Screenwriter Space</h3>
+                <p className="text-xs text-white/50">Manage your screenplays, track votes and AI scores</p>
               </div>
             </div>
             <ChevronRight className="h-5 w-5 text-white/50 group-hover:text-[#E50914] transition-colors" />
@@ -304,8 +304,8 @@ export default async function DashboardPage() {
               <Users className="h-5 w-5 text-purple-500" />
             </div>
             <div>
-              <h3 className="font-semibold text-white/90 text-sm">Parrainage</h3>
-              <p className="text-xs text-white/50">Invitez des amis et gagnez 30 Lumens par filleul</p>
+              <h3 className="font-semibold text-white/90 text-sm">Referral</h3>
+              <p className="text-xs text-white/50">Invite friends and earn 30 Lumens per referral</p>
             </div>
           </div>
           <ChevronRight className="h-5 w-5 text-white/50 group-hover:text-purple-500 transition-colors" />
@@ -320,8 +320,8 @@ export default async function DashboardPage() {
               <Banknote className="h-5 w-5 text-green-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-white/90 text-sm">Mes Revenus</h3>
-              <p className="text-xs text-white/50">Historique des gains, stats mensuelles et previsions</p>
+              <h3 className="font-semibold text-white/90 text-sm">My Earnings</h3>
+              <p className="text-xs text-white/50">Earnings history, monthly stats and forecasts</p>
             </div>
           </div>
           <ChevronRight className="h-5 w-5 text-white/50 group-hover:text-green-600 transition-colors" />
@@ -331,10 +331,10 @@ export default async function DashboardPage() {
       {/* Quick Actions */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {[
-          { label: 'Trouver une tache', href: '/tasks', icon: Search, color: 'text-[#E50914]', bg: 'bg-white/[0.04]' },
-          { label: 'Decouvrir les films', href: '/films', icon: Clapperboard, color: 'text-blue-500', bg: 'bg-white/[0.04]' },
-          { label: 'Voir le streaming', href: '/streaming', icon: PlayCircle, color: 'text-red-500', bg: 'bg-white/[0.04]' },
-          { label: 'Investir', href: '/tokenization', icon: PiggyBank, color: 'text-green-500', bg: 'bg-white/[0.04]' },
+          { label: 'Find a task', href: '/tasks', icon: Search, color: 'text-[#E50914]', bg: 'bg-white/[0.04]' },
+          { label: 'Discover films', href: '/films', icon: Clapperboard, color: 'text-blue-500', bg: 'bg-white/[0.04]' },
+          { label: 'Open streaming', href: '/streaming', icon: PlayCircle, color: 'text-red-500', bg: 'bg-white/[0.04]' },
+          { label: 'Invest', href: '/tokenization', icon: PiggyBank, color: 'text-green-500', bg: 'bg-white/[0.04]' },
         ].map((action) => (
           <Link
             key={action.label}

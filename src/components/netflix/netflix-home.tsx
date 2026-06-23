@@ -152,14 +152,14 @@ export function NetflixHome({ data }: { data: HomeData }) {
           {[
             {
               emoji: '🎬',
-              title: 'Créer un Film',
-              subtitle: '7 étapes assistées par l\'IA',
+              title: 'Create a Film',
+              subtitle: '7 AI-assisted steps',
               href: '/create',
               accent: '#E50914',
             },
             {
               emoji: '💰',
-              title: 'Investir',
+              title: 'Invest',
               subtitle: 'Dès $0.05 — SAFE 50% discount',
               href: '/investors',
               accent: '#10B981',
@@ -167,7 +167,7 @@ export function NetflixHome({ data }: { data: HomeData }) {
             {
               emoji: '🍿',
               title: 'Regarder',
-              subtitle: '100+ films, streaming gratuit',
+              subtitle: '100+ films, free streaming',
               href: '/films',
               accent: '#3B82F6',
             },
@@ -203,7 +203,7 @@ export function NetflixHome({ data }: { data: HomeData }) {
                 className="flex items-center gap-1.5 text-[11px] font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0"
                 style={{ color: card.accent }}
               >
-                Découvrir <ArrowRight className="h-3 w-3" />
+                Discover <ArrowRight className="h-3 w-3" />
               </div>
             </Link>
           ))}
