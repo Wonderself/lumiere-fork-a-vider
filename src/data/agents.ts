@@ -587,7 +587,7 @@ Tu fournis des estimations chiffrées avec des fourchettes réalistes.`,
 - Les one-pagers de projets
 - Les lookbooks visuels
 Tu maîtrises le storytelling business et les standards de l'industrie.`,
-    tags: ['pitch', 'financement', 'présentation', 'investisseurs'],
+    tags: ['pitch', 'financement', 'presentation', 'investisseurs'],
   },
   {
     slug: 'cg-script-doctor',
