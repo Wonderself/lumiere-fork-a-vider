@@ -10,7 +10,7 @@ import { GENRE_ORDER, FILMS_BY_GENRE } from '@/data/films'
 import Link from 'next/link'
 import {
   ArrowRight,
-  Vote, Star, Users, MessageSquare, GraduationCap, Sparkles,
+  Vote, Star, Users, MessageSquare, GraduationCap, Sparkles, Play,
   Flame, Laugh, Drama, Microscope, BookOpen, Swords, Ghost, Heart, Wand2, Clock,
   Activity,
 } from 'lucide-react'
@@ -146,65 +146,31 @@ export function NetflixHome({ data }: { data: HomeData }) {
       {/* ── Hero ── */}
       <HeroManifesto />
 
-      {/* ── 3 CTA Cards ── */}
-      <section className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-20 pt-10 pb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {/* ── Quick actions — vote-first ── */}
+      <section className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-20 pt-8 pb-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            {
-              emoji: '🎬',
-              title: 'Create a Film',
-              subtitle: '7 AI-assisted steps',
-              href: '/create',
-              accent: '#E50914',
-            },
-            {
-              emoji: '💰',
-              title: 'Invest',
-              subtitle: 'Dès $0.05 — SAFE 50% discount',
-              href: '/investors',
-              accent: '#10B981',
-            },
-            {
-              emoji: '🍿',
-              title: 'Regarder',
-              subtitle: '100+ films, free streaming',
-              href: '/films',
-              accent: '#3B82F6',
-            },
+            { icon: Vote, title: 'Vote on films', subtitle: 'Decide what gets made next', href: '/vote', accent: '#E50914', primary: true },
+            { icon: Play, title: 'Watch films', subtitle: '100+ AI films, free', href: '/films', accent: '#3B82F6', primary: false },
+            { icon: Sparkles, title: 'Participate', subtitle: 'Submit an idea · produce · invest', href: '/participate', accent: '#D4AF37', primary: false },
           ].map((card) => (
             <Link
               key={card.title}
               href={card.href}
-              className="group relative flex flex-col items-center justify-center gap-3 p-7 rounded-2xl transition-all duration-400 hover:-translate-y-1"
+              className="group relative flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
               style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: `1px solid ${card.accent}25`,
-                boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
+                background: card.primary ? 'rgba(229,9,20,0.10)' : 'rgba(255,255,255,0.03)',
+                border: `1px solid ${card.accent}${card.primary ? '55' : '22'}`,
               }}
             >
-              {/* Hover glow */}
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                style={{ boxShadow: `0 0 40px ${card.accent}20, inset 0 0 40px ${card.accent}05` }}
-              />
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden rounded-b-2xl">
-                <div
-                  className="h-full w-0 group-hover:w-full transition-all duration-500 ease-out"
-                  style={{ background: `linear-gradient(90deg, transparent, ${card.accent}, transparent)` }}
-                />
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: `${card.accent}1f` }}>
+                <card.icon className="h-5 w-5" style={{ color: card.accent }} />
+              </span>
+              <div className="min-w-0">
+                <p className="text-sm font-bold text-white leading-tight">{card.title}</p>
+                <p className="text-[11px] text-white/45 group-hover:text-white/60 transition-colors truncate">{card.subtitle}</p>
               </div>
-              <span className="text-4xl">{card.emoji}</span>
-              <div className="text-center">
-                <p className="text-base font-black text-white tracking-wide">{card.title}</p>
-                <p className="text-[12px] text-white/40 mt-1 group-hover:text-white/60 transition-colors">{card.subtitle}</p>
-              </div>
-              <div
-                className="flex items-center gap-1.5 text-[11px] font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0"
-                style={{ color: card.accent }}
-              >
-                Discover <ArrowRight className="h-3 w-3" />
-              </div>
+              <ArrowRight className="h-4 w-4 ml-auto shrink-0 transition-transform group-hover:translate-x-0.5" style={{ color: card.accent }} />
             </Link>
           ))}
         </div>
