@@ -898,7 +898,10 @@ export const LEVELS: Level[] = [
               { type: 'tip', text: 'If a shot does not advance at least one of those three things, cut it. Strong films are made in the deletion, not the addition.' },
               { type: 'h', text: 'Story is change' },
               { type: 'p', text: 'A scene works when something changes: a relationship, a goal, a piece of knowledge, an emotional state. "Nothing happens, but beautifully" is the most common beginner trap. Plan the change first, then design the images that deliver it.' },
-            ],
+            
+              { type: 'prompt', label: 'Prompt — show, don\'t tell pass', text: 'Rewrite these on-the-nose lines so the emotion is shown, not stated.\nLines: <paste>\nFor each line, give: a visual action or image that conveys the same feeling, and the shot size that captures it best.' },
+              { type: 'prompt', label: 'Prompt — find the subtext', text: 'Here is my scene:\n<paste>\nTell me what each character really wants but is not saying, then suggest one gesture or image per character that reveals that subtext without any dialogue.' },
+],
           },
           {
             slug: 'breaking-down-a-scene',
@@ -917,7 +920,11 @@ export const LEVELS: Level[] = [
                 'Exit beat — the new situation we leave the scene on.',
               ] },
               { type: 'tip', text: 'Most beginner scenes are missing a clear turn beat. If you cannot name the turn, the scene is probably two half-scenes — split it or strengthen it.' },
-            ],
+            
+              { type: 'table', caption: 'Every scene has three beats. Name all three before you generate anything.', headers: ['Beat', 'Purpose', 'Ask yourself'], rows: [['Entry', 'Arrive in the scene, set the situation', 'Where are we and what is the status quo?'], ['Turn', 'The moment something shifts', 'What single thing changes here?'], ['Exit', 'Leave on the new situation', 'What is different now?']] },
+              { type: 'prompt', label: 'Prompt — beat sheet', text: 'Break my scene into beats.\nScene: <one line>\nReturn entry / turn / exit beats, each with the single change it delivers, and flag clearly if the turn beat is missing or weak.' },
+              { type: 'prompt', label: 'Prompt — sharpen the turn', text: 'My scene feels flat:\n<paste>\nIdentify the turn beat. If it is weak or missing, give me three stronger turns and explain how each reshapes the scene.' },
+],
           },
         ],
       },
@@ -943,7 +950,10 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'How to choose' },
               { type: 'p', text: 'Match size to emotional distance. Start a scene wider to orient the audience, then push closer as stakes rise. Save your tightest shots for your most important moments — if everything is a close-up, nothing is.' },
               { type: 'tip', text: 'When prompting an AI tool, always state the shot size explicitly ("medium close-up, eye-level"). Vague prompts default to generic medium shots and your edit will feel flat.' },
-            ],
+            
+              { type: 'table', caption: 'Shot-size cheat-sheet — state the size in every prompt.', headers: ['Shot size', 'Frames', 'Use', 'Prompt phrase'], rows: [['Extreme wide', 'Whole environment', 'Scale, openings', 'extreme wide establishing shot'], ['Wide', 'Whole body', 'Action, geography', 'wide full shot'], ['Medium', 'Waist up', 'Dialogue', 'medium shot'], ['Close-up', 'Face fills frame', 'Emotion, decisions', 'close-up on the face'], ['Extreme close-up', 'Eye / hand / detail', 'Tension, inserts', 'extreme close-up']] },
+              { type: 'prompt', label: 'Prompt — shot-size pass', text: 'Here is my shot list:\n<paste>\nFor each shot suggest the ideal shot size and why, varying the sizes so the scene has rhythm. Flag anywhere everything is the same size.' },
+],
           },
           {
             slug: 'camera-angles-movement',
@@ -962,7 +972,10 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'Movement with intent' },
               { type: 'p', text: 'A slow push-in builds tension or revelation. A tracking shot follows energy and keeps us with a character. A handheld feel adds rawness. Movement should be motivated — by emotion or by a subject in motion — never just because you can.' },
               { type: 'tip', text: 'For AI video, simple, motivated moves (slow push-in, gentle parallax) generate far more reliably than complex crane moves. Start simple.' },
-            ],
+            
+              { type: 'table', caption: 'Angles and moves and what each one says.', headers: ['Choice', 'Type', 'Feeling', 'Prompt phrase'], rows: [['Eye-level', 'Angle', 'Neutral, honest', 'eye-level angle'], ['Low angle', 'Angle', 'Power, threat', 'low angle looking up'], ['High angle', 'Angle', 'Vulnerability', 'high angle looking down'], ['Push-in', 'Move', 'Tension, reveal', 'slow dolly push-in'], ['Tracking', 'Move', 'Follows energy', 'tracking shot'], ['Handheld', 'Move', 'Raw, urgent', 'handheld, subtle shake'], ['Orbit', 'Move', 'Wraps the subject', 'slow orbit around subject']] },
+              { type: 'prompt', label: 'Prompt — angle & movement explorer', text: 'For this moment, suggest the best camera angle and movement.\nMoment & emotion: <one line>\nGive three options (safe / expressive / bold), each with the angle, the move + speed, and the ready-to-paste prompt phrase.' },
+],
           },
           {
             slug: 'composition',
@@ -980,7 +993,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A frame with rule-of-thirds grid overlay and leading lines marked', caption: 'A thirds grid with leading lines. Notice how the eye travels to the subject automatically.' },
               { type: 'tip', text: 'Describe composition in prompts: "subject on left third, deep hallway leading right, lots of negative space above." Specific composition language is one of the biggest quality upgrades you can make.' },
-            ],
+            
+              { type: 'table', caption: 'Composition controls — name them in your prompt.', headers: ['Rule', 'What it does', 'How to use'], rows: [['Rule of thirds', 'Dynamic, balanced frame', 'Place subject on a third line'], ['Headroom', 'Comfortable framing', 'A little space above the head'], ['Lead room', 'Sense of direction', 'Space where the subject looks/moves'], ['Depth layers', 'Three-dimensional feel', 'Foreground + midground + background'], ['Negative space', 'Isolation or calm', 'Empty space around the subject']] },
+              { type: 'prompt', label: 'Prompt — composition critique', text: 'Critique the composition of this shot:\n<paste description or image notes>\nCheck rule of thirds, headroom, lead room, depth layers and balance, then give me three specific fixes.' },
+],
           },
         ],
       },
