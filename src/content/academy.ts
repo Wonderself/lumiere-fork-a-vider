@@ -46,7 +46,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-1-your-first-ai-scene',
             title: 'Day 1 — Your first AI scene: describe it, get a full shot plan',
-            minutes: 22,
+            minutes: 40,
             summary:
               'Talk to Claude like a director and turn a one-line idea into a complete, shoot-ready shot plan.',
             body: [
@@ -147,7 +147,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-2-ai-visuals-and-characters',
             title: 'Day 2 — AI visuals & characters: generate cinematic images and animate them',
-            minutes: 24,
+            minutes: 42,
             summary:
               'Write cinematic image prompts, keep a character looking the same across shots, then bring stills to life.',
             body: [
@@ -262,7 +262,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-3-ai-voice-and-audio',
             title: 'Day 3 — AI voice & audio: voiceover, music and sound effects',
-            minutes: 22,
+            minutes: 38,
             summary:
               'Give your film a voice, score it with mood-matched music, and layer the sound design that makes it feel real.',
             body: [
@@ -349,7 +349,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-4-talking-heads-and-avatars',
             title: 'Day 4 — Talking heads & avatars: build your AI presenter',
-            minutes: 20,
+            minutes: 34,
             summary:
               'Create a believable AI presenter or avatar, write a script it can deliver, and avoid the uncanny-valley traps.',
             body: [
@@ -432,7 +432,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-5-edit-and-distribute',
             title: 'Day 5 — Edit & distribute: assemble, polish and publish',
-            minutes: 22,
+            minutes: 40,
             summary:
               'Assemble your clips into a cut that flows, polish it, and export the right version for each platform.',
             body: [
@@ -530,7 +530,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-6-real-video-project',
             title: 'Day 6 — Real video project: idea to finished film',
-            minutes: 26,
+            minutes: 38,
             summary:
               'Put the whole week together: take one idea through planning, generation, audio, edit and export in a single guided project.',
             body: [
@@ -606,7 +606,7 @@ export const LEVELS: Level[] = [
           {
             slug: 'day-7-certificate-review',
             title: 'Day 7 — Certificate review: become an AI Video Creator',
-            minutes: 16,
+            minutes: 30,
             summary:
               'Review the whole pipeline, run a professional quality check on your film, and earn your AI Video Creator certificate.',
             body: [
@@ -639,6 +639,50 @@ export const LEVELS: Level[] = [
                 'Keep your prompt library — it is your toolkit for every future project.',
               ] },
               { type: 'tip', text: 'Your first finished film is rarely your best — it is your proof that you can finish. Start the next one immediately; you will improve faster by making three short films than by polishing one forever.' },
+              { type: 'h', text: 'Score your film like a festival jury' },
+              { type: 'p', text: 'Judge your own work against clear criteria instead of a vague feeling. Rate each from 1 to 5 — anything below 4 is your next thing to improve.' },
+              { type: 'ul', items: [
+                'Clarity — can a stranger follow what happens and what changes?',
+                'Emotion — does it make the viewer feel the intended thing?',
+                'Craft — are framing, light, sound and pacing intentional?',
+                'Consistency — does the character and world hold together shot to shot?',
+                'Originality — is there one memorable image or idea that is yours?',
+              ] },
+              { type: 'img', alt: 'A five-criteria scorecard with star ratings beside a finished film frame', caption: 'A simple five-point rubric turns "I think it is okay" into a concrete list of what to fix next.' },
+              { type: 'h', text: 'Build a portfolio, not just a file' },
+              { type: 'ul', items: [
+                'Keep your best 20-40 seconds as a reel — quality over length.',
+                'Publish each finished piece to CINEGENY so your profile grows.',
+                'Write one line per project: the idea, your role, the tools used.',
+                'Three short, finished films say more than one unfinished epic.',
+              ] },
+              { type: 'h', text: 'Get feedback that actually helps' },
+              { type: 'ol', items: [
+                'Show it to someone who has not seen it before — fresh eyes catch what you cannot.',
+                'Ask specific questions ("was the ending clear?") not "is it good?".',
+                'Separate taste from problems: note only what confused or bored people.',
+                'Fix the highest-impact issue first, then ship the next film.',
+              ] },
+              { type: 'h', text: 'Keep your prompt library' },
+              { type: 'p', text: 'By now you have a personal toolkit: a character bible, a palette phrase, a negative prompt, and prompt templates for plans, stills, motion, voice, music, edits and thumbnails. Keep it in one notes file — it is what makes every future film faster.' },
+              { type: 'h', text: 'Where to go next' },
+              { type: 'ul', items: [
+                'Level 1 — Foundations: go deeper on storytelling, shot grammar, and the craft underneath the tools.',
+                'Level 2 — Advanced: consistency at scale, grading, VFX, and a full production pipeline.',
+                'Repetition: make three more shorts this month. Speed and taste come from volume.',
+              ] },
+              { type: 'prompt', label: 'Prompt — festival-style critique with scores', text: 'You are a film festival jury. Score my short from 1-5 on clarity, emotion, craft, consistency and originality.\n\nWhat it is: <logline + length>\nLink/description: <describe the film honestly>\n\nReturn a score per criterion with one line of justification, the single highest-impact fix, and one sentence of genuine encouragement.' },
+              { type: 'prompt', label: 'Prompt — portfolio blurb', text: 'Write a short portfolio blurb for this film.\n\nIdea: <one line>\nTools used: <list>\nMy role: <what you did>\n\nReturn: a one-sentence logline, a two-sentence description for my profile, and 5 tags. Confident but not hyped.' },
+              { type: 'prompt', label: 'Prompt — my next project idea', text: 'Suggest my next short film, building on what I just made.\n\nWhat I just finished: <one line>\nWhat I want to get better at: <e.g. dialogue, action, mood>\n\nGive me 3 small, finishable ideas (each one location, one change), and for each, the one new skill it would push me to practice.' },
+              { type: 'tip', text: 'Your first finished film proves you can finish — that is the real graduation. Start the next one today; you improve faster by making three shorts than by polishing one forever.' },
+              { type: 'h', text: 'Final checklist — AI Video Creator' },
+              { type: 'ol', items: [
+                'I finished and published a short film to CINEGENY.',
+                'It passes the six-point QC and scores 4+ on the jury rubric.',
+                'I saved my prompt library for reuse.',
+                'I gathered one round of honest feedback.',
+                'I have picked my next project.',
+              ] },
               { type: 'p', text: 'Congratulations: you can now take any idea from a blank page to a finished, published AI film. That is the whole craft in one week — everything else is practice and taste.' },
             ],
           },
