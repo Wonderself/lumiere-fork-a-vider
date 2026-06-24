@@ -1,4 +1,5 @@
 import { BLOG_ARTICLES, CONTENT_AGENTS } from '@/data/landing-content'
+import Image from 'next/image'
 import Link from 'next/link'
 import { PenTool, Clock, ArrowRight, Bot } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -16,7 +17,7 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {BLOG_ARTICLES.map(article => (
             <div key={article.slug} className="rounded-2xl border border-gray-800 bg-gray-900/50 overflow-hidden group hover:border-gray-700 transition-colors">
-              <div className="aspect-video relative"><img src={article.coverImage} alt={article.title} className="w-full h-full object-cover" /></div>
+              <div className="aspect-video relative"><Image src={article.coverImage} alt={article.title} fill className="object-cover" /></div>
               <div className="p-6">
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#E50914]/10 text-[#E50914] font-medium">{article.category}</span>
                 <h2 className="text-lg font-bold text-white mt-3 mb-2 group-hover:text-[#E50914] transition-colors">{article.title}</h2>

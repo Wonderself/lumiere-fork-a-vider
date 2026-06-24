@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -200,9 +201,11 @@ export function FilmTabs({ synopsis, tags, castRoles, bonusContent }: Props) {
                       {/* Avatar */}
                       <div className="shrink-0">
                         {cr.actor.avatarUrl ? (
-                          <img
+                          <Image
                             src={cr.actor.avatarUrl}
                             alt={cr.actor.name}
+                            width={56}
+                            height={56}
                             className="h-14 w-14 rounded-full object-cover border-2 border-white/10"
                           />
                         ) : (
@@ -268,10 +271,11 @@ export function FilmTabs({ synopsis, tags, castRoles, bonusContent }: Props) {
                     {/* Thumbnail / Icon */}
                     <div className="relative aspect-video bg-black/50 flex items-center justify-center">
                       {bc.thumbnailUrl ? (
-                        <img
+                        <Image
                           src={bc.thumbnailUrl}
                           alt={bc.title}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
                         />
                       ) : (
                         <TypeIcon className="h-10 w-10 text-white/10" />

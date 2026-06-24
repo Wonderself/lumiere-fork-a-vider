@@ -1,4 +1,5 @@
 'use client'
+import NextImage from 'next/image'
 
 import Link from 'next/link'
 import { Film, Image, ArrowRight, Sparkles, User, Play } from 'lucide-react'
@@ -30,10 +31,11 @@ export function CreativeShowcase() {
           >
             {/* Background image */}
             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-              <img
+              <NextImage
                 src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=40"
                 alt=""
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
             </div>
@@ -80,10 +82,11 @@ export function CreativeShowcase() {
             className="group relative rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-transparent overflow-hidden hover:border-[#E50914]/30 transition-all duration-500"
           >
             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-              <img
+              <NextImage
                 src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=40"
                 alt=""
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
             </div>
