@@ -1288,7 +1288,10 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'A consistent look' },
               { type: 'p', text: 'Develop or choose a LUT/look and apply it across the film, then hand-tune per shot. Consistency of grade is a huge part of what makes footage feel like one film.' },
               { type: 'tip', text: 'Grade on a calibrated screen and check skin tones on the vectorscope. Monitors lie; scopes do not.' },
-            ],
+            
+              { type: 'table', caption: 'Grade in two steps: match, then mood.', headers: ['Look', 'Recipe', 'Mood'], rows: [['Blockbuster', 'Teal shadows, warm skin', 'Epic, polished'], ['Bleach bypass', 'Desaturate, crush blacks', 'Gritty, harsh'], ['Warm nostalgia', 'Lift blacks, amber tint', 'Memory, soft'], ['Cold thriller', 'Desaturate, blue shadows', 'Tense, bleak'], ['Technicolor', 'Boost saturation', 'Vivid, classic']] },
+              { type: 'prompt', label: 'Prompt — grading brief', text: 'Write a color grading brief.\nPalette: <your palette>  Mood: <one line>\nReturn: the look in one sentence, what to do with shadows / midtones / highlights, skin-tone guidance, and one "do not" to avoid overgrading.' },
+],
           },
           {
             slug: 'upscaling-cleanup',
@@ -1303,7 +1306,10 @@ export const LEVELS: Level[] = [
                 'Fix faces/hands selectively with inpainting rather than regenerating whole shots.',
               ] },
               { type: 'img', alt: 'A zoomed crop before and after artifact cleanup and upscaling', caption: 'Targeted cleanup on the crop that matters beats regenerating the entire shot.' },
-            ],
+            
+              { type: 'table', caption: 'Common artifacts and how to fix them.', headers: ['Artifact', 'Likely cause', 'Fix'], rows: [['Warped hands', 'Model weakness', 'Hand negatives, reframe, or inpaint'], ['Flicker (video)', 'Unstable frames', 'Lower motion, regenerate, stabilize'], ['Soft detail', 'Low resolution', 'Upscale, add detail pass'], ['Banding', 'Compression', 'Add subtle grain, higher bitrate'], ['Face wobble', 'Over-animation', 'Smaller motion, reference image']] },
+              { type: 'prompt', label: 'Prompt — cleanup checklist', text: 'Make me a cleanup checklist for a near-final shot.\nShot: <describe>\nReturn the order of operations (upscale, fix artifacts, stabilize, grain) and what to look for at each step before I call it done.' },
+],
           },
           {
             slug: 'vfx-compositing',
@@ -1320,7 +1326,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A composite breakdown showing background, subject, effect, and grain layers', caption: 'A composite is only as convincing as its weakest match — light, grain, and motion must agree.' },
               { type: 'tip', text: 'The secret to believable compositing is imperfection: add the same noise, blur, and chromatic aberration the rest of the frame has.' },
-            ],
+            
+              { type: 'table', caption: 'Common VFX tasks and how to approach them.', headers: ['Task', 'What it does', 'Approach'], rows: [['Object removal', 'Erase unwanted elements', 'AI inpaint / clean plate'], ['Sky replacement', 'Change the sky/mood', 'Mask + matched light'], ['Rotoscope', 'Isolate a subject', 'AI matte / mask'], ['Compositing', 'Combine layers', 'Match grain, light, perspective'], ['Color match', 'Blend elements', 'Match black/white points first']] },
+              { type: 'prompt', label: 'Prompt — VFX brief', text: 'Plan the VFX for this shot.\nShot & goal: <one or two lines>\nReturn the list of tasks in order, the approach for each, and the one thing most likely to break the illusion (so I watch for it).' },
+],
           },
         ],
       },
@@ -1343,7 +1352,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A pipeline diagram from script through delivery with asset folders', caption: 'A clear pipeline turns a chaotic project into a repeatable, scalable process.' },
               { type: 'tip', text: 'Name and version everything from day one. "final_FINAL_v3_real.mp4" is a symptom; a naming convention is the cure.' },
-            ],
+            
+              { type: 'table', caption: 'The end-to-end pipeline and when each stage is done.', headers: ['Stage', 'Output', 'Done when'], rows: [['Concept', 'Logline + change', 'One clear sentence'], ['Plan', 'Shot list + beats', 'Every shot has intent'], ['Look-dev', 'Locked look + character', 'Palette & identity fixed'], ['Generation', 'Stills + clips', 'Approved board'], ['Audio', 'Voice + music + FX', 'Mix balanced'], ['Edit & finish', 'Master + versions', 'Passes QC']] },
+              { type: 'prompt', label: 'Prompt — pipeline plan', text: 'Turn my project into a stage-by-stage pipeline.\nProject: <one or two lines>\nReturn each stage (concept -> plan -> look-dev -> generation -> audio -> edit/finish) with its deliverable, a rough time estimate, and the checkpoint that says it is done.' },
+],
           },
           {
             slug: 'quality-optimization',
@@ -1362,7 +1374,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A QC checklist overlaid on a near-final timeline', caption: 'Run the same QC checklist every time. Consistency in process produces consistency in quality.' },
               { type: 'tip', text: 'Get fresh eyes. You stop seeing your own film after the tenth viewing — one honest test viewer catches what you cannot.' },
-            ],
+            
+              { type: 'table', caption: 'Run the same QC pass every time.', headers: ['Check', 'Pass criteria'], rows: [['Story', 'The central change reads at full speed'], ['Identity', 'Character is the same person throughout'], ['Continuity', 'Eyelines, light, screen direction match'], ['Motion', 'No warping, flicker or distortion'], ['Audio', 'Voice clear, music supportive, levels balanced'], ['Grade', 'Shots match; no shot jumps out']] },
+              { type: 'prompt', label: 'Prompt — final festival critique', text: 'You are a festival reviewer. Score my film 1-5 on clarity, emotion, craft, consistency and originality.\nWhat it is: <logline + length>\nReturn a score + one line per criterion, the single highest-impact fix, and one line of honest encouragement.' },
+],
           },
         ],
       },
