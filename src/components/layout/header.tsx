@@ -115,7 +115,7 @@ export function Header() {
               </Link>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-white/5 transition-all outline-none" aria-label="Menu du profil">
+                  <button className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-white/5 transition-all outline-none" aria-label="Profile menu">
                     <Avatar className="h-8 w-8">
                       {session.user.image && <AvatarImage src={session.user.image} alt={userName} />}
                       <AvatarFallback className="text-xs">{getInitials(userName)}</AvatarFallback>
@@ -190,7 +190,7 @@ export function Header() {
         <button
           className="lg:hidden text-white/60 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-all"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
