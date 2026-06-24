@@ -1019,7 +1019,10 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'Hard vs soft, and direction' },
               { type: 'p', text: 'Hard light (small source) gives sharp, dramatic shadows. Soft light (large source) flatters and calms. Side light reveals texture and drama; flat front light hides it. Underlight feels eerie; toplight feels oppressive.' },
               { type: 'tip', text: 'In prompts, lighting words do heavy lifting: "soft window light from camera left, warm practical lamps, deep shadows." Name the source, direction, and quality.' },
-            ],
+            
+              { type: 'table', caption: 'Lighting styles — name a style, a direction and a quality.', headers: ['Style', 'Look', 'Mood', 'Prompt phrase'], rows: [['High-key', 'Bright, low contrast', 'Hopeful, clean', 'high-key lighting, soft and even'], ['Low-key', 'Dark, deep shadows', 'Tension, noir', 'low-key lighting, deep shadows'], ['Golden hour', 'Warm, low sun', 'Romance, nostalgia', 'golden hour, warm soft light'], ['Backlight', 'Rimmed subject', 'Drama, separation', 'strong backlight, rim light'], ['Practical/neon', 'Visible sources', 'Urban, moody', 'neon practical lighting']] },
+              { type: 'prompt', label: 'Prompt — lighting design', text: 'Design the lighting for this shot.\nShot & mood: <one or two lines>\nReturn: the lighting style, key light direction, quality (hard/soft), the motivated source, and one ready-to-paste lighting phrase for my prompt.' },
+],
           },
           {
             slug: 'color-art-direction',
@@ -1038,7 +1041,10 @@ export const LEVELS: Level[] = [
                 'Wardrobe and props should reinforce character — the worn jacket, the new phone.',
               ] },
               { type: 'tip', text: 'Inconsistency is the #1 tell of amateur AI film. A written art bible you paste into every prompt is the cheapest fix for it.' },
-            ],
+            
+              { type: 'table', caption: 'Visual universes — pick one and reuse its phrase everywhere.', headers: ['Universe', 'Colors', 'Mood', 'Prompt phrase'], rows: [['Blockbuster', 'Teal & amber', 'Epic, polished', 'teal and orange color grade'], ['Noir', 'B&W contrast', 'Mystery, fate', 'high contrast black and white'], ['Cyberpunk', 'Magenta & cyan', 'Futuristic, edgy', 'neon cyberpunk palette'], ['Warm nostalgia', 'Amber & sepia', 'Memory, warmth', 'warm nostalgic faded tones'], ['Cold thriller', 'Steel blue', 'Tension, dread', 'desaturated cold blue palette']] },
+              { type: 'prompt', label: 'Prompt — establish a palette', text: 'Design a consistent palette for my film.\nStory & mood: <one or two lines>\nReturn: 3-4 primary colors (with hex), one accent color and its meaning, when to go warmer vs cooler, and a short phrase to paste into every image prompt.' },
+],
           },
         ],
       },
@@ -1063,7 +1069,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A labeled prompt broken into its six components', caption: 'Every strong prompt is the same six ingredients in order. Memorize the order.' },
               { type: 'tip', text: 'Change one variable at a time when iterating. If you change five things between generations, you will never learn what actually helped.' },
-            ],
+            
+              { type: 'table', caption: 'The 8 ingredients of a cinematic prompt.', headers: ['#', 'Ingredient', 'Example'], rows: [['1', 'Subject + details', 'a tired nurse, scrubs, tied-back hair'], ['2', 'Action / pose', 'leaning on a window at dawn'], ['3', 'Shot size', 'medium close-up'], ['4', 'Angle', 'eye-level'], ['5', 'Lens', '50mm, shallow depth of field'], ['6', 'Light', 'soft window light'], ['7', 'Color/look', 'muted teal, photoreal'], ['8', 'Aspect/texture', '16:9, 35mm grain']] },
+              { type: 'prompt', label: 'Prompt — master cinematic still', text: 'Cinematic film still.\nSubject: <subject + details>, <action>.\nShot: <size>, <angle>. Lens: <focal length>, <shallow/deep> depth of field.\nLight: <style>, motivated by <source>.\nLook: <palette>, <aspect>, <texture>. Photorealistic.\nNegative: no text, no watermark, no deformed hands, no warped face.' },
+],
           },
           {
             slug: 'image-sequencing',
@@ -1085,7 +1094,10 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'Coverage: shoot more than you need' },
               { type: 'p', text: 'Generate a wide, mediums, and close-ups of the same beat. Having "coverage" lets you fix pacing and continuity in the edit instead of being stuck with one angle.' },
               { type: 'tip', text: 'Lock a "character sheet" (a fixed paragraph describing your character) and paste it identically into every shot prompt. Consistency in equals consistency out.' },
-            ],
+            
+              { type: 'prompt', label: 'Prompt — sequence continuity check', text: 'Here is my sequence of shots:\n<paste shot list>\nCheck continuity: eyelines, screen direction, lighting and time of day. List any breaks and how to fix each so the cuts flow.' },
+              { type: 'prompt', label: 'Prompt — shot-to-shot consistency', text: 'Generate prompts for this shot sequence keeping everything consistent.\nCharacter lock: <paste>\nLook phrase: <paste>\nShots: <list>\nReturn one prompt per shot reusing the identical character + look, changing only framing, angle and action.' },
+],
           },
         ],
       },
@@ -1107,7 +1119,10 @@ export const LEVELS: Level[] = [
               { type: 'img', alt: 'A timeline showing shot lengths shrinking as a scene builds tension', caption: 'Shot length is rhythm. Tightening cuts as the scene escalates is a classic technique.' },
               { type: 'h', text: 'J-cuts and L-cuts' },
               { type: 'p', text: 'Let sound lead or trail the picture. Hearing the next scene before you see it (J-cut), or carrying a voice over the next image (L-cut), makes edits feel smooth and professional.' },
-            ],
+            
+              { type: 'table', caption: 'The cuts you will actually use.', headers: ['Cut', 'What it says', 'When'], rows: [['Standard cut', 'Neutral move forward', 'Default'], ['J-cut', 'Next sound before its picture', 'Smooth dialogue'], ['L-cut', 'Sound continues over next shot', 'Reactions'], ['Match cut', 'Linked shape/motion', 'Slick transitions'], ['Cutaway', 'Detail then back', 'Hide time, fix pace']] },
+              { type: 'prompt', label: 'Prompt — edit plan', text: 'Turn my clip list into an edit plan.\nClips: <paste with rough durations>\nMusic: <one line>\nReturn the cut order, where each cut lands (on action / beat / reaction), trims to tighten pace, and where to place titles and the music swell.' },
+],
           },
           {
             slug: 'sound-design',
@@ -1124,7 +1139,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A four-layer audio timeline: dialogue, ambience, effects, music', caption: 'Think in layers. A believable scene usually has all four working together.' },
               { type: 'tip', text: 'Add quiet room tone under every scene. Total silence feels broken; subtle ambience makes everything feel grounded.' },
-            ],
+            
+              { type: 'table', caption: 'Think in three audio layers.', headers: ['Layer', 'What it is', 'Examples'], rows: [['Voice', 'Carries meaning', 'Dialogue, narration'], ['Music', 'Tells us how to feel', 'Score, song'], ['Sound design', 'Makes it believable', 'Room tone, footsteps, ambience']] },
+              { type: 'prompt', label: 'Prompt — sound effects list', text: 'List the sound this scene needs to feel real.\nScene: <one or two lines with actions>\nReturn a checklist grouped as room tone, spot effects (tied to actions), ambience, and one optional silence/whoosh on the turn beat.' },
+],
           },
           {
             slug: 'first-short-film',
@@ -1143,7 +1161,10 @@ export const LEVELS: Level[] = [
                 'Watch it muted, then with eyes closed — fix whichever half is weaker.',
               ] },
               { type: 'tip', text: 'Finish it. A finished 60-second film teaches you more than ten unfinished "epics". Ship, then level up.' },
-            ],
+            
+              { type: 'prompt', label: 'Prompt — full project brief', text: 'You are my AI film producer. Plan a short I can finish.\nIdea: <one or two sentences>\nLength: 30-60s\nReturn: logline, the single emotional change, a 6-10 shot list (size/angle/movement/intent), an audio plan, and a realistic order of operations.' },
+              { type: 'prompt', label: 'Prompt — cut my scope', text: 'My short might be too big to finish:\n<paste idea + shot list>\nShow the smallest version that still tells the story: essential shots, what to cut, and how to merge two shots into one. Keep the central change intact.' },
+],
           },
         ],
       },
