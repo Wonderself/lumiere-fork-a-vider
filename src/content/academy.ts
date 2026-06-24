@@ -36,17 +36,17 @@ export interface Level {
 export const LEVELS: Level[] = [
   {
     id: 'bootcamp',
-    badge: 'Free · 7 days',
+    badge: 'Free · full course',
     title: 'The 7-Day Claude Filmmaking Bootcamp',
     subtitle:
-      'The fastest way in: go from a blank page to a finished AI film in one week. Each day is one focused session with worked examples, illustrations and ready-to-copy prompt templates you can paste straight into Claude and your AI tools.',
+      'The fastest way in: go from a blank page to a finished AI film, step by step. Each day is one focused session with worked examples, illustrations and ready-to-copy prompt templates you can paste straight into Claude and your AI tools.',
     modules: [
       {
-        title: 'Your 7-day path — from first scene to finished film',
+        title: 'Your path — from concept to finished film, module by module',
         lessons: [
           {
             slug: 'day-1-your-first-ai-scene',
-            title: 'Day 1 — Your first AI scene: describe it, get a full shot plan',
+            title: 'Module 1 — Your first AI scene: describe it, get a full shot plan',
             minutes: 40,
             summary:
               'Talk to Claude like a director and turn a one-line idea into a complete, shoot-ready shot plan.',
@@ -80,14 +80,14 @@ export const LEVELS: Level[] = [
               { type: 'p', text: 'A good plan starts wider to orient the audience and pushes closer as the stakes rise. Look for a clear "turn" shot — usually a close-up on the decision or discovery. If every shot is the same size, the scene will feel flat; vary the rhythm.' },
               { type: 'img', alt: 'A numbered 6-shot plan from wide establishing to close-up on a decision', caption: 'A typical six-shot scene: orient wide, build in mediums, land the turn on a close-up.' },
               { type: 'prompt', label: 'Prompt — refine a single shot', text: 'Here is shot <N> from my plan:\n<paste the shot>\n\nGive me three alternative versions of this shot that each raise the tension a little more. For each, change only one variable (size, angle, movement, or light) and explain in one line why it works better.' },
-              { type: 'h', text: 'Common Day 1 mistakes' },
+              { type: 'h', text: 'Common Module 1 mistakes' },
               { type: 'ul', items: [
                 'Skipping the goal sentence — the plan wanders with no compass.',
                 'Asking for too many shots — 5 to 8 is plenty for one scene.',
                 'No turn beat — the scene becomes two half-scenes with no change.',
                 'Accepting the first answer — always ask for one refinement pass.',
               ] },
-              { type: 'tip', text: 'Save your favourite prompts in a notes file. By Day 7 you will have a personal prompt library that makes every new project faster.' },
+              { type: 'tip', text: 'Save your favourite prompts in a notes file. By Module 7 you will have a personal prompt library that makes every new project faster.' },
               { type: 'h', text: 'The five intentions of a camera' },
               { type: 'p', text: 'Every shot exists to do one job. Before you choose a size or angle, name the job. When you know the intention, the technical choices almost make themselves.' },
               { type: 'ul', items: [
@@ -125,7 +125,7 @@ export const LEVELS: Level[] = [
               { type: 'img', alt: 'A four-panel storyboard of the door-knock example from wide to extreme close-up', caption: 'Four shots, one tiny moment, a clear change. That is a complete scene.' },
               { type: 'prompt', label: 'Prompt — pressure-test my scene', text: 'You are a script editor. Here is my scene plan:\n<paste goal line + beats + shot list>\n\nStress-test it. Tell me:\n1) Is the central change clear? If not, what is missing?\n2) Which shot is the weakest and why?\n3) Where could I add one reaction or insert to improve the rhythm?\nKeep it blunt and specific.' },
               { type: 'prompt', label: 'Prompt — give me coverage options', text: 'For this scene, list the coverage I should generate beyond the master shot.\n\nScene: <one line>\nBeats: <entry / turn / exit>\n\nReturn, per beat: one reaction shot and one insert (a meaningful object or detail), each with a shot size and a one-line reason it helps the edit.' },
-              { type: 'prompt', label: 'Prompt — turn my shot plan into image prompts', text: 'Convert each shot in my plan into a ready-to-use image prompt for an AI image generator.\n\nShot plan: <paste it>\nLook: <e.g. photoreal cinematic, teal and amber, 16:9>\n\nFor each shot return one prompt line containing: subject + action, shot size + angle, lens + light, mood + palette, style + aspect, and a short negative prompt. This is my bridge into Day 2.' },
+              { type: 'prompt', label: 'Prompt — turn my shot plan into image prompts', text: 'Convert each shot in my plan into a ready-to-use image prompt for an AI image generator.\n\nShot plan: <paste it>\nLook: <e.g. photoreal cinematic, teal and amber, 16:9>\n\nFor each shot return one prompt line containing: subject + action, shot size + angle, lens + light, mood + palette, style + aspect, and a short negative prompt. This is my bridge into Module 2.' },
               { type: 'h', text: 'Mini-glossary' },
               { type: 'ul', items: [
                 'Beat — the smallest unit of change in a scene.',
@@ -134,7 +134,7 @@ export const LEVELS: Level[] = [
                 'Eyeline — the direction a character looks; it must match across cuts.',
                 'Motivated — justified by something in the story (a light source, an emotion, a movement).',
               ] },
-              { type: 'h', text: 'Day 1 checklist' },
+              { type: 'h', text: 'Module 1 checklist' },
               { type: 'ol', items: [
                 'I wrote a one-sentence goal for my scene.',
                 'I listed entry, turn and exit beats.',
@@ -142,12 +142,12 @@ export const LEVELS: Level[] = [
                 'I planned at least one reaction and one insert.',
                 'I ran the pressure-test prompt and fixed the weakest shot.',
               ] },
-              { type: 'p', text: 'Your task today: pick one tiny moment (someone receives bad news, a first meeting, a goodbye) and produce a complete shot plan with the prompts above. That plan is the seed of everything you build this week.' },
+              { type: 'p', text: 'Your task today: pick one tiny moment (someone receives bad news, a first meeting, a goodbye) and produce a complete shot plan with the prompts above. That plan is the seed of everything you build in this course.' },
             ],
           },
           {
             slug: 'day-2-ai-visuals-and-characters',
-            title: 'Day 2 — AI visuals & characters: generate cinematic images and animate them',
+            title: 'Module 2 — AI visuals & characters: generate cinematic images and animate them',
             minutes: 42,
             summary:
               'Write cinematic image prompts, keep a character looking the same across shots, then bring stills to life.',
@@ -179,7 +179,7 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'From still to motion' },
               { type: 'p', text: 'Once a still is locked, animate it with a short, motivated movement. Simple moves (slow push-in, gentle parallax, subtle wind) generate far more reliably than complex action. Describe the motion, the duration, and what stays still.' },
               { type: 'prompt', label: 'Prompt — image to video motion brief', text: 'Animate this still into a <N>-second clip.\nCamera: <slow push-in / gentle pan left / static with parallax>.\nSubject motion: <small, natural — e.g. breathing, a slow turn of the head, hair moving in a light breeze>.\nKeep: composition, lighting and the character identical to the still.\nMood: <same as the still>. No abrupt moves, no morphing, no warping of the face.' },
-              { type: 'h', text: 'Common Day 2 mistakes' },
+              { type: 'h', text: 'Common Module 2 mistakes' },
               { type: 'ul', items: [
                 'Re-describing the character from memory each time (the face drifts).',
                 'Over-animating — big actions cause warping; keep motion small.',
@@ -249,7 +249,7 @@ export const LEVELS: Level[] = [
                 'Colors clash across shots → apply your locked palette phrase to every prompt.',
                 'Looks generic → add one specific, concrete detail (a scar, a worn jacket, a neon sign).',
               ] },
-              { type: 'h', text: 'Day 2 checklist' },
+              { type: 'h', text: 'Module 2 checklist' },
               { type: 'ol', items: [
                 'I have a fixed character bible I paste into every prompt.',
                 'I locked a color palette and a style phrase for the film.',
@@ -257,12 +257,12 @@ export const LEVELS: Level[] = [
                 'I use a consistent negative prompt on every image.',
                 'I built a board of approved stills before animating.',
               ] },
-              { type: 'p', text: 'Your task today: generate a locked reference for your main character, then a cinematic still for two shots from your Day 1 plan, and animate the strongest one.' },
+              { type: 'p', text: 'Your task today: generate a locked reference for your main character, then a cinematic still for two shots from your Module 1 plan, and animate the strongest one.' },
             ],
           },
           {
             slug: 'day-3-ai-voice-and-audio',
-            title: 'Day 3 — AI voice & audio: voiceover, music and sound effects',
+            title: 'Module 3 — AI voice & audio: voiceover, music and sound effects',
             minutes: 38,
             summary:
               'Give your film a voice, score it with mood-matched music, and layer the sound design that makes it feel real.',
@@ -336,7 +336,7 @@ export const LEVELS: Level[] = [
                 'Scene feels fake → you are probably missing room tone and ambience.',
                 'Too loud / distorted → lower levels so peaks stay under 0 dB; aim ~-14 LUFS.',
               ] },
-              { type: 'h', text: 'Day 3 checklist' },
+              { type: 'h', text: 'Module 3 checklist' },
               { type: 'ol', items: [
                 'My voiceover has delivery notes (pace, emphasis, pauses).',
                 'My music has a clear arc and its peak hits the turn beat.',
@@ -349,7 +349,7 @@ export const LEVELS: Level[] = [
           },
           {
             slug: 'day-4-talking-heads-and-avatars',
-            title: 'Day 4 — Talking heads & avatars: build your AI presenter',
+            title: 'Module 4 — Talking heads & avatars: build your AI presenter',
             minutes: 34,
             summary:
               'Create a believable AI presenter or avatar, write a script it can deliver, and avoid the uncanny-valley traps.',
@@ -419,7 +419,7 @@ export const LEVELS: Level[] = [
                 'No b-roll — covering the avatar part of the time looks far more professional.',
                 'Over-long videos — shorter, denser videos outperform; cut anything that is not the point.',
               ] },
-              { type: 'h', text: 'Day 4 checklist' },
+              { type: 'h', text: 'Module 4 checklist' },
               { type: 'ol', items: [
                 'My script hooks in the first 3 seconds.',
                 'One idea per sentence; ends with a single clear CTA.',
@@ -432,7 +432,7 @@ export const LEVELS: Level[] = [
           },
           {
             slug: 'day-5-edit-and-distribute',
-            title: 'Day 5 — Edit & distribute: assemble, polish and publish',
+            title: 'Module 5 — Edit & distribute: assemble, polish and publish',
             minutes: 40,
             summary:
               'Assemble your clips into a cut that flows, polish it, and export the right version for each platform.',
@@ -453,7 +453,7 @@ export const LEVELS: Level[] = [
                 'Runway — AI generation and cleanup (extend shots, remove objects, style).',
                 'CapCut — fast, friendly editing, captions, transitions and export.',
                 'Opus Clip — turn one long video into short vertical clips automatically.',
-                'Your AI scene footage — the raw material from Days 1 to 4.',
+                'Your AI scene footage — the raw material from Modules 1 to 4.',
               ] },
               { type: 'prompt', label: 'Prompt — edit plan from your shot list', text: 'You are a video editor. Turn my shot list into an edit plan.\n\nShots: <paste your clips/shot list with rough durations>\nMusic: <one line on the track and its arc>\nTarget length: <N> seconds\n\nReturn: the cut order, where each cut should land (on action / on a music beat / on a reaction), suggested trims to tighten pace, and where to place titles and the music swell.' },
               { type: 'h', text: 'Export the right version per platform' },
@@ -517,7 +517,7 @@ export const LEVELS: Level[] = [
                 'Text unreadable → raise contrast, add a plate, hold it longer.',
                 'Vertical looks wrong → reframe per shot instead of squashing 16:9.',
               ] },
-              { type: 'h', text: 'Day 5 checklist' },
+              { type: 'h', text: 'Module 5 checklist' },
               { type: 'ol', items: [
                 'I edited in passes: story, rhythm, sound, polish.',
                 'I used J/L cuts and cut on motion.',
@@ -530,12 +530,12 @@ export const LEVELS: Level[] = [
           },
           {
             slug: 'day-6-real-video-project',
-            title: 'Day 6 — Real video project: idea to finished film',
+            title: 'Module 6 — Real video project: idea to finished film',
             minutes: 38,
             summary:
               'Put the whole week together: take one idea through planning, generation, audio, edit and export in a single guided project.',
             body: [
-              { type: 'p', text: 'Today is the test and the reward: you make a complete short, start to finish, using everything from Days 1 to 5. Keep it small — 30 to 60 seconds — and finish it. A finished one-minute film teaches you more than a half-built epic.' },
+              { type: 'p', text: 'Today is the test and the reward: you make a complete short, start to finish, using everything from Modules 1 to 5. Keep it small — 30 to 60 seconds — and finish it. A finished one-minute film teaches you more than a half-built epic.' },
               { type: 'h', text: 'Pick a project you can finish' },
               { type: 'ul', items: [
                 'One location, one or two characters, one clear change.',
@@ -545,13 +545,13 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'The full pipeline, in order' },
               { type: 'ol', items: [
                 'Concept — one sentence: who wants what, and what changes.',
-                'Plan — scene goal, beats, and a shot plan (Day 1).',
-                'Visuals — locked character + cinematic stills, then animate (Day 2).',
-                'Audio — voiceover, music, sound design (Day 3).',
-                'Optional host — a talking-head intro or outro (Day 4).',
-                'Edit & export — assemble, polish, publish (Day 5).',
+                'Plan — scene goal, beats, and a shot plan (Module 1).',
+                'Visuals — locked character + cinematic stills, then animate (Module 2).',
+                'Audio — voiceover, music, sound design (Module 3).',
+                'Optional host — a talking-head intro or outro (Module 4).',
+                'Edit & export — assemble, polish, publish (Module 5).',
               ] },
-              { type: 'img', alt: 'A one-week pipeline shown as a single flow from concept to published film', caption: 'Day 6 is the whole week in one pass. Each earlier day is a stage you now run end to end.' },
+              { type: 'img', alt: 'A one-week pipeline shown as a single flow from concept to published film', caption: 'Module 6 is the whole week in one pass. Each earlier day is a stage you now run end to end.' },
               { type: 'prompt', label: 'Prompt — full project brief', text: 'You are my AI film producer. Help me plan a short I can finish today.\n\nIdea: <one or two sentences>\nLength: 30-60 seconds\nResources: I can generate images, animate them, make voice and music, and edit.\n\nReturn a one-page plan: logline, the single emotional change, a 6-10 shot list (size/angle/movement/intent), an audio plan (voice + music arc + key sound effects), and a realistic order of operations so I do not get stuck.' },
               { type: 'h', text: 'Stay unstuck' },
               { type: 'ul', items: [
@@ -564,11 +564,11 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'A realistic one-day schedule' },
               { type: 'p', text: 'Time-box the day so you actually finish. Adjust the blocks to your speed, but protect the export at the end.' },
               { type: 'ol', items: [
-                'Block 1 — concept + plan (Day 1 method): 30-45 min.',
-                'Block 2 — character + key stills (Day 2): 60-90 min.',
+                'Block 1 — concept + plan (Module 1 method): 30-45 min.',
+                'Block 2 — character + key stills (Module 2): 60-90 min.',
                 'Block 3 — animate the chosen shots: 45-60 min.',
-                'Block 4 — voice, music, sound (Day 3): 45 min.',
-                'Block 5 — edit, grade, export (Day 5): 60 min.',
+                'Block 4 — voice, music, sound (Module 3): 45 min.',
+                'Block 5 — edit, grade, export (Module 5): 60 min.',
                 'Buffer — leave 30 min; something always runs over.',
               ] },
               { type: 'img', alt: 'A one-day timeline split into concept, stills, animation, audio and edit blocks', caption: 'A finished 60-second film in a day is very doable when each stage is time-boxed.' },
@@ -579,7 +579,7 @@ export const LEVELS: Level[] = [
                 'Reuse: the same establishing shot, the same room, the same character block.',
                 'A clear 45-second film beats a confusing 3-minute one every time.',
               ] },
-              { type: 'h', text: 'Reuse everything you built this week' },
+              { type: 'h', text: 'Reuse everything you built in this course' },
               { type: 'p', text: 'You are not starting from zero — pull your character bible, palette phrase, negative prompt, and best prompt templates from the earlier days. That library is exactly what makes today fast.' },
               { type: 'prompt', label: 'Prompt — production schedule for my idea', text: 'You are my AI film producer. Build me a time-boxed schedule to finish a short today.\n\nIdea: <one or two sentences>\nTime available: <e.g. 4 hours>\nMy speed: <beginner / comfortable>\n\nReturn realistic time blocks (plan, stills, animation, audio, edit, buffer), what to do in each, and the one thing to cut first if I fall behind.' },
               { type: 'prompt', label: 'Prompt — cut my scope', text: 'My short film idea might be too big to finish today:\n<paste idea + shot list>\n\nShow me the smallest version that still tells the story: which shots are essential, which to cut, and how to combine two shots into one. Keep the central change intact.' },
@@ -593,7 +593,7 @@ export const LEVELS: Level[] = [
                 'A captioned vertical version is planned if you want reach.',
               ] },
               { type: 'tip', text: 'Export a watchable version at ~80% done before polishing. A finished file kills the fear and gives you a real baseline to improve from.' },
-              { type: 'h', text: 'Day 6 checklist' },
+              { type: 'h', text: 'Module 6 checklist' },
               { type: 'ol', items: [
                 'I scoped a film I can finish today (one location, one change).',
                 'I reused my character bible, palette and prompt library.',
@@ -606,20 +606,20 @@ export const LEVELS: Level[] = [
           },
           {
             slug: 'day-7-certificate-review',
-            title: 'Day 7 — Certificate review: become an AI Video Creator',
+            title: 'Module 7 — Certificate review: become an AI Video Creator',
             minutes: 30,
             summary:
               'Review the whole pipeline, run a professional quality check on your film, and earn your AI Video Creator certificate.',
             body: [
-              { type: 'p', text: 'On the final day you consolidate what you learned, quality-check your Day 6 film like a professional, and complete the AI Video Creator track. You leave with a finished film, a reusable prompt library, and a repeatable process you can run on any new idea.' },
+              { type: 'p', text: 'On the final day you consolidate what you learned, quality-check your Module 6 film like a professional, and complete the AI Video Creator track. You leave with a finished film, a reusable prompt library, and a repeatable process you can run on any new idea.' },
               { type: 'h', text: 'What you now know' },
               { type: 'ul', items: [
-                'Plan a scene and get a shot plan from a single idea (Day 1).',
-                'Generate cinematic, consistent visuals and animate them (Day 2).',
-                'Voice, score and sound-design a scene (Day 3).',
-                'Build a believable AI presenter (Day 4).',
-                'Edit with rhythm and publish per platform (Day 5).',
-                'Run the whole pipeline end to end (Day 6).',
+                'Plan a scene and get a shot plan from a single idea (Module 1).',
+                'Generate cinematic, consistent visuals and animate them (Module 2).',
+                'Voice, score and sound-design a scene (Module 3).',
+                'Build a believable AI presenter (Module 4).',
+                'Edit with rhythm and publish per platform (Module 5).',
+                'Run the whole pipeline end to end (Module 6).',
               ] },
               { type: 'h', text: 'The professional QC pass' },
               { type: 'p', text: 'Before you call a film finished, run the same checklist every time. Consistency in process is what produces consistency in quality.' },
@@ -635,7 +635,7 @@ export const LEVELS: Level[] = [
               { type: 'prompt', label: 'Prompt — final critique before publishing', text: 'You are a film festival reviewer. Critique my short before I publish it.\n\nWhat it is: <logline + length>\nWhat I am unsure about: <your doubts>\n\nGive me: the three strongest things to keep, the three weakest things to fix, and the single highest-impact change I could make in under 30 minutes. Be specific and kind but honest.' },
               { type: 'h', text: 'Earn your certificate' },
               { type: 'ul', items: [
-                'Publish your finished Day 6 film to CINEGENY.',
+                'Publish your finished Module 6 film to CINEGENY.',
                 'Confirm it passes every item on the QC checklist.',
                 'Keep your prompt library — it is your toolkit for every future project.',
               ] },
@@ -684,7 +684,7 @@ export const LEVELS: Level[] = [
                 'I gathered one round of honest feedback.',
                 'I have picked my next project.',
               ] },
-              { type: 'p', text: 'Congratulations: you can now take any idea from a blank page to a finished, published AI film. That is the whole craft in one week — everything else is practice and taste.' },
+              { type: 'p', text: 'Congratulations: you can now take any idea from a blank page to a finished, published AI film. That is the whole craft, module by module — everything else is practice and taste.' },
             ],
           },
           /* BOOTCAMP_LESSONS_END */

@@ -324,14 +324,14 @@ export function NetflixHome({ data }: { data: HomeData }) {
               </div>
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight leading-[1.1]">
-                Learn AI filmmaking in 7 days.
+                Learn AI filmmaking, module by module.
               </h2>
               <p className="text-sm md:text-base text-white/45 max-w-xl mb-7 leading-relaxed">
-                A free, step-by-step bootcamp: go from a blank page to a finished AI film in one week. Worked examples, illustrations and ready-to-copy prompt templates — just create a free account.
+                A free, step-by-step course: go from a blank page to a finished AI film across eight focused modules. Worked examples, illustrations and ready-to-copy prompt templates — just create a free account.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {['Day 1 · First scene', 'Day 2 · Visuals', 'Day 3 · Voice & audio', 'Day 4 · Avatars', 'Day 5 · Edit', 'Day 6 · Real project', 'Day 7 · Certificate'].map((d) => (
+                {['Module 1 · First scene', 'Module 2 · Visuals', 'Module 3 · Voice & audio', 'Module 4 · Avatars', 'Module 5 · Edit', 'Module 6 · Real project', 'Module 7 · Certificate', 'Module 8 · Prompt toolkit'].map((d) => (
                   <span key={d} className="text-[11px] px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-white/55">{d}</span>
                 ))}
               </div>
