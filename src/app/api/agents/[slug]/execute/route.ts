@@ -1,6 +1,7 @@
 import { auth } from '@/lib/auth'
 import { NextResponse } from 'next/server'
 import * as agentService from '@/lib/agent.service'
+import { getAgentBySlug } from '@/data/agents'
 
 export async function POST(
   request: Request,
@@ -33,15 +34,29 @@ export async function POST(
       startedAt: new Date(),
     })
 
-    // TODO: In production, this would call the actual AI API
-    // For now, return a placeholder response
-    const placeholderResponse = `[Agent ${slug}] Réponse simulée pour: "${prompt.substring(0, 100)}..."\n\nCette fonctionnalité sera connectée à l'API IA prochainement. L'agent analysera votre demande avec le modèle approprié et vous fournira une réponse experte.`
+    // Run the agent: live Anthropic when configured, simulated otherwise.
+    const def = getAgentBySlug(slug)
+    const startedAt = Date.now()
+    let response: string
+    if (process.env.ANTHROPIC_API_KEY && def) {
+      const Anthropic = (await import('@anthropic-ai/sdk')).default
+      const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+      const msg = await client.messages.create({
+        model: def.defaultModel,
+        max_tokens: def.maxTokens || 4096,
+        system: def.systemPrompt,
+        messages: [{ role: 'user', content: context ? `${context}\n\n${prompt}` : prompt }],
+      })
+      response = msg.content.map((b) => (b.type === 'text' ? b.text : '')).join('').trim() || '(no response)'
+    } else {
+      response = `[Agent ${slug}] Simulated response for: "${prompt.substring(0, 100)}..."\n\nSet ANTHROPIC_API_KEY to connect this agent to the live AI. It will analyze your request with the right model and return an expert reply.`
+    }
 
     await agentService.updateExecution(execution.id, {
       status: 'COMPLETED',
-      response: placeholderResponse,
+      response,
       completedAt: new Date(),
-      durationMs: 1200,
+      durationMs: Date.now() - startedAt,
     })
 
     // Increment execution count
@@ -57,7 +72,7 @@ export async function POST(
     return NextResponse.json({
       success: true,
       executionId: execution.id,
-      response: placeholderResponse,
+      response,
       model: execution.model,
     })
   } catch (err: any) {

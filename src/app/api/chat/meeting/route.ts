@@ -41,36 +41,64 @@ export async function POST(request: Request) {
       startedAt: new Date(),
     })
 
-    // TODO: In production, each agent would actually call the AI API
-    // For now, simulate a multi-agent discussion
+    // Live multi-agent discussion via Anthropic when configured, else simulated.
     const transcript: string[] = []
     const startTime = Date.now()
+    const useReal = !!process.env.ANTHROPIC_API_KEY
+    const client = useReal
+      ? new ((await import('@anthropic-ai/sdk')).default)({ apiKey: process.env.ANTHROPIC_API_KEY })
+      : null
+    const maxRounds = Math.min(rounds, 5)
 
-    for (let round = 1; round <= Math.min(rounds, 5); round++) {
+    for (let round = 1; round <= maxRounds; round++) {
       transcript.push(`\n── Round ${round} ──\n`)
-
       for (const agent of agents) {
         if (!agent) continue
-        const response = `[${agent.name}] (Réponse simulée, Round ${round})\n` +
-          `En tant que ${agent.name}, voici mon analyse du sujet "${topic.substring(0, 60)}...":\n` +
-          `• Point clé lié à mon domaine (${agent.category.toLowerCase()})\n` +
-          `• Recommandation spécifique\n` +
-          `• Coordination avec les autres participants\n`
-        transcript.push(response)
+        if (client) {
+          const recent = transcript.join('\n').slice(-4000)
+          const msg = await client.messages.create({
+            model: agent.defaultModel,
+            max_tokens: 600,
+            system: `${agent.systemPrompt}\n\nYou are taking part in a multi-agent film production meeting. Be concise (3-5 sentences), speak in your area of expertise, and build on what other participants already said.`,
+            messages: [{ role: 'user', content: `Meeting topic: ${topic}\n\nDiscussion so far:\n${recent || '(you open the discussion)'}\n\nGive your contribution for round ${round} as ${agent.name}.` }],
+          })
+          const text = msg.content.map((b) => (b.type === 'text' ? b.text : '')).join('').trim()
+          transcript.push(`[${agent.name}]\n${text}\n`)
+        } else {
+          transcript.push(
+            `[${agent.name}] (Simulated, Round ${round})\n` +
+            `As ${agent.name}, here is my take on "${topic.substring(0, 60)}...":\n` +
+            `• Key point from my field (${agent.category.toLowerCase()})\n` +
+            `• A specific recommendation\n` +
+            `• How it coordinates with the other participants\n`,
+          )
+        }
       }
     }
 
     const fullTranscript = transcript.join('\n')
-    const summary = `## Compte-rendu de réunion\n\n` +
-      `**Titre :** ${title}\n` +
-      `**Sujet :** ${topic}\n` +
-      `**Participants :** ${agents.map(a => a?.name).join(', ')}\n` +
-      `**Rounds :** ${rounds}\n\n` +
-      `### Décisions clés\n` +
-      `1. [Décision simulée — sera générée par l'IA en production]\n\n` +
-      `### Actions à suivre\n` +
-      `- [ ] Action pour ${agents[0]?.name}\n` +
-      `- [ ] Action pour ${agents[1]?.name}\n`
+
+    let summary: string
+    if (client) {
+      const msg = await client.messages.create({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 900,
+        system: 'You turn a film production meeting transcript into a clear, structured brief.',
+        messages: [{ role: 'user', content: `Title: ${title}\nTopic: ${topic}\nParticipants: ${agents.map((a) => a?.name).join(', ')}\n\nTranscript:\n${fullTranscript}\n\nWrite a concise markdown summary with sections: Key decisions, Action items (one per participant), and Next steps.` }],
+      })
+      summary = msg.content.map((b) => (b.type === 'text' ? b.text : '')).join('').trim() || '(no summary)'
+    } else {
+      summary = `## Meeting summary\n\n` +
+        `**Title:** ${title}\n` +
+        `**Topic:** ${topic}\n` +
+        `**Participants:** ${agents.map((a) => a?.name).join(', ')}\n` +
+        `**Rounds:** ${rounds}\n\n` +
+        `### Key decisions\n` +
+        `1. [Simulated — set ANTHROPIC_API_KEY to generate a real summary]\n\n` +
+        `### Action items\n` +
+        `- [ ] Action for ${agents[0]?.name}\n` +
+        `- [ ] Action for ${agents[1]?.name}\n`
+    }
 
     const durationMs = Date.now() - startTime
 
@@ -78,8 +106,8 @@ export async function POST(request: Request) {
       status: 'COMPLETED',
       transcript: fullTranscript,
       summary,
-      decisions: [{ decision: 'Simulated', by: agents[0]?.slug }],
-      actionItems: agents.map(a => ({ agent: a?.slug, action: 'Follow-up simulated' })),
+      decisions: [{ decision: useReal ? 'See summary' : 'Simulated', by: agents[0]?.slug }],
+      actionItems: agents.map(a => ({ agent: a?.slug, action: useReal ? 'See summary' : 'Follow-up simulated' })),
       roundCount: rounds,
       durationMs,
       completedAt: new Date(),

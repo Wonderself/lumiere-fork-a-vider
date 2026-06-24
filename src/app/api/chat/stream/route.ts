@@ -145,44 +145,62 @@ export async function POST(request: Request) {
     // TODO: In production, connect to Anthropic API with streaming
     // For now, simulate a streaming response
     const encoder = new TextEncoder()
-    const simulatedResponse = `[${agent?.name || 'Agent'}] Ceci est une réponse simulée en streaming pour votre message : "${message.substring(0, 80)}..."
+    const simulatedResponse = `[${agent?.name || 'Agent'}] This is a simulated streaming response to your message: "${message.substring(0, 80)}..."
 
-L'intégration avec l'API Anthropic sera connectée prochainement. Ce chat utilisera le modèle ${model} (${tier}) avec prompt caching pour réduire les coûts de 90% sur les tokens système répétés.
+Set ANTHROPIC_API_KEY to switch this chat to the live Anthropic API. It will use model ${model} (${tier}) with prompt caching to cut cost ~90% on repeated system tokens.
 
-Fonctionnalités actives :
-• Circuit breaker (${CIRCUIT_MAX_FAILURES} échecs → pause 60s)
-• Budget journalier (vérification avant chaque requête)
-• Contexte glissant (20 derniers messages)
-• Memoization Redis (réponses identiques cachées 5 min)
-• Hold/Release crédits (remboursement si erreur)
-• Annulation via AbortController`
+Active features:
+• Circuit breaker (${CIRCUIT_MAX_FAILURES} failures -> 60s pause)
+• Daily budget (checked before each request)
+• Sliding context (last 20 messages)
+• Redis memoization (identical responses cached 5 min)
+• Hold/Release credits (refunded on error)
+• Cancellation via AbortController`
 
     const stream = new ReadableStream({
       async start(controller) {
         try {
-          // Simulate token-by-token streaming
-          const words = simulatedResponse.split(' ')
           let fullContent = ''
+          let inputTokens = 0
+          let outputTokens = 0
 
-          for (let i = 0; i < words.length; i++) {
-            const word = (i > 0 ? ' ' : '') + words[i]
-            fullContent += word
-
-            const sseData = JSON.stringify({
-              type: 'token',
-              content: word,
-              index: i,
+          if (process.env.ANTHROPIC_API_KEY) {
+            // ── Live Anthropic streaming ──
+            const Anthropic = (await import('@anthropic-ai/sdk')).default
+            const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+            const aiStream = await client.messages.create({
+              model,
+              max_tokens: agent?.maxTokens || 4096,
+              system: anthropicPayload.system,
+              messages: anthropicPayload.messages,
+              stream: true,
             })
-            controller.enqueue(encoder.encode(`data: ${sseData}\n\n`))
-
-            // Simulate ~30ms per word
-            await new Promise(resolve => setTimeout(resolve, 30))
+            let i = 0
+            for await (const event of aiStream) {
+              if (event.type === 'message_start') {
+                inputTokens = event.message.usage?.input_tokens ?? inputTokens
+              } else if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+                const word = event.delta.text
+                fullContent += word
+                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'token', content: word, index: i++ })}\n\n`))
+              } else if (event.type === 'message_delta') {
+                outputTokens = event.usage?.output_tokens ?? outputTokens
+              }
+            }
+          } else {
+            // ── Simulated streaming (no ANTHROPIC_API_KEY set) ──
+            const words = simulatedResponse.split(' ')
+            for (let i = 0; i < words.length; i++) {
+              const word = (i > 0 ? ' ' : '') + words[i]
+              fullContent += word
+              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'token', content: word, index: i })}\n\n`))
+              await new Promise(resolve => setTimeout(resolve, 30))
+            }
           }
 
           const durationMs = Date.now() - startTime
-          // Simulated token counts
-          const inputTokens = Math.ceil(message.length / 4)
-          const outputTokens = Math.ceil(fullContent.length / 4)
+          if (!inputTokens) inputTokens = Math.ceil(message.length / 4)
+          if (!outputTokens) outputTokens = Math.ceil(fullContent.length / 4)
           const { billedCredits: actualCost } = calculateTokenCost(model, inputTokens, outputTokens)
 
           // Update message with final content
