@@ -26,9 +26,12 @@ La plupart ont déjà des valeurs par défaut dans le compose. Tu n'as **vraimen
 | Variable | Obligatoire | Valeur |
 |---|---|---|
 | `AUTH_SECRET` | ✅ | une chaîne aléatoire secrète (voir §4) |
-| `AUTH_URL` + `NEXTAUTH_URL` | ✅ | l'URL publique du site, ex. `https://cinegeny.tondomaine.com` |
+| `AUTH_URL` + `NEXTAUTH_URL` | ✅ | l'URL publique canonique, ex. `https://platform.cinegeny.com` (sans / final) |
 | `NEXT_PUBLIC_APP_URL` | recommandé | même URL |
-| `SEED_DB` | 1er déploiement | `true` pour pré-remplir ~100 films + comptes démo, puis remets `false` |
+| `SEED_DB` | 1er déploiement | `true` pour pré-remplir ~100 films + comptes, puis remets `false` |
+| `SEED_ADMIN_PASSWORD` | recommandé | mot de passe du compte admin — defini UNIQUEMENT dans Coolify, jamais commite |
+| `SEED_USER_PASSWORD` | optionnel | mot de passe des comptes de test |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | optionnel | active le bouton Google (sinon masqué). Redirect URI: `https://platform.cinegeny.com/api/auth/callback/google` |
 | `POSTGRES_PASSWORD` | recommandé | un mot de passe fort (sinon défaut) |
 | `ANTHROPIC_API_KEY`, `STRIPE_*`, `RESEND_API_KEY`, `S3_*` | optionnel | active IA / paiements / e-mails / upload |
 

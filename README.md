@@ -19,12 +19,20 @@ The brand mark is the **gold film-strip infinity (∞)** — a recurring identit
 
 - **One account + capabilities** — no role to pick at signup. Watch and vote, then unlock: Invest, Paid missions, Missions for shares, Submit a screenplay, Act, Produce.
 - **Lumen economy in USD** — `1 Lumen = $1`. Buy/withdraw with a one-time identity check (KYC) before cash-out. Stripe-ready (simulated until keys); USDC/Bitcoin rails pluggable. Reserve = USD + USDC.
-- **Academy** — a free, account-gated AI-filmmaking course: Level 1 (foundations) + Level 2 (advanced), text + images.
+- **Academy** — a free, account-gated AI-filmmaking course: a 7-day Claude bootcamp (8 modules) + Level 1 (foundations) + Level 2 (advanced), with reference tables, real images, motion and 87 copy-and-paste prompt templates.
 - **Voting ladder** — Screenplay → Trailer → Short film → Feature, ~10 active projects per stage.
 - **Generous Premium** — Lumens, 2× voting power, fee discounts, priority missions, AI credits, early access.
 - **Full English UI** — default locale switched to English; the entire user-facing app and displayed content translated.
 - **Brand identity** — real gold infinity logo + reusable `InfinityMark` / `InfinityDivider`.
 - **Google sign-in** + corrected Coolify env keys.
+
+## What's new — Academy & polish (2026.1)
+
+- **Academy, supercharged** — `/academy` features a 7-day Claude Filmmaking Bootcamp (8 modules, incl. a full prompt toolkit) plus enriched Level 1 & 2. Every level ships **reference tables** (shot sizes, angles, camera moves, focal lengths, lighting, color universes, aspect ratios), **real images**, **scroll motion**, and **87 one-click copyable prompt templates**.
+- **Cleaner & faster** — zero-warning production build, public images via `next/image`, extra database indexes on hot columns.
+- **Sharable** — dynamic per-film OpenGraph image at `/films/[slug]` for rich link previews.
+- **Auth polish** — Google sign-in button auto-hides until `GOOGLE_CLIENT_ID` is set; demo accounts removed from the login page; admin/seed passwords moved to env (`SEED_ADMIN_PASSWORD`).
+- **Canonical domain** — `https://platform.cinegeny.com` (used by sitemap, robots, emails, auth).
 
 ## Quick start
 
@@ -82,7 +90,7 @@ npm run test         # Run unit tests (Vitest)
 | `/` | Landing page |
 | `/participate` | Capabilities hub (invest, missions, act, produce…) |
 | `/vote` | Community voting ladder |
-| `/academy` | Free AI-filmmaking course |
+| `/academy` | Free AI-filmmaking course (8-module bootcamp + L1/L2, prompt toolkit) |
 | `/films`, `/films/[slug]` | Film catalog & detail |
 | `/lumens` | Lumens wallet (buy / withdraw) |
 | `/dashboard` | User dashboard |
@@ -96,6 +104,7 @@ npm run test         # Run unit tests (Vitest)
 All run in a safe **simulated/disabled** mode until keys are set. See `.env.example` and `DEPLOY_COOLIFY.md`:
 - `STRIPE_SECRET_KEY` / `STRIPE_PUBLISHABLE_KEY` / `STRIPE_WEBHOOK_SECRET` — buy/withdraw Lumens
 - `KYC_PROVIDER` — identity verification (auto-approved in simulated mode)
+- `SEED_ADMIN_PASSWORD` / `SEED_USER_PASSWORD` — seed account passwords (set in Coolify, never committed)
 - `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — Google sign-in (redirect `…/api/auth/callback/google`)
 - `S3_ENDPOINT` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` / `S3_BUCKET` / `S3_REGION` — uploads
 - `ANTHROPIC_API_KEY`, `RESEND_API_KEY` — AI, emails

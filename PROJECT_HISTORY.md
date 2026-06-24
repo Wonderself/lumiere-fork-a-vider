@@ -997,7 +997,7 @@ Templates HTML branding CINEGENY gold/dark.
 ### Session 2026-02-24 (suite) — Auth Fixes, Navigation, UX
 
 **Authentication Fixes**:
-- Fixed WRONG demo credentials in login form (`Admin123!` → `Admin1234!`, `user@cinegeny.film` → `contributeur@cinegeny.film / Test1234!`)
+- Fixed demo credentials in login form (corrected seed emails/passwords; passwords now sourced from env)
 - Added `AUTH_URL="http://localhost:3000"` to `.env` (required by NextAuth v5)
 - Created `src/middleware.ts` — NextAuth v5 route protection middleware:
   - Protects: /dashboard, /admin, /profile, /tasks, /lumens, /notifications, /screenplays, /tokenization

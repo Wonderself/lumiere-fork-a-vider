@@ -1,5 +1,12 @@
 # CINEGENY CINEMA — Roadmap
 
+## Academy & polish (2026.1) — shipped
+
+- **Academy, supercharged** (`/academy`) — featured 7-day Claude Filmmaking Bootcamp (8 modules incl. a prompt toolkit) + enriched Level 1 & 2. Reference tables (cameras, lenses, movement, color, lighting, ratios), real images, scroll motion, and 87 copyable prompt templates with one-click copy.
+- **Performance & quality** — zero-warning build, `next/image` on public images, added DB indexes on hot foreign-key/status columns.
+- **SEO** — dynamic per-film OpenGraph image for rich shares.
+- **Auth & security** — Google button auto-hidden until configured; demo creds removed; seed passwords via env; canonical domain `platform.cinegeny.com`.
+
 ## Platform Refresh 2026 (V14) — shipped
 
 The latest milestone — a clear single-account UX, a real money loop, learning, identity and full English:
