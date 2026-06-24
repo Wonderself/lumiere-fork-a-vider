@@ -436,7 +436,7 @@ export async function voteOnProposalAction(
   const vote = formData.get('vote') as string // "FOR", "AGAINST", "ABSTAIN"
 
   if (!proposalId || !vote || !['FOR', 'AGAINST', 'ABSTAIN'].includes(vote)) {
-    return { success: false, error: 'Vote invalide.' }
+    return { success: false, error: 'Invalid vote.' }
   }
 
   try {
@@ -445,11 +445,11 @@ export async function voteOnProposalAction(
     })
 
     if (!proposal) {
-      return { success: false, error: 'Proposition introuvable.' }
+      return { success: false, error: 'Proposal not found.' }
     }
 
     if (proposal.status !== 'ACTIVE') {
-      return { success: false, error: 'Cette proposition n\'est plus active.' }
+      return { success: false, error: 'This proposal is no longer active.' }
     }
 
     if (new Date() > proposal.deadline) {

@@ -85,7 +85,7 @@ export async function voteScenarioAction(formData: FormData) {
   if (!session?.user) redirect('/login')
 
   const proposalId = formData.get('proposalId') as string
-  if (!proposalId) return { error: 'Proposition invalide.' }
+  if (!proposalId) return { error: 'Invalid proposal.' }
 
   // Premium check
   const subscription = await prisma.subscription.findUnique({
@@ -102,40 +102,30 @@ export async function voteScenarioAction(formData: FormData) {
   })
 
   if (!proposal || proposal.status !== 'VOTING') {
-    return { error: 'Cette proposition n\'est pas en phase de vote.' }
+    return { error: 'This proposal is not open for voting.' }
   }
 
   try {
-    // Create vote (unique constraint catches duplicates)
-    const vote = await prisma.scenarioVote.create({
-      data: {
-        proposalId,
-        userId: session.user.id,
-      },
+    // Atomic: create the vote AND bump the counter in one transaction so the
+    // displayed count can never drift from the real number of votes.
+    const vote = await prisma.$transaction(async (tx) => {
+      const created = await tx.scenarioVote.create({
+        data: { proposalId, userId: session.user.id as string },
+      })
+      await tx.scenarioProposal.update({
+        where: { id: proposalId },
+        data: { votesCount: { increment: 1 } },
+      })
+      return created
     })
 
-    // Record on blockchain
-    const { proofHash } = await recordVoteOnChain({
-      voteType: 'SCENARIO',
-      entityId: vote.id,
-      voterId: session.user.id,
-      proposalId,
-    })
-
-    // Store txHash on vote
-    await prisma.scenarioVote.update({
-      where: { id: vote.id },
-      data: { txHash: `0x${proofHash.slice(0, 64)}` },
-    })
-
-    // Increment votesCount
-    await prisma.scenarioProposal.update({
-      where: { id: proposalId },
-      data: { votesCount: { increment: 1 } },
-    })
-
-    // Badge check (non-blocking)
-    checkCommunityBadges(session.user.id as string, 'vote').catch((err) => console.error("[Badges] Failed to check vote badges:", err))
+    // Blockchain proof + badges are best-effort: they must never fail the vote.
+    recordVoteOnChain({ voteType: 'SCENARIO', entityId: vote.id, voterId: session.user.id, proposalId })
+      .then(({ proofHash }) =>
+        prisma.scenarioVote.update({ where: { id: vote.id }, data: { txHash: `0x${proofHash.slice(0, 64)}` } }),
+      )
+      .catch((err) => console.error('[Blockchain] scenario vote proof failed:', err))
+    checkCommunityBadges(session.user.id as string, 'vote').catch((err) => console.error('[Badges] Failed to check vote badges:', err))
 
     revalidatePath('/community/scenarios')
     revalidatePath(`/community/scenarios/${proposalId}`)
@@ -168,7 +158,7 @@ export async function shortlistScenariosAction(formData: FormData) {
     return { success: true }
   } catch (e) {
     console.error('shortlistScenariosAction error:', e)
-    return { error: 'Erreur lors de la mise en vote.' }
+    return { error: 'Error opening voting.' }
   }
 }
 
@@ -177,7 +167,7 @@ export async function pickScenarioWinnerAction(formData: FormData) {
   if (!session?.user || session.user.role !== 'ADMIN') redirect('/dashboard')
 
   const proposalId = formData.get('proposalId') as string
-  if (!proposalId) return { error: 'Proposition invalide.' }
+  if (!proposalId) return { error: 'Invalid proposal.' }
 
   try {
     const proposal = await prisma.scenarioProposal.findUnique({
@@ -459,34 +449,28 @@ export async function voteTrailerAction(formData: FormData) {
   })
 
   if (!entry || entry.contest.status !== 'VOTING') {
-    return { error: 'Le vote n\'est pas ouvert pour ce concours.' }
+    return { error: 'Voting is not open for this contest.' }
   }
 
   try {
-    const vote = await prisma.trailerVote.create({
-      data: {
-        entryId,
-        userId: session.user.id,
-      },
+    // Atomic: vote row + counter increment together (no drift possible).
+    const vote = await prisma.$transaction(async (tx) => {
+      const created = await tx.trailerVote.create({
+        data: { entryId, userId: session.user.id as string },
+      })
+      await tx.trailerEntry.update({
+        where: { id: entryId },
+        data: { votesCount: { increment: 1 } },
+      })
+      return created
     })
 
-    // Record on blockchain
-    const { proofHash } = await recordVoteOnChain({
-      voteType: 'TRAILER',
-      entityId: vote.id,
-      voterId: session.user.id,
-    })
-
-    // Store txHash on vote
-    await prisma.trailerVote.update({
-      where: { id: vote.id },
-      data: { txHash: `0x${proofHash.slice(0, 64)}` },
-    })
-
-    await prisma.trailerEntry.update({
-      where: { id: entryId },
-      data: { votesCount: { increment: 1 } },
-    })
+    // Blockchain proof is best-effort and must never fail the vote.
+    recordVoteOnChain({ voteType: 'TRAILER', entityId: vote.id, voterId: session.user.id })
+      .then(({ proofHash }) =>
+        prisma.trailerVote.update({ where: { id: vote.id }, data: { txHash: `0x${proofHash.slice(0, 64)}` } }),
+      )
+      .catch((err) => console.error('[Blockchain] trailer vote proof failed:', err))
 
     revalidatePath('/community/contests')
     revalidatePath(`/community/contests/${entry.contestId}`)

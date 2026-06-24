@@ -12,7 +12,7 @@ export async function voteFilmAction(formData: FormData) {
   const voteType = formData.get('voteType') as string // 'up' or 'down'
 
   if (!filmId || !voteType) return { error: 'Missing data' }
-  if (!['up', 'down'].includes(voteType)) return { error: 'Type de vote invalide' }
+  if (!['up', 'down'].includes(voteType)) return { error: 'Invalid vote type' }
 
   const film = await prisma.film.findUnique({ where: { id: filmId }, select: { slug: true } })
   if (!film) return { error: 'Film not found' }
@@ -54,8 +54,8 @@ export async function backFilmAction(
   const amountStr = formData.get('amount') as string
   const amount = parseFloat(amountStr)
 
-  if (!filmId) return { error: 'Film manquant' }
-  if (!amount || amount < 50) return { error: 'Montant minimum : 50€' }
+  if (!filmId) return { error: 'Film missing' }
+  if (!amount || amount < 50) return { error: 'Minimum amount: $50' }
 
   const film = await prisma.film.findUnique({ where: { id: filmId }, select: { slug: true, estimatedBudget: true } })
   if (!film) return { error: 'Film not found' }

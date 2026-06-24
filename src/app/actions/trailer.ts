@@ -266,13 +266,13 @@ export async function updateTrailerChoiceAction(
       },
     })
 
-    if (!choice) return { error: 'Choix introuvable' }
+    if (!choice) return { error: 'Choice not found' }
     if (choice.project.userId !== session.user.id) return { error: 'Not authorized' }
 
     // Validate that selectedOption is one of the option IDs
     const options = choice.options as Array<{ id: string }>
     const validOption = options.find(opt => opt.id === selectedOption)
-    if (!validOption) return { error: 'Option invalide' }
+    if (!validOption) return { error: 'Invalid option' }
 
     await prisma.trailerChoice.update({
       where: { id: choiceId },
@@ -839,8 +839,8 @@ export async function voteOnTrailerChoiceAction(
       },
     })
 
-    if (!choice) return { error: 'Choix introuvable' }
-    if (!choice.isOpenToVote) return { error: 'Ce choix n\'est pas ouvert au vote' }
+    if (!choice) return { error: 'Choice not found' }
+    if (!choice.isOpenToVote) return { error: 'This choice is not open for voting' }
     if (choice.resolvedAt) return { error: 'This choice has already been resolved' }
 
     if (choice.voteDeadline && new Date() > choice.voteDeadline) {
@@ -849,7 +849,7 @@ export async function voteOnTrailerChoiceAction(
 
     const options = choice.options as Array<{ id: string }>
     const validOption = options.find(opt => opt.id === optionId)
-    if (!validOption) return { error: 'Option invalide' }
+    if (!validOption) return { error: 'Invalid option' }
 
     const existingVote = await prisma.trailerChoiceVote.findUnique({
       where: {
@@ -860,28 +860,26 @@ export async function voteOnTrailerChoiceAction(
       return { error: 'You have already voted for this choice' }
     }
 
-    await prisma.trailerChoiceVote.create({
-      data: {
-        choiceId,
-        userId: session.user.id,
-        optionId,
-      },
-    })
-
     const votesData = (choice.votesData as Record<string, number>) || {}
     votesData[optionId] = (votesData[optionId] || 0) + 1
 
-    await prisma.trailerChoice.update({
-      where: { id: choiceId },
-      data: { votesData },
-    })
+    // Atomic: record the vote and update the tally together.
+    await prisma.$transaction([
+      prisma.trailerChoiceVote.create({
+        data: { choiceId, userId: session.user.id as string, optionId },
+      }),
+      prisma.trailerChoice.update({
+        where: { id: choiceId },
+        data: { votesData },
+      }),
+    ])
 
     revalidatePath(`/trailer-studio/${choice.projectId}`)
 
     return { success: true }
   } catch (err) {
     console.error('[trailer] voteOnTrailerChoiceAction error:', err)
-    return { error: 'Erreur lors du vote' }
+    return { error: 'Error while voting' }
   }
 }
 
