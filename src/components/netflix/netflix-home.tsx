@@ -10,7 +10,7 @@ import { GENRE_ORDER, FILMS_BY_GENRE } from '@/data/films'
 import Link from 'next/link'
 import {
   ArrowRight,
-  Vote, Star, Users, MessageSquare,
+  Vote, Star, Users, MessageSquare, GraduationCap, Sparkles,
   Flame, Laugh, Drama, Microscope, BookOpen, Swords, Ghost, Heart, Wand2, Clock,
   Activity,
 } from 'lucide-react'
@@ -308,6 +308,53 @@ export function NetflixHome({ data }: { data: HomeData }) {
 
         {/* ── Now showing (single curated row of 10 films) ── */}
         <FilmRow title="Now showing" films={afficheFilms} href="/films" />
+
+        {/* ── Free Academy banner ── */}
+        <section className="relative my-10 md:my-14 mx-4 sm:mx-8 md:mx-16 lg:mx-20 rounded-3xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/[0.10] via-[#0F0B08] to-[#E50914]/[0.08]" />
+          <div className="absolute top-0 right-0 w-[320px] h-[320px] bg-[#D4AF37]/[0.10] rounded-full blur-[110px]" />
+          <div className="absolute bottom-0 left-0 w-[220px] h-[220px] bg-[#E50914]/[0.08] rounded-full blur-[90px]" />
+          <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.08]" />
+
+          <div className="relative z-10 px-8 sm:px-10 md:px-14 py-10 md:py-14">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/10 mb-5">
+                <Sparkles className="h-3.5 w-3.5 text-[#D4AF37]" />
+                <span className="text-[11px] font-bold text-[#D4AF37] uppercase tracking-wider">100% Free Academy</span>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight leading-[1.1]">
+                Learn AI filmmaking in 7 days.
+              </h2>
+              <p className="text-sm md:text-base text-white/45 max-w-xl mb-7 leading-relaxed">
+                A free, step-by-step bootcamp: go from a blank page to a finished AI film in one week. Worked examples, illustrations and ready-to-copy prompt templates — just create a free account.
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {['Day 1 · First scene', 'Day 2 · Visuals', 'Day 3 · Voice & audio', 'Day 4 · Avatars', 'Day 5 · Edit', 'Day 6 · Real project', 'Day 7 · Certificate'].map((d) => (
+                  <span key={d} className="text-[11px] px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-white/55">{d}</span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/academy"
+                  className="group inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#F4D35E] text-black font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-lg shadow-[#D4AF37]/20"
+                >
+                  <GraduationCap className="h-4 w-4" />
+                  Start the free course
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+                <Link
+                  href="/academy"
+                  className="inline-flex items-center gap-2 h-11 px-5 rounded-xl border border-white/15 text-white/80 hover:text-white hover:border-white/30 text-sm font-medium transition-colors"
+                >
+                  Browse all lessons
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── Vote CTA Block ── */}
         <section className="relative my-10 md:my-14 mx-4 sm:mx-8 md:mx-16 lg:mx-20 rounded-3xl overflow-hidden">
