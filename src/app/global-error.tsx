@@ -20,14 +20,14 @@ export default function GlobalError({
   }, [error])
 
   return (
-    <html lang="fr">
+    <html lang="en">
       <body style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, sans-serif' }}>
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 700, color: '#E50914', marginBottom: '1rem' }}>
-            Oups, une erreur est survenue
+            Something went wrong
           </h1>
           <p style={{ color: '#ffffff80', marginBottom: '2rem', maxWidth: '400px', textAlign: 'center', lineHeight: 1.6 }}>
-            Une erreur inattendue s&apos;est produite. Notre equipe a ete notifiee automatiquement.
+            An unexpected error occurred. Our team has been notified automatically.
           </p>
           <button
             onClick={reset}
@@ -42,7 +42,7 @@ export default function GlobalError({
               fontSize: '14px',
             }}
           >
-            Reessayer
+            Try again
           </button>
         </div>
       </body>

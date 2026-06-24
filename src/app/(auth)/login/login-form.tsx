@@ -13,7 +13,7 @@ function sanitizeCallbackUrl(url: string | null): string {
   return '/dashboard'
 }
 
-export function LoginForm() {
+export function LoginForm({ googleEnabled = false }: { googleEnabled?: boolean }) {
   const searchParams = useSearchParams()
   const t = useTranslations('auth')
   const callbackUrl = sanitizeCallbackUrl(searchParams.get('callbackUrl'))
@@ -139,6 +139,8 @@ export function LoginForm() {
             </div>
           </form>
 
+          {googleEnabled && (
+          <>
           {/* OAuth */}
           <div className="mt-8 flex items-center gap-3">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.06]" />
@@ -159,6 +161,8 @@ export function LoginForm() {
             </svg>
             Continue with Google
           </button>
+          </>
+          )}
         </div>
       </div>
 

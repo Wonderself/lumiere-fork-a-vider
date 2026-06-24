@@ -11,6 +11,13 @@ const nextConfig: NextConfig = {
   // Server external packages (needed for Prisma adapter)
   serverExternalPackages: ['@prisma/adapter-pg', 'pg'],
   compress: true,
+  webpack: (config) => {
+    config.ignoreWarnings = [
+      ...(config.ignoreWarnings || []),
+      { message: /Critical dependency: the request of a dependency is an expression/ },
+    ]
+    return config
+  },
   images: {
     remotePatterns: [
       {

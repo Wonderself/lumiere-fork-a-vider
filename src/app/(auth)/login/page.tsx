@@ -18,7 +18,7 @@ export default function LoginPage() {
         </div>
       }
     >
-      <LoginForm />
+      <LoginForm googleEnabled={!!process.env.GOOGLE_CLIENT_ID} />
     </Suspense>
   )
 }
