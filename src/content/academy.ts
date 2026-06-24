@@ -1197,7 +1197,11 @@ export const LEVELS: Level[] = [
               { type: 'h', text: 'Negative prompts' },
               { type: 'p', text: 'Negative prompts remove what you do not want: extra fingers, warped faces, text artifacts, oversaturation. Build a reusable negative-prompt block and refine it over time.' },
               { type: 'tip', text: 'Keep a prompt journal: prompt, seed, settings, and a 1–5 rating. Your journal becomes your most valuable asset — far more than any single prompt.' },
-            ],
+            
+              { type: 'table', caption: 'The levers that change an AI result — pull one at a time.', headers: ['Lever', 'Effect', 'How to use'], rows: [['Specificity', 'Removes generic defaults', 'Add concrete details (lens, light, material)'], ['Word order', 'Shifts emphasis', 'Put what matters most first'], ['Weighting', 'Strengthens a term', 'Emphasise key words where your tool allows'], ['References', 'Locks look/identity', 'Feed an approved image back in'], ['Negatives', 'Removes artifacts', 'List what you do NOT want']] },
+              { type: 'prompt', label: 'Prompt — iterate systematically', text: 'Here is a prompt and what is wrong with the result:\nPrompt: <paste>\nProblem: <what is off>\nGive me three improved versions, each changing ONLY ONE lever (specificity, order, weighting, references, or negatives), and say what each change should fix.' },
+              { type: 'prompt', label: 'Prompt — debug a bad result', text: 'My image/video came out wrong:\n<describe the problem — warping, wrong mood, off composition>\nDiagnose the likely prompt cause and give me a corrected prompt plus a reusable negative prompt to prevent it.' },
+],
           },
           {
             slug: 'seeds-parameters',
@@ -1215,7 +1219,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A grid varying CFG and steps for the same seed and prompt', caption: 'A parameter sweep on a fixed seed. This is how you learn a model instead of guessing.' },
               { type: 'tip', text: 'Change one parameter at a time across a grid. A 4×4 sweep teaches you a model faster than 100 random generations.' },
-            ],
+            
+              { type: 'table', caption: 'Generation parameters and what they do.', headers: ['Parameter', 'Controls', 'Tip'], rows: [['Seed', 'Randomness / reproducibility', 'Lock a seed to reproduce a look'], ['Steps', 'Detail vs time', 'More steps = more detail, slower'], ['Guidance (CFG)', 'How closely it follows the prompt', 'Too high = harsh; too low = vague'], ['Sampler', 'Texture / style of result', 'Try a few; keep what fits'], ['Strength / denoise', 'How much img2img changes', 'Low = subtle edit, high = reinvent'], ['Resolution', 'Size & sharpness', 'Generate small, upscale later']] },
+              { type: 'prompt', label: 'Prompt — reproduce and vary a look', text: 'I have a result I love and want controlled variations.\nPrompt + settings: <paste, including seed if known>\nExplain how to keep the same look (seed, guidance, sampler) while varying only pose/angle, and give me three variation prompts.' },
+],
           },
         ],
       },
@@ -1237,7 +1244,10 @@ export const LEVELS: Level[] = [
               ] },
               { type: 'img', alt: 'A character reference sheet with front, three-quarter, and profile views plus wardrobe notes', caption: 'A proper character sheet. This is the source of truth you protect at all costs.' },
               { type: 'tip', text: 'Decide wardrobe and hairstyle once and never describe them differently. A single changed adjective ("messy" vs "tousled") can shift the identity.' },
-            ],
+            
+              { type: 'prompt', label: 'Prompt — character bible (extended)', text: 'Build a reusable character bible.\nCharacter: <name>, role: <one line>\nReturn in fixed wording I paste into prompts: (1) identity block (age range, face shape, eyes, hair, skin, build), (2) one signature wardrobe, (3) three expression notes, (4) three things to NEVER change. Visual facts only.' },
+              { type: 'prompt', label: 'Prompt — fix identity drift', text: 'My character changes between shots. Here are two prompts:\nA: <paste>\nB: <paste>\nIdentify the exact words that differ and likely caused it, then give one corrected identity block plus how to use a reference image to lock the face.' },
+],
           },
           {
             slug: 'world-consistency',
@@ -1253,7 +1263,10 @@ export const LEVELS: Level[] = [
                 'Generate an establishing shot first, then derive matching coverage from it.',
               ] },
               { type: 'img', alt: 'A location reference board with establishing view and angle variations', caption: 'A location board keeps a single space coherent across every angle you generate.' },
-            ],
+            
+              { type: 'prompt', label: 'Prompt — location lock', text: 'Create a reusable LOCATION LOCK I paste into every shot of a place.\nPlace: <name>\nReturn one dense paragraph of concrete visual facts: key features, materials, time of day, weather, palette — no story, no vague adjectives.' },
+              { type: 'prompt', label: 'Prompt — film style guide', text: 'Write a one-page visual style guide so all my shots feel like one film.\nStory & tone: <one or two lines>\nReturn: lens/focal preference, lighting style, color palette/universe phrase, contrast, texture/grain, aspect ratio, and a single "Look phrase" to append to every prompt.' },
+],
           },
         ],
       },
