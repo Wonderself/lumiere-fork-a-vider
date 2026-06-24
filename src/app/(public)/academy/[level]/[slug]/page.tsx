@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { auth } from '@/lib/auth'
 import { getLesson } from '@/content/academy'
 import { BlockRenderer } from '@/components/academy/block-renderer'
+import { ShareButtons } from '@/components/shared/share-buttons'
 import { Clock, ArrowLeft, ArrowRight, GraduationCap } from 'lucide-react'
 
 interface Params {
@@ -56,6 +57,7 @@ export default async function LessonPage({ params }: Params) {
           <span className="inline-flex items-center gap-1.5">
             <Clock className="h-4 w-4" /> {lesson.minutes} min read
           </span>
+          <ShareButtons compact url={`/academy/${lvl.id}/${slug}`} title={lesson.title} description={lesson.summary} />
         </div>
         <p className="mt-5 text-lg text-white/60 leading-relaxed">{lesson.summary}</p>
 

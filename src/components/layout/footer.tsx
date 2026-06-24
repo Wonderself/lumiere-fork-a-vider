@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Film, Tv, Users, Award, Pen, BarChart3, MapPin, Code2, Tag, Star, Clapperboard, Briefcase, Coins, Vote, GraduationCap, Sparkles } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { InfinityMark } from '@/components/brand/infinity-mark'
+import { SocialLinks } from '@/components/layout/social-links'
 
 export function Footer() {
   const t = useTranslations('footer')
@@ -30,6 +31,7 @@ export function Footer() {
               <div className="h-1 w-1 rounded-full bg-[#E50914]/30" />
               <span className="text-[10px] text-white/15 uppercase tracking-[0.2em] font-medium">Jerusalem</span>
             </div>
+            <SocialLinks className="pt-2" />
           </div>
 
           {/* Platform */}

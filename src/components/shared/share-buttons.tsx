@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { toast } from 'sonner'
 import { SHARE_CONFIGS } from '@/data/marketing'
 import {
@@ -24,9 +24,22 @@ interface ShareButtonsProps {
 export function ShareButtons({ url, title, description, compact, className }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
   const [open, setOpen] = useState(false)
+  const [canShare, setCanShare] = useState(false)
 
   const text = description ? `${title} — ${description}` : title
   const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url
+
+  useEffect(() => {
+    setCanShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function')
+  }, [])
+
+  async function nativeShare() {
+    try {
+      await navigator.share({ title, text, url: fullUrl })
+    } catch {
+      /* user cancelled or unsupported */
+    }
+  }
 
   async function handleShare(type: string) {
     if (type === 'copy') {
@@ -50,6 +63,16 @@ export function ShareButtons({ url, title, description, compact, className }: Sh
   if (compact) {
     return (
       <div className={`flex items-center gap-1 ${className || ''}`}>
+        {canShare && (
+          <button
+            onClick={nativeShare}
+            className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
+            title="Share"
+            aria-label="Share"
+          >
+            <Share2 className="h-3.5 w-3.5 text-gray-300" />
+          </button>
+        )}
         {SHARE_CONFIGS.slice(0, 4).map(config => {
           const Icon = ICON_MAP[config.icon] || Share2
           return (
@@ -76,11 +99,11 @@ export function ShareButtons({ url, title, description, compact, className }: Sh
   return (
     <div className={className}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => (canShare ? nativeShare() : setOpen(!open))}
         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
       >
         <Share2 className="h-3.5 w-3.5" />
-        Partager
+        Share
       </button>
 
       {open && (
