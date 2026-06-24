@@ -4,6 +4,8 @@ set -e
 echo "=== CINEGENY Startup ==="
 echo "Node: $(node -v)"
 echo "DATABASE_URL set: $([ -n "$DATABASE_URL" ] && echo 'yes' || echo 'NO — THIS WILL FAIL')"
+echo "AUTH_SECRET set: $([ -n "$AUTH_SECRET" ] && echo 'yes' || echo 'NO — LOGIN/SIGNUP WILL FAIL')"
+echo "NEXTAUTH_URL: ${NEXTAUTH_URL:-NOT SET (login callbacks may fail)}"
 
 # Verify pg module is available
 node -e "require('pg'); console.log('pg module: OK')" || {
