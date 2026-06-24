@@ -8,8 +8,9 @@ export type Block =
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'tip'; text: string }
-  | { type: 'img'; alt: string; caption: string }
+  | { type: 'img'; alt: string; caption: string; src?: string }
   | { type: 'prompt'; label?: string; text: string }
+  | { type: 'table'; caption?: string; headers: string[]; rows: string[][] }
 
 export interface Lesson {
   slug: string
