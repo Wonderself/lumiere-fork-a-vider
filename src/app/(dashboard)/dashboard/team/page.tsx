@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { auth } from '@/lib/auth'
@@ -60,7 +61,7 @@ export default async function TeamPage() {
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E50914]/15 text-[#E50914] font-semibold">
           {me.avatarUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={me.avatarUrl} alt="" className="h-12 w-12 rounded-full object-cover" />
+            <Image src={me.avatarUrl} alt="" width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
           ) : (
             getInitials(me.displayName || me.email)
           )}
@@ -119,7 +120,7 @@ export default async function TeamPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.06] text-white/80 text-sm font-semibold shrink-0">
                   {c.avatarUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={c.avatarUrl} alt="" className="h-10 w-10 rounded-full object-cover" />
+                    <Image src={c.avatarUrl} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
                   ) : (
                     getInitials(c.displayName || 'U')
                   )}

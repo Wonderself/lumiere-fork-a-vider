@@ -1,4 +1,5 @@
 import { auth } from '@/lib/auth'
+import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { approveFilmAction, rejectFilmAction } from '@/app/actions/catalog'
@@ -197,7 +198,7 @@ export default async function AdminCatalogPage(
                     <td className="p-4">
                       <div className="flex items-center gap-3">
                         {film.thumbnailUrl ? (
-                          <img src={film.thumbnailUrl} alt="" className="w-12 h-8 rounded object-cover bg-white/5" />
+                          <Image src={film.thumbnailUrl} alt="" width={48} height={32} className="w-12 h-8 rounded object-cover bg-white/5" />
                         ) : (
                           <div className="w-12 h-8 rounded bg-white/5 flex items-center justify-center">
                             <Film className="h-4 w-4 text-white/20" />

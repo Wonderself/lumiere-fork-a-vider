@@ -1,4 +1,5 @@
 import { auth } from '@/lib/auth'
+import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
@@ -269,7 +270,7 @@ export default async function AdminReputationPage(
                         <td className="p-4">
                           <div className="flex items-center gap-3">
                             {user.avatarUrl ? (
-                              <img src={user.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover" />
+                              <Image src={user.avatarUrl} alt="" width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
                             ) : (
                               <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-white/50">
                                 {(user.displayName || user.email)?.[0]?.toUpperCase() || '?'}
@@ -341,7 +342,7 @@ export default async function AdminReputationPage(
             <div className="rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-[#E50914]/20 bg-[#E50914]/5 p-4 sm:p-6">
               <div className="flex items-center gap-3 mb-4">
                 {selectedUser.avatarUrl ? (
-                  <img src={selectedUser.avatarUrl} alt="" className="w-12 h-12 rounded-full object-cover" />
+                  <Image src={selectedUser.avatarUrl} alt="" width={48} height={48} className="w-12 h-12 rounded-full object-cover" />
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-[#E50914]/10 flex items-center justify-center text-lg font-bold text-[#E50914]">
                     {(selectedUser.displayName || selectedUser.email)?.[0]?.toUpperCase() || '?'}

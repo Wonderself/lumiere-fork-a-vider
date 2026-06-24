@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 
 import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
@@ -67,7 +68,7 @@ export function FeaturedCreatorPanel({ initialCreator }: Props) {
       {creator ? (
         <div className="flex items-start gap-4 p-4 rounded-xl border border-yellow-500/20 bg-yellow-500/5">
           {creator.avatarUrl ? (
-            <img src={creator.avatarUrl} alt={creator.displayName || ''} className="h-12 w-12 rounded-full object-cover border border-yellow-500/30 shrink-0" />
+            <Image src={creator.avatarUrl} alt={creator.displayName || ''} width={48} height={48} className="h-12 w-12 rounded-full object-cover border border-yellow-500/30 shrink-0" />
           ) : (
             <div className="h-12 w-12 rounded-full bg-yellow-500/20 flex items-center justify-center shrink-0">
               <Star className="h-5 w-5 text-yellow-400" />

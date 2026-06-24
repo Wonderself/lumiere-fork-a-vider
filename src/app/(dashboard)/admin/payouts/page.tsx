@@ -1,4 +1,5 @@
 import { auth } from '@/lib/auth'
+import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { calculateMonthlyPayoutsAction, markPayoutPaidAction } from '@/app/actions/payouts'
@@ -205,7 +206,7 @@ export default async function AdminPayoutsPage(
                     <td className="p-4">
                       <div className="flex items-center gap-3">
                         {payout.user.avatarUrl ? (
-                          <img src={payout.user.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover" />
+                          <Image src={payout.user.avatarUrl} alt="" width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
                         ) : (
                           <div className="w-8 h-8 rounded-full bg-[#E50914]/10 flex items-center justify-center">
                             <Users className="h-3.5 w-3.5 text-[#E50914]" />
