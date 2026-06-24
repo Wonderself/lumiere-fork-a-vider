@@ -273,6 +273,7 @@ model TaskComment {
 
   task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
   user User @relation(fields: [userId], references: [id])
+  @@index([taskId])
 }
 
 // ============================================
@@ -391,6 +392,8 @@ model Screenplay {
   updatedAt             DateTime         @updatedAt
 
   user User @relation(fields: [userId], references: [id])
+  @@index([userId])
+  @@index([status])
 }
 
 model Subscription {
@@ -826,6 +829,7 @@ model CatalogContract {
 
   film CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
   user User        @relation(fields: [userId], references: [id])
+  @@index([userId])
 }
 
 model FilmView {
@@ -843,6 +847,7 @@ model FilmView {
 
   film CatalogFilm @relation(fields: [filmId], references: [id], onDelete: Cascade)
   user User?       @relation(fields: [userId], references: [id])
+  @@index([filmId, createdAt])
 }
 
 model CreatorPayout {
@@ -860,6 +865,7 @@ model CreatorPayout {
 
   user User         @relation(fields: [userId], references: [id])
   film CatalogFilm? @relation(fields: [filmId], references: [id])
+  @@index([userId, status])
 }
 
 // ============================================
@@ -913,6 +919,7 @@ model GeneratedVideo {
 
   profile   CreatorProfile    @relation(fields: [profileId], references: [id], onDelete: Cascade)
   schedules PublishSchedule[]
+  @@index([profileId, status])
 }
 
 model PublishSchedule {
@@ -970,6 +977,7 @@ model CollabRequest {
 
   fromUser User @relation("SentCollabs", fields: [fromUserId], references: [id])
   toUser   User @relation("ReceivedCollabs", fields: [toUserId], references: [id])
+  @@index([toUserId, status])
 }
 
 model VideoOrder {
@@ -993,6 +1001,8 @@ model VideoOrder {
 
   client  User  @relation("ClientOrders", fields: [clientUserId], references: [id])
   creator User? @relation("CreatorOrders", fields: [creatorUserId], references: [id])
+  @@index([creatorUserId, status])
+  @@index([clientUserId])
 }
 
 model Referral {
@@ -1006,6 +1016,7 @@ model Referral {
 
   referrer User @relation("Referrer", fields: [referrerId], references: [id])
   referred User @relation("Referred", fields: [referredId], references: [id])
+  @@index([referrerId])
 }
 
 // ============================================
@@ -1167,6 +1178,7 @@ model FilmTokenOffering {
   dividends   TokenDividend[]
   revenues    FilmRevenue[]
   proposals   GovernanceProposal[]
+  @@index([filmId, status])
 }
 
 model FilmTokenPurchase {
@@ -1185,6 +1197,8 @@ model FilmTokenPurchase {
 
   offering FilmTokenOffering @relation(fields: [offeringId], references: [id], onDelete: Cascade)
   user     User              @relation(fields: [userId], references: [id])
+  @@index([offeringId])
+  @@index([userId])
 }
 
 model FilmTokenTransfer {
@@ -1268,6 +1282,7 @@ model TokenDividend {
 
   offering FilmTokenOffering @relation(fields: [offeringId], references: [id])
   user     User              @relation(fields: [userId], references: [id])
+  @@index([userId, status])
 }
 
 model FilmBudgetLine {
@@ -1457,6 +1472,7 @@ model ScenarioProposal {
   film    Film?            @relation(fields: [filmId], references: [id], onDelete: Cascade)
   catalog CatalogFilm?     @relation(fields: [catalogFilmId], references: [id], onDelete: Cascade)
   votes   ScenarioVote[]
+  @@index([status])
 }
 
 model ScenarioVote {
@@ -1509,6 +1525,7 @@ model TrailerEntry {
   catalogFilm CatalogFilm?  @relation(fields: [catalogFilmId], references: [id])
   user        User           @relation(fields: [userId], references: [id])
   votes       TrailerVote[]
+  @@index([contestId])
 }
 
 model TrailerVote {
@@ -1715,6 +1732,7 @@ model Playlist {
 
   user  User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   items PlaylistItem[]
+  @@index([userId])
 }
 
 model PlaylistItem {
